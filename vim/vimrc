@@ -1,0 +1,403 @@
+" turn off vi compatibility
+set nocompatible
+
+
+" ------------------------------------------------------------------------------
+" PATHOGEN
+" ------------------------------------------------------------------------------
+
+runtime bundle/pathogen/autoload/pathogen.vim
+exe pathogen#infect()
+exe pathogen#helptags()
+
+
+" ------------------------------------------------------------------------------
+" PATHOGEN
+" ------------------------------------------------------------------------------
+
+" auto read if file changed outside
+" auto write if buffer gets inactive
+set autoread
+set autowrite
+
+" enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" keep some history
+set history=300
+
+" 100 lines in viminfo
+set viminfo='100,f1
+'
+" no modelines
+set modelines=0
+
+
+" ------------------------------------------------------------------------------
+" TIMEOUT
+" ------------------------------------------------------------------------------
+
+" sane terminal vim
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
+
+" ------------------------------------------------------------------------------
+" INTERFACE
+" ------------------------------------------------------------------------------
+
+" show mode
+set showmode
+set showcmd
+
+" show line numbers
+set number
+
+" show relative line numbers
+set norelativenumber
+
+" visible lines around cursor
+set scrolloff=5
+
+" backspace behavior like it should
+set backspace=2
+
+" wraparound with h,l
+set whichwrap+=<,>,h,l
+
+" always show current position
+set ruler
+
+" set command bar height
+set cmdheight=1
+
+" ignore case when searching
+set ignorecase
+
+" trying to be smart about cases while searching
+set smartcase
+
+" highlight search results
+set hlsearch
+
+" modern search results
+set incsearch
+
+" substitutions globally
+set gdefault
+
+" regular expressions
+set magic
+
+" don't redraw while executing macros (performance)
+set lazyredraw
+
+" show matching brackets indicator is over them
+set showmatch
+
+" how many 1/10 seconds to blink for matching brackets
+set mat=2
+
+" little extra space to the left
+set foldcolumn=2
+
+" hide unsaved buffer
+set hidden
+
+" highlight current line
+set cursorline
+
+" window title
+set title
+
+" no beeps
+set visualbell
+
+
+" ------------------------------------------------------------------------------
+" MOUSE
+" ------------------------------------------------------------------------------
+
+set mouse=a
+
+
+" ------------------------------------------------------------------------------
+" FILES
+" ------------------------------------------------------------------------------
+
+" set utf8 as standard encoding
+set encoding=utf8
+
+" set unix as standard file type
+set ffs=unix,dos,mac
+
+" enable undo files
+set undofile
+
+" set undo dir
+set undodir=~/.tmp/vim/undo/
+
+
+" ------------------------------------------------------------------------------
+" COLORS
+" ------------------------------------------------------------------------------
+
+" syntax hightlighting
+syntax on
+
+" scheme
+try
+    set background=dark
+    let g:solarized_visibility="normal"
+    colorscheme solarized
+catch
+endtry
+
+" only show cursorline in current window & normal mode
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
+
+
+" ------------------------------------------------------------------------------
+" BACKUPS
+" ------------------------------------------------------------------------------
+
+" turn off backups
+set nobackup
+set nowb
+set noswapfile
+
+
+" ------------------------------------------------------------------------------
+" WILDMENU
+" ------------------------------------------------------------------------------
+
+" turn on the wild menu with bash completion style
+set wildmode=longest:full
+set wildmenu
+
+" common ignores
+set wildignore+=*.so,*.pyc,*.javac
+set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
+set wildignore+=*.pdf,*.epub
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai,*.svg
+set wildignore+=*.db,*.sqlite
+set wildignore+=*/temp/*,*/tmp/*
+set wildignore+=.DS_Store
+
+
+" ------------------------------------------------------------------------------
+" EDITING
+" ------------------------------------------------------------------------------
+
+" use spaces instead of tabs
+set expandtab
+
+" be smart when using tabs
+set smarttab
+
+" 1 tab == 2 spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+" round indent to multiple of shiftwidth
+set shiftround
+
+" linebreak on 500 chars
+set lbr
+set tw=500
+
+" no auto indent
+set autoindent
+
+" no smart indent
+set smartindent
+
+" don't wrap lines
+set nowrap
+
+" show invisible chars
+set listchars=tab:▸\ ,eol:¬,trail:⋅
+set showbreak=↪
+
+" highlight column numbers
+set colorcolumn=+1
+
+" textwidth to wrap & options
+set textwidth=80
+set formatoptions=qrn1
+
+
+" ------------------------------------------------------------------------------
+" FILETYPES
+" ------------------------------------------------------------------------------
+
+" python
+autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+  \ formatoptions+=croq
+  \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+let python_highlight_all=1
+let python_highlight_exceptions=0
+let python_highlight_builtins=0
+
+" c/cpp
+autocmd FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+" objc
+autocmd FileType objc setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+" haskell
+autocmd FileType haskell setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+" go
+autocmd BufNewFile,BufRead *.go setlocal ft=go
+autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+" glsl
+autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
+  \ setlocal ft=glsl
+autocmd FileType glsl setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+" json
+autocmd BufNewFile,BufRead *.json setlocal ft=javascript
+
+" markdown
+autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
+
+" disable folding
+autocmd FileType html,markdown setlocal nofoldenable
+
+" disable colorcolumn
+autocmd FileType html setlocal colorcolumn=
+autocmd BufNewFile,BufRead *.json setlocal colorcolumn=
+
+" ------------------------------------------------------------------------------
+" KEYS
+" ------------------------------------------------------------------------------
+
+" `\` no thank you!
+let mapleader = ","
+let g:maploader = ","
+
+" buffer switching
+map H :bp<cr>
+map L :bn<cr>
+
+" fast buffer & window handling
+nmap <leader>q :qa<cr>
+nmap <leader>c :close<cr>
+nmap <leader>w :w!<cr>
+
+" toggle list
+map <silent> <Leader>i :set list!<CR>
+
+" omni completion
+inoremap <silent> <C-O> <C-X><C-O>
+
+" treat long lines as break lines
+noremap j gj
+noremap k gk
+
+" make y & e a little faster
+noremap <C-E> 2<C-E>
+noremap <C-Y> 2<C-Y>
+
+" disable highlight when >Leader><cr> is pressed
+map <silent> <leader><space> :noh<cr>
+
+" easy indent
+nnoremap < <<
+nnoremap > >>
+
+" fix regex
+nnoremap / /\v
+vnoremap / /\v
+
+" set easy paste toggle
+set pastetoggle=<F1>
+
+" fold toggle
+nnoremap <Space> za
+
+" turn of line-deleting
+noremap K <Nop>
+noremap J <Nop>
+
+" switch to new split window
+nnoremap <C-W>s <C-W>s<C-W>j
+nnoremap <C-W>v <C-W>v<C-W>l
+
+" disable arrow key
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
+
+" ------------------------------------------------------------------------------
+" STATUSLINE
+" ------------------------------------------------------------------------------
+
+" always show the status line
+set laststatus=2
+
+" entries
+set statusline=%<%f%m%r%h%w\ %{fugitive#statusline()}%y\ %l,%v\ [%p%%]
+
+
+" ------------------------------------------------------------------------------
+" FUNCTIONS
+" ------------------------------------------------------------------------------
+
+" resize splizs on window resize
+au VimResized * :wincmd =
+
+" disable paste mode after leaving insert mode
+au InsertLeave * set nopaste
+
+
+" ------------------------------------------------------------------------------
+" PLUGINS
+" ------------------------------------------------------------------------------
+
+" gundo
+nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_width=30
+let g:gundo_preview_height=15
+let g:gundo_preview_bottom=1
+let g:gundo_help=0
+let g:gundo_close_on_revert=1
+let g:gundo_tree_statusline="Undo"
+let g:gundo_preview_statusline="Diff"
+
+" neocomplcache
+set completeopt+=longest,menuone
+set pumheight=7
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+
+" gitgutter
+highlight clear SignColumn
+

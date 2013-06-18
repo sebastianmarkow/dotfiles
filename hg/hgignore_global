@@ -1,0 +1,97 @@
+syntax: glob
+
+# Git
+.git
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# *nix
+*~
+
+# Python
+*.pyc[cod]
+*.egg
+*.egg-info
+*.mo
+.installed.cfg
+.coverage
+.tox
+pip-log.txt
+nosetests.xml
+dist
+build
+parts
+bin
+var
+sdist
+develop-eggs
+lib
+lib64
+__pycache__
+
+# Objective-C
+*/build/*
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+*.moved_aside
+*.hmap
+.idea/
+DerivedData
+xcuserdata
+profile
+
+# C/C++
+*.lib
+*.slo
+*.lo
+*.o
+*.so
+*.so.*
+*.dylib
+*.lai
+*.la
+*.a
+*.out
+*.app
+
+# Go
+_obj
+_test
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+_testmain.go
+
+# Haskell
+dist
+cabal-dev
+*.hi
+*.chi
+*.chs.h
+.virtualenv
+
+# Node
+node_modules
+
+# Vim
+Session.vim
+*.netrwhist
+
+# Misc
+*~.nib
+*.swp
+

@@ -1,0 +1,92 @@
+[user]
+  name = Sebastian Klatt
+  email = sebastian@markow.org
+
+[core]
+  editor = vim
+  pager = less -R
+  excludesfile = ~/.gitignore-global
+
+[advice]
+  statusHints = false
+
+[push]
+  default = upstream
+
+[apply]
+  whitespace = fix
+
+[merge]
+  tool = fugitive
+
+[mergetool "fugitive"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+
+[log]
+  date = short
+
+[format]
+  pretty = format:%C(yellow)%h%Creset%C(blue)%d%Creset %s  %C(green bold)%cr, %cn%Creset
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
+
+[color "branch"]
+  current = blue reverse
+  local = blue
+  remote = green
+  plain = yellow
+
+[color "diff"]
+  meta = green bold
+  frag = magenta bold ul
+  func = magenta bold
+  plain = normal
+  old = red
+  new = green
+  commit = cyan
+  whitespace = yellow
+
+[color "status"]
+  added = green
+  changed = red
+  untracked = red
+
+[alias]
+  a = add
+  ap = add --patch
+  b = branch -v
+  c = commit -m
+  ca = commit -am
+  amend = commit --amend
+  co = checkout
+  nb = checkout -b
+  cp = cherry-pick -x
+  d = diff
+  dc = diff --cached
+  last = diff HEAD^
+  l = log --graph
+  changes = log --graph --name-status
+  lines = log --unified
+  changelog = log --pretty=format:\" * %s\"
+  stats = log --stat --abbrev-commit
+  today = log --graph --since=1.day
+  rc = rebase --continue
+  rs = rebase --skip
+  r = remote -v
+  unchunk = checkout -p
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  filelog = log -u
+  mt = mergetool
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+  s = status
+  t = tag -n
+
