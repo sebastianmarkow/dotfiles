@@ -1,6 +1,8 @@
 install: install-zsh install-tmux install-git install-hg install-vim install-misc init-submodules
 
-update: update-submodules
+update: update-submodules 
+
+upgrade: upgrade-submodules
 
 uninstall:
 	@echo "Unlinking files"
@@ -55,4 +57,9 @@ init-submodules:
 
 update-submodules:
 	@echo "Updating git-submodules"
+	git submodule update --init
+	
+upgrade-submodules:
+	@echo "Upgrading git-submodules"
 	git submodule foreach git pull origin master
+
