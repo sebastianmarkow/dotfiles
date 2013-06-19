@@ -16,36 +16,36 @@ uninstall:
 install-zsh:
 	@echo "Symlinking zsh"
 	rm -rf ~/.zshrc
-	ln -sf `pwd`/zsh/zshrc ~/.zshrc
+	ln -s `pwd`/zsh/zshrc ~/.zshrc
 
 install-tmux:
 	@echo "Symlinking tmux"
 	rm -rf ~/.tmux ~/.tmux.conf
-	ln -sf `pwd`/tmux ~/.tmux
-	ln -sf `pwd`/tmux/tmux.conf ~/.tmux.conf
+	ln -s `pwd`/tmux ~/.tmux
+	ln -s `pwd`/tmux/tmux.conf ~/.tmux.conf
 
 install-git:
 	@echo "Symlinking git"
 	rm -f ~/.gitconfig ~/.gitignore-global
-	ln -sf `pwd`/git/gitconfig ~/.gitconfig
-	ln -sf `pwd`/git/gitignore-global ~/.gitignore-global
+	ln -s `pwd`/git/gitconfig ~/.gitconfig
+	ln -s `pwd`/git/gitignore-global ~/.gitignore-global
 
 install-hg:
 	@echo "Symlinking hg"
 	rm -f ~/.hgignore_global ~/.hgrc
-	ln -sf `pwd`/hg/hgrc ~/.hgrc
-	ln -sf `pwd`/hg/hgignore_global ~/.hgignore_global
+	ln -s `pwd`/hg/hgrc ~/.hgrc
+	ln -s `pwd`/hg/hgignore_global ~/.hgignore_global
 
 install-vim:
 	@echo "Symlinking vim"
 	rm -rf ~/.vim ~/.vimrc
-	ln -sf `pwd`/vim ~/.vim
-	ln -sf `pwd`/vim/vimrc ~/.vimrc
+	ln -s `pwd`/vim ~/.vim
+	ln -s `pwd`/vim/vimrc ~/.vimrc
 
 install-misc:
 	@echo "Symlinking misc"
 	rm -f ~/.wgetrc
-	ln -sf `pwd`/wget/wgetrc ~/.wgetrc
+	ln -s `pwd`/wget/wgetrc ~/.wgetrc
 
 install-brew:
 	@echo "Installing brew"
