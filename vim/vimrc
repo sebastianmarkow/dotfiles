@@ -33,6 +33,8 @@ set viminfo='100,f1
 " no modelines
 set modelines=0
 
+" disable startup message
+set shortmess+=I
 
 " ------------------------------------------------------------------------------
 " TIMEOUT
