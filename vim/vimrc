@@ -108,9 +108,6 @@ set foldcolumn=2
 " hide unsaved buffer
 set hidden
 
-" highlight current line
-set cursorline
-
 " window title
 set title
 
