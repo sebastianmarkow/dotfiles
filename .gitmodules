@@ -32,3 +32,9 @@
 	path = vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
   ignore = dirty
+[submodule "vim/bundle/coffeescript"]
+	path = vim/bundle/coffeescript
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/less"]
+	path = vim/bundle/less
+	url = https://github.com/groenewege/vim-less.git
