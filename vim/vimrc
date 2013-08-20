@@ -36,6 +36,7 @@ set modelines=0
 " disable startup message
 set shortmess+=I
 
+
 " ------------------------------------------------------------------------------
 " TIMEOUT
 " ------------------------------------------------------------------------------
@@ -96,14 +97,14 @@ set magic
 " don't redraw while executing macros (performance)
 set lazyredraw
 
-" show matching brackets indicator is over them
+" show matching brackets if indicator is hovering
 set showmatch
 
 " how many 1/10 seconds to blink for matching brackets
 set mat=2
 
-" little extra space to the left
-set foldcolumn=2
+" show/hide folds
+set foldcolumn=0
 
 " hide unsaved buffer
 set hidden
@@ -136,7 +137,7 @@ set ffs=unix,dos,mac
 set undofile
 
 " set undo dir
-set undodir=~/.tmp/vim/undo/
+set undodir=~/.tmp
 
 
 " ------------------------------------------------------------------------------
@@ -149,17 +150,10 @@ syntax on
 " scheme
 try
     set background=dark
-    let g:solarized_visibility="normal"
+    let g:solarized_visibility="high"
     colorscheme solarized
 catch
 endtry
-
-" only show cursorline in current window & normal mode
-augroup cline
-    au!
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
-augroup END
 
 
 " ------------------------------------------------------------------------------
@@ -181,10 +175,10 @@ set wildmode=longest:full
 set wildmenu
 
 " common ignores
-set wildignore+=*.so,*.pyc,*.javac
+set wildignore+=*.o,*.so,*.pyc,*.javac
 set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
 set wildignore+=*.pdf,*.epub
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai,*.svg
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai
 set wildignore+=*.db,*.sqlite
 set wildignore+=*/temp/*,*/tmp/*
 set wildignore+=.DS_Store
@@ -201,7 +195,7 @@ set expandtab
 set smarttab
 
 " 1 tab == 2 spaces
-set tabstop=2
+set tabstop=8
 set softtabstop=2
 set shiftwidth=2
 
@@ -238,7 +232,7 @@ set formatoptions=qrn1
 " ------------------------------------------------------------------------------
 
 " python
-autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType python setlocal tabstop=8 softtabstop=4 shiftwidth=4
   \ formatoptions+=croq
   \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 let python_highlight_all=1
@@ -246,29 +240,29 @@ let python_highlight_exceptions=0
 let python_highlight_builtins=0
 
 " c/cpp
-autocmd FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4
-autocmd FileType cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType c setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType cpp setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " objc
-autocmd FileType objc setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType objc setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " haskell
-autocmd FileType haskell setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType haskell setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " go
 autocmd BufNewFile,BufRead *.go setlocal ft=go
-autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType go setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " glsl
 autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
   \ setlocal ft=glsl
-autocmd FileType glsl setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType glsl setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " json
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 
 " markdown
-autocmd FileType markdown setlocal tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType markdown setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " disable folding
 autocmd FileType html,markdown setlocal nofoldenable
@@ -308,7 +302,7 @@ noremap k gk
 noremap <C-E> 2<C-E>
 noremap <C-Y> 2<C-Y>
 
-" disable highlight when >Leader><cr> is pressed
+" disable highlighting
 map <silent> <leader><space> :noh<cr>
 
 " easy indent
