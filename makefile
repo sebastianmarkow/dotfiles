@@ -1,4 +1,4 @@
-install: install-zsh install-tmux install-git install-hg install-vim install-misc init-submodules
+install: install-zsh install-tmux install-git install-hg install-vim init-submodules
 
 update: update-submodules 
 
@@ -41,11 +41,6 @@ install-vim:
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
-
-install-misc:
-	@echo "Symlinking misc"
-	rm -f ~/.wgetrc
-	ln -s `pwd`/wget/wgetrc ~/.wgetrc
 
 install-brew:
 	@echo "Installing brew"
