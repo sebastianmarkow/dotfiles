@@ -238,6 +238,7 @@ autocmd FileType python setlocal tabstop=8 softtabstop=4 shiftwidth=4
 let python_highlight_all=1
 let python_highlight_exceptions=0
 let python_highlight_builtins=0
+let python_slow_sync=1
 
 " c/cpp
 autocmd FileType c setlocal tabstop=8 softtabstop=4 shiftwidth=4

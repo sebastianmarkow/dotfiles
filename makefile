@@ -11,7 +11,6 @@ uninstall:
 	rm -f ~/.gitconfig ~/.gitignore-global
 	rm -f ~/.hgignore_global ~/.hgrc
 	rm -rf ~/.vimrc ~/.vim
-	rm -rf ~/.wgetrc
 
 install-zsh:
 	@echo "Symlinking zsh"
