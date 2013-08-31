@@ -269,8 +269,7 @@ autocmd FileType markdown setlocal tabstop=8 softtabstop=4 shiftwidth=4
 autocmd FileType html,markdown setlocal nofoldenable
 
 " disable colorcolumn
-autocmd FileType html setlocal colorcolumn=
-autocmd BufNewFile,BufRead *.json setlocal colorcolumn=
+autocmd FileType html,css,xml,javascript setlocal colorcolumn=
 
 " ------------------------------------------------------------------------------
 " KEYS
