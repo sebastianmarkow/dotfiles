@@ -36,6 +36,8 @@ set modelines=0
 " disable startup message
 set shortmess+=I
 
+" system clipboard
+set clipboard=unnamed
 
 " ------------------------------------------------------------------------------
 " TIMEOUT
@@ -385,10 +387,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
 inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 " gitgutter
