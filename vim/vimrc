@@ -127,7 +127,7 @@ set mouse=a
 " ------------------------------------------------------------------------------
 
 " set utf8 as standard encoding
-set encoding=utf8
+set encoding=utf-8
 
 " set unix as standard file type
 set ffs=unix,dos,mac
