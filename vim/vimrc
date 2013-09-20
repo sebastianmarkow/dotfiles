@@ -20,6 +20,9 @@ exe pathogen#helptags()
 set autoread
 set autowrite
 
+" disable spell-checking
+set nospell
+
 " enable filetype plugins
 filetype plugin on
 filetype indent on
