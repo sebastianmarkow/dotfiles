@@ -39,6 +39,7 @@ set modelines=0
 " disable startup message
 set shortmess+=I
 
+
 " ------------------------------------------------------------------------------
 " TIMEOUT
 " ------------------------------------------------------------------------------
@@ -272,6 +273,7 @@ autocmd FileType html,markdown setlocal nofoldenable
 
 " disable colorcolumn
 autocmd FileType html,css,xml,less,coffee,javascript setlocal colorcolumn=
+
 
 " ------------------------------------------------------------------------------
 " KEYS
