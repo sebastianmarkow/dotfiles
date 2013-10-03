@@ -1,3 +1,18 @@
+servers = (
+  {
+    address = "localhost";
+    port = "6667";
+    chatnet = "znc";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = {
+  znc = {
+    type = "IRC";
+  };
+};
+
 settings = {
   "fe-common/core" = {
     # Solarized
