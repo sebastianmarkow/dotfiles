@@ -1,0 +1,33 @@
+settings = {
+  "fe-common/core" = {
+    # Solarized
+    theme = "solarized-universal";
+    hilight_color = "= %R";
+  };
+  core = {
+    real_name = "Sebastian Klatt";
+    user_name = "sebastian";
+    nick = "sebastian";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+};
+
+hilights = (
+  { text = "sebastianmarkow"; color = "%M"; nick = "yes"; word = "yes"; },
+  { 
+    text = "sebastianmarkow_";
+    color = "%M";
+    nick = "yes";
+    word = "yes";
+  },
+  { text = "nbcmayhem"; color = "%M"; nick = "yes"; word = "yes"; }
+);
+
+statusbar = {
+  items = {
+    # Solarized
+    lag = "{sb Lag: %m$0-%n}";
+    act = "{sb Act: $0-}";
+    more = "%k%3-- more --%n";
+  };
+};

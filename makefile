@@ -1,4 +1,4 @@
-install: install-zsh install-tmux install-git install-hg install-vim init-submodules
+install: install-zsh install-tmux install-git install-hg install-vim install-irssi init-submodules
 
 update: update-submodules 
 
@@ -40,6 +40,11 @@ install-vim:
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
+
+install-irssi:
+	@echo "Symlinking irssi"
+	rm -rf ~/.irssi
+	ln -s `pwd`/irssi ~/.irssi
 
 install-brew:
 	@echo "Installing brew"
