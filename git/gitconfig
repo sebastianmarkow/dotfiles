@@ -14,7 +14,7 @@
   default = current
 
 [apply]
-  whitespace = fix
+  whitespace = fix,trailing-space,space-before-tab
 
 [diff]
   algorithm = patience
@@ -26,17 +26,17 @@
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
 
 [mergetool "kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 
 [difftool "kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [log]
   date = short
 
 [format]
-  pretty = format:%C(yellow)%h%Creset%C(blue)%d%Creset %s  %C(green bold)%cr, %cn%Creset
+  pretty = format:%C(blue)%h%C(magenta)%d%Creset %s %C(cyan)%cn%Creset %C(yellow)%cr 
 
 [color]
   diff = auto
@@ -46,57 +46,108 @@
   ui = auto
 
 [color "branch"]
-  current = blue reverse
-  local = blue
-  remote = green
-  plain = yellow
+  current = green
+  local = normal
+  remote = red
+  plain = normal
 
 [color "diff"]
-  meta = green bold
-  frag = magenta bold ul
-  func = magenta bold
   plain = normal
+  meta = normal
+  frag = cyan reverse
+  func = cyan ul
   old = red
   new = green
-  commit = cyan
-  whitespace = yellow
+  commit = yellow
+  whitespace = normal red
 
 [color "status"]
+  header = normal
   added = green
   changed = red
   untracked = red
+  nobranch = red
 
 [alias]
-  a = add
-  ap = add --patch
-  br = branch -v
-  c = commit -m
-  ca = commit -am
-  amend = commit --amend
-  co = checkout
-  nb = checkout -b
-  cp = cherry-pick -x
+  s = status
+  sb = status -s -b
+
+  sa = stash apply
+  sc = stash clear
+  sd = stash drop
+  sl = stash list
+  sp = stash pop
+  ss = stash save
+  sw = stash show
+
   d = diff
   dc = diff --cached
+  dt = difftool
+  dtc = difftool --cached
   last = diff HEAD^
+
+  c = commit
+  ca = commit -am
+  cd = commit --amend
+
+  a = add
+  aa = add .
+  ai = add -i
+  ap = add --patch
+
+  co = checkout
+  cb = checkout -b
+  unchunk = checkout -b
+
+  b = branch
+  br = branch -r
+  ba = branch -a
+  bd = branch -d
+  bv = branch -v
+
+  f = fetch
+  fo = fetch origin
+
   l = log --graph
-  changes = log --graph --name-status
-  lines = log --unified
+  ll = log --unified
+  lc = log --graph --name-status
   changelog = log --pretty=format:\" * %s\"
-  stats = log --stat --abbrev-commit
+  filelog = log -u
   today = log --graph --since=1.day
-  rc = rebase --continue
-  rs = rebase --skip
-  r = remote -v
-  unchunk = checkout -p
+  stats = log --stat --abbrev-commit
+
+  m = merge
+  ma = merge --abort
+  mc = merge --continue
+  ms = merge --skip
+  mt = mergetool
+
+  p = push
+  po = push origin
+  pf = push -f
+
+  pl = pull
+  plo = pull origin
+  pb = pull --rebase
+
+  rb = rebase
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbi = rebase --interactive
+  rbs = rebase --skip
+
+  re = reset
   unstage = reset HEAD
   uncommit = reset --soft HEAD^
-  filelog = log -u
-  mt = mergetool
-  ss = stash
-  sl = stash list
-  sa = stash apply
-  sd = stash drop
-  s = status
+
+  r = remote
+  ra = remote add
+  rm = remote rm
+  rv = remote -v
+  rs = remote show
+  rp = remote prune
+
+  cp = cherry-pick -x
+
   t = tag -n
 
