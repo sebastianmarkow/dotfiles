@@ -109,11 +109,11 @@ zstyle ':vcs_info:*' stagedstr    "%{$fg[yellow]%}"
 zstyle ':vcs_info:*' unstagedstr  "%{$fg[red]%}"
 
 zstyle ':vcs_info:*' formats \
-"%c%u%b%m%{$reset_color%}"\
-"%{$fg[magenta]%} %s%{$reset_color%}"
+"%c%u%b%m%{$reset_color%} "\
+"%{$fg[magenta]%}%s%{$reset_color%}"
 
 zstyle ':vcs_info:*' actionlformats \
-"%c%u%b%m%{$reset_color%}"\
+"%c%u%b%m%{$reset_color%} "\
 "%{$fg[cyan]%}%a%{$reset_color%} %{$fg[magenta]%}%s%{$reset_color%}"
 
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
