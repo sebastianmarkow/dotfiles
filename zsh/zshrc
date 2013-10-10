@@ -126,7 +126,7 @@ function +vi-git-untracked(){
 }
 
 # prompt
-PROMPT='%n@%m %F{blue}${PWD/#$HOME/~}%f $ '
+PROMPT='%n@%m %F{green}${PWD/#$HOME/~}%f $ '
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
