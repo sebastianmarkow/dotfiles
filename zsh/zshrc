@@ -196,14 +196,15 @@ function extract () {
   fi
 }
 
-function irc_tunnel () {
+function znc_tunnel() {
   echo "Setting up ssh tunnel..."
-  ssh -M -S .irssi_socket -N -f znc
+  ssh -M -S .znc_tunnel -N -f znc
   echo "Waiting for tunnel to establish..."
-  sleep 5
+  sleep 3
   irssi -c localhost -p 6667 
   echo "Shutting down ssh tunnel..."
-  ssh -S .irssi_socket -O exit znc > /dev/null 2>&1
+  ssh -S .znc_tunnel -O exit znc > /dev/null 2>&1
+  echo "Done"
 }
 
 

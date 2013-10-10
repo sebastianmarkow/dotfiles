@@ -1,6 +1,11 @@
+
+aliases = {
+  J = "join";
+  LEAVE = "part";
+};
+
 settings = {
   "fe-common/core" = {
-    # Solarized
     theme = "solarized-universal";
     hilight_color = "= %R";
   };
@@ -14,20 +19,44 @@ settings = {
 
 hilights = (
   { text = "sebastianmarkow"; color = "%M"; nick = "yes"; word = "yes"; },
-  { 
-    text = "sebastianmarkow_";
-    color = "%M";
-    nick = "yes";
-    word = "yes";
-  },
+  { text = "sebastianmarkow_"; color = "%M"; nick = "yes"; word = "yes"; },
   { text = "nbcmayhem"; color = "%M"; nick = "yes"; word = "yes"; }
 );
 
 statusbar = {
   items = {
-    # Solarized
-    lag = "{sb Lag: %m$0-%n}";
-    act = "{sb Act: $0-}";
-    more = "%k%3-- more --%n";
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+  };
+  default = {
+    window = {
+      disabled = "no";
+      type = "window";
+      placement = "bottom";
+      position = "1";
+      visible = "active";
+      items = {
+        barstart = { priority = "100"; };
+        user = { };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      position = "100";
+      visible = "always";
+      items = {
+        time = { };
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+        input = { priority = "10"; };
+      };
+    };
   };
 };
