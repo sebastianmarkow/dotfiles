@@ -15,6 +15,10 @@ exe pathogen#helptags()
 " BASICS
 " ------------------------------------------------------------------------------
 
+" enable filetype plugins
+filetype plugin on
+filetype indent on
+
 " auto read if file changed outside
 " auto write if buffer gets inactive
 set autoread
@@ -22,10 +26,6 @@ set autowrite
 
 " disable spell-checking
 set nospell
-
-" enable filetype plugins
-filetype plugin on
-filetype indent on
 
 " keep some history
 set history=300
@@ -61,7 +61,7 @@ set showcmd
 " show line numbers
 set number
 
-" show relative line numbers
+" don't show relative line numbers
 set norelativenumber
 
 " visible lines around cursor
@@ -106,7 +106,7 @@ set showmatch
 " how many 1/10 seconds to blink for matching brackets
 set mat=2
 
-" show/hide folds
+" don't show fold column
 set foldcolumn=0
 
 " hide unsaved buffer
@@ -183,7 +183,6 @@ set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
 set wildignore+=*.pdf,*.epub
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai
 set wildignore+=*.db,*.sqlite
-set wildignore+=*/temp/*,*/tmp/*
 set wildignore+=.DS_Store
 
 
@@ -209,10 +208,10 @@ set shiftround
 set lbr
 set tw=500
 
-" no auto indent
+" autopilot indention
 set autoindent
 
-" no smart indent
+" be smart about indention
 set smartindent
 
 " don't wrap lines
@@ -222,10 +221,8 @@ set nowrap
 set listchars=tab:▸\ ,eol:¬,trail:⋅
 set showbreak=↪
 
-" highlight column numbers
+" show 80+1 colored column
 set colorcolumn=+1
-
-" textwidth to wrap & options
 set textwidth=80
 set formatoptions=qrn1
 
@@ -255,7 +252,7 @@ autocmd FileType haskell setlocal tabstop=8 softtabstop=4 shiftwidth=4
 
 " go
 autocmd BufNewFile,BufRead *.go setlocal ft=go
-autocmd FileType go setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType go setlocal tabstop=8 softtabstop=4 shiftwidth=4 noexpandtab
 
 " glsl
 autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
@@ -279,7 +276,7 @@ autocmd FileType html,css,xml,less,coffee,javascript setlocal colorcolumn=
 " KEYS
 " ------------------------------------------------------------------------------
 
-" `\` no thank you!
+" `\` no thank you
 let mapleader = ","
 let g:maploader = ","
 
@@ -350,7 +347,7 @@ nnoremap <Right> <NOP>
 set laststatus=2
 
 " entries
-set statusline=%<%f%m%r%h%w\ %{fugitive#statusline()}%y\ %l,%v\ [%p%%]
+set statusline=%<\ %F%([%M%R%H]%)\ %y\ %{fugitive#statusline()}\ %l/%L:%c
 
 
 " ------------------------------------------------------------------------------
@@ -381,11 +378,8 @@ let g:gundo_preview_statusline="Diff"
 " neocomplcache
 set completeopt+=longest,menuone
 set pumheight=7
-let g:neocomplcache_enable_auto_select = 1
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
