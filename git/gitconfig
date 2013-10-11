@@ -87,6 +87,7 @@
   last = diff HEAD^
 
   c = commit
+  cm = commit -m
   ca = commit -am
   cd = commit --amend
 
