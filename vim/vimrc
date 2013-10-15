@@ -61,9 +61,6 @@ set showcmd
 " show line numbers
 set number
 
-" don't show relative line numbers
-set norelativenumber
-
 " visible lines around cursor
 set scrolloff=5
 
@@ -135,12 +132,6 @@ set encoding=utf-8
 
 " set unix as standard file type
 set ffs=unix,dos,mac
-
-" enable undo files
-set undofile
-
-" set undo dir
-set undodir=~/.tmp
 
 
 " ------------------------------------------------------------------------------
@@ -222,7 +213,10 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅
 set showbreak=↪
 
 " show 80+1 colored column
-set colorcolumn=+1
+if has("colorcolumn")
+  set colorcolumn=+1
+endif
+
 set textwidth=80
 set formatoptions=qrn1
 
@@ -269,7 +263,9 @@ autocmd FileType markdown setlocal tabstop=8 softtabstop=4 shiftwidth=4
 autocmd FileType html,markdown setlocal nofoldenable
 
 " disable colorcolumn
-autocmd FileType html,css,xml,less,coffee,javascript setlocal colorcolumn=
+if has("colorcolumn")
+  autocmd FileType html,css,xml,less,coffee,javascript setlocal colorcolumn=
+endif
 
 
 " ------------------------------------------------------------------------------
