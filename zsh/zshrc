@@ -4,7 +4,7 @@
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # editing
 export LESS="--ignore-case --raw-control-chars"
