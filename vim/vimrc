@@ -213,7 +213,7 @@ set listchars=tab:▸\ ,eol:¬,trail:⋅
 set showbreak=↪
 
 " show 80+1 colored column
-if has("colorcolumn")
+if exists('+colorcolumn')
   set colorcolumn=+1
 endif
 
@@ -263,7 +263,7 @@ autocmd FileType markdown setlocal tabstop=8 softtabstop=4 shiftwidth=4
 autocmd FileType html,markdown setlocal nofoldenable
 
 " disable colorcolumn
-if has("colorcolumn")
+if exists('+colorcolumn')
   autocmd FileType html,css,xml,less,coffee,javascript setlocal colorcolumn=
 endif
 
