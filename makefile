@@ -1,5 +1,5 @@
 install: install-zsh install-tmux install-git install-hg install-vim \
-	install-irssi init-submodules
+	install-irssi update-submodules
 
 update: update-submodules
 
@@ -57,10 +57,6 @@ install-irssi:
 # ------------------------------------------------------------------------------
 # SUBMODULE
 # ------------------------------------------------------------------------------
-
-init-submodules:
-	@echo "Initiating git-submodules"
-	git submodule update --init
 
 update-submodules:
 	@echo "Updating git-submodules"
