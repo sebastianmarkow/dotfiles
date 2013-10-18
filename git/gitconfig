@@ -36,7 +36,7 @@
   date = short
 
 [format]
-  pretty = format:%C(blue)%h%C(magenta)%d%Creset %s %C(cyan)%cn%Creset %C(yellow)%cr 
+  pretty = format:%C(blue)%h%C(magenta)%d%Creset %s %C(cyan)%cn%Creset (%C(yellow)%cr%Creset)
 
 [color]
   diff = auto
