@@ -1,6 +1,7 @@
-install: install-zsh install-tmux install-git install-hg install-vim install-irssi init-submodules
+install: install-zsh install-tmux install-git install-hg install-vim \
+	install-irssi init-submodules
 
-update: update-submodules 
+update: update-submodules
 
 upgrade: upgrade-submodules
 
@@ -11,7 +12,12 @@ uninstall:
 	rm -f ~/.gitconfig ~/.gitignore-global
 	rm -f ~/.hgignore_global ~/.hgrc
 	rm -rf ~/.vimrc ~/.vim
-	rm -rf ~/.irssi 
+	rm -rf ~/.irssi
+
+
+# ------------------------------------------------------------------------------
+# CONFIG
+# ------------------------------------------------------------------------------
 
 install-zsh:
 	@echo "Symlinking zsh"
@@ -47,9 +53,10 @@ install-irssi:
 	rm -rf ~/.irssi
 	ln -s `pwd`/irssi ~/.irssi
 
-install-brew:
-	@echo "Installing brew"
-	ruby -e `curl -fsSL https://raw.github.com/mxcl/homebrew/go`
+
+# ------------------------------------------------------------------------------
+# SUBMODULE
+# ------------------------------------------------------------------------------
 
 init-submodules:
 	@echo "Initiating git-submodules"
