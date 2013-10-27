@@ -217,7 +217,7 @@ if exists('+colorcolumn')
   set colorcolumn=+1
 endif
 
-set textwidth=80
+set textwidth=79
 set formatoptions=qrn1
 
 
