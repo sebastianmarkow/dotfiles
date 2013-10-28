@@ -150,6 +150,7 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 # BINDINGS
 # -----------------------------------------------------------------------------
 
+bindkey "^R" history-incremental-search-backward
 
 # -----------------------------------------------------------------------------
 # ALIASES
