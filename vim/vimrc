@@ -264,7 +264,8 @@ autocmd FileType html,markdown setlocal nofoldenable
 
 " disable colorcolumn
 if exists('+colorcolumn')
-  autocmd FileType html,css,xml,less,coffee,javascript setlocal colorcolumn=
+  autocmd FileType html,haml,xml,css,scss,less,coffee,javascript
+    \ setlocal colorcolumn=
 endif
 
 
