@@ -91,6 +91,7 @@
   cm = commit -m
   ca = commit -am
   cd = commit --amend
+  cs = commit -S -m
 
   a = add
   aa = add .
