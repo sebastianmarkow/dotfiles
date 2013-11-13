@@ -1,6 +1,7 @@
 [user]
   name = Sebastian Klatt
   email = sebastian@markow.org
+  signingkey = EF08BEA6
 
 [core]
   editor = vim
