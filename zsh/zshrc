@@ -114,8 +114,11 @@ precmd() {
   vcs_info
 }
 
+[[ "$SSH_CONNECTION" != '' ]] && prompt_user='%n@%m '
+
+
 # prompt
-PROMPT='%n@%m %B%F{red}${PWD/#$HOME/~}%f%b $ '
+PROMPT='$prompt_user%B%F{red}${PWD/#$HOME/~}%f%b $ '
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
