@@ -116,9 +116,14 @@ precmd() {
 
 [[ "$SSH_CONNECTION" != '' ]] && prompt_user='%n@%m '
 
+if [[ "$LOGNAME" == 'root' ]]; then
+  prompt_symbol='# '
+else
+  prompt_symbol='$ '
+fi
 
 # prompt
-PROMPT='$prompt_user%B%F{red}${PWD/#$HOME/~}%f%b $ '
+PROMPT='$prompt_user%B%F{red}${PWD/#$HOME/~}%f%b $prompt_symbol'
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
