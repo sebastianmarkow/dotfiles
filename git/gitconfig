@@ -15,7 +15,7 @@
   default = current
 
 [apply]
-  whitespace = fix,trailing-space,space-before-tab
+  whitespace = trailing-space,space-before-tab,blank-at-eof
 
 [diff]
   algorithm = patience
