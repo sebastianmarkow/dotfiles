@@ -26,8 +26,8 @@ install ranger
 install gnuplot
 install tig
 
-install apple-gcc42 go
-install gFortran R
+install go
+install R
 install python
 install python3
 
