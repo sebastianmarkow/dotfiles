@@ -27,9 +27,9 @@ install gnuplot
 install tig
 
 install go
-install R
 install python
 install python3
+install homebrew/science/r
 
 install rbenv
 install node
