@@ -34,7 +34,7 @@ and commit any changes within submodules.
 
 Install `brew` and boot `Brewfile`
 
-    make brew
+    $ make brew
 
 ## Uninstall
 
