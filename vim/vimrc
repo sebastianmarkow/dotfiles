@@ -374,13 +374,14 @@ let g:gundo_preview_statusline="Diff"
 
 " neocomplcache
 set completeopt+=longest,menuone
+set completeopt-=preview
 set pumheight=7
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#close_popup()."\<C-h>"
 inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 
 " gitgutter
