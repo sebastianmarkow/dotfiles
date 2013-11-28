@@ -12,19 +12,24 @@ install irssi
 
 install git
 install git-flow
+install tig
 install mercurial
 
-install sqlite
 install ack
+install watch
+install tree
+install ranger
+
 install wget
 install nmap
 install mtr
-install watch
-install tree
 install w3m
-install ranger
+install siege
+install lftp
+
 install gnuplot
-install tig
+
+install sqlite
 
 install go
 install python
