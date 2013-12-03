@@ -57,6 +57,7 @@
 
   s = status
   sb = status -s -b
+  ignored = status --ignored
 
   sa = stash apply
   sc = stash clear
@@ -79,7 +80,6 @@
   cs = commit -S -m
 
   a = add
-  aa = add .
   ai = add -i
   ap = add --patch
 
@@ -97,19 +97,18 @@
   compare = diff HEAD..master
 
   f = fetch
-  fo = fetch origin
 
   grep-group = grep --break --heading --line-number
 
-  l = log --graph
-  lb = log --graph --all
+  l = log --graph --oneline
   ll = log --unified
   lc = log --graph --name-status
+  local = log --branches --not --remotes
+  file-added = log --diff-filter=A
+  file-log = log -u
   changelog = log --pretty=format:\"- %s\"
-  filelog = log -u
   today = log --graph --since=1.day --relative-date
   stats = log --stat
-  added-file = log --diff-filter=A
 
   m = merge
   ma = merge --abort
@@ -118,11 +117,9 @@
   mt = mergetool
 
   pl = pull
-  plo = pull origin
   pb = pull --rebase
 
   p = push
-  po = push origin
   pf = push -f
 
   rb = rebase
