@@ -73,11 +73,10 @@
   dtc = difftool --cached
   last = diff HEAD^
 
-  c = commit
-  cm = commit -m
-  ca = commit -am
-  cd = commit --amend
-  cs = commit -S -m
+  c = commit -S
+  cm = commit -S -m
+  ca = commit -S -am
+  cd = commit -S --amend -m
 
   a = add
   ai = add -i
