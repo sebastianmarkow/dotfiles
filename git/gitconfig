@@ -3,25 +3,26 @@
   email = sebastian@markow.org
   signingkey = EF08BEA6
 
+[github]
+  user = sebastianmarkow
+
 [core]
   editor = vim
   pager = less -R
   excludesfile = ~/.gitignore-global
-
-[advice]
-  statusHints = false
-
-[push]
-  default = current
-
-[apply]
   whitespace = trailing-space,space-before-tab,blank-at-eof
 
-[diff]
-  algorithm = patience
+[push]
+  default = nothing
 
 [merge]
+  conflictstyle = diff3
   tool = fugitive
+
+[mergetool]
+  keepTemporaries = false
+  keepBackup = false
+  prompt = false
 
 [mergetool "fugitive"]
   cmd = vim -f -c \"Gdiff\" \"$MERGED\"
@@ -30,46 +31,30 @@
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
 
+[diff]
+  tool = kaleidoscope
+
+[difftool]
+  prompt = false
+
 [difftool "kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [log]
-  date = short
+  abbrevCommit = true
+  decorate = short
+  date = local
 
-[format]
-  pretty = format:%C(blue)%h%C(magenta)%d%Creset %s %C(cyan)%cn%Creset (%C(yellow)%cr%Creset)
+[advice]
+  statusHints = false
 
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = auto
-
-[color "branch"]
-  current = green
-  local = normal
-  remote = red
-  plain = normal
-
-[color "diff"]
-  plain = normal
-  meta = normal
-  frag = cyan reverse
-  func = cyan ul
-  old = red
-  new = green
-  commit = yellow
-  whitespace = normal red
-
-[color "status"]
-  header = normal
-  added = green
-  changed = red
-  untracked = red
-  nobranch = red
+  ui = true
 
 [alias]
+  edit-config = config --global -e
+  tig = !tig
+
   s = status
   sb = status -s -b
 
@@ -98,26 +83,33 @@
   ai = add -i
   ap = add --patch
 
-  co = checkout
-  cb = checkout -b
-  unchunk = checkout -b
-
   b = branch
   br = branch -r
   ba = branch -a
   bd = branch -d
   bv = branch -v
 
+  co = checkout
+  cb = checkout -b
+
+  cp = cherry-pick -x
+
+  compare = diff HEAD..master
+
   f = fetch
   fo = fetch origin
 
+  grep-group = grep --break --heading --line-number
+
   l = log --graph
+  lb = log --graph --all
   ll = log --unified
   lc = log --graph --name-status
-  changelog = log --pretty=format:\" * %s\"
+  changelog = log --pretty=format:\"- %s\"
   filelog = log -u
-  today = log --graph --since=1.day
-  stats = log --stat --abbrev-commit
+  today = log --graph --since=1.day --relative-date
+  stats = log --stat
+  added-file = log --diff-filter=A
 
   m = merge
   ma = merge --abort
@@ -125,13 +117,13 @@
   ms = merge --skip
   mt = mergetool
 
-  p = push
-  po = push origin
-  pf = push -f
-
   pl = pull
   plo = pull origin
   pb = pull --rebase
+
+  p = push
+  po = push origin
+  pf = push -f
 
   rb = rebase
   rba = rebase --abort
@@ -139,18 +131,15 @@
   rbi = rebase --interactive
   rbs = rebase --skip
 
-  re = reset
-  unstage = reset HEAD
-  uncommit = reset --soft HEAD^
-
   r = remote
   ra = remote add
   rm = remote rm
   rv = remote -v
   rs = remote show
   rp = remote prune
+  re = reset
 
-  cp = cherry-pick -x
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
 
   t = tag -n
-
