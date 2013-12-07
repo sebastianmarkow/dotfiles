@@ -195,9 +195,9 @@ set shiftwidth=2
 " round indent to multiple of shiftwidth
 set shiftround
 
-" linebreak on 500 chars
-set lbr
-set tw=500
+" linebreak
+set linebreak
+set textwidth=80
 
 " autopilot indention
 set autoindent
@@ -209,15 +209,18 @@ set smartindent
 set nowrap
 
 " show invisible chars
-set listchars=tab:▸\ ,eol:¬,trail:⋅
-set showbreak=↪
+set listchars=tab:▸\ 
+set listchars+=eol:¬
+set listchars+=trail:⋅
+set listchars+=extends:»
+set listchars+=precedes:«
+set showbreak=↪\ \ 
 
 " show 80+1 colored column
 if exists('+colorcolumn')
   set colorcolumn=+1
 endif
 
-set textwidth=79
 set formatoptions=qrn1
 
 
@@ -229,12 +232,7 @@ set formatoptions=qrn1
 autocmd FileType python setlocal tabstop=8
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
-  \ formatoptions+=croq
-  \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-let python_highlight_all=1
-let python_highlight_exceptions=0
-let python_highlight_builtins=0
-let python_slow_sync=1
+autocmd FileType python setlocal textwidth=79
 
 " c/cpp
 autocmd FileType c,cpp setlocal tabstop=8
@@ -279,6 +277,7 @@ autocmd FileType markdown setlocal tabstop=8
 autocmd FileType markdown setlocal softtabstop=4
 autocmd FileType markdown setlocal shiftwidth=4
 autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal nolist
 autocmd FileType markdown setlocal spell spelllang=en
 
 " disable colorcolumn
