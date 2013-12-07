@@ -226,7 +226,9 @@ set formatoptions=qrn1
 " -----------------------------------------------------------------------------
 
 " python
-autocmd FileType python setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType python setlocal tabstop=8
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal shiftwidth=4
   \ formatoptions+=croq
   \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 let python_highlight_all=1
@@ -235,36 +237,53 @@ let python_highlight_builtins=0
 let python_slow_sync=1
 
 " c/cpp
-autocmd FileType c setlocal tabstop=8 softtabstop=4 shiftwidth=4
-autocmd FileType cpp setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType c,cpp setlocal tabstop=8
+autocmd FileType c,cpp setlocal softtabstop=4
+autocmd FileType c,cpp setlocal shiftwidth=4
 
 " objc
-autocmd FileType objc setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType objc setlocal tabstop=8
+autocmd FileType objc setlocal softtabstop=4
+autocmd FileType objc setlocal shiftwidth=4
 
 " haskell
-autocmd FileType haskell setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType haskell setlocal tabstop=8
+autocmd FileType haskell setlocal softtabstop=4
+autocmd FileType haskell setlocal shiftwidth=4
+
+" r
+autocmd FileType r setlocal tabstop=8
+autocmd FileType r setlocal softtabstop=2
+autocmd FileType r setlocal shiftwidth=2
 
 " go
 autocmd BufNewFile,BufRead *.go setlocal ft=go
-autocmd FileType go setlocal tabstop=8 softtabstop=4 shiftwidth=4 noexpandtab
+autocmd FileType go setlocal tabstop=8
+autocmd FileType go setlocal softtabstop=4
+autocmd FileType go setlocal shiftwidth=4
+autocmd FileType go setlocal noexpandtab
 
 " glsl
 autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
   \ setlocal ft=glsl
-autocmd FileType glsl setlocal tabstop=8 softtabstop=4 shiftwidth=4
+autocmd FileType glsl setlocal tabstop=8
+autocmd FileType glsl setlocal softtabstop=4
+autocmd FileType glsl setlocal shiftwidth=4
 
 " json
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 
 " markdown
-autocmd FileType markdown setlocal tabstop=8 softtabstop=4 shiftwidth=4
-
-" disable folding
-autocmd FileType html,markdown setlocal nofoldenable
+au BufRead,BufNewFile *.md set filetype=markdown
+autocmd FileType markdown setlocal tabstop=8
+autocmd FileType markdown setlocal softtabstop=4
+autocmd FileType markdown setlocal shiftwidth=4
+autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal spell spelllang=en
 
 " disable colorcolumn
 if exists('+colorcolumn')
-  autocmd FileType html,haml,xml,css,scss,less,coffee,javascript
+  autocmd FileType html,xml,css,sass,less,coffee,javascript
     \ setlocal colorcolumn=
 endif
 
