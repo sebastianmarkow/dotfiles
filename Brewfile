@@ -34,6 +34,7 @@ install sqlite
 install go
 install python
 install python3
+install haskell-platform
 install homebrew/science/r
 
 install rbenv
