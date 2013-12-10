@@ -391,5 +391,5 @@ let g:gundo_tree_statusline="Undo"
 let g:gundo_preview_statusline="Diff"
 
 " gitgutter
-highlight clear SignColumn
+hi! link SignColumn Background
 
