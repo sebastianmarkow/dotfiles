@@ -257,8 +257,8 @@ autocmd FileType r setlocal shiftwidth=2
 " go
 autocmd BufNewFile,BufRead *.go setlocal ft=go
 autocmd FileType go setlocal tabstop=8
-autocmd FileType go setlocal softtabstop=4
-autocmd FileType go setlocal shiftwidth=4
+autocmd FileType go setlocal softtabstop=8
+autocmd FileType go setlocal shiftwidth=8
 autocmd FileType go setlocal noexpandtab
 
 " glsl
