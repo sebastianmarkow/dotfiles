@@ -60,7 +60,7 @@ install-irssi:
 
 update-submodules:
 	@echo "Updating git-submodules"
-	git submodule update --init
+	git submodule update --init --recursive
 	
 upgrade-submodules:
 	@echo "Upgrading git-submodules"
