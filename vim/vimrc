@@ -324,12 +324,11 @@ au BufRead,BufNewFile *.md set filetype=markdown
 autocmd FileType markdown setlocal tabstop=8
 autocmd FileType markdown setlocal softtabstop=4
 autocmd FileType markdown setlocal shiftwidth=4
-autocmd FileType markdown setlocal wrap
-autocmd FileType markdown setlocal nolist
 
 " Disable colorcolumn
 if exists('+colorcolumn')
-  autocmd FileType text,html,xml,css,sass,less,coffee,javascript,gitcommit
+  autocmd FileType text,html,markdown,xml,css,sass,less,coffee,javascript,
+    \gitcommit
     \ setlocal colorcolumn=
 endif
 
