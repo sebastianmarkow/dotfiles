@@ -19,13 +19,13 @@ just run:
 Note: **Please backup your existing dotfiles in `~/` before running `make`**
 
 ## Update/Upgrade submodules
-    
+
 `cd` into your local `dotfiles` copy and
 
     $ make update
 
 or
-    
+
     $ make upgrade
 
 and commit any changes within submodules.
@@ -39,6 +39,3 @@ Install `brew` and boot `Brewfile`
 ## Uninstall
 
     $ make uninstall
-
-
-
