@@ -40,4 +40,4 @@ install homebrew/science/r
 install rbenv
 install node
 
-cleanup
+cleanup -s
