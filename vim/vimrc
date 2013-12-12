@@ -1,147 +1,252 @@
-" turn off vi compatibility
+" Turn off vi compatibility
 set nocompatible
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " PATHOGEN
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 runtime bundle/pathogen/autoload/pathogen.vim
 exe pathogen#infect()
 exe pathogen#helptags()
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " BASICS
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" enable filetype plugins
+" Enable detection
 filetype plugin on
 filetype indent on
 
-" auto read if file changed outside
-" auto write if buffer gets inactive
+" Read file if it is changed from the outside
 set autoread
-set autowrite
 
-" disable spell-checking
-set nospell
-
-" keep some history
-set history=300
-
-" 100 lines in viminfo
-set viminfo='100,f1
-'
-" no modelines
+" Disable modelines
 set modelines=0
 
-" disable startup message
-set shortmess+=I
+" Disable spell-checking
+set nospell
+
+" If we set local spellchecking than we use english
+set spelllang=en
+
+" Custom spellfile
+set spellfile=~/.vim/spell/en.utf-8.add
+
+" ------------------------------------------------------------------------------
+" History
+" ------------------------------------------------------------------------------
+
+" Keep history of commands/searches
+set history=1000
+
+" Remember copy register and search patterns
+set viminfo='100,<1000,/1000
+
+" Keep undo history
+set undofile
+
+" How many levels of undo history to keep
+set undolevels=1000
+
+" Directories
+set dir=~/tmp
+set undodir=~/tmp
+
+" Remember last cursor position
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+  \ exe "normal! g'\"" | endif
+
+" ------------------------------------------------------------------------------
+" BACKUPS
+" ------------------------------------------------------------------------------
+
+" Disable backups
+set nobackup
+set nowritebackup
+set noswapfile
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+" FILES
+" ------------------------------------------------------------------------------
+
+" Default fileencoding
+set encoding=utf-8
+
+" Default fileformat
+set fileformat=unix
+
+" Fileformat order
+set fileformats=unix,dos,mac
+
+
+" ------------------------------------------------------------------------------
+" INTERFACE
+" ------------------------------------------------------------------------------
+
+" Show mode in status bar (insert, replace, ...)
+set showmode
+
+" Show typed command in status bar
+set showcmd
+
+" Show line numbers
+set number
+
+" Show visible lines around cursor
+set scrolloff=5
+
+" Always show current position in status bar
+set ruler
+
+" Set command bar height
+set cmdheight=1
+
+" Ignore case when searching
+set ignorecase
+
+" Try to be smart about cases while searching
+set smartcase
+
+" Highlight search results
+set hlsearch
+
+" Highlight search string while typing it
+set incsearch
+
+" Show matching brackets if cursor is hovering over them
+set showmatch
+
+" Reduces matching brackets blink time from 500ms to 200ms (1/10 * n)
+set matchtime=2
+
+" Don't show fold column
+set foldcolumn=0
+
+" Hide unsaved buffer
+set hidden
+
+" Highlight current line
+set cursorline
+
+" Show file title
+set title
+
+" Disable beeps
+set visualbell
+
+" Disable startup message and truncate
+set shortmess=atI
+
+
+" ------------------------------------------------------------------------------
+" EDITING
+" ------------------------------------------------------------------------------
+
+" Change the way backslashes are used in search patterns
+set magic
+
+" Substitution are global
+set gdefault
+
+" Wraparound with h,l
+set whichwrap+=<,>,h,l
+
+" Backspace behavior like it should
+set backspace=2
+
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs
+set smarttab
+
+" Number of spaces a tab counts for
+set tabstop=8
+
+" Spaces for autoindents
+set softtabstop=2
+set shiftwidth=2
+
+" Identing by a multiple of shiftwidth
+set shiftround
+
+" Linebreak
+set linebreak
+
+" ... at n characters
+set textwidth=80
+
+" On new lines, match indent of previous line
+set autoindent
+
+" Copy the previous indentation on autoindenting
+set copyindent
+
+" Smart indenting for c-like code
+set cindent
+
+" Don't wrap lines
+set nowrap
+
+" None of these should be word dividers
+set iskeyword+=_,$,@,%,#
+
+" Show invisible characters
+set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:»,precedes:«
+set showbreak=↪\ \ 
+
+" Show colored column at textwidth + 1
+if exists('+colorcolumn')
+  set colorcolumn=+1
+endif
+
+" Options for formatting text
+set formatoptions=rqnj
+
+" Easy paste toggle
+set pastetoggle=<F1>
+
+
+" ------------------------------------------------------------------------------
+" STATUSLINE
+" ------------------------------------------------------------------------------
+
+" Always show the status line
+set laststatus=2
+
+" Statusline entries
+set statusline=%<\ %F%([%M%R%H]%)\ %y\ %{fugitive#statusline()}\ %l/%L:%c
+
+
+" ------------------------------------------------------------------------------
 " TIMEOUT
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" sane terminal vim
+" Sane terminal vim
 set notimeout
 set ttimeout
 set ttimeoutlen=10
 
 
-" -----------------------------------------------------------------------------
-" INTERFACE
-" -----------------------------------------------------------------------------
-
-" show mode
-set showmode
-set showcmd
-
-" show line numbers
-set number
-
-" visible lines around cursor
-set scrolloff=5
-
-" backspace behavior like it should
-set backspace=2
-
-" wraparound with h,l
-set whichwrap+=<,>,h,l
-
-" always show current position
-set ruler
-
-" set command bar height
-set cmdheight=1
-
-" ignore case when searching
-set ignorecase
-
-" trying to be smart about cases while searching
-set smartcase
-
-" highlight search results
-set hlsearch
-
-" modern search results
-set incsearch
-
-" substitutions globally
-set gdefault
-
-" regular expressions
-set magic
-
-" don't redraw while executing macros (performance)
-set lazyredraw
-
-" show matching brackets if indicator is hovering
-set showmatch
-
-" how many 1/10 seconds to blink for matching brackets
-set mat=2
-
-" don't show fold column
-set foldcolumn=0
-
-" hide unsaved buffer
-set hidden
-
-" window title
-set title
-
-" no beeps
-set visualbell
-
-
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " MOUSE
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-set mouse=a
-
-
-" -----------------------------------------------------------------------------
-" FILES
-" -----------------------------------------------------------------------------
-
-" set utf8 as standard encoding
-set encoding=utf-8
-
-" set unix as standard file type
-set ffs=unix,dos,mac
+" Enable mouse in modes: normal, visual, command-line
+set mouse=nvc
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " COLORS
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" syntax hightlighting
+" Enable syntax hightlighting
 syntax on
 
-" scheme
+" Colorscheme
 try
     set background=dark
     let g:solarized_visibility="high"
@@ -150,26 +255,16 @@ catch
 endtry
 
 
-" -----------------------------------------------------------------------------
-" BACKUPS
-" -----------------------------------------------------------------------------
-
-" turn off backups
-set nobackup
-set nowb
-set noswapfile
-
-
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " WILDMENU
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" turn on the wild menu with bash completion style
-set wildmode=longest:full
+" Enable wild menu with bash completion style
 set wildmenu
+set wildmode=longest:full
 
-" common ignores
-set wildignore+=*.o,*.so,*.pyc,*.javac
+" Common ignores
+set wildignore+=*.o,*.so,*.pyc
 set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
 set wildignore+=*.pdf,*.epub
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai
@@ -177,173 +272,134 @@ set wildignore+=*.db,*.sqlite
 set wildignore+=.DS_Store
 
 
-" -----------------------------------------------------------------------------
-" EDITING
-" -----------------------------------------------------------------------------
-
-" use spaces instead of tabs
-set expandtab
-
-" be smart when using tabs
-set smarttab
-
-" 1 tab == 2 spaces
-set tabstop=8
-set softtabstop=2
-set shiftwidth=2
-
-" round indent to multiple of shiftwidth
-set shiftround
-
-" linebreak
-set linebreak
-set textwidth=80
-
-" autopilot indention
-set autoindent
-
-" be smart about indention
-set smartindent
-
-" don't wrap lines
-set nowrap
-
-" show invisible chars
-set listchars=tab:▸\ 
-set listchars+=eol:¬
-set listchars+=trail:⋅
-set listchars+=extends:»
-set listchars+=precedes:«
-set showbreak=↪\ \ 
-
-" show 80+1 colored column
-if exists('+colorcolumn')
-  set colorcolumn=+1
-endif
-
-set formatoptions=qrn1
-
-
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " FILETYPES
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" python
+" Python
 autocmd FileType python setlocal tabstop=8
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal textwidth=79
 
-" c/cpp
+" C/CPP
 autocmd FileType c,cpp setlocal tabstop=8
 autocmd FileType c,cpp setlocal softtabstop=4
 autocmd FileType c,cpp setlocal shiftwidth=4
 
-" objc
+" Objective-C
 autocmd FileType objc setlocal tabstop=8
 autocmd FileType objc setlocal softtabstop=4
 autocmd FileType objc setlocal shiftwidth=4
 
-" haskell
+" Haskell
 autocmd FileType haskell setlocal tabstop=8
 autocmd FileType haskell setlocal softtabstop=4
 autocmd FileType haskell setlocal shiftwidth=4
 
-" r
+" R
 autocmd FileType r setlocal tabstop=8
 autocmd FileType r setlocal softtabstop=2
 autocmd FileType r setlocal shiftwidth=2
 
-" go
+" Golang
 autocmd BufNewFile,BufRead *.go setlocal ft=go
 autocmd FileType go setlocal tabstop=8
 autocmd FileType go setlocal softtabstop=8
 autocmd FileType go setlocal shiftwidth=8
 autocmd FileType go setlocal noexpandtab
 
-" glsl
+" GLSL Shader
 autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
   \ setlocal ft=glsl
 autocmd FileType glsl setlocal tabstop=8
 autocmd FileType glsl setlocal softtabstop=4
 autocmd FileType glsl setlocal shiftwidth=4
 
-" json
+" Json
 autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 
-" markdown
+" Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 autocmd FileType markdown setlocal tabstop=8
 autocmd FileType markdown setlocal softtabstop=4
 autocmd FileType markdown setlocal shiftwidth=4
 autocmd FileType markdown setlocal wrap
 autocmd FileType markdown setlocal nolist
-autocmd FileType markdown setlocal spell spelllang=en
 
-" disable colorcolumn
+" Disable colorcolumn
 if exists('+colorcolumn')
-  autocmd FileType html,xml,css,sass,less,coffee,javascript
+  autocmd FileType text,html,xml,css,sass,less,coffee,javascript,gitcommit
     \ setlocal colorcolumn=
 endif
 
+" Writing
+autocmd FileType text,markdown,gitcommit
+  \ setlocal spell nocindent
 
-" -----------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
 " KEYS
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
 " `\` no thank you
 let mapleader = ","
 let g:maploader = ","
 
-" buffer switching
-map H :bp<cr>
-map L :bn<cr>
+" Sudo !!
+cnoremap w!! w !sudo tee % > /dev/null
 
-" fast buffer & window handling
-nmap <leader>q :qa<cr>
-nmap <leader>c :close<cr>
-nmap <leader>w :w!<cr>
+" Shortcut for quiting all, closing and saving
+nnoremap <leader>q :qa<cr>
+nnoremap <leader>c :close<cr>
+nnoremap <leader>w :w!<cr>
 
-" toggle list
-map <silent> <Leader>i :set list!<CR>
+" Toggle invisible characters
+noremap <silent> <Leader>i :set list!<CR>
 
-" omni completion
-inoremap <silent> <C-O> <C-X><C-O>
-
-" treat long lines as break lines
+" Treat wrapped lines as seperate
 noremap j gj
 noremap k gk
 
-" make y & e a little faster
+" Faster scrolling
+noremap <C-J> 15gj
+noremap <C-K> 15gk
+
+" Make C-Y & C-E a little faster
 noremap <C-E> 2<C-E>
 noremap <C-Y> 2<C-Y>
 
-" disable highlighting
-map <silent> <leader><space> :noh<cr>
+" Disable highlighting
+noremap <leader><space> :noh<cr>
 
-" easy indent
+" Easy indent
 nnoremap < <<
 nnoremap > >>
 
-" fix regex
+" Fix regex
 nnoremap / /\v
 vnoremap / /\v
 
-" set easy paste toggle
-set pastetoggle=<F1>
-
-" fold toggle
+" Fold toggle
 nnoremap <Space> za
 
-" turn of line-deleting
+" Create newlines without leaving normal mode
+nnoremap <silent> zj o<Esc>k
+nnoremap <silent> zk O<Esc>j
+
+" Turn off line-deleting
 noremap K <Nop>
 noremap J <Nop>
 
-" switch to new split window
-nnoremap <C-W>s <C-W>s<C-W>j
-nnoremap <C-W>v <C-W>v<C-W>l
+" Buffer switching
+noremap H :bp<cr>
+noremap L :bn<cr>
 
-" disable arrow key
+" Switch to new split window
+nnoremap <silent> <C-W>s <C-W>s<C-W>j
+nnoremap <silent> <C-W>v <C-W>v<C-W>l
+
+" Disable arrow key
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
@@ -354,33 +410,22 @@ nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
 
-" -----------------------------------------------------------------------------
-" STATUSLINE
-" -----------------------------------------------------------------------------
-
-" always show the status line
-set laststatus=2
-
-" entries
-set statusline=%<\ %F%([%M%R%H]%)\ %y\ %{fugitive#statusline()}\ %l/%L:%c
-
-
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " FUNCTIONS
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" resize splizs on window resize
+" Zoom splits on window resize
 au VimResized * :wincmd =
 
-" disable paste mode after leaving insert mode
+" Disable paste mode after leaving insert mode
 au InsertLeave * set nopaste
 
 
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 " PLUGINS
-" -----------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
 
-" gundo
+" Gundo
 nnoremap <leader>u :GundoToggle<CR>
 let g:gundo_width=30
 let g:gundo_preview_height=15
@@ -390,6 +435,6 @@ let g:gundo_close_on_revert=1
 let g:gundo_tree_statusline="Undo"
 let g:gundo_preview_statusline="Diff"
 
-" gitgutter
+" Gitgutter
+" Hack for solarized colorscheme
 hi! link SignColumn Background
-
