@@ -361,8 +361,8 @@ noremap j gj
 noremap k gk
 
 " Faster scrolling
-noremap <C-J> 15gj
-noremap <C-K> 15gk
+noremap <C-J> 10gj
+noremap <C-K> 10gk
 
 " Make C-Y & C-E a little faster
 noremap <C-E> 2<C-E>
