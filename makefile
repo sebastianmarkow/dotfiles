@@ -1,5 +1,5 @@
 install: install-zsh install-tmux install-git install-hg install-vim \
-	install-irssi update-submodules
+	install-irssi install-ruby update-submodules
 
 update: update-submodules
 
@@ -52,6 +52,11 @@ install-irssi:
 	@echo "Symlinking irssi"
 	rm -rf ~/.irssi
 	ln -s `pwd`/irssi ~/.irssi
+
+install-ruby:
+	@echo "Symlinking ruby"
+	rm -rf ~/.gemrc
+	ln -s `pwd`/ruby/gemrc ~/.gemrc
 
 
 # ------------------------------------------------------------------------------
