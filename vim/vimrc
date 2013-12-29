@@ -129,7 +129,7 @@ set foldcolumn=0
 set hidden
 
 " Highlight current line
-set cursorline
+set nocursorline
 
 " Show file title
 set title
