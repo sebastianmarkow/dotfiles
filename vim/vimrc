@@ -174,10 +174,10 @@ set shiftwidth=2
 set shiftround
 
 " Linebreak
-set linebreak
+set nolinebreak
 
 " ... at n characters
-set textwidth=80
+set textwidth=79
 
 " On new lines, match indent of previous line
 set autoindent
@@ -280,7 +280,6 @@ set wildignore+=.DS_Store
 autocmd FileType python setlocal tabstop=8
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
-autocmd FileType python setlocal textwidth=79
 
 " C/CPP
 autocmd FileType c,cpp setlocal tabstop=8
@@ -334,7 +333,7 @@ endif
 
 " Writing
 autocmd FileType text,markdown,gitcommit
-  \ setlocal spell nocindent
+  \ setlocal spell nocindent nolinebreak nowrap colorcolumn=
 
 
 " ------------------------------------------------------------------------------
