@@ -194,22 +194,6 @@ function extract () {
   fi
 }
 
-function znc() {
-  echo "Setting up ssh tunnel..."
-  ssh -M -S ~/.ssh/znc_socket -N -f znc
-  rc=$?
-  if [[ $rc != 0 ]]; then
-    echo "Establishing connection failed"
-    exit $rc
-  fi
-  echo "Waiting for tunnel to establish..."
-  sleep 3
-  irssi -c localhost -p 6667 
-  echo "Shutting down ssh tunnel..."
-  ssh -S ~/.ssh/znc_socket -O exit znc > /dev/null 2>&1
-  echo "Done"
-}
-
 
 # -----------------------------------------------------------------------------
 # LOCAL
