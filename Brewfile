@@ -8,7 +8,6 @@ tap homebrew/science
 install zsh
 install tmux
 install vim
-install irssi
 
 install git
 install git-flow

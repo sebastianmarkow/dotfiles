@@ -1,5 +1,5 @@
 install: install-zsh install-tmux install-git install-hg install-vim \
-	install-irssi install-ruby update-submodules
+	install-ruby update-submodules
 
 update: update-submodules
 
@@ -48,11 +48,6 @@ install-vim:
 	ln -s `pwd`/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
 
-install-irssi:
-	@echo "Symlinking irssi"
-	rm -rf ~/.irssi
-	ln -s `pwd`/irssi ~/.irssi
-
 install-ruby:
 	@echo "Symlinking ruby"
 	rm -rf ~/.gemrc
@@ -80,4 +75,3 @@ brew:
 	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
 	@echo "Running Brewfile"
 	brew bundle
-
