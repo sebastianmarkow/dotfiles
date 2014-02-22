@@ -98,6 +98,7 @@
   compare = diff HEAD..master
 
   f = fetch
+  fa = fetch --all
 
   grep-group = grep --break --heading --line-number
 
@@ -118,11 +119,10 @@
   ms = merge --skip
   mt = mergetool
 
-  pl = pull
+  pl = pull --ff-only
   pb = pull --rebase
 
   p = push
-  pf = push -f
 
   rb = rebase
   rba = rebase --abort
