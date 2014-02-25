@@ -1,5 +1,5 @@
 install: install-zsh install-tmux install-git install-hg install-vim \
-	install-ruby update-submodules
+	 update-submodules
 
 update: update-submodules
 
@@ -12,7 +12,6 @@ uninstall:
 	rm -f ~/.gitconfig ~/.gitignore-global
 	rm -f ~/.hgignore_global ~/.hgrc
 	rm -rf ~/.vimrc ~/.vim
-	rm -rf ~/.irssi
 
 
 # ------------------------------------------------------------------------------
@@ -48,11 +47,6 @@ install-vim:
 	ln -s `pwd`/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
 
-install-ruby:
-	@echo "Symlinking ruby"
-	rm -rf ~/.gemrc
-	ln -s `pwd`/ruby/gemrc ~/.gemrc
-
 
 # ------------------------------------------------------------------------------
 # SUBMODULE
@@ -65,6 +59,7 @@ update-submodules:
 upgrade-submodules:
 	@echo "Upgrading git-submodules"
 	git submodule foreach git pull origin master
+
 
 # ------------------------------------------------------------------------------
 # HOMEBREW
