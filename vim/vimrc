@@ -131,11 +131,17 @@ set hidden
 " Highlight current line
 set nocursorline
 
+" Show status line even when only one window is shown
+set laststatus=2
+
 " Show file title
 set title
 
 " Disable beeps
 set visualbell
+
+" Disabled error bells
+set noerrorbells
 
 " Disable startup message and truncate
 set shortmess=atI
@@ -190,6 +196,9 @@ set cindent
 
 " Don't wrap lines
 set nowrap
+
+" Prevent cursor from changing the current column
+set nostartofline
 
 " None of these should be word dividers
 set iskeyword+=_,$,@,%,#
