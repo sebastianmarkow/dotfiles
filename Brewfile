@@ -12,9 +12,9 @@ install vim
 install git
 install git-flow
 install tig
-install mercurial
 
 install ack
+install cloc
 install watch
 install tree
 
