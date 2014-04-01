@@ -18,6 +18,7 @@ install cloc
 install watch
 install tree
 
+install mtr
 install wget
 install w3m
 
