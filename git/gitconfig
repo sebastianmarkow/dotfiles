@@ -120,7 +120,8 @@
   mt = mergetool
 
   pl = pull --ff-only
-  pb = pull --rebase
+  pla = pull --all
+  plb = pull --rebase
 
   p = push
 
