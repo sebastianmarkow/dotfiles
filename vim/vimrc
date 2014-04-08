@@ -246,6 +246,7 @@ set ttimeoutlen=10
 
 " Enable mouse in modes: normal, visual, command-line
 set mouse=nvc
+set ttymouse=xterm2
 
 
 " ------------------------------------------------------------------------------
