@@ -17,7 +17,7 @@
 
 [merge]
   conflictstyle = diff3
-  tool = fugitive
+  tool = vimdiff
 
 [mergetool]
   keepTemporaries = false
