@@ -227,7 +227,7 @@ set pastetoggle=<F1>
 set laststatus=2
 
 " Statusline entries
-set statusline=%<\ %F%([%M%R%H]%)\ %y\ %{fugitive#statusline()}\ %l/%L:%c
+set statusline=%<\ %F%([%M%R%H]%)\ %y\ %l/%L:%c
 
 
 " ------------------------------------------------------------------------------
