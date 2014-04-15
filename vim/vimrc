@@ -51,8 +51,8 @@ set undofile
 set undolevels=1000
 
 " Directories
-set dir=~/tmp
-set undodir=~/tmp
+set dir=~/.tmp/vim
+set undodir=~/.tmp/vim/undo
 
 " Remember last cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |

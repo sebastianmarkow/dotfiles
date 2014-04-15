@@ -1,5 +1,5 @@
 install: install-zsh install-tmux install-git install-hg install-vim \
-	 update-submodules
+	 make-temp-dir update-submodules
 
 update: update-submodules
 
@@ -46,6 +46,10 @@ install-vim:
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
+
+make-temp-dir:
+	@echo "Creating temporary directories"
+	mkdir -p ~/.tmp/vim/undo
 
 
 # ------------------------------------------------------------------------------
