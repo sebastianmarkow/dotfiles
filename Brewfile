@@ -7,7 +7,7 @@ tap homebrew/science
 
 install zsh
 install tmux
-install vim
+install vim --with-lua
 
 install git
 install git-flow
