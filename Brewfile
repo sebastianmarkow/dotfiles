@@ -9,6 +9,7 @@ install zsh
 install tmux
 install vim --with-lua
 
+install mercurial
 install git
 install git-flow
 install tig
