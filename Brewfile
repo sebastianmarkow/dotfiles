@@ -18,9 +18,13 @@ install ack
 install cloc
 install watch
 install tree
+install pv
+install rename
 
 install mtr
+install nmap
 install wget
+install siege
 install w3m
 
 install gnuplot
