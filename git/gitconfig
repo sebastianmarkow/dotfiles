@@ -48,8 +48,14 @@
 [advice]
   statusHints = false
 
+[help]
+  autocorrect = 1
+
 [color]
   ui = true
+
+[apply]
+  whitespace = fix
 
 [alias]
   edit-config = config --global -e
