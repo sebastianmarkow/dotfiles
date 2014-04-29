@@ -95,6 +95,9 @@ set showcmd
 " Show line numbers
 set number
 
+" Line numbers column width
+set numberwidth=5
+
 " Show visible lines around cursor
 set scrolloff=5
 
@@ -148,6 +151,10 @@ set shortmess=atI
 
 " Completion options
 set completeopt-=preview
+
+" New splitwindow orientation
+set splitbelow
+set splitright
 
 
 " ------------------------------------------------------------------------------
