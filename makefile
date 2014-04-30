@@ -1,5 +1,5 @@
 install: install-zsh install-tmux install-git install-hg install-vim \
-	 make-temp-dir update-submodules
+	 install-misc make-temp-dir update-submodules
 
 update: update-submodules
 
@@ -12,6 +12,7 @@ uninstall:
 	rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
 	rm -f ~/.hgrc ~/.hgignore_global
 	rm -rf ~/.vimrc ~/.vim
+	rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
 
 
 # ------------------------------------------------------------------------------
@@ -47,6 +48,13 @@ install-vim:
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
+
+install-misc:
+	@echo "Symlinking misc"
+	rm -rf ~/.wgetrc ~/.ackrc ~/.hushlogin
+	ln -s `pwd`/misc/wgetrc ~/.wgetrc
+	ln -s `pwd`/misc/ackrc ~/.ackrc
+	ln -s `pwd`/misc/hushlogin ~/.hushlogin
 
 make-temp-dir:
 	@echo "Creating temporary directories"

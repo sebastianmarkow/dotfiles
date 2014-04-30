@@ -1,0 +1,9 @@
+--sort-files
+
+--type-add-js=json
+
+--type-set-markdown=markdown,md
+--type-set-coffeescript=coffee
+--type-set-scss=scss
+
+--ignore-dir=node_modules
