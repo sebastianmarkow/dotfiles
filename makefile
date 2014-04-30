@@ -9,8 +9,8 @@ uninstall:
 	@echo "Unlinking files"
 	rm -f ~/.zshrc
 	rm -rf ~/.tmux.conf ~/.tmux
-	rm -f ~/.gitconfig ~/.gitignore-global
-	rm -f ~/.hgignore_global ~/.hgrc
+	rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
+	rm -f ~/.hgrc ~/.hgignore_global
 	rm -rf ~/.vimrc ~/.vim
 
 
@@ -31,9 +31,10 @@ install-tmux:
 
 install-git:
 	@echo "Symlinking git"
-	rm -f ~/.gitconfig ~/.gitignore-global
+	rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
 	ln -s `pwd`/git/gitignore-global ~/.gitignore-global
+	ln -s `pwd`/git/gitmessage ~/.gitmessage
 
 install-hg:
 	@echo "Symlinking hg"

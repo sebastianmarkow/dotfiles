@@ -12,10 +12,17 @@
   excludesfile = ~/.gitignore-global
   whitespace = trailing-space,space-before-tab,blank-at-eof
 
+[commit]
+  template = ~/.gitmessage
+
 [push]
   default = nothing
 
+[pull]
+  rebase = true
+
 [merge]
+  ff = false
   conflictstyle = diff3
   tool = vimdiff
 
@@ -82,9 +89,8 @@
   last = diff -R HEAD^
 
   c = commit -S
-  cm = commit -S -m
-  ca = commit -S -am
-  cd = commit -S --amend -m
+  ca = commit -S -a
+  cd = commit -S --amend
 
   a = add
   ai = add -i
@@ -125,9 +131,8 @@
   ms = merge --skip
   mt = mergetool
 
-  pl = pull --ff-only
+  pl = pull
   pla = pull --all
-  plb = pull --rebase
 
   p = push
 
