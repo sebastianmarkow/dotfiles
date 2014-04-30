@@ -469,6 +469,10 @@ nnoremap <leader>u :GundoToggle<CR>
 " Hack for solarized colorscheme
 hi! link SignColumn Background
 
+let g:gitgutter_enabled = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_realtime = 0
+
 " NeoComplete
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
