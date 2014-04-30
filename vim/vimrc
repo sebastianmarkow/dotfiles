@@ -42,7 +42,7 @@ set spellfile=~/.vim/spell/en.utf-8.add
 set history=1000
 
 " Remember copy register and search patterns
-set viminfo='100,<1000,/1000
+set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
 
 " Keep undo history
 set undofile
@@ -53,6 +53,7 @@ set undolevels=1000
 " Directories
 set dir=~/.tmp/vim
 set undodir=~/.tmp/vim/undo
+set backupdir=~/.tmp/vim/backup
 
 " Remember last cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
@@ -470,4 +471,5 @@ let g:neocomplete#enable_ignore_case = 1
 
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
+inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"

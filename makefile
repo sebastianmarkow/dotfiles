@@ -50,7 +50,9 @@ install-vim:
 
 make-temp-dir:
 	@echo "Creating temporary directories"
+	mkdir -p ~/.tmp/vim
 	mkdir -p ~/.tmp/vim/undo
+	mkdir -p ~/.tmp/vim/backup
 
 
 # ------------------------------------------------------------------------------
