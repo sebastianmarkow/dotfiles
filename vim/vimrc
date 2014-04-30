@@ -102,6 +102,9 @@ set numberwidth=5
 " Show visible lines around cursor
 set scrolloff=5
 
+" Show visible lines around cursor in vertical space
+set sidescrolloff=3
+
 " Always show current position in status bar
 set ruler
 
@@ -228,6 +231,13 @@ set formatoptions=rqnj
 
 " Easy paste toggle
 set pastetoggle=<F1>
+
+
+" ------------------------------------------------------------------------------
+" DIFF
+" ------------------------------------------------------------------------------
+
+set diffopt+=filler,iwhite
 
 
 " ------------------------------------------------------------------------------
@@ -407,9 +417,8 @@ nnoremap <Space> za
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
 
-" Turn off line-deleting
+" Disable command execution
 noremap K <Nop>
-noremap J <Nop>
 
 " Buffer switching
 noremap H :bp<cr>
