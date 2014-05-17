@@ -26,6 +26,7 @@ install mtr
 install nmap
 install wget
 install siege
+install wrk
 install tcpdump
 install w3m
 
