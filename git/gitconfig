@@ -31,14 +31,20 @@
   keepBackup = false
   prompt = false
 
+[mergetool "vimdiff"]
+  prompt = false
+
 [mergetool "kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
 
 [diff]
-  tool = kaleidoscope
+  tool = vimdiff
 
 [difftool]
+  prompt = false
+
+[difftool "vimdiff"]
   prompt = false
 
 [difftool "kaleidoscope"]
