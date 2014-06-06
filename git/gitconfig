@@ -83,9 +83,9 @@
   ss = stash save
   sw = stash show
 
-  d = diff -R
-  dc = diff -R --cached
-  ds = diff -R --staged
+  d = diff
+  dc = diff --cached
+  ds = diff --staged
   dt = difftool
   dtc = difftool --cached
   dts = difftool --staged
