@@ -16,6 +16,7 @@ install git-flow
 install tig
 
 install ack
+install awk
 install cloc
 install watch
 install tree
