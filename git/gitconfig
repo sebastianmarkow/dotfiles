@@ -118,6 +118,7 @@
   grep-group = grep --break --heading --line-number
 
   l = log --graph --oneline
+  la = log --graph --oneline --all
   ll = log --unified
   lc = log --graph --name-status
   local = log --branches --not --remotes
@@ -127,6 +128,7 @@
   today = log --graph --since=1.day --relative-date
   last-week = log --graph --since=1.week --relative-date
   stats = log --stat
+  contrib = shortlog -s -n
 
   m = merge
   ma = merge --abort
