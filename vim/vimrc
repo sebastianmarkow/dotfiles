@@ -391,6 +391,12 @@ noremap <silent> <Leader>i :set list!<CR>
 noremap j gj
 noremap k gk
 
+" Moving line
+nnoremap J :m .+1<cr>
+nnoremap K :m .-2<cr>
+vnoremap J :m '>+1'<cr>gv=gv
+vnoremap K :m '<-2'<cr>gv=gv
+
 " Faster scrolling
 noremap <C-J> 10gj
 noremap <C-K> 10gk
@@ -416,9 +422,6 @@ nnoremap <Space> za
 " Create newlines without leaving normal mode
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
-
-" Disable command execution
-noremap K <Nop>
 
 " Buffer switching
 noremap H :bp<cr>
