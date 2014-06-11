@@ -74,14 +74,3 @@ update-submodules:
 upgrade-submodules:
 	@echo "Upgrading git-submodules"
 	git submodule foreach git pull origin master
-
-
-# ------------------------------------------------------------------------------
-# HOMEBREW
-# ------------------------------------------------------------------------------
-
-brew:
-	@echo "Installing Homebrew"
-	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
-	@echo "Running Brewfile"
-	brew bundle
