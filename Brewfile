@@ -41,6 +41,4 @@ install homebrew/science/r
 install rbenv
 install node
 
-install mongodb
-
 cleanup -s
