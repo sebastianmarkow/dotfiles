@@ -22,6 +22,7 @@ install watch
 install tree
 install pv
 install rename
+install jq
 
 install mtr
 install nmap
