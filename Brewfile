@@ -36,7 +36,7 @@ install gnuplot
 
 install sqlite
 
-install go
+install go --cross-compile-common
 install python3
 install homebrew/science/r
 
