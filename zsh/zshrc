@@ -68,7 +68,7 @@ setopt rm_star_wait
 # HISTORY
 # -----------------------------------------------------------------------------
 
-HISTFILE=~/.zsh_history
+HISTFILE=~/.tmp/zsh/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 

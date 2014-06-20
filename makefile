@@ -61,6 +61,7 @@ make-temp-dir:
 	mkdir -p ~/.tmp/vim
 	mkdir -p ~/.tmp/vim/undo
 	mkdir -p ~/.tmp/vim/backup
+	mkdir -p ~/.tmp/zsh/
 
 
 # ------------------------------------------------------------------------------
