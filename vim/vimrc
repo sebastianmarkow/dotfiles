@@ -97,7 +97,7 @@ set showcmd
 set number
 
 " Line numbers column width
-set numberwidth=5
+set numberwidth=4
 
 " Show visible lines around cursor
 set scrolloff=5
