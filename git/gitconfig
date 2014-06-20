@@ -107,7 +107,7 @@
   bv = branch -v
 
   co = checkout
-  cb = checkout -b
+  cob = checkout -b
 
   cp = cherry-pick -x
 
