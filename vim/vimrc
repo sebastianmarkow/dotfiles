@@ -470,7 +470,7 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " Gitgutter
 " Hack for solarized colorscheme
-hi! link SignColumn Background
+hi! link SignColumn LineNr
 
 let g:gitgutter_enabled = 1
 let g:gitgutter_sign_column_always = 1
