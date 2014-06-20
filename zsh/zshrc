@@ -106,7 +106,7 @@ zstyle ':vcs_info:*' check-for-changes true
 
 zstyle ':vcs_info:*' branchformat '%b'
 zstyle ':vcs_info:*' stagedstr '%F{yellow}●%f'
-zstyle ':vcs_info:*' unstagedstr '%B%F{red}●%f%b'
+zstyle ':vcs_info:*' unstagedstr '%F{red}●%f'
 zstyle ':vcs_info:*' formats '%u%c %b %s'
 zstyle ':vcs_info:*' actionformats '%u%c %a|%b %s'
 
@@ -123,7 +123,7 @@ else
 fi
 
 # prompt
-PROMPT='$prompt_user%B%F{red}${PWD/#$HOME/~}%f%b $prompt_symbol'
+PROMPT='$prompt_user%F{red}${PWD/#$HOME/~}%f $prompt_symbol'
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
