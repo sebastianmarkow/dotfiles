@@ -313,7 +313,7 @@ autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
-" C/CPP
+" C/C++
 autocmd FileType c,cpp setlocal tabstop=8
 autocmd FileType c,cpp setlocal softtabstop=4
 autocmd FileType c,cpp setlocal shiftwidth=4
@@ -333,14 +333,14 @@ autocmd FileType r setlocal tabstop=8
 autocmd FileType r setlocal softtabstop=2
 autocmd FileType r setlocal shiftwidth=2
 
-" Golang
+" Go
 autocmd BufNewFile,BufRead *.go setlocal ft=go
 autocmd FileType go setlocal tabstop=8
 autocmd FileType go setlocal softtabstop=8
 autocmd FileType go setlocal shiftwidth=8
 autocmd FileType go setlocal noexpandtab
 
-" GLSL Shader
+" Shader
 autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
   \ setlocal ft=glsl
 autocmd FileType glsl setlocal tabstop=8
@@ -359,7 +359,7 @@ autocmd FileType markdown setlocal shiftwidth=4
 " Disable colorcolumn
 if exists('+colorcolumn')
   autocmd FileType text,html,markdown,xml,css,sass,less,coffee,javascript,
-    \gitcommit
+    \ gitcommit
     \ setlocal colorcolumn=
 endif
 
