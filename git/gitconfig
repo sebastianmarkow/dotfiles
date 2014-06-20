@@ -14,6 +14,7 @@
 
 [commit]
   template = ~/.gitmessage
+  gpgsign = true
 
 [push]
   default = nothing
@@ -91,9 +92,9 @@
   dts = difftool --staged
   last = diff -R HEAD^
 
-  c = commit -S
-  ca = commit -S -a
-  cd = commit -S --amend
+  c = commit
+  ca = commit -a
+  cd = commit --amend
 
   a = add
   ai = add -i
