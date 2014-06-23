@@ -33,18 +33,11 @@
 [mergetool "vimdiff"]
   prompt = false
 
-[mergetool "kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-
 [diff]
   tool = vimdiff
 
 [difftool "vimdiff"]
   prompt = false
-
-[difftool "kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [log]
   abbrevCommit = true
