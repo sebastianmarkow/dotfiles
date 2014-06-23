@@ -1,6 +1,8 @@
 update
 upgrade
+
 prune -s
+
 doctor
 
 tap homebrew/dupes
