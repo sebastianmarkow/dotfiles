@@ -26,6 +26,7 @@
   autosquash = true
 
 [merge]
+  log = true
   ff = false
   conflictstyle = diff3
   tool = vimdiff
