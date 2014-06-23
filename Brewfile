@@ -6,6 +6,10 @@ doctor
 tap homebrew/dupes
 tap homebrew/science
 
+install coreutils
+install moreutils
+install findutils
+
 install zsh
 install tmux
 install vim --with-lua
