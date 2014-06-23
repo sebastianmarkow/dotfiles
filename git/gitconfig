@@ -22,15 +22,13 @@
 [pull]
   rebase = true
 
+[rebase]
+  autosquash = true
+
 [merge]
   ff = false
   conflictstyle = diff3
   tool = vimdiff
-
-[mergetool]
-  keepTemporaries = false
-  keepBackup = false
-  prompt = false
 
 [mergetool "vimdiff"]
   prompt = false
@@ -41,9 +39,6 @@
 
 [diff]
   tool = vimdiff
-
-[difftool]
-  prompt = false
 
 [difftool "vimdiff"]
   prompt = false
