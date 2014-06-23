@@ -21,6 +21,8 @@ install git
 install git-flow
 install tig
 
+install homebrew/dupes/grep
+install homebrew/dupes/less
 install ack
 install awk
 install cloc
