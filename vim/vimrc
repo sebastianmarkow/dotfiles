@@ -363,10 +363,6 @@ if exists('+colorcolumn')
     \ setlocal colorcolumn=
 endif
 
-" Writing
-autocmd FileType text,markdown,gitcommit
-  \ setlocal spell nocindent nolinebreak nowrap colorcolumn=
-
 
 " ------------------------------------------------------------------------------
 " KEYS
