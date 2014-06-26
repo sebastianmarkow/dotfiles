@@ -1,5 +1,5 @@
-install: install-zsh install-tmux install-git install-hg install-vim \
-	 install-misc make-temp-dir update-submodules
+install: install-zsh install-tmux install-git install-vim install-misc \
+	make-temp-dir update-submodules
 
 update: update-submodules
 
@@ -36,12 +36,6 @@ install-git:
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
 	ln -s `pwd`/git/gitignore-global ~/.gitignore-global
 	ln -s `pwd`/git/gitmessage ~/.gitmessage
-
-install-hg:
-	@echo "Symlinking hg"
-	rm -f ~/.hgignore_global ~/.hgrc
-	ln -s `pwd`/hg/hgrc ~/.hgrc
-	ln -s `pwd`/hg/hgignore_global ~/.hgignore_global
 
 install-vim:
 	@echo "Symlinking vim"
