@@ -1,476 +1,9 @@
-" Turn off vi compatibility
-set nocompatible
-
-
-" ------------------------------------------------------------------------------
-" PATHOGEN
-" ------------------------------------------------------------------------------
-
-runtime bundle/pathogen/autoload/pathogen.vim
-exe pathogen#infect()
-exe pathogen#helptags()
-
-
-" ------------------------------------------------------------------------------
-" BASICS
-" ------------------------------------------------------------------------------
-
-" Enable detection
-filetype plugin on
-filetype indent on
-
-" Read file if it is changed from the outside
-set autoread
-
-" Disable modelines
-set modelines=0
-
-" Disable spell-checking
-set nospell
-
-" If we set local spellchecking than we use english
-set spelllang=en
-
-" Custom spellfile
-set spellfile=~/.vim/spell/en.utf-8.add
-
-" ------------------------------------------------------------------------------
-" History
-" ------------------------------------------------------------------------------
-
-" Keep history of commands/searches
-set history=1000
-
-" Remember copy register and search patterns
-set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
-
-" Keep undo history
-set undofile
-
-" How many levels of undo history to keep
-set undolevels=1000
-
-" Directories
-set dir=~/.tmp/vim
-set undodir=~/.tmp/vim/undo
-set backupdir=~/.tmp/vim/backup
-
-" Remember last cursor position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
-  \ exe "normal! g'\"" | endif
-
-" ------------------------------------------------------------------------------
-" BACKUPS
-" ------------------------------------------------------------------------------
-
-" Disable backups
-set nobackup
-set nowritebackup
-set noswapfile
-
-
-" ------------------------------------------------------------------------------
-" FILES
-" ------------------------------------------------------------------------------
-
-" Default fileencoding
-set encoding=utf-8
-
-" Default fileformat
-set fileformat=unix
-
-" Fileformat order
-set fileformats=unix,dos,mac
-
-
-" ------------------------------------------------------------------------------
-" INTERFACE
-" ------------------------------------------------------------------------------
-
-" Show mode in status bar (insert, replace, ...)
-set showmode
-
-" Show typed command in status bar
-set showcmd
-
-" Show line numbers
-set number
-
-" Line numbers column width
-set numberwidth=4
-
-" Show visible lines around cursor
-set scrolloff=5
-
-" Show visible lines around cursor in vertical space
-set sidescrolloff=3
-
-" Always show current position in status bar
-set ruler
-
-" Set command bar height
-set cmdheight=1
-
-" Ignore case when searching
-set ignorecase
-
-" Try to be smart about cases while searching
-set smartcase
-
-" Highlight search results
-set hlsearch
-
-" Highlight search string while typing it
-set incsearch
-
-" Show matching brackets if cursor is hovering over them
-set showmatch
-
-" Reduces matching brackets blink time from 500ms to 200ms (1/10 * n)
-set matchtime=2
-
-" Don't show fold column
-set foldcolumn=0
-
-" Hide unsaved buffer
-set hidden
-
-" Highlight current line
-set nocursorline
-
-" Show status line even when only one window is shown
-set laststatus=2
-
-" Show file title
-set title
-
-" Disable beeps
-set visualbell
-
-" Disabled error bells
-set noerrorbells
-
-" Disable startup message and truncate
-set shortmess=atI
-
-" Completion options
-set completeopt-=preview
-
-" New splitwindow orientation
-set splitbelow
-set splitright
-
-
-" ------------------------------------------------------------------------------
-" EDITING
-" ------------------------------------------------------------------------------
-
-" Change the way backslashes are used in search patterns
-set magic
-
-" Substitution are global
-set gdefault
-
-" Wraparound with h,l
-set whichwrap+=<,>,h,l
-
-" Backspace behavior like it should
-set backspace=2
-
-" Use spaces instead of tabs
-set expandtab
-
-" Be smart when using tabs
-set smarttab
-
-" Number of spaces a tab counts for
-set tabstop=8
-
-" Spaces for autoindents
-set softtabstop=2
-set shiftwidth=2
-
-" Identing by a multiple of shiftwidth
-set shiftround
-
-" Linebreak
-set nolinebreak
-
-" ... at n characters
-set textwidth=79
-
-" On new lines, match indent of previous line
-set autoindent
-
-" Copy the previous indentation on autoindenting
-set copyindent
-
-" Smart indenting for c-like code
-set cindent
-
-" Don't wrap lines
-set nowrap
-
-" Prevent cursor from changing the current column
-set nostartofline
-
-" None of these should be word dividers
-set iskeyword+=_,$,@,%,#
-
-" Show invisible characters
-set listchars=tab:▸\ ,eol:¬,trail:⋅,extends:»,precedes:«
-set showbreak=↪\ \ 
-
-" Show colored column at textwidth + 1
-if exists('+colorcolumn')
-  set colorcolumn=+1
-endif
-
-" Options for formatting text
-set formatoptions=rqnj
-
-" Easy paste toggle
-set pastetoggle=<F1>
-
-
-" ------------------------------------------------------------------------------
-" DIFF
-" ------------------------------------------------------------------------------
-
-set diffopt+=filler,iwhite
-
-
-" ------------------------------------------------------------------------------
-" STATUSLINE
-" ------------------------------------------------------------------------------
-
-" Always show the status line
-set laststatus=2
-
-" Statusline entries
-set statusline=%<\ %F%([%M%R%H]%)\ %y\ %l/%L:%c
-
-
-" ------------------------------------------------------------------------------
-" TIMEOUT
-" ------------------------------------------------------------------------------
-
-" Sane terminal vim
-set notimeout
-set ttimeout
-set ttimeoutlen=10
-
-
-" ------------------------------------------------------------------------------
-" MOUSE
-" ------------------------------------------------------------------------------
-
-" Enable mouse in modes: normal, visual, command-line
-set mouse=nvc
-set ttymouse=xterm2
-
-
-" ------------------------------------------------------------------------------
-" COLORS
-" ------------------------------------------------------------------------------
-
-" Enable syntax hightlighting
-syntax on
-
-" Colorscheme
-try
-    set background=dark
-    let g:solarized_visibility="high"
-    colorscheme solarized
-catch
-endtry
-
-
-" ------------------------------------------------------------------------------
-" WILDMENU
-" ------------------------------------------------------------------------------
-
-" Enable wild menu with bash completion style
-set wildmenu
-set wildmode=longest:full
-
-" Common ignores
-set wildignore+=*.o,*.so,*.pyc
-set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
-set wildignore+=*.pdf,*.epub
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai
-set wildignore+=*.db,*.sqlite
-set wildignore+=.DS_Store
-
-
-" ------------------------------------------------------------------------------
-" FILETYPES
-" ------------------------------------------------------------------------------
-
-" Python
-autocmd FileType python setlocal tabstop=8
-autocmd FileType python setlocal softtabstop=4
-autocmd FileType python setlocal shiftwidth=4
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
-" C/C++
-autocmd FileType c,cpp setlocal tabstop=8
-autocmd FileType c,cpp setlocal softtabstop=4
-autocmd FileType c,cpp setlocal shiftwidth=4
-
-" Objective-C
-autocmd FileType objc setlocal tabstop=8
-autocmd FileType objc setlocal softtabstop=4
-autocmd FileType objc setlocal shiftwidth=4
-
-" Haskell
-autocmd FileType haskell setlocal tabstop=8
-autocmd FileType haskell setlocal softtabstop=4
-autocmd FileType haskell setlocal shiftwidth=4
-
-" R
-autocmd FileType r setlocal tabstop=8
-autocmd FileType r setlocal softtabstop=2
-autocmd FileType r setlocal shiftwidth=2
-
-" Go
-autocmd BufNewFile,BufRead *.go setlocal ft=go
-autocmd FileType go setlocal tabstop=8
-autocmd FileType go setlocal softtabstop=8
-autocmd FileType go setlocal shiftwidth=8
-autocmd FileType go setlocal noexpandtab
-
-" Shader
-autocmd BufNewFile,BufRead *.frag,*.fragment,*.vert,*.vertex,*.shader,*.glsl
-  \ setlocal ft=glsl
-autocmd FileType glsl setlocal tabstop=8
-autocmd FileType glsl setlocal softtabstop=4
-autocmd FileType glsl setlocal shiftwidth=4
-
-" Json
-autocmd BufNewFile,BufRead *.json setlocal ft=javascript
-
-" Markdown
-au BufRead,BufNewFile *.md set filetype=markdown
-autocmd FileType markdown setlocal tabstop=8
-autocmd FileType markdown setlocal softtabstop=4
-autocmd FileType markdown setlocal shiftwidth=4
-
-" Disable colorcolumn
-if exists('+colorcolumn')
-  autocmd FileType text,html,markdown,xml,css,sass,less,coffee,javascript,
-    \gitcommit
-    \ setlocal colorcolumn=
-endif
-
-
-" ------------------------------------------------------------------------------
-" KEYS
-" ------------------------------------------------------------------------------
-
-" `\` no thank you
-let mapleader = ","
-let g:maploader = ","
-
-" Sudo !!
-cnoremap w!! w !sudo tee % > /dev/null
-
-" Shortcut for quiting all, closing and saving
-nnoremap <leader>q :qa<cr>
-nnoremap <leader>c :close<cr>
-nnoremap <leader>w :w!<cr>
-
-" Toggle invisible characters
-noremap <silent> <Leader>i :set list!<CR>
-
-" Treat wrapped lines as seperate
-noremap j gj
-noremap k gk
-
-" Moving line
-nnoremap J :m .+1<cr>
-nnoremap K :m .-2<cr>
-vnoremap J :m '>+1'<cr>gv=gv
-vnoremap K :m '<-2'<cr>gv=gv
-
-" Faster scrolling
-noremap <C-J> 10gj
-noremap <C-K> 10gk
-
-" Make C-Y & C-E a little faster
-noremap <C-E> 2<C-E>
-noremap <C-Y> 2<C-Y>
-
-" Disable highlighting
-noremap <leader><space> :noh<cr>
-
-" Easy indent
-nnoremap < <<
-nnoremap > >>
-
-" Fix regex
-nnoremap / /\v
-vnoremap / /\v
-
-" Fold toggle
-nnoremap <Space> za
-
-" Create newlines without leaving normal mode
-nnoremap <silent> zj o<Esc>k
-nnoremap <silent> zk O<Esc>j
-
-" Buffer switching
-noremap H :bp<cr>
-noremap L :bn<cr>
-
-" Switch to new split window
-nnoremap <silent> <C-W>s <C-W>s<C-W>j
-nnoremap <silent> <C-W>v <C-W>v<C-W>l
-
-" Disable arrow key
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-nnoremap <Right> <NOP>
-
-
-" ------------------------------------------------------------------------------
-" FUNCTIONS
-" ------------------------------------------------------------------------------
-
-" Zoom splits on window resize
-au VimResized * :wincmd =
-
-" Disable paste mode after leaving insert mode
-au InsertLeave * set nopaste
-
-
-" ------------------------------------------------------------------------------
-" PLUGINS
-" ------------------------------------------------------------------------------
-
-" Gundo
-let g:gundo_width=30
-let g:gundo_preview_height=15
-let g:gundo_preview_bottom=1
-let g:gundo_help=0
-let g:gundo_close_on_revert=1
-let g:gundo_tree_statusline="Undo"
-let g:gundo_preview_statusline="Diff"
-
-nnoremap <leader>u :GundoToggle<CR>
 
 " Gitgutter
-" Hack for solarized colorscheme
-hi! link SignColumn LineNr
-
 let g:gitgutter_enabled = 1
 let g:gitgutter_sign_column_always = 1
-let g:gitgutter_realtime = 0
+let g:gitgutter_realtime = 1
+hi! link SignColumn LineNr
 
 " NeoComplete
 let g:acp_enableAtStartup = 0
@@ -480,7 +13,239 @@ let g:neocomplete#max_list = 25
 let g:neocomplete#max_keyword_width = 80
 let g:neocomplete#min_keyword_length = 4
 let g:neocomplete#enable_ignore_case = 1
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
+inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+set noexrc
 
+" Encoding
+scriptencoding utf-8
+
+" Pathogen
+runtime bundle/pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+Helptag " help for plugins
+
+" Basics
+set nocompatible " turn off vi-compatible mode
+filetype plugin indent on " turn on plugins and indentation
+syntax on " turn on syntax
+
+" Files
+set fileencoding=utf-8
+set fileformats=unix,dos,mac
+set fileformat=unix
+set autoread " reflect changes made from outside
+set nomodeline " no modelines for us
+
+" History, undo and backups
+set directory=~/.tmp/vim
+set undodir=~/.tmp/vim/undo
+set backupdir=~/.tmp/vim/backup
+set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
+set undofile
+set undolevels=1000
+set history=1000
+set backup
+
+" Interface
+set showmode " show current mode (insert, visual, etc)
+set showcmd " show command as you type it
+set title " show file title
+set nofoldenable " disable folding
+set number " show line numbers
+set numberwidth=4 " width of number column
+set cmdheight=1 " command bar height
+set laststatus=2 " always show the status line
+set scrolloff=5 " number of vertical lines visible around cursor
+set sidescrolloff=5 " number of horizontal lines visible around cursor
+set showmatch " show matching brackets if cursor is hovering over them
+set matchtime=2 " matching brackets blink time (1/10 * n)
+set hidden " hide unsaved buffer
+set splitbelow " new horizontal split on lower screen
+set splitright " new vertical split on right screen
+set lazyredraw " do not redraw during macros
+set linespace=0 " no extra pixels between rows
+set statusline=%<\ %F%([%M%R%H]%)\ %y\ %l/%L:%c
+"               |   |    | | |      |   |  |  |
+"               |   |    | | |      |   |  |  +-- column number
+"               |   |    | | |      |   |  +----- total number of lines
+"               |   |    | | |      |   +-------- line number
+"               |   |    | | |      +------------ type of file
+"               |   |    | | +------------------- help buffer flag
+"               |   |    | +--------------------- readonly flag
+"               |   |    +----------------------- modified flag
+"               |   +---------------------------- full path of file in buffer
+"               +-------------------------------- truncate from the left
+
+set completeopt=menuone
+"                  |
+"                  +-- show popup menu if there's only one item
+
+set shortmess=atIOTs
+"             ||||||
+"             |||||+-- no search hit end message
+"             ||||+--- truncate message in the middle of the screen
+"             |||+---- no message reading a file
+"             ||+----- no intro message at startup
+"             |+------ truncate message at the beginning
+"             +------- use abbreviation
+
+" Searching
+set ignorecase " ignore case while searching
+set infercase " case infered by default
+set smartcase " if there are caps, go case-sensitive
+set hlsearch " highlight search results
+set incsearch " highlight search string while typing it
+set magic " use backslashes for magic characters while searching
+
+" Editing
+set gdefault " substitute globally by default
+set whichwrap+=h,l " vi keys wrap around lines
+set backspace=2 " backspace across lines
+set textwidth=0 " no auto-wrapping
+set tabstop=8 " number of spaces a tab counts for
+set softtabstop=4 " number of spaces while indenting
+set shiftwidth=4 " number of spaces while shifting
+set expandtab " use spaces rather than tabs
+set smarttab " handle spaces like tabs while deleting them
+set shiftround " round shifts to a multiple of shiftwidth
+set nowrap " don't wrap lines
+set autoindent " auto indent next line
+set copyindent " use the same indentation for autoindent
+set nostartofline " cursor stays at same column while moving horizontal
+set nolist " show invisble characters
+set listchars=tab:▸\ ,trail:⋅,eol:¬,extends:»,precedes:«
+set formatoptions=rqnj
+"                 ||||
+"                 |||+-- remove comment leader when joining lines
+"                 ||+--- recognize numbered lists
+"                 |+---- allow formatting comments
+"                 +----- add comment leader after hitting enter
+
+" Timeouts
+set notimeout
+set ttimeout
+set ttimeoutlen=500
+set ttyfast
+set t_ut= " no background redraw
+
+" Mouse
+if has("mouse")
+    set ttymouse=xterm2 " modern mouse
+    set mousehide " hide mouse pointer
+    set mouse=nvc " enable mouse in
+    "         |||
+    "         ||+-- commandline mode
+    "         |+--- visual mode
+    "         +---- normal mode
+endif
+
+" Colors
+try
+    set background=dark
+    let g:solarized_visibility="high"
+    colorscheme solarized
+catch
+endtry
+
+" Menu
+set wildmenu " enable filepath completion in the command bar
+set wildmode=longest:full
+set wildignore+=*.o,*.so,*.pyc
+set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
+set wildignore+=*.pdf,*.epub
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai
+set wildignore+=*.db,*.sqlite
+set wildignore+=.DS_Store
+
+" Mapleader
+let mapleader = "," " `\` no thank you
+
+" Keys
+set pastetoggle=<F1> " unedit paste toggle
+cnoremap w!! w !sudo tee % > /dev/null
+nnoremap <leader>q :qa<cr>
+nnoremap <leader>c :close<cr>
+nnoremap <leader>w :w!<cr>
+noremap <leader><space> :noh<cr>
+noremap <silent> <Leader>i :set list!<CR>
+noremap j gj
+noremap k gk
+noremap <C-J> 10gj
+noremap <C-K> 10gk
+noremap H :bp<cr>
+noremap L :bn<cr>
+nnoremap J :m .+1<cr>
+nnoremap K :m .-2<cr>
+vnoremap J :m '>+1'<cr>gv=gv
+vnoremap K :m '<-2'<cr>gv=gv
+nnoremap < <<
+nnoremap > >>
+nnoremap / /\v
+vnoremap / /\v
+nnoremap Y y$
+nnoremap <silent> <C-W>s <C-W>s<C-W>j
+nnoremap <silent> <C-W>v <C-W>v<C-W>l
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
+" Filetypes
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+autocmd BufNewFile,BufRead *.go setlocal filetype=go
+autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
+autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
+
+" 2 spaces
+autocmd FileType html,css,javascript,ruby setlocal softtabstop=2 shiftwidth=2
+
+" Tabs
+autocmd FileType make,go,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
+
+" Enable colorcolumn
+if exists('+colorcolumn')
+    autocmd FileType python
+        \ setlocal colorcolumn=80
+endif
+
+" Reset cursor to last position
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+            \ exe "normal! g'\"" | endif
+
+" Trigger
+autocmd InsertLeave * set nopaste " disable paste mode after leaving insert mode
+
+" Gundo
+let g:gundo_width=30
+let g:gundo_preview_height=15
+let g:gundo_preview_bottom=1
+let g:gundo_help=0
+let g:gundo_close_on_revert=1
+let g:gundo_tree_statusline="Undo"
+let g:gundo_preview_statusline="Diff"
+nnoremap <leader>u :GundoToggle<CR>
+
+" Gitgutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_realtime = 1
+hi! link SignColumn LineNr
+
+" NeoComplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#max_list = 25
+let g:neocomplete#max_keyword_width = 80
+let g:neocomplete#min_keyword_length = 4
+let g:neocomplete#enable_ignore_case = 1
 inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
 inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
