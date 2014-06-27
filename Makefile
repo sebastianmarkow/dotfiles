@@ -1,71 +1,58 @@
-install: install-zsh install-tmux install-git install-vim install-misc \
-	make-temp-dir update-submodules
+.PHONY: init-submodules pull-submodules uninstall
 
-update: update-submodules
+install: install-zsh install-tmux install-git install-vim install-misc make-temp-dir init-submodules
 
-upgrade: upgrade-submodules
-
-uninstall:
-	@echo "Unlinking files"
-	rm -f ~/.zshrc
-	rm -rf ~/.tmux.conf ~/.tmux
-	rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
-	rm -f ~/.hgrc ~/.hgignore_global
-	rm -rf ~/.vimrc ~/.vim
-	rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
-
-
-# ------------------------------------------------------------------------------
-# CONFIG
-# ------------------------------------------------------------------------------
 
 install-zsh:
-	@echo "Symlinking zsh"
-	rm -rf ~/.zshrc
-	ln -s `pwd`/zsh/zshrc ~/.zshrc
+	@rm -rf ~/.zshrc
+	@ln -s `pwd`/zsh/zshrc ~/.zshrc
+	@echo "Symlinked zsh config"
 
 install-tmux:
-	@echo "Symlinking tmux"
-	rm -rf ~/.tmux ~/.tmux.conf
-	ln -s `pwd`/tmux ~/.tmux
-	ln -s `pwd`/tmux/tmux.conf ~/.tmux.conf
+	@rm -rf ~/.tmux ~/.tmux.conf
+	@ln -s `pwd`/tmux ~/.tmux
+	@ln -s `pwd`/tmux/tmux.conf ~/.tmux.conf
+	@echo "Symlinked tmux config"
 
 install-git:
-	@echo "Symlinking git"
-	rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
-	ln -s `pwd`/git/gitconfig ~/.gitconfig
-	ln -s `pwd`/git/gitignore-global ~/.gitignore-global
-	ln -s `pwd`/git/gitmessage ~/.gitmessage
+	@rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
+	@ln -s `pwd`/git/gitconfig ~/.gitconfig
+	@ln -s `pwd`/git/gitignore-global ~/.gitignore-global
+	@ln -s `pwd`/git/gitmessage ~/.gitmessage
+	@echo "Symlinked git config"
 
 install-vim:
-	@echo "Symlinking vim"
-	rm -rf ~/.vim ~/.vimrc
-	ln -s `pwd`/vim ~/.vim
-	ln -s `pwd`/vim/vimrc ~/.vimrc
+	@rm -rf ~/.vim ~/.vimrc
+	@ln -s `pwd`/vim ~/.vim
+	@ln -s `pwd`/vim/vimrc ~/.vimrc
+	@echo "Symlinked vim config"
 
 install-misc:
-	@echo "Symlinking misc"
-	rm -rf ~/.wgetrc ~/.ackrc ~/.hushlogin
-	ln -s `pwd`/misc/wgetrc ~/.wgetrc
-	ln -s `pwd`/misc/ackrc ~/.ackrc
-	ln -s `pwd`/misc/hushlogin ~/.hushlogin
+	@rm -rf ~/.wgetrc ~/.ackrc ~/.hushlogin
+	@ln -s `pwd`/misc/wgetrc ~/.wgetrc
+	@ln -s `pwd`/misc/ackrc ~/.ackrc
+	@ln -s `pwd`/misc/hushlogin ~/.hushlogin
+	@echo "Symlinked misc config"
 
 make-temp-dir:
-	@echo "Creating temporary directories"
-	mkdir -p ~/.tmp/vim
-	mkdir -p ~/.tmp/vim/undo
-	mkdir -p ~/.tmp/vim/backup
-	mkdir -p ~/.tmp/zsh/
+	@mkdir -p ~/.tmp/vim
+	@mkdir -p ~/.tmp/vim/undo
+	@mkdir -p ~/.tmp/vim/backup
+	@mkdir -p ~/.tmp/zsh/
+	@echo "Created temp directories"
 
-
-# ------------------------------------------------------------------------------
-# SUBMODULE
-# ------------------------------------------------------------------------------
-
-update-submodules:
-	@echo "Updating git-submodules"
-	git submodule update --init --recursive
+init-submodules:
+	@echo "Initiating submodules"
+	@git submodule update --init --recursive
 	
-upgrade-submodules:
-	@echo "Upgrading git-submodules"
-	git submodule foreach git pull origin master
+pull-submodules:
+	@echo "Pulling in changes from submodules"
+	@git submodule foreach git pull origin master
+
+uninstall:
+	@rm -f ~/.zshrc
+	@rm -rf ~/.tmux.conf ~/.tmux
+	@rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
+	@rm -rf ~/.vimrc ~/.vim
+	@rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
+	@echo "Removed linked config"
