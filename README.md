@@ -1,6 +1,6 @@
 # dotfiles
 
-A heavily opinionated set of dotfiles. (git, hg, vim, zsh & tmux)
+A heavily opinionated set of dotfiles (git, vim, zsh & tmux).
 
 ## Requirements
 
