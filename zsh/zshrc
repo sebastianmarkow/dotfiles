@@ -1,9 +1,7 @@
-# -----------------------------------------------------------------------------
-# BASICS
-# -----------------------------------------------------------------------------
-
+# Path
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
+# Term
 export TERM="xterm-256color"
 
 # editing
@@ -11,33 +9,20 @@ export LESS="--ignore-case --raw-control-chars"
 export PAGER="less"
 export EDITOR="vim"
 export VISUAL="vim"
-
-# grep
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="3,33"
 
-# vars
+# Vars
 LOGNAME=$(id -un)
 UNAME=$(uname)
-HOSTFILE=~/.ssh/known_hosts
 
-
-# -----------------------------------------------------------------------------
-# MODULES
-# -----------------------------------------------------------------------------
-
+# Modules
 autoload -U compinit && compinit
 autoload -U colors && colors
 autoload -Uz vcs_info
-
 zmodload -i zsh/complist
 
-
-# -----------------------------------------------------------------------------
-# OPTIONS
-# -----------------------------------------------------------------------------
-
-# general
+# General
 setopt no_beep
 setopt correct
 setopt auto_cd
@@ -47,27 +32,23 @@ setopt zle
 setopt vi
 setopt prompt_subst
 
-# glob
+# Glob
 setopt glob_complete
 setopt extended_glob
 setopt no_case_glob
 setopt numeric_glob_sort
 
-# pushd
+# Pushd
 setopt auto_pushd
 setopt pushd_minus
 setopt pushd_silent
 setopt pushd_to_home
 setopt pushd_ignore_dups
 
-# safety
+# Safety
 setopt rm_star_wait
 
-
-# -----------------------------------------------------------------------------
-# HISTORY
-# -----------------------------------------------------------------------------
-
+# History
 HISTFILE=~/.tmp/zsh/zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -82,12 +63,7 @@ setopt hist_verify
 setopt inc_append_history
 setopt share_history
 
-
-# -----------------------------------------------------------------------------
-# APPEARANCE
-# -----------------------------------------------------------------------------
-
-# lscolors
+# Colors
 if [[ $UNAME == Linux ]]; then
   export LS_COLORS="di=32;40:ln=35;40:so=36;40:pi=33;40:ex=31;40:bd=34;"\
 "46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
@@ -99,39 +75,31 @@ if [[ $UNAME == Darwin ]]; then
   export HOMEBREW_NO_EMOJI=1
 fi
 
-# version control
+# Version control
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:*' check-for-changes true
 
+zstyle ':vcs_info:*' formats '%u%c %b'
+zstyle ':vcs_info:*' actionformats '%u%c %a|%b'
 zstyle ':vcs_info:*' branchformat '%b'
 zstyle ':vcs_info:*' stagedstr '%F{yellow}●%f'
 zstyle ':vcs_info:*' unstagedstr '%F{red}●%f'
-zstyle ':vcs_info:*' formats '%u%c %b'
-zstyle ':vcs_info:*' actionformats '%u%c %a|%b'
 
-precmd() {
-  vcs_info
-}
+# Prompt
 
-[[ "$SSH_CONNECTION" != '' ]] && prompt_user='%n@%m '
+[[ $SSH_CONNECTION != '' ]] && prompt_user='%n@%m '
 
-if [[ "$LOGNAME" == 'root' ]]; then
+if [[ $LOGNAME == 'root' ]]; then
   prompt_symbol='# '
 else
   prompt_symbol='$ '
 fi
 
-# prompt
 PROMPT='$prompt_user%F{red}${PWD/#$HOME/~}%f $prompt_symbol'
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
-
-# -----------------------------------------------------------------------------
-# COMPLETION
-# -----------------------------------------------------------------------------
-
+# Completion
 unsetopt menu_complete
 unsetopt flowcontrol
 
@@ -154,27 +122,17 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
 
-# -----------------------------------------------------------------------------
-# BINDINGS
-# -----------------------------------------------------------------------------
-
+# Keys
 bindkey "^R" history-incremental-search-backward
 
-# -----------------------------------------------------------------------------
-# ALIASES
-# -----------------------------------------------------------------------------
-
+# Aliases
 alias ls="ls -GFh"
 alias ll="ls -GFhl"
 
 alias vi="vim"
 alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
 
-
-# -----------------------------------------------------------------------------
-# FUNCTIONS
-# -----------------------------------------------------------------------------
-
+# Functions
 function extract () {
   if [ -f $1 ]; then
     case $1 in
@@ -194,12 +152,7 @@ function extract () {
   fi
 }
 
-
-# -----------------------------------------------------------------------------
-# LOCAL
-# -----------------------------------------------------------------------------
-
+# Local
 if [[ -r ~/.localrc ]]; then
   source ~/.localrc
 fi
-
