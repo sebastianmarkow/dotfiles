@@ -1,22 +1,4 @@
-
-" Gitgutter
-let g:gitgutter_enabled = 1
-let g:gitgutter_sign_column_always = 1
-let g:gitgutter_realtime = 1
-hi! link SignColumn LineNr
-
-" NeoComplete
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#max_list = 25
-let g:neocomplete#max_keyword_width = 80
-let g:neocomplete#min_keyword_length = 4
-let g:neocomplete#enable_ignore_case = 1
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
-inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" No, no, no!
 set noexrc
 
 " Encoding
@@ -45,8 +27,8 @@ set undodir=~/.tmp/vim/undo
 set backupdir=~/.tmp/vim/backup
 set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
 set undofile
-set undolevels=1000
-set history=1000
+set undolevels=100
+set history=100
 set backup
 
 " Interface
