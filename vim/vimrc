@@ -52,6 +52,7 @@ set backup
 " Interface
 set showmode " show current mode (insert, visual, etc)
 set showcmd " show command as you type it
+set ruler " show cursor position
 set title " show file title
 set nofoldenable " disable folding
 set number " show line numbers
