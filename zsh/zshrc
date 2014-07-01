@@ -138,6 +138,7 @@ function extract () {
     case $1 in
       *.tar.bz2)  tar -jxvf $1                        ;;
       *.tar.gz)   tar -zxvf $1                        ;;
+      *.tar.xz)   tar -xvfJ $1                        ;;
       *.bz2)      bunzip2 $1                          ;;
       *.gz)       gunzip $1                           ;;
       *.tar)      tar -xvf $1                         ;;
