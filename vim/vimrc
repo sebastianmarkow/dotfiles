@@ -194,13 +194,11 @@ autocmd FileType make,go,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
 
 " Enable colorcolumn
 if exists('+colorcolumn')
-    autocmd FileType python
-        \ setlocal colorcolumn=80
+    autocmd FileType python setlocal colorcolumn=80
 endif
 
 " Reset cursor to last position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
-            \ exe "normal! g'\"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger
 autocmd InsertLeave * set nopaste " disable paste mode after leaving insert mode
