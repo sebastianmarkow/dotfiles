@@ -45,9 +45,10 @@ install sqlite
 
 install go --cross-compile-common
 install python3
+install haskell-platform
 install homebrew/science/r
 
 install rbenv
 install node
 
-cleanup -s
+cleanup -s --force
