@@ -107,8 +107,8 @@
 
   grep-group = grep --break --heading --line-number
 
-  l = log --graph --pretty=format:'%C(red)%h%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
-  la = log --graph --all --pretty=format:'%C(red)%h%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
+  l = log --graph --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
+  la = log --graph --all --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
   ll = log --unified
   lc = log --graph --name-status
   local = log --branches --not --remotes
