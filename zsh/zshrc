@@ -110,6 +110,8 @@ if [[ $UNAME == Darwin ]]; then
   export HOMEBREW_NO_EMOJI=1
 fi
 
+export LS_OPTIONS="--color=auto"
+
 # Version control
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
@@ -136,8 +138,8 @@ SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 bindkey "^r" history-incremental-search-backward
 
 # Aliases
-alias ls="ls -GFh --color=auto"
-alias ll="ls -GFhl --color=auto"
+alias ls="ls -GFh"
+alias ll="ls -GFhl"
 alias vi="vim"
 alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
 
