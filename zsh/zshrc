@@ -6,7 +6,7 @@ export TERM="xterm-256color"
 
 # editing
 export PAGER="less"
-export LESS="--ignore-case --raw-control-chars --quit-if-one-screen --chop-long-lines --LONG-PROMPT --SILENT"
+export LESS="--ignore-case --raw-control-chars --chop-long-lines --LONG-PROMPT --SILENT"
 export EDITOR="vim"
 export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
