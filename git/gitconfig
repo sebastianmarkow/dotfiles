@@ -61,9 +61,8 @@
   edit-config = config --global -e
   tig = !tig
 
-  s = status
-  sb = status -s -b
-  ignored = status --ignored
+  s = status -s -b -u
+  ignored = status -s --ignored
 
   sa = stash apply
   sc = stash clear
