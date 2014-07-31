@@ -1,44 +1,54 @@
-# Path
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
 # Term
 export TERM="xterm-256color"
 
 # editing
-export LESS="--ignore-case --raw-control-chars"
 export PAGER="less"
+export LESS="--ignore-case --raw-control-chars"
 export EDITOR="vim"
-export VISUAL="vim"
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="3,33"
+export VISUAL=$EDITOR
+export USE_EDITOR=$EDITOR
+
+# History
+export HISTFILE=~/.tmp/zsh/zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 # Vars
-LOGNAME=$(id -un)
-UNAME=$(uname)
+export LOGNAME=$(id -un)
+export UNAME=$(uname)
+
+# Report CPU time
+export REPORTTIME=10
 
 # Modules
-autoload -U compinit && compinit
-autoload -U colors && colors
+autoload -Uz compinit && compinit
+autoload -Uz colors && colors
 autoload -Uz vcs_info
-zmodload -i zsh/complist
+autoload -Uz zcalc
+
+zmodload zsh/complist
+zmodload zsh/mathfunc
+zmodload zsh/datetime
 
 # General
-setopt no_beep
-setopt correct
-setopt auto_cd
-setopt multios
-setopt auto_name_dirs
+setopt no_beep              # no bells
+setopt correct              # correct command typos
+setopt correct_all          # correct even parameters
+setopt multios              # descriptors as pipes
+setopt prompt_subst         # allow functions in prompt
 setopt zle
 setopt vi
-setopt prompt_subst
 
 # Glob
 setopt glob_complete
+setopt glob_dots
 setopt extended_glob
 setopt no_case_glob
 setopt numeric_glob_sort
+setopt no_glob_dots
 
-# Pushd
+# Changing directories
+setopt auto_cd              # automatically cd into directories
 setopt auto_pushd
 setopt pushd_minus
 setopt pushd_silent
@@ -49,10 +59,6 @@ setopt pushd_ignore_dups
 setopt rm_star_wait
 
 # History
-HISTFILE=~/.tmp/zsh/zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
@@ -60,25 +66,50 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
+setopt hist_reduce_blanks
 setopt inc_append_history
 setopt share_history
+
+# Background
+setopt long_list_jobs
+setopt notify
+unsetopt bg_nice
+
+# Completion
+setopt menu_complete
+setopt complete_in_word
+setopt always_to_end
+setopt auto_list
+setopt auto_param_slash
+setopt mark_dirs
+setopt hash_list_all
+unsetopt flowcontrol
+
+zstyle ':completion::complete:*' use-cache on
+zstyle ':completion::complete:*' cache-path ~/.tmp/zsh/cache/$HOST
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt 'At %p: Hit TAB for more'
+zstyle ':completion:*' select-prompt 'Scrolling active: current selection at %p'
+zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
+zstyle ':completion:*' menu select=1 _complete _ignored _approximate
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
 # Colors
 if [[ $UNAME == Linux ]]; then
   export LS_COLORS="di=32;40:ln=35;40:so=36;40:pi=33;40:ex=31;40:bd=34;"\
-"46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
+                   "46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 fi
 
 if [[ $UNAME == Darwin ]]; then
   export CLICOLOR=1
-  export LSCOLORS="cxfxgxdxbxegedabagacad"
+  export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
   export HOMEBREW_NO_EMOJI=1
 fi
 
 # Version control
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-
 zstyle ':vcs_info:*' formats '%u%c %b'
 zstyle ':vcs_info:*' actionformats '%u%c %a|%b'
 zstyle ':vcs_info:*' branchformat '%b'
@@ -86,7 +117,6 @@ zstyle ':vcs_info:*' stagedstr '%F{yellow}●%f'
 zstyle ':vcs_info:*' unstagedstr '%F{red}●%f'
 
 # Prompt
-
 [[ $SSH_CONNECTION != '' ]] && prompt_user='%n@%m '
 
 if [[ $LOGNAME == 'root' ]]; then
@@ -99,36 +129,12 @@ PROMPT='$prompt_user%F{red}${PWD/#$HOME/~}%f $prompt_symbol'
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
-# Completion
-unsetopt menu_complete
-unsetopt flowcontrol
-
-setopt auto_menu
-setopt complete_in_word
-setopt always_to_end
-
-zstyle ':completion::complete:*' use-cache onds
-zstyle ':completion::complete:*' cache-path ~/zsh/cache/$HOST
-
-zstyle ':completion:*' list-colors ''
-
-zstyle ':completion:*' list-prompt 'At %p: Hit TAB for more'
-zstyle ':completion:*' select-prompt 'Scrolling active: current selection at %p'
-
-zstyle ':completion:*::::' completer _expand _complete _ignored _approximate
-zstyle ':completion:*' menu select=1 _complete _ignored _approximate
-
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
-
-
 # Keys
-bindkey "^R" history-incremental-search-backward
+bindkey "^r" history-incremental-search-backward
 
 # Aliases
-alias ls="ls -GFh"
-alias ll="ls -GFhl"
-
+alias ls="ls --color=auto -GFh"
+alias ll="ls --color=auto -GFhl"
 alias vi="vim"
 alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
 

@@ -38,7 +38,7 @@ make-temp-dir:
 	@mkdir -p ~/.tmp/vim
 	@mkdir -p ~/.tmp/vim/undo
 	@mkdir -p ~/.tmp/vim/backup
-	@mkdir -p ~/.tmp/zsh/
+	@mkdir -p ~/.tmp/zsh/cache
 	@echo "Created temp directories"
 
 init-submodules:
