@@ -1,3 +1,6 @@
+# Path
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
 # Term
 export TERM="xterm-256color"
 
@@ -133,10 +136,15 @@ SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 bindkey "^r" history-incremental-search-backward
 
 # Aliases
-alias ls="ls --color=auto -GFh"
-alias ll="ls --color=auto -GFhl"
+alias ls="ls -GFh --color=auto"
+alias ll="ls -GFhl --color=auto"
 alias vi="vim"
 alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
+
+# Safety
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
 
 # Functions
 function extract () {
