@@ -139,6 +139,7 @@ bindkey "^r" history-incremental-search-backward
 
 # Aliases
 alias ls="ls -GFh"
+alias la="ls -GFha"
 alias ll="ls -GFhl"
 alias vi="vim"
 alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
