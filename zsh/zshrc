@@ -36,7 +36,6 @@ zmodload zsh/datetime
 # General
 setopt no_beep              # no bells
 setopt correct              # correct command typos
-setopt correct_all          # correct even parameters
 setopt multios              # descriptors as pipes
 setopt prompt_subst         # allow functions in prompt
 setopt zle
