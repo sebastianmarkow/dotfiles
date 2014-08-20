@@ -30,6 +30,7 @@ install multitail
 
 install mtr
 install nmap
+install iftop
 install wget
 install siege
 install wrk
