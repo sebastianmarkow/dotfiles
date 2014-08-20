@@ -26,6 +26,7 @@ install tree
 install pv
 install rename
 install jq
+install multitail
 
 install mtr
 install nmap
