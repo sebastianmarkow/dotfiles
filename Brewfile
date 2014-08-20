@@ -40,6 +40,9 @@ install grap
 
 install sqlite
 
+install gdb
+install cgdb
+
 install go --cross-compile-common
 install python3
 install haskell-platform
