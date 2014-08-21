@@ -51,7 +51,7 @@ install cgdb
 install go --cross-compile-common
 install python3
 install haskell-platform
-install staticfloat/julia/julia
+install staticfloat/julia/julia --64bit --with-accelerate
 
 install rbenv
 install node
