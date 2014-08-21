@@ -7,6 +7,7 @@ doctor
 
 tap homebrew/dupes
 tap homebrew/science
+tap staticfloat/julia
 tap laurent22/massren
 
 install zsh
@@ -50,7 +51,7 @@ install cgdb
 install go --cross-compile-common
 install python3
 install haskell-platform
-install homebrew/science/r
+install staticfloat/julia/julia
 
 install rbenv
 install node
