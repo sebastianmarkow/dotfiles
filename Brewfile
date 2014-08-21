@@ -7,6 +7,7 @@ doctor
 
 tap homebrew/dupes
 tap homebrew/science
+tap laurent22/massren
 
 install zsh
 install tmux
@@ -18,6 +19,7 @@ install tig
 
 install homebrew/dupes/grep
 install homebrew/dupes/less
+install laurent22/massren/massren
 install ack
 install awk
 install cloc
