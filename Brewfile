@@ -40,7 +40,7 @@ install wrk
 install tcpdump
 install w3m
 
-install gnuplot
+install gnuplot --wx
 install grap
 
 install sqlite
