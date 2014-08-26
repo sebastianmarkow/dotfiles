@@ -1,11 +1,12 @@
-.PHONY: init-submodules pull-submodules uninstall
+.PHONY: init-submodules pull-submodules uninstall source-zsh
 
-install: install-zsh install-tmux install-git install-vim install-misc make-temp-dir init-submodules
+install: install-zsh install-tmux install-git install-vim install-misc make-temp-dir init-submodules source-zsh
 
 
 install-zsh:
-	@rm -rf ~/.zshrc
+	@rm -rf ~/.zshrc ~/.zshenv
 	@ln -s `pwd`/zsh/zshrc ~/.zshrc
+	@ln -s `pwd`/zsh/zshenv ~/.zshenv
 	@echo "Symlinked zsh config"
 
 install-tmux:
@@ -40,6 +41,10 @@ make-temp-dir:
 	@mkdir -p ~/.tmp/vim/backup
 	@mkdir -p ~/.tmp/zsh/cache
 	@echo "Created temp directories"
+
+source-zsh:
+	@source ~/.zshenv
+	@echo "Sourced zsh env"
 
 init-submodules:
 	@echo "Initiating submodules"
