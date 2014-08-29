@@ -9,6 +9,7 @@ tap homebrew/dupes
 tap homebrew/science
 tap staticfloat/julia
 tap laurent22/massren
+tap peco/peco
 
 install zsh
 install tmux
@@ -21,6 +22,7 @@ install tig
 install homebrew/dupes/grep
 install homebrew/dupes/less
 install laurent22/massren/massren
+install peco/peco/peco
 install ack
 install awk
 install cloc
