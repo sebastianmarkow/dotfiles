@@ -24,7 +24,6 @@ install homebrew/dupes/less
 install laurent22/massren/massren
 install peco/peco/peco
 install ack
-install awk
 install cloc
 install watch
 install tree
