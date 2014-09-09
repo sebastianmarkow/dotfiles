@@ -86,7 +86,7 @@ set magic " use backslashes for magic characters while searching
 " Editing
 set gdefault " substitute globally by default
 set whichwrap+=h,l " vi keys wrap around lines
-set backspace=2 " backspace across lines
+set backspace=eol,start,indent " backspace across lines
 set textwidth=0 " no auto-wrapping
 set tabstop=8 " number of spaces a tab counts for
 set softtabstop=4 " number of spaces while indenting
@@ -208,6 +208,10 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_realtime = 1
 hi! link SignColumn LineNr
+
+" Delimitmate
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_balanche_matchpairs = 1
 
 " NeoComplete
 let g:acp_enableAtStartup = 0
