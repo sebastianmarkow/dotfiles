@@ -1,6 +1,6 @@
-.PHONY: init-submodules pull-submodules uninstall
+.PHONY: submodules-init submodules-pull uninstall
 
-install: install-zsh install-tmux install-git install-vim install-misc make-temp-dir init-submodules
+install: install-zsh install-tmux install-git install-vim install-misc directories submodules-init
 
 
 install-zsh:
@@ -34,20 +34,23 @@ install-misc:
 	@ln -s `pwd`/misc/hushlogin ~/.hushlogin
 	@echo "Symlinked misc config"
 
-make-temp-dir:
+directories:
 	@mkdir -p ~/.tmp/vim
 	@mkdir -p ~/.tmp/vim/undo
 	@mkdir -p ~/.tmp/vim/backup
 	@mkdir -p ~/.tmp/zsh/cache
-	@echo "Created temp directories"
+	@echo "Created directories"
 
-init-submodules:
-	@echo "Initiating submodules"
+submodules-init:
 	@git submodule update --init --recursive
+	@echo "Initiated submodules"
 	
-pull-submodules:
-	@echo "Pulling in changes from submodules"
+submodules-pull:
 	@git submodule foreach git pull origin master
+	@echo "Pulled in changes from submodules"
+
+brew-up:
+	@sh ./brewfile.sh
 
 uninstall:
 	@rm -f ~/.zshrc
