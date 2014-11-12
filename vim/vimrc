@@ -12,10 +12,13 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-repeat' 
 Bundle 'tpope/vim-surround' 
 Bundle 'cohama/lexima.vim' 
-Bundle 'Shougo/neocomplete.vim' 
 Bundle 'airblade/vim-gitgutter' 
 Bundle 'vim-scripts/ZoomWin' 
 Bundle 'altercation/vim-colors-solarized' 
+
+if has("lua")
+    Bundle 'Shougo/neocomplete.vim' 
+endif
 
 call vundle#end()
 
