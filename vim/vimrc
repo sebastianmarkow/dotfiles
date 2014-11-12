@@ -40,13 +40,17 @@ set nomodeline " no modelines for us
 
 " History, undo and backups
 set directory=~/.tmp/vim/swaps
-set undodir=~/.tmp/vim/undo
 set backupdir=~/.tmp/vim/backup
-set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
-set undofile
+
+if has("undo")
+    set undodir=~/.tmp/vim/undo
+    set undofile
+endif
+
 set undolevels=100
 set history=100
 set backup
+set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
 
 " Interface
 set showmode " show current mode (insert, visual, etc)
@@ -117,9 +121,8 @@ set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
 set nolist " show invisble characters
 set listchars=tab:▸\ ,trail:⋅,eol:¬,extends:»,precedes:«
-set formatoptions=rqnj
-"                 ||||
-"                 |||+-- remove comment leader when joining lines
+set formatoptions=rqn
+"                 |||
 "                 ||+--- recognize numbered lists
 "                 |+---- allow formatting comments
 "                 +----- add comment leader after hitting enter
