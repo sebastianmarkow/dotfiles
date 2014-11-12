@@ -5,6 +5,8 @@ A heavily opinionated set of dotfiles (git, vim, zsh & tmux).
 ## Requirements
 
 * `make`
+* `git`
+* `vim`
 * `homebrew` (optional)
 
 ## Install
