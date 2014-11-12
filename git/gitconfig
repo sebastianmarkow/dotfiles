@@ -152,9 +152,9 @@
 [url "git@github.com:"]
     insteadOf = "gh:"
     insteadOf = "github:"
-    pushInsteadOf = "https://github.com"
+    pushInsteadOf = "https://github.com/"
 
 [url "git@bitbucket.org:"]
     insteadOf = "bb:"
     insteadOf = "bitbucket:"
-    pushInsteadOf = "https://bitbucket.org"
+    pushInsteadOf = "https://bitbucket.org/"
