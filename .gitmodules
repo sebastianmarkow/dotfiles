@@ -25,3 +25,6 @@
 [submodule "vim/bundle/neocomplete"]
 	path = vim/bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vim/bundle/lexima"]
+	path = vim/bundle/lexima
+	url = https://github.com/cohama/lexima.vim.git
