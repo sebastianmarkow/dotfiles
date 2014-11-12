@@ -1,6 +1,6 @@
 .PHONY: uninstall
 
-install: uninstall install-zsh install-tmux install-git install-vim install-misc directories
+install: uninstall install-zsh install-tmux install-git install-vim install-vundle install-misc directories
 
 
 install-zsh:
@@ -22,6 +22,12 @@ install-vim:
 	@ln -s `pwd`/vim/vimrc ~/.vimrc
 	@echo "Symlinked vim config"
 
+install-vundle:
+	@mkdir -p ~/.vim/bundle/
+	@git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	@vim +PluginInstall +qall
+	@echo "Installed vundle"
+
 install-misc:
 	@ln -s `pwd`/misc/wgetrc ~/.wgetrc
 	@ln -s `pwd`/misc/ackrc ~/.ackrc
@@ -42,6 +48,6 @@ uninstall:
 	@rm -f ~/.zshrc
 	@rm -rf ~/.tmux.conf ~/.tmux
 	@rm -f ~/.gitconfig ~/.gitignore-global
-	@rm -rf ~/.vimrc ~/.vim
+	@rm -rf ~/.vimrc ~/.vim/bundle/ ~/.vim
 	@rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
 	@echo "Removed linked config"
