@@ -15,7 +15,6 @@ install-tmux:
 install-git:
 	@ln -s `pwd`/git/gitconfig ~/.gitconfig
 	@ln -s `pwd`/git/gitignore-global ~/.gitignore-global
-	@ln -s `pwd`/git/gitmessage ~/.gitmessage
 	@echo "Symlinked git config"
 
 install-vim:
@@ -42,7 +41,7 @@ brew-up:
 uninstall:
 	@rm -f ~/.zshrc
 	@rm -rf ~/.tmux.conf ~/.tmux
-	@rm -f ~/.gitconfig ~/.gitignore-global ~/.gitmessage
+	@rm -f ~/.gitconfig ~/.gitignore-global
 	@rm -rf ~/.vimrc ~/.vim
 	@rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
 	@echo "Removed linked config"
