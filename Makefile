@@ -1,6 +1,6 @@
 .PHONY: uninstall
 
-install: uninstall install-zsh install-tmux install-git install-vim install-vundle install-misc directories
+install: uninstall directories install-misc install-zsh install-tmux install-git install-vim install-vundle
 
 
 install-zsh:
