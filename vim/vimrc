@@ -2,6 +2,9 @@
 set nocompatible " turn off vi-compatible mode
 filetype off
 
+" No, no, no!
+set noexrc
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -24,9 +27,6 @@ call vundle#end()
 
 filetype plugin indent on " turn on plugins and indentation
 syntax on " turn on syntax
-
-" No, no, no!
-set noexrc
 
 " Encoding
 scriptencoding utf-8
