@@ -231,10 +231,6 @@ let g:gitgutter_sign_column_always = 1
 let g:gitgutter_realtime = 1
 hi! link SignColumn LineNr
 
-" Delimitmate
-let g:delimitMate_expand_cr = 2
-let g:delimitMate_balanche_matchpairs = 1
-
 " NeoComplete
 if has("lua")
     let g:acp_enableAtStartup = 0
