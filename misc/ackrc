@@ -1,3 +1,4 @@
 --sort-files
-
+--ignore-dir=log
+--ignore-dir=tmp
 --ignore-dir=node_modules
