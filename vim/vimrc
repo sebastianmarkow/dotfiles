@@ -42,7 +42,7 @@ set nomodeline " no modelines for us
 set directory=~/.tmp/vim/swaps
 set backupdir=~/.tmp/vim/backup
 
-if has("undo")
+if has("persistent_undo")
     set undodir=~/.tmp/vim/undo
     set undofile
 endif
