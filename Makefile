@@ -35,7 +35,7 @@ install-misc:
 	@echo "Symlinked misc config"
 
 directories:
-	@mkdir -p ~/.tmp/vim
+	@mkdir -p ~/.tmp/vim/swaps
 	@mkdir -p ~/.tmp/vim/undo
 	@mkdir -p ~/.tmp/vim/backup
 	@mkdir -p ~/.tmp/zsh/cache

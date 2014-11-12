@@ -148,3 +148,13 @@
   uncommit = reset --soft HEAD^
 
   t = tag -n
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    insteadOf = "github:"
+    pushInsteadOf = "https://github.com"
+
+[url "git@bitbucket.org:"]
+    insteadOf = "bb:"
+    insteadOf = "bitbucket:"
+    pushInsteadOf = "https://bitbucket.org"

@@ -7,7 +7,7 @@ scriptencoding utf-8
 " Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
-Helptag " help for plugins
+" Helptag " help for plugins
 
 " Basics
 set nocompatible " turn off vi-compatible mode
@@ -22,7 +22,7 @@ set autoread " reflect changes made from outside
 set nomodeline " no modelines for us
 
 " History, undo and backups
-set directory=~/.tmp/vim
+set directory=~/.tmp/vim/swaps
 set undodir=~/.tmp/vim/undo
 set backupdir=~/.tmp/vim/backup
 set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
@@ -147,11 +147,11 @@ set wildignore+=.DS_Store
 let mapleader = "," " `\` no thank you
 
 " Keys
-set pastetoggle=<F1> " unedit paste toggle
-cnoremap w!! w !sudo tee % > /dev/null
+set pastetoggle=<leader>p " unedited paste toggle
 nnoremap <leader>q :qa<cr>
 nnoremap <leader>c :close<cr>
-nnoremap <leader>w :w!<cr>
+nnoremap <leader>w :w<cr>
+cnoremap <leader>W :w !sudo tee %<CR>
 noremap <leader><space> :noh<cr>
 noremap <silent> <Leader>i :set list!<CR>
 noremap j gj
@@ -186,6 +186,7 @@ autocmd BufNewFile,BufRead *.go setlocal filetype=go
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
+autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 
 " 2 spaces
 autocmd FileType html,css,javascript,ruby setlocal softtabstop=2 shiftwidth=2
