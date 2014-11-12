@@ -1,18 +1,32 @@
+" Basics
+set nocompatible " turn off vi-compatible mode
+filetype off
+
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins
+Bundle 'gmarik/Vundle.vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat' 
+Bundle 'tpope/vim-surround' 
+Bundle 'cohama/lexima.vim' 
+Bundle 'Shougo/neocomplete.vim' 
+Bundle 'airblade/vim-gitgutter' 
+Bundle 'vim-scripts/ZoomWin' 
+Bundle 'altercation/vim-colors-solarized' 
+
+call vundle#end()
+
+filetype plugin indent on " turn on plugins and indentation
+syntax on " turn on syntax
+
 " No, no, no!
 set noexrc
 
 " Encoding
 scriptencoding utf-8
-
-" Pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-" Helptag " help for plugins
-
-" Basics
-set nocompatible " turn off vi-compatible mode
-filetype plugin indent on " turn on plugins and indentation
-syntax on " turn on syntax
 
 " Files
 set fileencoding=utf-8
