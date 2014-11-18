@@ -83,6 +83,7 @@ set statusline=%<\ %F%([%M%R%H]%)\ %y\ %l/%L:%c
 "               |   +---------------------------- full path of file in buffer
 "               +-------------------------------- truncate from the left
 
+set complete+=kspell " add spelling to completion menu
 set completeopt=menuone
 "                  |
 "                  +-- show popup menu if there's only one item
@@ -126,6 +127,9 @@ set formatoptions=rqn
 "                 ||+--- recognize numbered lists
 "                 |+---- allow formatting comments
 "                 +----- add comment leader after hitting enter
+
+" Spellchecking
+set nospell
 
 " Timeouts
 set notimeout
@@ -213,6 +217,9 @@ autocmd FileType html,css,javascript,ruby setlocal softtabstop=2 shiftwidth=2
 
 " Tabs
 autocmd FileType make,go,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
+
+" Spell checking
+autocmd BufNewFile,BufRead README,*.md,*.txt setlocal spell spelllang=en
 
 " Enable colorcolumn
 if exists('+colorcolumn')
