@@ -219,7 +219,7 @@ autocmd FileType html,css,javascript,ruby setlocal softtabstop=2 shiftwidth=2
 autocmd FileType make,go,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
 
 " Spell checking
-autocmd BufNewFile,BufRead README,*.md,*.txt setlocal spell spelllang=en
+autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
 " Enable colorcolumn
 if exists('+colorcolumn')
