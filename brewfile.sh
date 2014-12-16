@@ -47,7 +47,6 @@ FORMULAS=(
     python3
     ghc
     cabal-install
-    rbenv
     node
     automake
     autoconf
