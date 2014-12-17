@@ -1,7 +1,12 @@
-.PHONY: uninstall
+.PHONY: help uninstall
+
+help:
+	@echo "Please use \`make <target>' where <target> is one of"
+	@echo "  install   to hook up dotfiles"
+	@echo "  uninstall to remove dotfiles"
+	@echo "  brew      to install homebrew and chosen formulas"
 
 install: uninstall directories install-misc install-zsh install-tmux install-git install-vim install-vundle
-
 
 install-zsh:
 	@ln -s `pwd`/zsh/zshrc ~/.zshrc
@@ -41,7 +46,7 @@ directories:
 	@mkdir -p ~/.tmp/zsh/cache
 	@echo "Created directories"
 
-brew-up:
+brew:
 	@sh ./brewfile.sh
 
 uninstall:
