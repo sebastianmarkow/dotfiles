@@ -24,7 +24,7 @@ export UNAME=$(uname)
 export REPORTTIME=10
 
 # Modules
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d ~/.tmp/zsh/zcompdump
 autoload -Uz colors && colors
 autoload -Uz vcs_info
 autoload -Uz zcalc
