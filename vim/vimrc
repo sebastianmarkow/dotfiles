@@ -1,9 +1,9 @@
+" No, no, no!
+set noexrc
+
 " Basics
 set nocompatible " turn off vi-compatible mode
 filetype off
-
-" No, no, no!
-set noexrc
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -121,7 +121,7 @@ set nowrap " don't wrap lines
 set autoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
-set nolist " show invisble characters
+set nolist " don't show invisble characters
 set listchars=tab:▸\ ,trail:⋅,eol:¬,extends:»,precedes:«
 set formatoptions=rqn
 "                 |||
@@ -189,6 +189,8 @@ nnoremap J :m .+1<cr>
 nnoremap K :m .-2<cr>
 vnoremap J :m '>+1'<cr>gv=gv
 vnoremap K :m '<-2'<cr>gv=gv
+vnoremap < <gv
+vnoremap > >gv
 nnoremap < <<
 nnoremap > >>
 nnoremap / /\v
@@ -204,6 +206,10 @@ nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
+vnoremap <Up> <NOP>
+vnoremap <Down> <NOP>
+vnoremap <Left> <NOP>
+vnoremap <Right> <NOP>
 
 " Filetypes
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
