@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 PATH=/usr/local/bin:$PATH
 
@@ -15,12 +15,12 @@ FORMULAS=(
     tmux
     "vim --with-lua --with-luajit"
     git
-    git-flow
     tig
     homebrew/dupes/grep
     homebrew/dupes/less
     laurent22/massren/massren
     peco/peco/peco
+    grap
     ack
     cloc
     watch
@@ -28,7 +28,6 @@ FORMULAS=(
     pv
     rename
     jq
-    multitail
     mtr
     nmap
     iftop
@@ -39,8 +38,7 @@ FORMULAS=(
     tcpdump
     w3m
     "gnuplot --wx"
-    grap
-    sqlite
+    graphviz
     gdb
     cgdb
     "go --cross-compile-common"
@@ -48,30 +46,18 @@ FORMULAS=(
     ghc
     cabal-install
     node
-    automake
-    autoconf
-    cmake
-    ctags
-    graphviz
 )
 
-function install() {
-    [ -x "/usr/local/bin/brew" ] || {
-        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"    
-    }
+install() {
+    [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
-function brew_up() {
-    for tap in "${TAPS[@]}"; do
-        brew tap $tap
-    done
-
-    for formula in "${FORMULAS[@]}"; do
-        brew install $formula
-    done
+brew_up() {
+    for t in "${TAPS[@]}"; do brew tap $t; done
+    for f in "${FORMULAS[@]}"; do brew install $f; done
 }
 
-function main() {
+main() {
     install
 
     brew update
