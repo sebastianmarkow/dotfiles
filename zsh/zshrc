@@ -168,7 +168,5 @@ function extract () {
   fi
 }
 
-# Local
-if [[ -r ~/.localrc ]]; then
-  source ~/.localrc
-fi
+# .profile
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
