@@ -15,6 +15,7 @@ FORMULAS=(
     tmux
     "vim --with-lua --with-luajit"
     git
+    mercurial
     tig
     homebrew/dupes/grep
     homebrew/dupes/less
