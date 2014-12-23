@@ -18,6 +18,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'cohama/lexima.vim'
 Bundle 'vim-scripts/ZoomWin'
+Bundle 'fatih/vim-go'
 Bundle 'altercation/vim-colors-solarized'
 
 if has("lua")
@@ -244,6 +245,9 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_realtime = 0
 hi! link SignColumn LineNr
+
+" Vim-Go
+let g:go_fmt_command = "goimports"
 
 " NeoComplete
 if has("lua")

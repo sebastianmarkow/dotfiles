@@ -29,6 +29,7 @@ install-vim:
 
 install-vundle:
 	@mkdir -p ~/.vim/bundle/
+	@echo "Cloning vundle plugin manager"
 	@git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	@vim +PluginInstall +qall
 	@echo "Installed vundle"
