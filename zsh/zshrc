@@ -140,12 +140,10 @@ alias ls="ls -GFh"
 alias la="ls -GFha"
 alias ll="ls -GFhl"
 alias vi="vim"
-alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
-
-# Safety
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias tmux="tmux attach-session -t $LOGNAME || tmux -2 new-session -s $LOGNAME"
 
 # Functions
 function extract () {
