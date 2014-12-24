@@ -5,23 +5,23 @@ PATH=/usr/local/bin:$PATH
 TAPS=(
     homebrew/dupes
     homebrew/science
-    laurent22/massren
-    peco/peco
 )
 
 FORMULAS=(
-    zsh
-    bash
-    tmux
+    "go --cross-compile-common"
     "vim --with-lua --with-luajit"
-    git
-    mercurial
-    tig
+    "zsh --disable-etcdir"
+    "gnuplot --wx"
+    "mtr --no-gtk"
     homebrew/dupes/grep
     homebrew/dupes/less
     laurent22/massren/massren
     peco/peco/peco
-    grap
+    bash
+    tmux
+    git
+    mercurial
+    tig
     ack
     cloc
     watch
@@ -29,20 +29,21 @@ FORMULAS=(
     pv
     rename
     jq
-    mtr
+    lftp
     nmap
     iftop
+    htop
+    rsync
     wget
     curl
     siege
     wrk
     tcpdump
     w3m
-    "gnuplot --wx"
     graphviz
     gdb
     cgdb
-    "go --cross-compile-common"
+    python
     python3
     ghc
     cabal-install
@@ -62,13 +63,14 @@ main() {
     install
 
     brew update
+    brew outdated
     brew upgrade
 
     brew_up
 
-    brew cleanup -s -f
-    brew doctor
     brew prune
+    brew cleanup
+    brew doctor
 }
 
 main
