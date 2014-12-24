@@ -13,8 +13,6 @@ FORMULAS=(
     "zsh --disable-etcdir"
     "gnuplot --wx"
     "mtr --no-gtk"
-    homebrew/dupes/grep
-    homebrew/dupes/less
     laurent22/massren/massren
     peco/peco/peco
     bash
@@ -22,6 +20,7 @@ FORMULAS=(
     git
     mercurial
     tig
+    multitail
     ack
     cloc
     watch
@@ -39,6 +38,8 @@ FORMULAS=(
     siege
     wrk
     tcpdump
+    ttyrec
+    tpp
     w3m
     graphviz
     gdb
@@ -50,7 +51,7 @@ FORMULAS=(
     node
 )
 
-install() {
+brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
 
@@ -60,7 +61,7 @@ brew_up() {
 }
 
 main() {
-    install
+    brew_install
 
     brew update
     brew outdated
