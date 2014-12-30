@@ -9,7 +9,7 @@
 [core]
   editor = vim
   pager = less -R
-  excludesfile = ~/.gitignore-global
+  excludesfile = ~/.gitignore
   whitespace = trailing-space,space-before-tab,blank-at-eof
 
 [commit]

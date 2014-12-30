@@ -9,22 +9,21 @@ help:
 install: uninstall directories install-misc install-zsh install-tmux install-git install-vim install-vundle
 
 install-zsh:
-	@ln -s `pwd`/zsh/zshrc ~/.zshrc
+	@ln -s `pwd`/zshrc ~/.zshrc
 	@echo "Symlinked zsh config"
 
 install-tmux:
-	@ln -s `pwd`/tmux ~/.tmux
-	@ln -s `pwd`/tmux/tmux.conf ~/.tmux.conf
+	@ln -s `pwd`/tmux.conf ~/.tmux.conf
 	@echo "Symlinked tmux config"
 
 install-git:
-	@ln -s `pwd`/git/gitconfig ~/.gitconfig
-	@ln -s `pwd`/git/gitignore-global ~/.gitignore-global
+	@ln -s `pwd`/gitconfig ~/.gitconfig
+	@ln -s `pwd`/gitignore ~/.gitignore
 	@echo "Symlinked git config"
 
 install-vim:
 	@ln -s `pwd`/vim ~/.vim
-	@ln -s `pwd`/vim/vimrc ~/.vimrc
+	@ln -s `pwd`/vimrc ~/.vimrc
 	@echo "Symlinked vim config"
 
 install-vundle:
@@ -35,9 +34,9 @@ install-vundle:
 	@echo "Installed vundle"
 
 install-misc:
-	@ln -s `pwd`/misc/wgetrc ~/.wgetrc
-	@ln -s `pwd`/misc/ackrc ~/.ackrc
-	@ln -s `pwd`/misc/hushlogin ~/.hushlogin
+	@ln -s `pwd`/wgetrc ~/.wgetrc
+	@ln -s `pwd`/ackrc ~/.ackrc
+	@touch ~/.hushlogin
 	@echo "Symlinked misc config"
 
 directories:
@@ -48,12 +47,12 @@ directories:
 	@echo "Created directories"
 
 brew:
-	@sh ./brewfile.sh
+	@sh ./bin/brewfile.sh
 
 uninstall:
 	@rm -f ~/.zshrc
 	@rm -rf ~/.tmux.conf ~/.tmux
-	@rm -f ~/.gitconfig ~/.gitignore-global
+	@rm -f ~/.gitconfig ~/.gitignore
 	@rm -rf ~/.vimrc ~/.vim/bundle/ ~/.vim
 	@rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
 	@echo "Removed linked config"
