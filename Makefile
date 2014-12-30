@@ -8,7 +8,8 @@ FILES=zshrc \
 	gitconfig \
 	gitignore \
 	ackrc \
-	wgetrc
+	wgetrc \
+	hushlogin
 
 TEMPDIRS=vim/swaps \
 	vim/undo \
@@ -17,7 +18,7 @@ TEMPDIRS=vim/swaps \
 
 .PHONY: $(FILES) $(TEMPDIRS) help
 
-all: install hush vundle
+all: install vundle
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -36,10 +37,6 @@ $(FILES):
 $(TEMPDIRS):
 	@echo "Making $@"
 	@mkdir -p $(TEMPDIR)/$@
-
-hush:
-	@echo "Hushing login"
-	@touch ~/.hushlogin
 
 vundle:
 	@echo "Installing vundle"
