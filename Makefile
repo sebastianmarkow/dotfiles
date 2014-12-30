@@ -5,7 +5,7 @@ FILES=zshrc \
 	vimrc \
 	vim \
 	tmux.conf \
-	gitconfig \
+	gitconfig \
 	gitignore \
 	ackrc \
 	wgetrc \
