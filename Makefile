@@ -1,58 +1,53 @@
-.PHONY: help uninstall
+CURDIR ?= $(.CURDIR)
+TEMPDIR=~/.tmp
+
+FILES=zshrc \
+	vimrc \
+	vim \
+	tmux.conf \
+	gitconfig \
+	gitignore \
+	ackrc \
+	wgetrc
+
+TEMPDIRS=vim/swaps \
+	vim/undo \
+	vim/backup \
+	zsh/cache
+
+.PHONY: $(FILES) $(TEMPDIRS) help
+
+all: install hush vundle
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  install   to hook up dotfiles"
-	@echo "  uninstall to remove dotfiles"
+	@echo "  vundle    to install vundle - vim plugin manager"
 	@echo "  brew      to install homebrew and chosen formulas"
 
-install: uninstall directories install-misc install-zsh install-tmux install-git install-vim install-vundle
 
-install-zsh:
-	@ln -s `pwd`/zshrc ~/.zshrc
-	@echo "Symlinked zsh config"
+install: $(FILES) $(TEMPDIRS)
 
-install-tmux:
-	@ln -s `pwd`/tmux.conf ~/.tmux.conf
-	@echo "Symlinked tmux config"
+$(FILES):
+	@echo "Symlinking $@"
+	@rm -rf ~/.$@
+	@ln -s $(CURDIR)/$@ ~/.$@
 
-install-git:
-	@ln -s `pwd`/gitconfig ~/.gitconfig
-	@ln -s `pwd`/gitignore ~/.gitignore
-	@echo "Symlinked git config"
+$(TEMPDIRS):
+	@echo "Making $@"
+	@mkdir -p $(TEMPDIR)/$@
 
-install-vim:
-	@ln -s `pwd`/vim ~/.vim
-	@ln -s `pwd`/vimrc ~/.vimrc
-	@echo "Symlinked vim config"
+hush:
+	@echo "Hushing login"
+	@touch ~/.hushlogin
 
-install-vundle:
-	@mkdir -p ~/.vim/bundle/
-	@echo "Cloning vundle plugin manager"
+vundle:
+	@echo "Installing vundle"
+	@rm -rf ~/.vim/bundle
+	@mkdir -p ~/.vim/bundle
 	@git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	@vim +PluginInstall +qall
-	@echo "Installed vundle"
-
-install-misc:
-	@ln -s `pwd`/wgetrc ~/.wgetrc
-	@ln -s `pwd`/ackrc ~/.ackrc
-	@touch ~/.hushlogin
-	@echo "Symlinked misc config"
-
-directories:
-	@mkdir -p ~/.tmp/vim/swaps
-	@mkdir -p ~/.tmp/vim/undo
-	@mkdir -p ~/.tmp/vim/backup
-	@mkdir -p ~/.tmp/zsh/cache
-	@echo "Created directories"
 
 brew:
+	@echo "Brewing up"
 	@sh ./bin/brewfile.sh
-
-uninstall:
-	@rm -f ~/.zshrc
-	@rm -rf ~/.tmux.conf ~/.tmux
-	@rm -f ~/.gitconfig ~/.gitignore
-	@rm -rf ~/.vimrc ~/.vim/bundle/ ~/.vim
-	@rm -f ~/.wgetrc ~/.ackrc ~/.hushlogin
-	@echo "Removed linked config"
