@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 PATH=/usr/local/bin:$PATH
 
 TAPS=(
@@ -51,6 +53,19 @@ FORMULAS=(
     node
 )
 
+EGGS=(
+    virtualenv
+    virtualenvwrapper
+    pep8
+)
+
+pip_up() {
+    for p in pip pip3
+    do
+        for e in "${EGGS[@]}"; do $p install --upgrade --quiet $e; done
+    done
+}
+
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 }
@@ -72,6 +87,8 @@ main() {
     brew prune
     brew cleanup
     brew doctor
+
+    pip_up
 }
 
 main
