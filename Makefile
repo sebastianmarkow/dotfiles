@@ -26,7 +26,6 @@ help:
 	@echo "  vundle    to install vundle - vim plugin manager"
 	@echo "  brew      to install homebrew and chosen formulas"
 
-
 install: $(FILES) $(TEMPDIRS)
 
 $(FILES):
