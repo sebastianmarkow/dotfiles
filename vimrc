@@ -10,19 +10,19 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Plugins
-Bundle 'gmarik/Vundle.vim'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'cohama/lexima.vim'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'fatih/vim-go'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'cohama/lexima.vim'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'fatih/vim-go'
+Plugin 'altercation/vim-colors-solarized'
 
 if has("lua")
-    Bundle 'Shougo/neocomplete.vim'
+    Plugin 'Shougo/neocomplete.vim'
 endif
 
 call vundle#end()
