@@ -34,17 +34,14 @@ FORMULAS=(
     nmap
     iftop
     htop
-    rsync
     wget
     curl
     siege
     wrk
-    tcpdump
     ttyrec
     tpp
     w3m
     graphviz
-    gdb
     cgdb
     python
     python3
