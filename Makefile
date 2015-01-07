@@ -46,4 +46,4 @@ vundle:
 
 brew:
 	@echo "Brewing up"
-	@sh ./bin/brewfile.sh
+	@./Homebrew
