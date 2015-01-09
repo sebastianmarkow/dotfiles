@@ -1,19 +1,19 @@
-CURDIR ?= $(.CURDIR)
+CURDIR?= $(.CURDIR)
 TEMPDIR=~/.tmp
 
-FILES=zshrc \
-	vimrc \
-	vim \
-	tmux.conf \
-	gitconfig \
-	gitignore \
-	ackrc \
-	wgetrc \
+FILES=zshrc		\
+	vimrc		\
+	vim		\
+	tmux.conf	\
+	gitconfig	\
+	gitignore	\
+	ackrc		\
+	wgetrc		\
 	hushlogin
 
-TEMPDIRS=vim/swaps \
-	vim/undo \
-	vim/backup \
+TEMPDIRS=vim/swaps	\
+	vim/undo	\
+	vim/backup	\
 	zsh/cache
 
 .PHONY: $(FILES) $(TEMPDIRS) help
