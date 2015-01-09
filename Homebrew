@@ -43,6 +43,8 @@ FORMULAS=(
     w3m
     graphviz
     cgdb
+    cmake
+    ctags
     python
     python3
     ghc
