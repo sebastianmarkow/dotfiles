@@ -19,8 +19,11 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'cohama/lexima.vim'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'fatih/vim-go'
-Plugin 'valloric/youcompleteme'
 Plugin 'altercation/vim-colors-solarized'
+
+if has("lua")
+    Plugin 'Shougo/neocomplete.vim'
+endif
 
 call vundle#end()
 
@@ -245,3 +248,18 @@ hi! link SignColumn LineNr
 
 " Vim-Go
 let g:go_fmt_command = "goimports"
+
+" NeoComplete
+if has("lua")
+    let g:acp_enableAtStartup = 0
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_smart_case = 1
+    let g:neocomplete#max_list = 25
+    let g:neocomplete#max_keyword_width = 80
+    let g:neocomplete#min_keyword_length = 4
+    let g:neocomplete#enable_ignore_case = 1
+    inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
+    inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+endif
