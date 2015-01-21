@@ -218,6 +218,7 @@ autocmd BufNewFile,BufRead *.go setlocal filetype=go
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
+autocmd BufNewFile,BufRead *.tpp setlocal filetype=tpp
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 
 " 2 spaces
