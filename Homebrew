@@ -39,7 +39,7 @@ FORMULAS=(
     siege
     wrk
     ttyrec
-    tpp
+    mdp
     w3m
     graphviz
     cgdb
