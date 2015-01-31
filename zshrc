@@ -168,6 +168,3 @@ function extract () {
 
 # .zlocal
 [[ -e ~/.zlocal ]] && source ~/.zlocal
-
-# .profile
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
