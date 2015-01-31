@@ -220,9 +220,6 @@ autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 
-" 2 spaces
-autocmd FileType html,css,javascript setlocal softtabstop=2 shiftwidth=2
-
 " Tabs
 autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpandtab
 
