@@ -15,8 +15,15 @@ FORMULAS=(
     "zsh --disable-etcdir"
     "gnuplot --wx"
     "mtr --no-gtk"
+    "grep --with-default-names"
+    "gnu-tar --with-default-names"
+    "gnu-sed --with-default-names"
     laurent22/massren/massren
     peco/peco/peco
+    coreutils
+    diffutils
+    findutils
+    openssh
     bash
     tmux
     git
@@ -27,6 +34,7 @@ FORMULAS=(
     cloc
     watch
     tree
+    gawk
     pv
     rename
     jq
