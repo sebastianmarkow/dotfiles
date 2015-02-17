@@ -59,6 +59,7 @@ FORMULAS=(
     ghc
     cabal-install
     node
+    boot2docker
 )
 
 EGGS=(
