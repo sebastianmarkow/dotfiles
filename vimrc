@@ -246,6 +246,7 @@ hi! link SignColumn LineNr
 
 " Vim-Go
 let g:go_fmt_command = "goimports"
+let g:go_doc_keywordprg_enabled = 0
 
 " NeoComplete
 if has("lua")
