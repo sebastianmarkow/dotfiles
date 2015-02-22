@@ -23,6 +23,7 @@ FORMULAS=(
     coreutils
     diffutils
     findutils
+    moreutils
     openssh
     bash
     tmux
