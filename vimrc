@@ -220,9 +220,11 @@ autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+autocmd BufNewFile,BufRead *.ace setlocal filetype=ace
 
 " Tabs
 autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType ace setlocal tabstop=4 softtabstop=2 shiftwidth=2 expandtab
 
 " Spell checking
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
