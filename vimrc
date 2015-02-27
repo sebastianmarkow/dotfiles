@@ -107,6 +107,7 @@ set smartcase " if there are caps, go case-sensitive
 set hlsearch " highlight search results
 set incsearch " highlight search string while typing it
 set magic " use backslashes for magic characters while searching
+set nowrapscan " do not wrap around while searching
 
 " Editing
 set gdefault " substitute globally by default
