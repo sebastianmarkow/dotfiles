@@ -17,7 +17,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'cohama/lexima.vim'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'fatih/vim-go'
 Plugin 'altercation/vim-colors-solarized'
@@ -226,6 +226,9 @@ autocmd BufNewFile,BufRead *.ace setlocal filetype=ace
 autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType ace setlocal tabstop=4 softtabstop=2 shiftwidth=2 expandtab
 
+" Completion
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
 " Spell checking
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
@@ -255,9 +258,9 @@ if has("lua")
     let g:acp_enableAtStartup = 0
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplete#enable_smart_case = 1
-    let g:neocomplete#max_list = 25
+    let g:neocomplete#max_list = 20
     let g:neocomplete#max_keyword_width = 80
-    let g:neocomplete#min_keyword_length = 4
+    let g:neocomplete#min_keyword_length = 3
     let g:neocomplete#enable_ignore_case = 1
     inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
