@@ -1,11 +1,11 @@
 " No, no, no!
 set noexrc
 
-" Basics
+" Base
 set nocompatible " turn off vi-compatible mode
-filetype off
 
 " Vundle
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -16,10 +16,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-scripts/ZoomWin'
 Plugin 'fatih/vim-go'
+Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 
 if has("lua")
@@ -28,20 +27,20 @@ endif
 
 call vundle#end()
 
-filetype plugin indent on " turn on plugins and indentation
-syntax on " turn on syntax
+filetype plugin indent on
+syntax on
 
 " Encoding
-scriptencoding utf-8
-
-" Files
+set encoding=utf-8
 set fileencoding=utf-8
+
+" File
 set fileformats=unix,dos,mac
 set fileformat=unix
-set autoread " reflect changes made from outside
-set nomodeline " no modelines for us
+set autoread " load changes made from outside
+set nomodeline
 
-" History, undo and backups
+" History
 set directory=~/.tmp/vim/swaps
 set backupdir=~/.tmp/vim/backup
 
@@ -50,63 +49,63 @@ if has("persistent_undo")
     set undofile
 endif
 
-set undolevels=100
+set undolevels=1000
 set history=100
 set backup
-set viminfo='100,<1000,/1000,n~/.tmp/vim/viminfo
+set viminfo='100,<1000,/1000,c,n~/.tmp/vim/viminfo
 
 " Interface
-set showmode " show current mode (insert, visual, etc)
-set showcmd " show command as you type it
-set ruler " show cursor position
-set title " show file title
-set nofoldenable " disable folding
-set number " show line numbers
-set numberwidth=4 " width of number column
-set cmdheight=1 " command bar height
-set laststatus=2 " always show the status line
-set scrolloff=5 " number of vertical lines visible around cursor
+set showmode " current mode (insert, visual, etc)
+set showcmd
+set title
+set nofoldenable
+set number
+set numberwidth=4
+set cmdheight=1
+set laststatus=2 " always show statusline
+set scrolloff=5
 set sidescrolloff=5 " number of horizontal lines visible around cursor
-set showmatch " show matching brackets if cursor is hovering over them
-set matchtime=2 " matching brackets blink time (1/10 * n)
+set showmatch
+set matchtime=2 " matching brackets cursor blink time (1/10 * n)
 set hidden " hide unsaved buffer
-set splitbelow " new horizontal split on lower screen
-set splitright " new vertical split on right screen
+set splitbelow
+set splitright
 set lazyredraw " do not redraw during macros
-set linespace=0 " no extra pixels between rows
+set linespace=0
 set statusline=%<\ %F%([%M%R%H]%)\ %y\ %l/%L:%c
 "               |   |    | | |      |   |  |  |
-"               |   |    | | |      |   |  |  +-- column number
-"               |   |    | | |      |   |  +----- total number of lines
-"               |   |    | | |      |   +-------- line number
-"               |   |    | | |      +------------ type of file
-"               |   |    | | +------------------- help buffer flag
-"               |   |    | +--------------------- readonly flag
-"               |   |    +----------------------- modified flag
-"               |   +---------------------------- full path of file in buffer
-"               +-------------------------------- truncate from the left
+"               |   |    | | |      |   |  |  +-- column
+"               |   |    | | |      |   |  +----- total lines
+"               |   |    | | |      |   +-------- line
+"               |   |    | | |      +------------ filetype
+"               |   |    | | +------------------- help flag
+"               |   |    | +--------------------- readonly
+"               |   |    +----------------------- modified
+"               |   +---------------------------- filepath
+"               +-------------------------------- truncate left side
+set shortmess=aIOT
+"             ||||
+"             |||+-- truncate message in the middle
+"             ||+--- no message on file changes (autoread)
+"             |+---- no startup message
+"             +----- use abbreviations
 
-set complete+=kspell " add spelling to completion menu
+
+" Completion
+set infercase
+set complete+=kspell
+"               |
+"               +-- add spell dictionary
 set completeopt=menuone
 "                  |
 "                  +-- show popup menu if there's only one item
 
-set shortmess=atIOTs
-"             ||||||
-"             |||||+-- no search hit end message
-"             ||||+--- truncate message in the middle of the screen
-"             |||+---- no message reading a file
-"             ||+----- no intro message at startup
-"             |+------ truncate message at the beginning
-"             +------- use abbreviation
-
-" Searching
-set ignorecase " ignore case while searching
-set infercase " case infered by default
-set smartcase " if there are caps, go case-sensitive
-set hlsearch " highlight search results
-set incsearch " highlight search string while typing it
-set magic " use backslashes for magic characters while searching
+" Search
+set ignorecase
+set smartcase
+set hlsearch " highlight search
+set incsearch " highlight search string while typing
+set magic " use backslashes for magic characters
 
 " Editing
 set gdefault " substitute globally by default
@@ -118,23 +117,20 @@ set softtabstop=4 " number of spaces while indenting
 set shiftwidth=4 " number of spaces while shifting
 set expandtab " use spaces rather than tabs
 set smarttab " handle spaces like tabs while deleting them
-set shiftround " round shifts to a multiple of shiftwidth
+set shiftround " round to a multiple of shiftwidth while indenting
 set nowrap " don't wrap lines
 set autoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
-set nolist " don't show invisble characters
-set listchars=tab:▸\ ,trail:⋅,eol:¬,extends:»,precedes:«
-set formatoptions=rqn
-"                 |||
-"                 ||+--- recognize numbered lists
-"                 |+---- allow formatting comments
-"                 +----- add comment leader after hitting enter
+set nolist " don't show invisble character
+set nospell " no spellcheck
+set listchars=tab:▸\ ,trail:⋅,eol:¬,extends:»,precedes:« " invisible character
+set formatoptions=qn
+"                 ||
+"                 |+--- recognize numbered lists
+"                 +---- allow formatting comments
 
-" Spellchecking
-set nospell
-
-" Timeouts
+" Escaping
 set notimeout
 set ttimeout
 set ttimeoutlen=500
@@ -145,14 +141,14 @@ set t_ut= " no background redraw
 if has("mouse")
     set ttymouse=xterm2 " modern mouse
     set mousehide " hide mouse pointer
-    set mouse=nvc " enable mouse in
+    set mouse=nvc " enable mouse in:
     "         |||
     "         ||+-- commandline mode
     "         |+--- visual mode
     "         +---- normal mode
 endif
 
-" Colors
+" Color
 try
     set background=dark
     let g:solarized_visibility="high"
@@ -160,100 +156,106 @@ try
 catch
 endtry
 
-" Menu
+" Fileglob
 set wildmenu " enable filepath completion in the command bar
 set wildmode=longest:full
-set wildignore+=*.o,*.so,*.pyc
-set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar
-set wildignore+=*.pdf,*.epub
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.psd,*.ai
+set wildignore+=*~,*sw[op],*.pid,.DS_Store
+set wildignore+=.git,.hg,.svn
+set wildignore+=*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib
+set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso
+set wildignore+=*.pdf,*.doc*,*.aux,*.out,*.toc
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp,*.psd,*.ai,*.ico
 set wildignore+=*.db,*.sqlite
-set wildignore+=.DS_Store
 
-" Mapleader
+" Leader
 let mapleader = "," " `\` no thank you
 
-" Keys
-set pastetoggle=<leader>p " unedited paste toggle
+" Keymap
 nnoremap <leader>q :qa<cr>
 nnoremap <leader>c :close<cr>
+nnoremap <silent> <leader>C :bd<cr>
 nnoremap <leader>w :w<cr>
-cnoremap <leader>W :w !sudo tee %<CR>
+cnoremap <leader>W :w !sudo tee %<cr>
+
 noremap <leader><space> :noh<cr>
-noremap <silent> <Leader>i :set list!<CR>
+noremap <silent> <leader>i :set list!<cr>
+
+nnoremap Y y$
+
 noremap j gj
 noremap k gk
 noremap <C-J> 10gj
 noremap <C-K> 10gk
-noremap H :bp<cr>
-noremap L :bn<cr>
 nnoremap J :m .+1<cr>
 nnoremap K :m .-2<cr>
 vnoremap J :m '>+1'<cr>gv=gv
 vnoremap K :m '<-2'<cr>gv=gv
+
+noremap H :bp<cr>
+noremap L :bn<cr>
+
 vnoremap < <gv
 vnoremap > >gv
 nnoremap < <<
 nnoremap > >>
+
 nnoremap / /\v
 vnoremap / /\v
-nnoremap Y y$
-nnoremap <silent> <C-W>s <C-W>s<C-W>j
-nnoremap <silent> <C-W>v <C-W>v<C-W>l
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-nnoremap <Up> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-nnoremap <Right> <NOP>
-vnoremap <Up> <NOP>
-vnoremap <Down> <NOP>
-vnoremap <Left> <NOP>
-vnoremap <Right> <NOP>
 
-" Filetypes
+nnoremap <silent> <c-w>s <c-w>s<c-w>j
+nnoremap <silent> <c-w>v <c-w>v<c-w>l
+
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+vnoremap <up> <nop>
+vnoremap <down> <nop>
+vnoremap <left> <nop>
+vnoremap <right> <nop>
+
+" Paste
+set pastetoggle=<leader>p
+autocmd InsertLeave * set nopaste " disable paste mode after leaving insert mode
+
+" Trigger: Remember cursor position
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
-autocmd BufNewFile,BufRead *.ace setlocal filetype=ace
 
-" Tabs
+" Custom: Indent
 autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType ace setlocal tabstop=4 softtabstop=2 shiftwidth=2 expandtab
 
-" Completion
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
-" Spell checking
+" Custom: Spellcheck
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
-" Enable colorcolumn
+" Custom: Colorcolumn
 if exists('+colorcolumn')
     autocmd FileType python setlocal colorcolumn=80
+    autocmd FileType markdown,text,gitcommit setlocal colorcolumn=80
 endif
 
-" Reset cursor to last position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" Trigger
-autocmd InsertLeave * set nopaste " disable paste mode after leaving insert mode
-
-" Gitgutter
+" Plugin: Gitgutter
 let g:gitgutter_enabled = 1
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_realtime = 0
 hi! link SignColumn LineNr
 
-" Vim-Go
+" Plugin: Vim-Go
 let g:go_fmt_command = "goimports"
 let g:go_doc_keywordprg_enabled = 0
 
-" NeoComplete
+" Plugin: NeoComplete
 if has("lua")
     let g:acp_enableAtStartup = 0
     let g:neocomplete#enable_at_startup = 1
