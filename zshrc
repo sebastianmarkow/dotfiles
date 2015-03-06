@@ -5,7 +5,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 
-# editing
+# Editing
 export PAGER="less"
 export LESS="--ignore-case --raw-control-chars --chop-long-lines --LONG-PROMPT --SILENT"
 export EDITOR="vim"
@@ -17,14 +17,14 @@ export HISTFILE=~/.tmp/zsh/zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 
-# Vars
+# Var
 export LOGNAME=$(id -un)
 export UNAME=$(uname)
 
 # Report CPU time
 export REPORTTIME=10
 
-# Modules
+# Module
 autoload -Uz compinit && compinit -d ~/.tmp/zsh/zcompdump
 autoload -Uz colors && colors
 autoload -Uz vcs_info
@@ -34,7 +34,7 @@ zmodload zsh/complist
 zmodload zsh/mathfunc
 zmodload zsh/datetime
 
-# General
+# Base
 setopt no_beep              # no bells
 setopt correct              # correct command typos
 setopt multios              # descriptors as pipes
@@ -50,7 +50,7 @@ setopt no_case_glob
 setopt numeric_glob_sort
 setopt no_glob_dots
 
-# Changing directories
+# Moving
 setopt auto_cd              # automatically cd into directories
 setopt auto_pushd
 setopt pushd_minus
@@ -98,7 +98,7 @@ zstyle ':completion:*' menu select=1 _complete _ignored _approximate
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 
-# Colors
+# Color
 if [[ $UNAME == Linux ]]; then
   export LS_COLORS="di=32;40:ln=35;40:so=36;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
 fi
@@ -133,10 +133,10 @@ PROMPT='$prompt_user%F{red}${PWD/#$HOME/~}%f $prompt_symbol'
 RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
-# Keys
+# Keymap
 bindkey "^r" history-incremental-search-backward
 
-# Aliases
+# Alias
 alias ls="ls -GFh"
 alias la="ls -GFha"
 alias ll="ls -GFhl"
@@ -146,7 +146,11 @@ alias mv="mv -i"
 alias vi="vim"
 alias tmux="tmux attach-session -t $LOGNAME > /dev/null 2>&1  || tmux -2 new-session -s $LOGNAME"
 
-# Functions
+if [[ $UNAME == Darwin ]]; then
+    alias brewed="${$(readlink ~/.zshrc)%/*}/Homebrew.sh"
+fi
+
+# Function
 function extract () {
   if [ -f $1 ]; then
     case $1 in
@@ -166,11 +170,6 @@ function extract () {
     echo "'$1' not a file"
   fi
 }
-
-if [[ $UNAME == Darwin ]]; then
-    alias brew_up="${$(readlink ~/.zshrc)%/*}/Homebrew.sh"
-fi
-
 
 # .zlocal
 [[ -e ~/.zlocal ]] && source ~/.zlocal
