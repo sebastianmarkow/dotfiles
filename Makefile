@@ -25,6 +25,7 @@ help:
 	@echo "  install   to hook up dotfiles"
 	@echo "  vundle    to install vundle - vim plugin manager"
 	@echo "  brew      to install homebrew and chosen formulas"
+	@echo "  pip       to install python eggs"
 
 install: $(FILES) $(TEMPDIRS)
 
@@ -45,5 +46,9 @@ vundle:
 	@vim +PluginInstall +qall
 
 brew:
-	@echo "Brewing up"
-	@./Homebrew
+	@echo "Installing brew formulas"
+	@./Homebrew.sh
+
+pip:
+	@echo "Installing python eggs"
+	@./Pip.sh

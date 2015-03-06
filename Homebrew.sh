@@ -99,8 +99,6 @@ main() {
     brew prune
     brew cleanup
     brew doctor
-
-    pip_up
 }
 
 main
