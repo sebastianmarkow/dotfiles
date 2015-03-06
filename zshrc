@@ -167,5 +167,10 @@ function extract () {
   fi
 }
 
+if [[ $UNAME == Darwin ]]; then
+    alias brew_up="${$(readlink ~/.zshrc)%/*}/Homebrew.sh"
+fi
+
+
 # .zlocal
 [[ -e ~/.zlocal ]] && source ~/.zlocal

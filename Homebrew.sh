@@ -9,74 +9,58 @@ TAPS=(
     homebrew/science
 )
 
-FORMULAS=(
-    "go --cross-compile-common"
-    "vim --with-lua --with-luajit"
-    "zsh --disable-etcdir"
-    "gnuplot --wx"
-    "mtr --no-gtk"
-    "grep --with-default-names"
-    "gnu-tar --with-default-names"
-    "gnu-sed --with-default-names"
-    laurent22/massren/massren
-    peco/peco/peco
-    coreutils
-    diffutils
-    findutils
-    moreutils
-    openssh
-    bash
-    tmux
-    git
-    mercurial
-    tig
-    multitail
-    ack
-    cloc
-    watch
-    tree
-    gawk
-    pv
-    rename
-    jq
-    lftp
-    nmap
-    iftop
-    htop
-    wget
-    curl
-    siege
-    wrk
-    ttyrec
-    imagemagick
-    mdp
-    w3m
-    graphviz
-    cgdb
-    cmake
-    ctags
-    python
-    python3
-    ghc
-    cabal-install
-    node
-    boot2docker
-    syncthing
-)
-
-EGGS=(
-    virtualenv
-    virtualenvwrapper
-    pep8
-)
-
-pip_up() {
-    unset PIP_REQUIRE_VIRTUALENV
-    for p in pip pip3
-    do
-        for e in "${EGGS[@]}"; do $p install --upgrade --quiet $e; done
-    done
-}
+FORMULAS="vim --with-lua --with-luajit \
+          grep --with-default-names \
+          gnu-tar --with-default-names \
+          gnu-sed --with-default-names
+          laurent22/massren/massren \
+          peco/peco/peco \
+          openssh \
+          coreutils \
+          diffutils \
+          findutils \
+          moreutils \
+          zsh \
+          bash \
+          tmux \
+          git \
+          mercurial \
+          tig \
+          multitail \
+          ack \
+          cloc \
+          watch \
+          tree \
+          gawk \
+          pv \
+          rename \
+          jq \
+          lftp \
+          nmap \
+          iftop \
+          htop \
+          wget \
+          curl \
+          mtr \
+          siege \
+          wrk \
+          ttyrec \
+          imagemagick \
+          gnuplot \
+          mdp \
+          w3m \
+          graphviz \
+          cgdb \
+          cmake \
+          ctags \
+          go \
+          python \
+          python3 \
+          ghc \
+          cabal-install\
+          node \
+          boot2docker \
+          syncthing"
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -84,7 +68,7 @@ brew_install() {
 
 brew_up() {
     for t in "${TAPS[@]}"; do brew tap $t; done
-    for f in "${FORMULAS[@]}"; do brew install $f; done
+    brew install ${FORMULAS}
 }
 
 main() {
@@ -96,7 +80,6 @@ main() {
 
     brew_up
 
-    brew prune
     brew cleanup
     brew doctor
 }
