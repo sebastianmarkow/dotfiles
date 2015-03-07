@@ -14,7 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'fatih/vim-go'
@@ -72,15 +71,15 @@ set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
 set linespace=0
-set statusline=%<\%f\ [%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c%=%{fugitive#statusline()}
-"               |  |    |  | | | |          |                        |       |   |  |  | |     |
-"               |  |    |  | | | |          +-- encoding             |       |   |  |  | |     +-- fugitive
-"               |  |    |  | | | +------------- preview              |       |   |  |  | +-------- spacer
-"               |  |    |  | | +--------------- help                 |       |   |  |  +---------- column
-"               |  |    |  | +----------------- readonly             |       |   |  +------------- total lines
-"               |  |    |  +------------------- modfied              |       |   +---------------- line
-"               |  |    +---------------------- buffer               |       +-------------------- filetype
-"               |  +--------------------------- filepath             +---------------------------- format
+set statusline=%<\%f\ [%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c
+"               |  |    |  | | | |          |                        |       |   |  |  |
+"               |  |    |  | | | |          +-- encoding             |       |   |  |  +-- column
+"               |  |    |  | | | +------------- preview              |       |   |  +----- total lines
+"               |  |    |  | | +--------------- help                 |       |   +-------- line
+"               |  |    |  | +----------------- readonly             |       +------------ filetype
+"               |  |    |  +------------------- modfied              +-------------------- format
+"               |  |    +---------------------- buffer
+"               |  +--------------------------- filepath
 "               +------------------------------ truncate from left
 set shortmess=aIOT
 "             ||||
