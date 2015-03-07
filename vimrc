@@ -31,14 +31,14 @@ filetype plugin indent on
 syntax on
 
 " Encoding
-set encoding=utf-8
+set encoding=utf-8 nobomb
 set fileencoding=utf-8
 
 " File
 set fileformats=unix,dos,mac
 set fileformat=unix
 set autoread " load changes made from outside
-set nomodeline
+set nomodeline " seriously modelines?
 
 " History
 set directory=~/.tmp/vim/swaps
@@ -72,17 +72,16 @@ set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
 set linespace=0
-set statusline=%<\ %F%([%M%R%H]%)\ %y\ %l/%L:%c
-"               |   |    | | |      |   |  |  |
-"               |   |    | | |      |   |  |  +-- column
-"               |   |    | | |      |   |  +----- total lines
-"               |   |    | | |      |   +-------- line
-"               |   |    | | |      +------------ filetype
-"               |   |    | | +------------------- help flag
-"               |   |    | +--------------------- readonly
-"               |   |    +----------------------- modified
-"               |   +---------------------------- filepath
-"               +-------------------------------- truncate left side
+set statusline=%<\%f\ [%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c%=%{fugitive#statusline()}
+"               |  |    |  | | | |          |                        |       |   |  |  | |     |
+"               |  |    |  | | | |          +-- encoding             |       |   |  |  | |     +-- fugitive
+"               |  |    |  | | | +------------- preview              |       |   |  |  | +-------- spacer
+"               |  |    |  | | +--------------- help                 |       |   |  |  +---------- column
+"               |  |    |  | +----------------- readonly             |       |   |  +------------- total lines
+"               |  |    |  +------------------- modfied              |       |   +---------------- line
+"               |  |    +---------------------- buffer               |       +-------------------- filetype
+"               |  +--------------------------- filepath             +---------------------------- format
+"               +------------------------------ truncate from left
 set shortmess=aIOT
 "             ||||
 "             |||+-- truncate message in the middle
@@ -90,9 +89,13 @@ set shortmess=aIOT
 "             |+---- no startup message
 "             +----- use abbreviations
 
+" Diff
+set diffopt=filler,vertical
+
 
 " Completion
 set infercase
+set omnifunc=syntaxcomplete#Complete
 set complete+=kspell
 "               |
 "               +-- add spell dictionary
@@ -106,6 +109,7 @@ set smartcase
 set hlsearch " highlight search
 set incsearch " highlight search string while typing
 set magic " use backslashes for magic characters
+set wrapscan
 
 " Editing
 set gdefault " substitute globally by default
@@ -124,18 +128,26 @@ set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
 set nolist " don't show invisble character
 set nospell " no spellcheck
-set listchars=tab:▸\ ,trail:⋅,eol:¬,extends:»,precedes:« " invisible character
+set noeol " do not add empty newlines at end of file
+set clipboard=unnamed " use os clipboard
+set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 set formatoptions=qn
 "                 ||
 "                 |+--- recognize numbered lists
 "                 +---- allow formatting comments
 
-" Escaping
+" Timing
+set updatetime=1000
 set notimeout
 set ttimeout
 set ttimeoutlen=500
-set ttyfast
+set ttyfast " optimize for fast terminal connections
 set t_ut= " no background redraw
+
+" Sync
+set synmaxcol=400
+syn sync minlines=200
+syn sync maxlines=500
 
 " Mouse
 if has("mouse")
@@ -159,6 +171,7 @@ endtry
 " Fileglob
 set wildmenu " enable filepath completion in the command bar
 set wildmode=longest:full
+set wildchar=<Tab>
 set wildignore+=*~,*sw[op],*.pid,.DS_Store
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib
@@ -171,56 +184,47 @@ set wildignore+=*.db,*.sqlite
 let mapleader = "," " `\` no thank you
 
 " Keymap
-nnoremap <leader>q :qa<cr>
-nnoremap <leader>c :close<cr>
-nnoremap <silent> <leader>C :bd<cr>
-nnoremap <leader>w :w<cr>
-cnoremap <leader>W :w !sudo tee %<cr>
+map <silent> <leader>q :qa<cr>
+map <silent> <leader>c :close<cr>
+map <silent> <leader>C :bd<cr>
+map <silent> <leader>w :w<cr>
+map <leader>W :w !sudo tee %<cr>
 
-noremap <leader><space> :noh<cr>
+noremap <silent> <leader><space> :noh<cr>
 noremap <silent> <leader>i :set list!<cr>
 
 nnoremap Y y$
-
 noremap j gj
 noremap k gk
-noremap <C-J> 10gj
-noremap <C-K> 10gk
 nnoremap J :m .+1<cr>
 nnoremap K :m .-2<cr>
 vnoremap J :m '>+1'<cr>gv=gv
 vnoremap K :m '<-2'<cr>gv=gv
 
-noremap H :bp<cr>
-noremap L :bn<cr>
+noremap <C-e> 5<C-e>
+noremap <C-y> 5<C-y>
+noremap <C-J> 5gj
+noremap <C-K> 5gk
 
-vnoremap < <gv
-vnoremap > >gv
+noremap <silent> H :bp<cr>
+noremap <silent> L :bn<cr>
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-H> <C-W>h
+noremap <C-L> <C-W>l
+
 nnoremap < <<
 nnoremap > >>
+vnoremap < <gv
+vnoremap > >gv
 
 nnoremap / /\v
 vnoremap / /\v
 
-nnoremap <silent> <c-w>s <c-w>s<c-w>j
-nnoremap <silent> <c-w>v <c-w>v<c-w>l
-
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-vnoremap <up> <nop>
-vnoremap <down> <nop>
-vnoremap <left> <nop>
-vnoremap <right> <nop>
-
-" Paste
-set pastetoggle=<leader>p
-autocmd InsertLeave * set nopaste " disable paste mode after leaving insert mode
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
 
 " Trigger: Remember cursor position
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -246,9 +250,7 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: Gitgutter
-let g:gitgutter_enabled = 1
 let g:gitgutter_sign_column_always = 1
-let g:gitgutter_realtime = 0
 hi! link SignColumn LineNr
 
 " Plugin: Vim-Go
