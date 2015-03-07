@@ -153,10 +153,10 @@ if has("mouse")
     set ttymouse=xterm2 " modern mouse
     set mousehide " hide mouse pointer
     set mouse=nvc " enable mouse in:
-    "         |||
-    "         ||+-- commandline mode
-    "         |+--- visual mode
-    "         +---- normal mode
+"             |||
+"             ||+-- commandline mode
+"             |+--- visual mode
+"             +---- normal mode
 endif
 
 " Color
