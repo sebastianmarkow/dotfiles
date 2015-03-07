@@ -58,7 +58,7 @@
   whitespace = fix
 
 [alias]
-  edit-config = config --global -e
+  edit = config --global -e
   tig = !tig
 
   s = status -s -u
