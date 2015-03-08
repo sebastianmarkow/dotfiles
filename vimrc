@@ -72,16 +72,15 @@ set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
 set linespace=0
-set statusline=%<\%f\ [%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c
-"               |  |    |  | | | |          |                        |       |   |  |  |
-"               |  |    |  | | | |          +-- encoding             |       |   |  |  +-- column
-"               |  |    |  | | | +------------- preview              |       |   |  +----- total lines
-"               |  |    |  | | +--------------- help                 |       |   +-------- line
-"               |  |    |  | +----------------- readonly             |       +------------ filetype
-"               |  |    |  +------------------- modfied              +-------------------- format
-"               |  |    +---------------------- buffer
-"               |  +--------------------------- filepath
-"               +------------------------------ truncate from left
+set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c
+"               |  |   | | | |            |                      |       |   |  |  |
+"               |  |   | | | |            +-- encoding           |       |   |  |  +-- column
+"               |  |   | | | +--------------- preview            |       |   |  +----- total lines
+"               |  |   | | +----------------- help               |       |   +-------- line
+"               |  |   | +------------------- readonly           |       +------------ filetype
+"               |  |   +--------------------- modiied            +-------------------- format
+"               |  +------------------------- filepath
+"               +---------------------------- truncate from left
 set shortmess=aIOT
 "             ||||
 "             |||+-- truncate message in the middle
