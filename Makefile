@@ -7,6 +7,7 @@ FILES=zshrc		\
 	tmux.conf	\
 	gitconfig	\
 	gitignore	\
+	gitmessage      \
 	ackrc		\
 	wgetrc		\
 	hushlogin
