@@ -6,13 +6,14 @@ A heavily opinionated set of dotfiles (git, vim, zsh & tmux).
 
 * `make`
 * `git`
-* `vim`
-* `homebrew` (optional)
+* `vim` (optional)
+* `brew` (optional)
+* `pip` (optional)
 
-## Install
+## Installation
 
     $ git clone https://github.com/sebastianmarkow/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
     $ make       # to install
     $ make help  # for help
 
-**Note:** Please backup your existing dotfiles in your home directory before running `make` or `make install`. Files will be overwritten.
+**Warning:** Please backup your existing dotfiles in your home directory before running `make` or `make install`. Files will be overwritten.
