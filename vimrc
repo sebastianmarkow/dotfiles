@@ -239,13 +239,15 @@ autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 " Custom: Indent
 autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpandtab
 
-" Custom: Spellcheck
+" Custom: Spelling
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
-" Custom: Colorcolumn
+" Custom: Textwidth
+autocmd FileType text,gitcommit setlocal textwidth=72
+
 if exists('+colorcolumn')
     autocmd FileType python setlocal colorcolumn=80
-    autocmd FileType markdown,text,gitcommit setlocal colorcolumn=80
+    autocmd FileType text,gitcommit setlocal colorcolumn=+1
 endif
 
 " Plugin: Gitgutter

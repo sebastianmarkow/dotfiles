@@ -1,153 +1,154 @@
 [user]
-  name = Sebastian Klatt
-  email = sebastian@markow.org
-  signingkey = EF08BEA6
+    name = Sebastian Klatt
+    email = sebastian@markow.org
+    signingkey = EF08BEA6
 
 [github]
-  user = sebastianmarkow
+    user = sebastianmarkow
 
 [core]
-  editor = vim
-  pager = less -R
-  excludesfile = ~/.gitignore
-  whitespace = trailing-space,space-before-tab,blank-at-eof
+    editor = vim
+    pager = less -R
+    excludesfile = ~/.gitignore
+    whitespace = trailing-space,space-before-tab,blank-at-eof
 
 [commit]
-  gpgsign = true
+    gpgsign = true
+    template = ~/.gitmessage
 
 [push]
-  default = nothing
+    default = nothing
 
 [pull]
-  rebase = true
+    rebase = true
 
 [rebase]
-  autosquash = true
+    autosquash = true
 
 [merge]
-  summary = true
-  log = true
-  ff = false
-  conflictstyle = diff3
-  tool = vimdiff
+    summary = true
+    log = true
+    ff = false
+    conflictstyle = diff3
+    tool = vimdiff
 
 [mergetool "vimdiff"]
-  prompt = false
+    prompt = false
 
 [diff]
-  tool = vimdiff
+    tool = vimdiff
 
 [difftool "vimdiff"]
-  prompt = false
+    prompt = false
 
 [log]
-  abbrevCommit = true
-  decorate = short
-  date = local
+    abbrevCommit = true
+    decorate = short
+    date = local
 
 [advice]
-  statusHints = false
+    statusHints = false
 
 [help]
-  autocorrect = 1
+    autocorrect = 1
 
 [color]
-  ui = true
+    ui = true
 
 [apply]
-  whitespace = fix
+    whitespace = fix
 
 [alias]
-  edit = config --global -e
-  tig = !tig
+    edit = config --global -e
+    tig = !tig
 
-  s = status -s -u
-  ignored = status -s --ignored
+    s = status -s -u
+    ignored = status -s --ignored
 
-  sa = stash apply
-  sc = stash clear
-  sd = stash drop
-  sl = stash list
-  sp = stash pop
-  ss = stash save
-  sw = stash show
+    sa = stash apply
+    sc = stash clear
+    sd = stash drop
+    sl = stash list
+    sp = stash pop
+    ss = stash save
+    sw = stash show
 
-  d = diff
-  dc = diff --cached
-  ds = diff --staged
-  dt = difftool
-  dtc = difftool --cached
-  dts = difftool --staged
-  last = diff -R HEAD^
+    d = diff
+    dc = diff --cached
+    ds = diff --staged
+    dt = difftool
+    dtc = difftool --cached
+    dts = difftool --staged
+    last = diff -R HEAD^
 
-  c = commit
-  ca = commit -a
-  cd = commit --amend
+    c = commit
+    ca = commit -a
+    cd = commit --amend
 
-  a = add
-  ai = add -i
-  ap = add --patch
+    a = add
+    ai = add -i
+    ap = add --patch
 
-  b = branch
-  br = branch -r
-  ba = branch -a
-  bd = branch -d
-  bv = branch -v
+    b = branch
+    br = branch -r
+    ba = branch -a
+    bd = branch -d
+    bv = branch -v
 
-  co = checkout
-  cob = checkout -b
+    co = checkout
+    cob = checkout -b
 
-  cp = cherry-pick -x
+    cp = cherry-pick -x
 
-  compare = diff HEAD..master
+    compare = diff HEAD..master
 
-  f = fetch
-  fa = fetch --all
+    f = fetch
+    fa = fetch --all
 
-  grep-group = grep --break --heading --line-number
+    grep-group = grep --break --heading --line-number
 
-  l = log --graph --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
-  la = log --graph --all --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
-  ll = log --unified
-  lc = log --graph --name-status
-  local = log --branches --not --remotes
-  file-added = log --diff-filter=A
-  file-log = log -u
-  changelog = log --pretty=format:\"- %s\"
-  today = log --graph --since=1.day --relative-date
-  last-week = log --graph --since=1.week --relative-date
-  stats = log --stat
-  contrib = shortlog -s -n
+    l = log --graph --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
+    la = log --graph --all --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
+    ll = log --unified
+    lc = log --graph --name-status
+    local = log --branches --not --remotes
+    file-added = log --diff-filter=A
+    file-log = log -u
+    changelog = log --pretty=format:\"- %s\"
+    today = log --graph --since=1.day --relative-date
+    last-week = log --graph --since=1.week --relative-date
+    stats = log --stat
+    contrib = shortlog -s -n
 
-  m = merge
-  ma = merge --abort
-  mc = merge --continue
-  ms = merge --skip
-  mt = mergetool
+    m = merge
+    ma = merge --abort
+    mc = merge --continue
+    ms = merge --skip
+    mt = mergetool
 
-  pl = pull
-  pla = pull --all
+    pl = pull
+    pla = pull --all
 
-  p = push
+    p = push
 
-  rb = rebase
-  rba = rebase --abort
-  rbc = rebase --continue
-  rbi = rebase --interactive
-  rbs = rebase --skip
+    rb = rebase
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbi = rebase --interactive
+    rbs = rebase --skip
 
-  r = remote
-  ra = remote add
-  rm = remote rm
-  rv = remote -v
-  rs = remote show
-  rp = remote prune
-  re = reset
+    r = remote
+    ra = remote add
+    rm = remote rm
+    rv = remote -v
+    rs = remote show
+    rp = remote prune
+    re = reset
 
-  unstage = reset HEAD
-  uncommit = reset --soft HEAD^
+    unstage = reset HEAD
+    uncommit = reset --soft HEAD^
 
-  t = tag -n
+    t = tag -n
 
 [url "git@github.com:"]
     insteadOf = "gh:"
