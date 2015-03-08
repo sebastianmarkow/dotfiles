@@ -19,7 +19,7 @@ TEMPDIRS=vim/swaps	\
 
 .PHONY: $(FILES) $(TEMPDIRS) help
 
-all: install vundle
+all: install
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
