@@ -226,7 +226,7 @@ noremap <left> <nop>
 noremap <right> <nop>
 
 " Trigger: Remember cursor position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost *\(.git/COMMIT_EDITMSG\)\@<! if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
@@ -243,11 +243,14 @@ autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpand
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
 " Custom: Textwidth
-autocmd FileType text,gitcommit setlocal textwidth=72
+autocmd FileType text setlocal textwidth=80
+autocmd FileType gitcommit setlocal textwidth=72
 
+" Custom: Colorcolumn
 if exists('+colorcolumn')
-    autocmd FileType python setlocal colorcolumn=80
-    autocmd FileType text,gitcommit setlocal colorcolumn=+1
+    autocmd FileType python setlocal colorcolumn=81
+    autocmd FileType text setlocal colorcolumn=+1
+    autocmd FileType gitcommit setlocal colorcolumn=51,73
 endif
 
 " Plugin: Gitgutter
