@@ -18,7 +18,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'fatih/vim-go'
-Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'altercation/vim-colors-solarized'
 
 if has("lua")
@@ -191,6 +191,7 @@ map <leader>W :w !sudo tee %<cr>
 
 noremap <silent> <leader><space> :noh<cr>
 noremap <silent> <leader>i :set list!<cr>
+noremap <silent> <leader>I :ToggleWhitespace<cr>
 
 nnoremap Y y$
 noremap j gj
