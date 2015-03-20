@@ -1,6 +1,3 @@
-# Path
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
 # Term
 export TERM="xterm-256color"
 export LANG=en_US.UTF-8
@@ -137,13 +134,18 @@ SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 bindkey "^r" history-incremental-search-backward
 
 # Alias
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 alias ls="ls -GFh"
 alias la="ls -GFha"
 alias ll="ls -GFhl"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
+alias mkdir="mkdir -pv"
 alias vi="vim"
+alias gh="ghq"
 alias tmux="tmux attach-session -t $LOGNAME > /dev/null 2>&1  || tmux -2 new-session -s $LOGNAME"
 
 if [[ $UNAME == Darwin ]]; then
@@ -151,6 +153,28 @@ if [[ $UNAME == Darwin ]]; then
 fi
 
 # Function
+function delrepo () {
+    if [ -n "$1" ]; then
+        FOLDER=$(ghq list -p | peco --query "$1")
+    else
+        FOLDER=$(ghq list -p | peco)
+    fi
+    if [ -n "$FOLDER" ]; then
+        rm -rf $FOLDER
+    fi
+}
+
+function repo () {
+    if [ -n "$1" ]; then
+        FOLDER=$(ghq list -p | peco --query "$1")
+    else
+        FOLDER=$(ghq list -p | peco)
+    fi
+    if [ -n "$FOLDER" ]; then
+        cd $FOLDER
+    fi
+}
+
 function extract () {
   if [ -f $1 ]; then
     case $1 in

@@ -19,7 +19,9 @@ TEMPDIRS=vim/swaps	\
 
 .PHONY: $(FILES) $(TEMPDIRS) help
 
-all: install
+default: install
+
+all: install brew vundle pip
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
