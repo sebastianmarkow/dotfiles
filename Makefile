@@ -21,13 +21,14 @@ TEMPDIRS=vim/swaps	\
 
 default: install
 
-all: install brew vundle pip
+all: install brew vundle go pip
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  install   to hook up dotfiles"
 	@echo "  vundle    to install vundle - vim plugin manager"
 	@echo "  brew      to install homebrew and chosen formulas"
+	@echo "  go        to install go tools"
 	@echo "  pip       to install python eggs"
 
 install: $(FILES) $(TEMPDIRS)
@@ -51,6 +52,10 @@ vundle:
 brew:
 	@echo "Installing brew formulas"
 	@./Homebrew.sh
+
+go:
+	@echo "Installing go tools"
+	@./Go.sh
 
 pip:
 	@echo "Installing python eggs"
