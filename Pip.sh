@@ -14,7 +14,7 @@ pip_up() {
     unset PIP_REQUIRE_VIRTUALENV
     for p in pip pip3
     do
-        for e in "${EGGS[@]}"; do $p install --upgrade --quiet $e; done
+        for e in "${EGGS[@]}"; do $p install --upgrade $e; done
     done
 }
 
