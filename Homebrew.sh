@@ -24,8 +24,6 @@ FORMULAS="vim --with-lua --with-luajit \
           bash \
           tmux \
           git \
-          mercurial \
-          mr \
           tig \
           multitail \
           ack \
@@ -46,7 +44,6 @@ FORMULAS="vim --with-lua --with-luajit \
           siege \
           wrk \
           ttyrec \
-          imagemagick \
           gnuplot \
           mdp \
           w3m \
