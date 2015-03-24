@@ -24,6 +24,7 @@ FORMULAS="vim --with-lua --with-luajit \
           bash \
           tmux \
           git \
+          mercurial \
           tig \
           multitail \
           ack \
