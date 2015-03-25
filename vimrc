@@ -23,6 +23,8 @@ Plugin 'altercation/vim-colors-solarized'
 
 if has("lua")
     Plugin 'Shougo/neocomplete.vim'
+    Plugin 'Shougo/neosnippet.vim'
+    Plugin 'Shougo/neosnippet-snippets'
 endif
 
 call vundle#end()
@@ -183,15 +185,15 @@ set wildignore+=*.db,*.sqlite
 let mapleader = "," " `\` no thank you
 
 " Keymap
-map <silent> <leader>q :qa<cr>
-map <silent> <leader>c :close<cr>
-map <silent> <leader>C :bd<cr>
-map <silent> <leader>w :w<cr>
+map <silent><leader>q :qa<cr>
+map <silent><leader>c :close<cr>
+map <silent><leader>C :bd<cr>
+map <silent><leader>w :w<cr>
 map <leader>W :w !sudo tee %<cr>
 
-noremap <silent> <leader><space> :noh<cr>
-noremap <silent> <leader>i :set list!<cr>
-noremap <silent> <leader>I :ToggleWhitespace<cr>
+noremap <silent><leader><space> :noh<cr>
+noremap <silent><leader>i :set list!<cr>
+noremap <silent><leader>I :ToggleWhitespace<cr>
 
 nnoremap Y y$
 noremap j gj
@@ -206,8 +208,8 @@ noremap <C-y> 5<C-y>
 noremap <C-J> 5gj
 noremap <C-K> 5gk
 
-noremap <silent> H :bp<cr>
-noremap <silent> L :bn<cr>
+noremap <silent>H :bp<cr>
+noremap <silent>L :bn<cr>
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-H> <C-W>h
@@ -262,6 +264,10 @@ hi! link SignColumn LineNr
 let g:go_fmt_command = "goimports"
 let g:go_doc_keywordprg_enabled = 0
 
+" Plugin: Auto-Pairs
+let g:AutoPairsMapBS = 0
+let g:AutoPairsMapCR = 0
+
 " Plugin: NeoComplete
 if has("lua")
     let g:acp_enableAtStartup = 0
@@ -271,8 +277,8 @@ if has("lua")
     let g:neocomplete#max_keyword_width = 80
     let g:neocomplete#min_keyword_length = 3
     let g:neocomplete#enable_ignore_case = 1
-    inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
-    inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
-    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+    imap <expr><Tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : pumvisible() ? "\<C-n>" : "\<Tab>"
+    imap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
+    imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ? neocomplete#close_popup() : "\<CR>"
+    imap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 endif
