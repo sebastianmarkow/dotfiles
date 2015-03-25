@@ -236,10 +236,11 @@ autocmd BufNewFile,BufRead *.go setlocal filetype=go
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
+autocmd BufNewFile,BufRead *.snip setlocal filetype=snippet
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType make,go,glsl,c,cpp setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType make,go,glsl,c,cpp,snippet setlocal softtabstop=8 shiftwidth=8 noexpandtab
 
 " Custom: Spelling
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
