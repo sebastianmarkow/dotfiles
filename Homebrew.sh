@@ -10,11 +10,10 @@ TAPS=(
 )
 
 FORMULAS="vim --with-lua --with-luajit \
-          grep --with-default-names \
-          gnu-tar --with-default-names \
-          gnu-sed --with-default-names
           laurent22/massren/massren \
           peco/peco/peco \
+          gnu-tar \
+          gnu-sed \
           openssh \
           coreutils \
           diffutils \
