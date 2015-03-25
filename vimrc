@@ -24,7 +24,6 @@ Plugin 'altercation/vim-colors-solarized'
 if has("lua")
     Plugin 'Shougo/neocomplete.vim'
     Plugin 'Shougo/neosnippet.vim'
-    Plugin 'Shougo/neosnippet-snippets'
 endif
 
 call vundle#end()
@@ -277,6 +276,8 @@ if has("lua")
     let g:neocomplete#max_keyword_width = 80
     let g:neocomplete#min_keyword_length = 3
     let g:neocomplete#enable_ignore_case = 1
+    let g:neosnippet#disable_runtime_snippets = { '_' : 1, }
+    let g:neosnippet#snippets_directory="~/.vim/snippets"
     imap <expr><Tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : pumvisible() ? "\<C-n>" : "\<Tab>"
     imap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
     imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ? neocomplete#close_popup() : "\<CR>"
