@@ -271,11 +271,10 @@ let g:AutoPairsMapCR = 0
 if has("lua")
     let g:acp_enableAtStartup = 0
     let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-    let g:neocomplete#max_list = 20
-    let g:neocomplete#max_keyword_width = 80
-    let g:neocomplete#min_keyword_length = 3
-    let g:neocomplete#enable_ignore_case = 1
+    let g:neocomplete#max_list = 15
+    let g:neocomplete#max_keyword_width = 50
+    let g:neocomplete#min_keyword_length = 4
+    let g:neocomplete#auto_completion_start_length = 3
     let g:neosnippet#disable_runtime_snippets = { '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
     imap <expr><Tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : pumvisible() ? "\<C-n>" : "\<Tab>"
