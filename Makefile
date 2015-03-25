@@ -21,7 +21,7 @@ TEMPDIRS=vim/swaps	\
 
 default: install
 
-all: install brew vundle go pip
+all: install brew go pip vundle
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -58,5 +58,5 @@ go:
 	@./Go.sh
 
 pip:
-	@echo "Installing python eggs"
+	@echo "Installing pip python packages"
 	@./Pip.sh
