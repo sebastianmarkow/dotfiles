@@ -98,5 +98,11 @@ abbr	    setattr(..., ...)
 	setattr(#:obj, #:attr)
 
 snippet     pdb
-abbr	    import pdb..
+abbr	    import pdb...
 	import pdb; pdb.set_trace()
+
+snippet #TODO
+alias   #todo
+abbr    # TODO(...): ...
+options head
+	# TODO(${1:#:initials}): ${0:#:message}
