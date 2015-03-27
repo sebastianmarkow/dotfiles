@@ -16,19 +16,19 @@ DIRS=tmp/vim/swaps	\
 	vim/bundle
 
 
-default: install
+default: help
 
-all: brew install go pip vundle
+all: dotfiles brew goget pip vundle
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "  install   to hook up dotfiles"
-	@echo "  vundle    to install vundle - vim plugin manager"
-	@echo "  brew      to install homebrew and chosen formulas"
-	@echo "  go        to install go tools"
-	@echo "  pip       to install python eggs"
+	@echo "    dotfiles  to symlink dotfiles"
+	@echo "    vundle    to install vim vundle"
+	@echo "    brew      to install homebrew & formulas"
+	@echo "    goget     to install go tools"
+	@echo "    all       for all of the above"
 
-install: $(FILES) $(DIRS)
+dotfiles: $(FILES) $(DIRS)
 
 $(FILES):
 	@echo "Symlinking $@ -> ~/.$@"
@@ -46,14 +46,14 @@ vundle: install
 
 brew:
 	@echo "Installing brew formulas"
-	@./Homebrew.sh
+	@./homebrew.sh
 
-go:
+goget:
 	@echo "Installing go tools"
-	@./Go.sh
+	@./goget.sh
 
 pip:
 	@echo "Installing pip python packages"
-	@./Pip.sh
+	@./pip.sh
 
 .PHONY: $(FILES) $(DIRS) help
