@@ -1,27 +1,24 @@
-CURDIR?= $(.CURDIR)
-TEMPDIR=~/.tmp
-
 FILES=zshrc		\
 	vimrc		\
 	vim		\
 	tmux.conf	\
 	gitconfig	\
 	gitignore	\
-	gitmessage      \
+	gitmessage	\
 	ackrc		\
 	wgetrc		\
 	hushlogin
 
-TEMPDIRS=vim/swaps	\
-	vim/undo	\
-	vim/backup	\
-	zsh/cache
+DIRS=tmp/vim/swaps	\
+	tmp/vim/undo	\
+	tmp/vim/backup	\
+	tmp/zsh/cache	\
+	vim/bundle
 
-.PHONY: $(FILES) $(TEMPDIRS) help
 
 default: install
 
-all: install brew go pip vundle
+all: brew install go pip vundle
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -31,23 +28,21 @@ help:
 	@echo "  go        to install go tools"
 	@echo "  pip       to install python eggs"
 
-install: $(FILES) $(TEMPDIRS)
+install: $(FILES) $(DIRS)
 
 $(FILES):
-	@echo "Symlinking $@"
+	@echo "Symlinking $@ -> ~/.$@"
 	@rm -rf ~/.$@
 	@ln -s $(CURDIR)/$@ ~/.$@
 
-$(TEMPDIRS):
-	@echo "Making $@"
-	@mkdir -p $(TEMPDIR)/$@
+$(DIRS):
+	@echo "Making ~/.$@"
+	@mkdir -p ~/.$@
 
-vundle:
+vundle: install
 	@echo "Installing vundle"
-	@rm -rf ~/.vim/bundle
-	@mkdir -p ~/.vim/bundle
-	@git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	@vim +PluginInstall +qall
+	@test -d ~/.vim/bundle/Vundle.vim || git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	@vim +PluginInstall! +qall
 
 brew:
 	@echo "Installing brew formulas"
@@ -60,3 +55,5 @@ go:
 pip:
 	@echo "Installing pip python packages"
 	@./Pip.sh
+
+.PHONY: $(FILES) $(DIRS) help
