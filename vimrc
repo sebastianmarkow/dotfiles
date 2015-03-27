@@ -15,6 +15,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-dispatch'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'fatih/vim-go'
@@ -181,7 +183,7 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp,*.psd,*.ai,*.ico
 set wildignore+=*.db,*.sqlite
 
 " Leader
-let mapleader = "," " `\` no thank you
+let mapleader="," " `\` no thank you
 
 " Keymap
 map <silent><leader>q :qa<cr>
@@ -236,11 +238,10 @@ autocmd BufNewFile,BufRead *.go setlocal filetype=go
 autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
-autocmd BufNewFile,BufRead *.snip setlocal filetype=snippet
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType make,go,glsl,c,cpp,snippet setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 shiftwidth=8 noexpandtab
 
 " Custom: Spelling
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
@@ -257,26 +258,27 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: Gitgutter
-let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_column_always=1
+let g:gitgutter_realtime=0
+let g:gitgutter_eager=0
 hi! link SignColumn LineNr
 
 " Plugin: Vim-Go
-let g:go_fmt_command = "goimports"
-let g:go_doc_keywordprg_enabled = 0
+let g:go_fmt_command="goimports"
+let g:go_doc_keywordprg_enabled=0
 
 " Plugin: Auto-Pairs
-let g:AutoPairsMapBS = 0 " no funny stuff on backspace
-let g:AutoPairsMapCR = 0 " or carriage return
+let g:AutoPairsMapCR=0 " no funny stuff on carriage return
 
 " Plugin: NeoComplete
 if has("lua")
-    let g:acp_enableAtStartup = 0
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#max_list = 15
-    let g:neocomplete#max_keyword_width = 50
-    let g:neocomplete#min_keyword_length = 4
-    let g:neocomplete#auto_completion_start_length = 3
-    let g:neosnippet#disable_runtime_snippets = { '_' : 1, }
+    let g:acp_enableAtStartup=0
+    let g:neocomplete#enable_at_startup=1
+    let g:neocomplete#max_list=15
+    let g:neocomplete#max_keyword_width=50
+    let g:neocomplete#min_keyword_length=4
+    let g:neocomplete#auto_completion_start_length=3
+    let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
     imap <expr><Tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : pumvisible() ? "\<C-n>" : "\<Tab>"
     imap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
