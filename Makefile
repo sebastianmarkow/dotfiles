@@ -40,7 +40,7 @@ $(DIRS):
 	@echo "Making ~/.$@"
 	@mkdir -p ~/.$@
 
-vundle: install
+vundle: brew dotfiles
 	@echo "Installing vundle"
 	@test -d ~/.vim/bundle/Vundle.vim || git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	@vim +PluginInstall! +qall
@@ -49,11 +49,11 @@ brew:
 	@echo "Installing brew formulas"
 	@./Homebrew.sh
 
-go:
+go: brew
 	@echo "Installing go tools"
 	@./Go.sh
 
-python:
+python: brew
 	@echo "Installing pip python packages"
 	@./Python.sh
 
