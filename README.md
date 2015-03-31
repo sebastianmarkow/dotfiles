@@ -6,14 +6,16 @@ A heavily opinionated set of dotfiles (git, vim, zsh & tmux).
 
 * `make`
 * `git`
-* `vim` (optional)
-* `brew` (optional)
-* `pip` (optional)
 
 ## Installation
 
-    $ git clone https://github.com/sebastianmarkow/dotfiles.git ~/.dotfiles && cd ~/.dotfiles
-    $ make       # to install
-    $ make help  # for help
+    $ git clone https://github.com/sebastianmarkow/dotfiles.git
+    $ cd dotfiles && make
+    Please use `make <target>' where <target> is one of
+        dotfiles  to symlink dotfiles
+        vundle    to install vim vundle
+        brew      to install homebrew & formulas
+        goget     to install go tools
+        all       for all of the above
 
-**Warning:** Please backup your existing dotfiles in your home directory before running `make` or `make install`. Files will be overwritten.
+**Warning:** Please backup any current dotfiles in your users home directory before running any `make` target. Files will be overwritten.
