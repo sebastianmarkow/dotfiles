@@ -268,6 +268,7 @@ let g:go_fmt_command="goimports"
 let g:go_doc_keywordprg_enabled=0
 
 " Plugin: Auto-Pairs
+let g:AutoPairsMapBS=0
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
 
 " Plugin: NeoComplete
