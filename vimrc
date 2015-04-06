@@ -143,7 +143,6 @@ set updatetime=1000
 set notimeout
 set ttimeout
 set ttimeoutlen=500
-set ttyfast " optimize for fast terminal connections
 set t_ut= " no background redraw
 
 " Sync
