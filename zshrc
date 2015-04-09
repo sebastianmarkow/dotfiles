@@ -148,10 +148,6 @@ alias vi="vim"
 alias gh="ghq"
 alias tmux="tmux attach-session -t $LOGNAME > /dev/null 2>&1  || tmux -2 new-session -s $LOGNAME"
 
-if [[ $UNAME == Darwin ]]; then
-    alias brewed="${$(readlink ~/.zshrc)%/*}/Homebrew.sh"
-fi
-
 # Function
 function delrepo () {
     if [ -n "$1" ]; then
