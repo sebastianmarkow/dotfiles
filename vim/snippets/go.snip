@@ -1,0 +1,110 @@
+snippet     main
+abbr        package main func main() { ... }
+options     head
+  package main
+
+  func main() {
+    ${0:TARGET}
+  }
+
+snippet     method
+abbr        func (...) ...() { ... }
+options     head
+  func (${1:type}) ${2:name}(${3:#:parameter}) ${4:#:return value} {
+    ${0:TARGET:return }
+  }
+
+snippet     function
+abbr        func ...() { ... }
+options     head
+  func ${1:name}(${2:#:parameter}) ${3:#:return value} {
+    ${0:TARGET:return }
+  }
+
+snippet     import
+options     head
+  import (
+    "${0:TARGET}"
+  )
+
+snippet     package
+options     head
+  package ${0:TARGET}
+
+snippet     print
+options     word
+  fmt.Print(${0:TARGET})
+
+snippet     printf
+options     word
+  fmt.Printf("${1}", ${2:})
+
+snippet     println
+options     word
+  fmt.Println(${0:TARGET})
+
+snippet     fatal
+options     word
+  log.Fatal(${0:TARGET})
+
+snippet     fatalf
+options     word
+  log.Fatalf("${1}", ${2:})
+
+snippet     fatalln
+options     word
+  log.Fatalln(${0:TARGET})
+
+snippet     struct
+options     head
+  type ${1} struct {
+    ${0:TARGET}
+  }
+
+snippet     interface
+options     head
+  type ${1} interface {
+    ${0:TARGET}
+  }
+
+snippet     for
+abbr        for ... { ... }
+options     head
+  for ${1} {
+    ${0:TARGET}
+  }
+
+snippet     range
+abbr        for ... := range ... { ... }
+options     head
+  for ${1:key, value} := range ${2:#:iterator} {
+    ${0:TARGET}
+  }
+
+snippet     if
+abbr        if ... { ... }
+options     head
+    if ${1:err != nil} {
+        ${0:TARGET}
+    }
+
+snippet     switch
+abbr        switch { ... }
+options     head
+  switch ${1:#:value} {
+  case ${2:#:condition}:
+    ${0:TARGET}
+  }
+
+snippet     select
+abbr        select { ... }
+options     head
+  select {
+  case ${1:#:condition}:
+    ${0:TARGET}
+  }
+
+snippet     case
+options     head
+  case ${1:#:condition}:
+    ${2:TARGET}
