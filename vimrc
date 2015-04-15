@@ -11,22 +11,21 @@ call vundle#begin()
 
 " Plugins
 Plugin 'gmarik/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+if has("lua")
+    Plugin 'Shougo/neocomplete.vim'
+    Plugin 'Shougo/neosnippet.vim'
+endif
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-dispatch'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'fatih/vim-go'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'altercation/vim-colors-solarized'
-
-if has("lua")
-    Plugin 'Shougo/neocomplete.vim'
-    Plugin 'Shougo/neosnippet.vim'
-endif
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 
@@ -282,7 +281,7 @@ if has("lua")
     smap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
     imap <expr><cr>  !pumvisible() ? "\<cr>" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : neocomplete#close_popup()
     inoremap <expr><esc> pumvisible() ? neocomplete#cancel_popup() : "\<esc>"
-    inoremap <expr><bs> neocomplete#smart_close_popup()."\<c-h>"
+    inoremap <expr><bs> neocomplete#smart_close_popup()."\<bs>"
     inoremap <expr><c-g> neocomplete#undo_completion()
     inoremap <expr><c-l> neocomplete#complete_common_string()
     if has('conceal')
