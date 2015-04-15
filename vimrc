@@ -62,11 +62,12 @@ set showcmd
 set title
 set nofoldenable
 set number
+set relativenumber
 set numberwidth=4
 set cmdheight=1
 set laststatus=2 " always show statusline
-set scrolloff=5
-set sidescrolloff=5 " number of horizontal lines visible around cursor
+set scrolloff=3
+set sidescrolloff=3 " number of horizontal lines visible around cursor
 set showmatch
 set matchtime=2 " matching brackets cursor blink time (1/10 * n)
 set hidden " hide unsaved buffer
@@ -192,26 +193,21 @@ map <leader>W :w !sudo tee %<cr>
 
 noremap <silent><leader><space> :noh<cr>
 noremap <silent><leader>i :set list!<cr>
-noremap <silent><leader>I :ToggleWhitespace<cr>
 
 noremap <silent>H :bp<cr>
 noremap <silent>L :bn<cr>
 
 nnoremap Y y$
-nnoremap J :m .+1<cr>
-nnoremap K :m .-2<cr>
-vnoremap J :m '>+1'<cr>gv=gv
-vnoremap K :m '<-2'<cr>gv=gv
+nnoremap <c-j> :m .+1<cr>
+nnoremap <c-k> :m .-2<cr>
+vnoremap <c-j> :m '>+1'<cr>gv=gv
+vnoremap <c-k> :m '<-2'<cr>gv=gv
 
 noremap <c-e> 5<c-e>
 noremap <c-y> 5<c-y>
 
 noremap j gj
 noremap k gk
-noremap <c-j> <c-W>j
-noremap <c-k> <c-W>k
-noremap <c-h> <c-W>h
-noremap <c-l> <c-W>l
 
 nnoremap < <<
 nnoremap > >>
@@ -227,7 +223,7 @@ noremap <left> <nop>
 noremap <right> <nop>
 
 " Trigger: Remember cursor position
-autocmd BufReadPost *\(.git/COMMIT_EDITMSG\)\@<! if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
@@ -257,12 +253,16 @@ endif
 " Plugin: Gitgutter
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=0
-let g:gitgutter_eager=0
 hi! link SignColumn LineNr
+nmap <leader>j <Plug>GitGutterNextHunk
+nmap <leader>k <Plug>GitGutterPrevHunk
 
 " Plugin: Vim-Go
 let g:go_fmt_command="goimports"
-let g:go_doc_keywordprg_enabled=0
+let g:go_doc_keywordprg_enabled=1
+
+" Plugin: Better-WhiteSpace
+noremap <silent><leader>I :ToggleWhitespace<cr>
 
 " Plugin: Auto-Pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
@@ -277,9 +277,9 @@ if has("lua")
     let g:neocomplete#auto_completion_start_length=3
     let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
-    imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
-    smap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
-    imap <expr><cr>  !pumvisible() ? "\<cr>" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : neocomplete#close_popup()
+    imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
+    smap <expr><tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
+    imap <expr><cr>  !pumvisible() ? "\<cr>" : neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup()
     inoremap <expr><esc> pumvisible() ? neocomplete#cancel_popup() : "\<esc>"
     inoremap <expr><bs> neocomplete#smart_close_popup()."\<bs>"
     inoremap <expr><c-g> neocomplete#undo_completion()
