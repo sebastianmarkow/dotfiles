@@ -278,10 +278,14 @@ if has("lua")
     let g:neocomplete#auto_completion_start_length=3
     let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
-    imap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : pumvisible() ? "\<c-n>" : "\<tab>"
-    imap <expr><cr> neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : pumvisible() ? neocomplete#close_popup() : "\<cr>"
+    imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
+    smap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
+    imap <expr><cr>  !pumvisible() ? "\<cr>" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : neocomplete#close_popup()
     inoremap <expr><esc> pumvisible() ? neocomplete#cancel_popup() : "\<esc>"
     inoremap <expr><bs> neocomplete#smart_close_popup()."\<c-h>"
     inoremap <expr><c-g> neocomplete#undo_completion()
     inoremap <expr><c-l> neocomplete#complete_common_string()
+    if has('conceal')
+          set conceallevel=2 concealcursor=niv
+    endif
 endif
