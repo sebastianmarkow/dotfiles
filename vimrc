@@ -195,25 +195,24 @@ noremap <silent><leader><space> :noh<cr>
 noremap <silent><leader>i :set list!<cr>
 noremap <silent><leader>I :ToggleWhitespace<cr>
 
+noremap <silent>H :bp<cr>
+noremap <silent>L :bn<cr>
+
 nnoremap Y y$
-noremap j gj
-noremap k gk
 nnoremap J :m .+1<cr>
 nnoremap K :m .-2<cr>
 vnoremap J :m '>+1'<cr>gv=gv
 vnoremap K :m '<-2'<cr>gv=gv
 
-noremap <C-e> 5<C-e>
-noremap <C-y> 5<C-y>
-noremap <C-J> 5gj
-noremap <C-K> 5gk
+noremap <c-e> 5<c-e>
+noremap <c-y> 5<c-y>
 
-noremap <silent>H :bp<cr>
-noremap <silent>L :bn<cr>
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-H> <C-W>h
-noremap <C-L> <C-W>l
+noremap j gj
+noremap k gk
+noremap <c-j> <c-W>j
+noremap <c-k> <c-W>k
+noremap <c-h> <c-W>h
+noremap <c-l> <c-W>l
 
 nnoremap < <<
 nnoremap > >>
@@ -279,8 +278,10 @@ if has("lua")
     let g:neocomplete#auto_completion_start_length=3
     let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
-    imap <expr><Tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : pumvisible() ? "\<C-n>" : "\<Tab>"
-    imap <expr><Esc> pumvisible() ? neocomplete#cancel_popup() : "\<Esc>"
-    imap <expr><CR> neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : pumvisible() ? neocomplete#close_popup() : "\<CR>"
-    imap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+    imap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : pumvisible() ? "\<c-n>" : "\<tab>"
+    imap <expr><cr> neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : pumvisible() ? neocomplete#close_popup() : "\<cr>"
+    inoremap <expr><esc> pumvisible() ? neocomplete#cancel_popup() : "\<esc>"
+    inoremap <expr><bs> neocomplete#smart_close_popup()."\<c-h>"
+    inoremap <expr><c-g> neocomplete#undo_completion()
+    inoremap <expr><c-l> neocomplete#complete_common_string()
 endif
