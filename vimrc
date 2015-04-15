@@ -47,10 +47,9 @@ if has("persistent_undo")
     set undofile
 endif
 
-set undolevels=1000
-set history=100
+set undolevels=500
 set backup
-set viminfo='100,<1000,/1000,c,n~/.tmp/vim/viminfo
+set viminfo='10,<500,/50,:100,@100,s10,h,c,n~/.tmp/vim/viminfo
 
 " Interface
 set showmode " current mode (insert, visual, etc)
