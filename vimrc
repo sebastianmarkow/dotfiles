@@ -7,7 +7,6 @@ set nocompatible " turn off vi-compatible mode
 " Plugins
 call plug#begin()
 
-Plug 'gmarik/Vundle.vim'
 Plug 'altercation/vim-colors-solarized'
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
@@ -16,10 +15,10 @@ endif
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-dispatch'
-Plug 'fatih/vim-go'
+Plug 'tpope/vim-fugitive', { 'on': 'Gdiff' }
+Plug 'tpope/vim-abolish', { 'on': ['Abbolish', 'Subvert'] }
+Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
