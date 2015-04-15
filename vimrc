@@ -8,10 +8,6 @@ set nocompatible " turn off vi-compatible mode
 call plug#begin()
 
 Plug 'altercation/vim-colors-solarized'
-if has("lua")
-    Plug 'Shougo/neocomplete.vim'
-    Plug 'Shougo/neosnippet.vim'
-endif
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -22,6 +18,10 @@ Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+if has("lua")
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/neosnippet.vim'
+endif
 
 call plug#end()
 
@@ -273,6 +273,7 @@ if has("lua")
     let g:neocomplete#auto_completion_start_length=3
     let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
+    let g:neosnippet#enable_snipmate_compatibility = 1
     imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
     smap <expr><tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
     imap <expr><cr>  !pumvisible() ? "\<cr>" : neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup()
