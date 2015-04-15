@@ -15,13 +15,13 @@ endif
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive', { 'on': 'Gdiff' }
-Plug 'tpope/vim-abolish', { 'on': ['Abbolish', 'Subvert'] }
-Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
+Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
+Plug 'fatih/vim-go',            { 'for': 'go' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 
 call plug#end()
 

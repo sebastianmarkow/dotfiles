@@ -43,7 +43,7 @@ $(DIRS):
 vimplug: brew dotfiles
 	@echo "Installing vimplug"
 	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	@vim +PlugUpdate +qall
+	@vim +PlugUpdate +PlugClean! +qall
 
 brew:
 	@echo "Installing brew formulas"
