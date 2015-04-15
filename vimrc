@@ -4,30 +4,27 @@ set noexrc
 " Base
 set nocompatible " turn off vi-compatible mode
 
-" Vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
 " Plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-if has("lua")
-    Plugin 'Shougo/neocomplete.vim'
-    Plugin 'Shougo/neosnippet.vim'
-endif
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-dispatch'
-Plugin 'fatih/vim-go'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'jiangmiao/auto-pairs'
+call plug#begin()
 
-call vundle#end()
+Plug 'gmarik/Vundle.vim'
+Plug 'altercation/vim-colors-solarized'
+if has("lua")
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/neosnippet.vim'
+endif
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+Plug 'fatih/vim-go'
+Plug 'airblade/vim-gitgutter'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'jiangmiao/auto-pairs'
+
+call plug#end()
 
 filetype plugin indent on
 syntax on

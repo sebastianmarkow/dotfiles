@@ -18,12 +18,12 @@ DIRS=tmp/vim/swaps	\
 
 default: help
 
-all: dotfiles brew go python vundle
+all: dotfiles brew go python vimplug
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "    dotfiles  to symlink dotfiles"
-	@echo "    vundle    to install vim vundle"
+	@echo "    vimplug   to install vim plugins"
 	@echo "    brew      to install homebrew & formulas"
 	@echo "    python    to install python packages"
 	@echo "    go        to install go tools"
@@ -40,10 +40,10 @@ $(DIRS):
 	@echo "Making ~/.$@"
 	@mkdir -p ~/.$@
 
-vundle: brew dotfiles
-	@echo "Installing vundle"
-	@test -d ~/.vim/bundle/Vundle.vim || git clone -q https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	@vim +PluginInstall! +qall
+vimplug: brew dotfiles
+	@echo "Installing vimplug"
+	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@vim +PlugInstall +qall
 
 brew:
 	@echo "Installing brew formulas"
