@@ -40,7 +40,7 @@ $(DIRS):
 	@echo "Making ~/.$@"
 	@mkdir -p ~/.$@
 
-vimplug: brew dotfiles
+vimplug: dotfiles
 	@echo "Installing vimplug"
 	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@vim +PlugUpdate +PlugClean! +qall
