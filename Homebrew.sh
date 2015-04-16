@@ -30,6 +30,7 @@ FORMULAS="vim --with-lua --with-luajit \
           cloc \
           watch \
           tree \
+          since \
           gawk \
           pv \
           rename \
