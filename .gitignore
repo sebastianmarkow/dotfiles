@@ -5,5 +5,13 @@
 Session.vim
 .netrwhist
 *~
+
+# Vimplug
 vim/autoload
 vim/plugged
+
+# Fish
+fish/*
+!fish/config.fish
+!fish/completions
+!fish/functions
