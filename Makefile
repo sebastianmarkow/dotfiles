@@ -1,14 +1,18 @@
 PWD:=$(shell pwd)
 
-SOURCES:=$(wildcard [a-z_.]*!.fish) config/fish/config.fish
+CONFIGDIR:=$(HOME)/.config
+
+CONFIGS:=fish
+FILES:=$(filter-out $(CONFIGS), $(wildcard [a-z_.]*))
 FOLDER:=tmp/vim/swaps \
        tmp/vim/undo \
        tmp/zsh/cache \
        vim/bundle \
-       config/fish \
+       config
 
-DOTFOLDER:=$(addprefix $(HOME)/, $(FOLDER:%=.%))
-DOTFILES:=$(addprefix $(HOME)/, $(SOURCES:%=.%))
+TARGETFOLDER:=$(addprefix $(HOME)/, $(FOLDER:%=.%))
+TARGETFILES:=$(addprefix $(HOME)/, $(FILES:%=.%))
+TARGETCONFIGS:=$(addprefix $(CONFIGDIR)/, $(CONFIGS))
 
 default: help
 
@@ -23,7 +27,7 @@ help:
 	@echo "    go        to install go tools"
 	@echo "    all       for all of the above"
 
-dotfiles: $(DOTFOLDER) $(DOTFILES)
+dotfiles: $(TARGETFOLDER) $(TARGETFILES) $(TARGETCONFIGS)
 
 $(DOTFOLDER):
 	@echo "create $@"
@@ -33,7 +37,7 @@ $(HOME)/.%: $(PWD)/%
 	@echo "symlink $< -> $@"
 	@ln -f -s $< $@
 
-$(HOME)/.config/fish/config.fish: $(PWD)/config.fish
+$(CONFIGDIR)/%: $(PWD)/%
 	@echo "symlink $< -> $@"
 	@ln -f -s $< $@
 
