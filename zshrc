@@ -3,11 +3,11 @@ export TERM="xterm-256color"
 export LANG=en_US.UTF-8
 
 # Editing
-export PAGER="less"
-export LESS="--ignore-case --raw-control-chars --chop-long-lines --LONG-PROMPT --SILENT"
 export EDITOR="vim"
 export VISUAL=$EDITOR
 export USE_EDITOR=$EDITOR
+export PAGER="less"
+export LESS="--ignore-case --chop-long-lines --long-prompt --silent"
 
 # History
 export HISTFILE=~/.tmp/zsh/zsh_history
@@ -24,7 +24,6 @@ export REPORTTIME=10
 # Module
 autoload -Uz compinit && compinit -d ~/.tmp/zsh/zcompdump
 autoload -Uz colors && colors
-autoload -Uz vcs_info
 autoload -Uz zcalc
 
 zmodload zsh/complist
@@ -108,26 +107,28 @@ fi
 
 export LS_OPTIONS="--color=auto"
 
-# Version control
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats '%u%c %b'
-zstyle ':vcs_info:*' actionformats '%u%c %a|%b'
-zstyle ':vcs_info:*' branchformat '%b'
-zstyle ':vcs_info:*' stagedstr '%F{yellow}●%f'
-zstyle ':vcs_info:*' unstagedstr '%F{red}●%f'
-
-# Prompt
 [[ $SSH_CONNECTION != '' ]] && prompt_user='%n@%m '
 
-if [[ $LOGNAME == 'root' ]]; then
-  prompt_symbol='# '
-else
-  prompt_symbol='$ '
-fi
+function parse_git_branch() {
+    (git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD) 2> /dev/null
+}
 
-PROMPT='$prompt_user%F{red}${PWD/#$HOME/~}%f $prompt_symbol'
-RPROMPT='$(vcs_info && echo $vcs_info_msg_0_)'
+function parse_git_path() {
+    (git rev-parse --show-toplevel) 2> /dev/null
+}
+
+precmd() {
+    local repo_branch="$(parse_git_branch)"
+    local repo_path=""
+
+    if [[ -n "$repo_branch" ]]; then
+        repo_path="${$(parse_git_path):h}"
+        PROMPT="$prompt_user %B%F{magenta}${repo_path/$HOME/~}%f%b%F{red}${PWD#$repo_path*}%f ${repo_branch#(refs/heads/|tags/)} %# "
+    else
+        PROMPT="$prompt_user %B%F{magenta}%3~%f%b %# "
+    fi
+}
+
 SPROMPT='Correct %F{red}%R%f to %F{green}%r%f? (Yes, No, Abort, Edit) '
 
 # Keymap
