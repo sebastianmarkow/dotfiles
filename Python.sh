@@ -5,9 +5,10 @@ set -e
 PATH=/usr/local/bin:$PATH
 
 EGGS=(
-    virtualenv
-    virtualenvwrapper
+    pip
     pep8
+    virtualenv
+    virtualfish
 )
 
 pip_up() {

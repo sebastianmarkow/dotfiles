@@ -119,13 +119,15 @@ function parse_git_path() {
 
 precmd() {
     local repo_branch="$(parse_git_branch)"
-    local repo_path=""
 
     if [[ -n "$repo_branch" ]]; then
-        repo_path="${$(parse_git_path):h}"
-        PROMPT="$prompt_user %B%F{magenta}${repo_path/$HOME/~}%f%b%F{red}${PWD#$repo_path*}%f ${repo_branch#(refs/heads/|tags/)} %# "
+        repo_parent=${repo_path/$HOME/~}
+
+        echo $repo_parent
+
+        PROMPT="$prompt_user%B%F{magenta}path%f%b %F{red}relative%f ${repo_branch#(refs/heads/|tags/)} %# "
     else
-        PROMPT="$prompt_user %B%F{magenta}%3~%f%b %# "
+        PROMPT="$prompt_user%B%F{magenta}%3~%f%b %# "
     fi
 }
 

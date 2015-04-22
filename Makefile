@@ -1,20 +1,14 @@
-FILES=zshrc		\
-	vimrc		\
-	vim		\
-	tmux.conf	\
-	gitconfig	\
-	gitignore	\
-	gitmessage	\
-	ackrc		\
-	wgetrc		\
-	hushlogin
+PWD:=$(shell pwd)
 
-DIRS=tmp/vim/swaps	\
-	tmp/vim/undo	\
-	tmp/vim/backup	\
-	tmp/zsh/cache	\
-	vim/bundle
+SOURCES:=$(wildcard [a-z_.]*!.fish) config/fish/config.fish
+FOLDER:=tmp/vim/swaps \
+       tmp/vim/undo \
+       tmp/zsh/cache \
+       vim/bundle \
+       config/fish \
 
+DOTFOLDER:=$(addprefix $(HOME)/, $(FOLDER:%=.%))
+DOTFILES:=$(addprefix $(HOME)/, $(SOURCES:%=.%))
 
 default: help
 
@@ -29,16 +23,19 @@ help:
 	@echo "    go        to install go tools"
 	@echo "    all       for all of the above"
 
-dotfiles: $(FILES) $(DIRS)
+dotfiles: $(DOTFOLDER) $(DOTFILES)
 
-$(FILES):
-	@echo "Symlinking $@ -> ~/.$@"
-	@rm -rf ~/.$@
-	@ln -s $(CURDIR)/$@ ~/.$@
+$(DOTFOLDER):
+	@echo "create $@"
+	@mkdir -p $@
 
-$(DIRS):
-	@echo "Making ~/.$@"
-	@mkdir -p ~/.$@
+$(HOME)/.%: $(PWD)/%
+	@echo "symlink $< -> $@"
+	@ln -f -s $< $@
+
+$(HOME)/.config/fish/config.fish: $(PWD)/config.fish
+	@echo "symlink $< -> $@"
+	@ln -f -s $< $@
 
 vimplug: dotfiles
 	@echo "Installing vimplug"
@@ -57,4 +54,4 @@ python: brew
 	@echo "Installing pip python packages"
 	@./Python.sh
 
-.PHONY: $(FILES) $(DIRS) help
+.PHONY: default dotfiles help vimplug brew go python

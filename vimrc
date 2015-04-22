@@ -1,5 +1,6 @@
 " No, no, no!
 set noexrc
+set shell=/bin/sh
 
 " Base
 set nocompatible " turn off vi-compatible mode
@@ -14,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
+Plug 'dag/vim-fish'
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
