@@ -11,6 +11,8 @@ set -x GOPATH $HOME/go
 set -x GOBIN $GOPATH/bin
 set -x PATH $GOBIN $PATH
 set -x PATH /usr/local/Cellar/go/1.4.2/libexec/bin $PATH
+set -x HOMEBREW_NO_EMOJI 1
+
 
 set -x LANG=en_US.UTF-8
 
