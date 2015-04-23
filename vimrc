@@ -21,8 +21,8 @@ Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 if has("lua")
-    Plug 'Shougo/neocomplete.vim', { 'frozen': 1 }
-    Plug 'Shougo/neosnippet.vim', { 'frozen': 1 }
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/neosnippet.vim'
 endif
 
 call plug#end()
