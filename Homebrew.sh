@@ -19,7 +19,7 @@ FORMULAS="vim --with-lua --with-luajit \
           diffutils \
           findutils \
           moreutils \
-          zsh \
+          fish \
           bash \
           tmux \
           git \
