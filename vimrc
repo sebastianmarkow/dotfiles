@@ -19,7 +19,7 @@ Plug 'dag/vim-fish'
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
     Plug 'Shougo/neosnippet.vim'
