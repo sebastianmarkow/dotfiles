@@ -48,14 +48,14 @@ vimplug: dotfiles
 
 brew:
 	@echo "Installing brew formulas"
-	@./Homebrew.sh
+	@sh ./Homebrew.sh
 
 go: brew
 	@echo "Installing go tools"
-	@./Go.sh
+	@sh ./Go.sh
 
 python: brew
 	@echo "Installing pip python packages"
-	@./Python.sh
+	@sh ./Python.sh
 
 .PHONY: default dotfiles help vimplug brew go python
