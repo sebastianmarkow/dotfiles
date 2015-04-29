@@ -61,11 +61,11 @@ set nofoldenable
 set number
 set relativenumber
 set cursorline
-set numberwidth=4
+set numberwidth=3
 set cmdheight=1
 set laststatus=2 " always show statusline
 set scrolloff=3
-set sidescrolloff=3 " number of horizontal lines visible around cursor
+set sidescrolloff=5 " number of horizontal columns visible around cursor
 set showmatch
 set matchtime=2 " matching brackets cursor blink time (1/10 * n)
 set hidden " hide unsaved buffer
