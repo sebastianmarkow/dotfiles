@@ -11,7 +11,7 @@ TAPS=(
 
 FORMULAS="vim --with-lua --with-luajit \
           laurent22/massren/massren \
-          peco/peco/peco \
+          peco \
           gnu-tar \
           gnu-sed \
           openssh \
