@@ -86,7 +86,7 @@
     dt = difftool
     dtc = difftool --cached
     dts = difftool --staged
-    last = diff -R HEAD^
+    last = diff -R HEAD..HEAD^
 
     c = commit
     ca = commit -a
