@@ -5,7 +5,6 @@ A heavily opinionated set of dotfiles (git, vim, zsh & tmux).
 ## Requirements
 
 * `make`
-* `git`
 
 ## Installation
 
@@ -19,4 +18,6 @@ A heavily opinionated set of dotfiles (git, vim, zsh & tmux).
         go        to install go tools
         all       for all of the above
 
-**Warning:** Please backup any current dotfiles in your users home directory before running any `make` target. Files will be overwritten.
+**Notice:**
+Existing dotfiles will not be overwritten.
+Files won't be linked if there's already a corresponding `.file` in your home directory.
