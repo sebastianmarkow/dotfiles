@@ -75,7 +75,7 @@ main() {
 
     brew update
     brew outdated
-    brew upgrade
+    brew upgrade --all
 
     brew_up
 
