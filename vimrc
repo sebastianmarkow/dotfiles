@@ -15,7 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
-Plug 'dag/vim-fish'
+Plug 'scrooloose/nerdtree',     { 'on': ['NERDTree', 'NERDTreeToggle'] }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
@@ -134,8 +134,8 @@ set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisib
 set formatoptions=qn
 "                 ||
 "                 |+--- recognize numbered lists
-"                 +---- allow formatting comments
 
+"                 +---- allow formatting comments
 " Timing
 set updatetime=1000
 set notimeout
@@ -247,6 +247,10 @@ if exists('+colorcolumn')
     autocmd FileType text setlocal colorcolumn=+1
     autocmd FileType gitcommit setlocal colorcolumn=51,73
 endif
+
+" Plugin: NERDtree
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+nmap <silent><leader>f :NERDTreeToggle<CR>
 
 " Plugin: Gitgutter
 let g:gitgutter_sign_column_always=1
