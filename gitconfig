@@ -107,7 +107,8 @@
 
     cp = cherry-pick -x
 
-    compare = diff HEAD..master
+    compare = diff master..HEAD
+    changes = diff --stat
 
     f = fetch
     fa = fetch --all
