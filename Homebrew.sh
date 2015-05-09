@@ -11,10 +11,10 @@ TAPS=(
 
 FORMULAS="vim --with-lua --with-luajit \
           laurent22/massren/massren \
-          peco \
+          openssh \
           gnu-tar \
           gnu-sed \
-          openssh \
+          gawk \
           coreutils \
           diffutils \
           findutils \
@@ -24,6 +24,7 @@ FORMULAS="vim --with-lua --with-luajit \
           tmux \
           git \
           mercurial \
+          bazaar \
           tig \
           multitail \
           ack \
@@ -31,10 +32,10 @@ FORMULAS="vim --with-lua --with-luajit \
           watch \
           tree \
           since \
-          gawk \
           pv \
           rename \
           jq \
+          peco \
           lftp \
           nmap \
           iftop \
@@ -42,16 +43,12 @@ FORMULAS="vim --with-lua --with-luajit \
           wget \
           curl \
           mtr \
-          siege \
           wrk \
-          ttyrec \
           gnuplot \
           mdp \
           w3m \
           graphviz \
           cgdb \
-          cmake \
-          ctags \
           go \
           python \
           python3 \
