@@ -19,6 +19,7 @@ Plug 'scrooloose/nerdtree',     { 'on': ['NERDTree', 'NERDTreeToggle'] }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
@@ -252,6 +253,9 @@ endif
 
 " Plugin: NERDtree
 nmap <silent><leader>f :NERDTreeToggle<CR>
+
+" Plugin: Markdown
+let g:vim_markdown_frontmatter=1
 
 " Plugin: Gitgutter
 let g:gitgutter_sign_column_always=1
