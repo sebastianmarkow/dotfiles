@@ -58,7 +58,6 @@ FORMULAS="vim --with-lua --with-luajit \
           ghc \
           cabal-install\
           node \
-          boot2docker \
           syncthing"
 
 brew_install() {

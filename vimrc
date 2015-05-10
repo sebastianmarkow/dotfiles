@@ -131,11 +131,13 @@ set nospell " no spellcheck
 set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
-set formatoptions=qn
-"                 ||
+set formatoptions=qntc
+"                 ||||
+"                 |||+- auto-wrap comments using textwidth
+"                 ||+-- auto-wrap text using textwidth
 "                 |+--- recognize numbered lists
-
 "                 +---- allow formatting comments
+
 " Timing
 set updatetime=1000
 set notimeout
@@ -238,13 +240,13 @@ autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 shiftwidth
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
 " Custom: Textwidth
-autocmd FileType text setlocal textwidth=80
+autocmd FileType text,markdown setlocal textwidth=80
 autocmd FileType gitcommit setlocal textwidth=72
 
 " Custom: Colorcolumn
 if exists('+colorcolumn')
     autocmd FileType python setlocal colorcolumn=81
-    autocmd FileType text setlocal colorcolumn=+1
+    autocmd FileType text,markdown setlocal colorcolumn=+1
     autocmd FileType gitcommit setlocal colorcolumn=51,73
 endif
 
