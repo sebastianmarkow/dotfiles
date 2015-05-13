@@ -251,7 +251,6 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: NERDtree
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 nmap <silent><leader>f :NERDTreeToggle<CR>
 
 " Plugin: Gitgutter
