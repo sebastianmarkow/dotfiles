@@ -17,6 +17,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
@@ -278,6 +279,26 @@ let g:agprg="ag --column"
 
 " Plugin: Markdown
 let g:vim_markdown_frontmatter=1
+
+" Plugin: Multiple Cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_key='<leader>m'
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
 
 " Plugin: Gitgutter
 let g:gitgutter_sign_column_always=1
