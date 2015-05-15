@@ -15,7 +15,8 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree',     { 'on': ['NERDTree', 'NERDTreeToggle'] }
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
@@ -252,8 +253,26 @@ if exists('+colorcolumn')
     autocmd FileType gitcommit setlocal colorcolumn=51,73
 endif
 
-" Plugin: NERDtree
-nmap <silent><leader>f :NERDTreeToggle<CR>
+" Plugin: CtrlP
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_max_files = 0
+let g:ctrlp_max_height = 20
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_lazy_update = 50
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+
+" Plugin: Yankstack
+let g:yankstack_map_keys = 0
+nmap <leader>p <Plug>yankstack_substitute_older_paste
+nmap <leader>n <Plug>yankstack_substitute_newer_paste
+
 " Plugin: Ag
 let g:agprg="ag --column"
 
