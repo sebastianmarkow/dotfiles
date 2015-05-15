@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree',     { 'on': ['NERDTree', 'NERDTreeToggle'] }
+Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-dispatch',      { 'on': 'Dispatch' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
@@ -253,6 +254,8 @@ endif
 
 " Plugin: NERDtree
 nmap <silent><leader>f :NERDTreeToggle<CR>
+" Plugin: Ag
+let g:agprg="ag --column"
 
 " Plugin: Markdown
 let g:vim_markdown_frontmatter=1

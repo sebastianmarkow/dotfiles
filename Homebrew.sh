@@ -27,7 +27,7 @@ FORMULAS="vim --with-lua --with-luajit \
           bazaar \
           tig \
           multitail \
-          ack \
+          ag \
           cloc \
           watch \
           tree \

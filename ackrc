@@ -1,8 +1,0 @@
---sort-files
-
---ignore-dir=vendor
---ignore-dir=node_modules
---ignore-dir=tags
---ignore-dir=build
---ignore-dir=coverage
---ignore-dir=.sass-cache
