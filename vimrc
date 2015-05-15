@@ -74,7 +74,7 @@ set matchtime=2 " matching brackets cursor blink time (1/10 * n)
 set hidden " hide unsaved buffer
 set splitbelow
 set splitright
-set nolazyredraw " do not redraw during macros
+set lazyredraw " do not redraw during macros
 set linespace=0
 set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c
 "               |  |   | | | |            |                      |       |   |  |  |
