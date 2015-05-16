@@ -267,7 +267,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup
 " Plugin: Yankstack
 let g:yankstack_map_keys = 0
 nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>n <Plug>yankstack_substitute_newer_paste
+nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Plugin: Ag
 let g:agprg="ag --column"
