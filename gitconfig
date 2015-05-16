@@ -11,6 +11,8 @@
     pager = less -R
     excludesfile = ~/.gitignore
     whitespace = trailing-space,space-before-tab,blank-at-eof
+    trustctime = false
+    precomposeunicode = false
 
 [commit]
     gpgsign = true
