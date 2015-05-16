@@ -9,53 +9,55 @@ TAPS=(
     homebrew/science
 )
 
-FORMULAS="vim --with-lua --with-luajit \
-          laurent22/massren/massren \
-          openssh \
-          gnu-tar \
-          gnu-sed \
-          gawk \
-          coreutils \
-          diffutils \
-          findutils \
-          moreutils \
-          fish \
-          bash \
-          tmux \
-          git \
-          mercurial \
-          bazaar \
-          tig \
-          multitail \
-          ag \
-          cloc \
-          watch \
-          tree \
-          since \
-          pv \
-          rename \
-          jq \
-          peco \
-          lftp \
-          nmap \
-          iftop \
-          htop \
-          wget \
-          curl \
-          mtr \
-          wrk \
-          gnuplot \
-          mdp \
-          w3m \
-          graphviz \
-          cgdb \
-          go \
-          python \
-          python3 \
-          ghc \
-          cabal-install\
-          node \
-          syncthing"
+FORMULAS="vim --with-lua --with-luajit --without-python --without-ruby --without-perl \
+    homebrew/dupes/rsync \
+    homebrew/dupes/openssh \
+    homebrew/dupes/make \
+    homebrew/dupes/less \
+    homebrew/dupes/awk \
+    laurent22/massren/massren \
+    coreutils \
+    diffutils \
+    findutils \
+    moreutils \
+    gnu-tar \
+    gnu-sed \
+    fish \
+    bash \
+    tmux \
+    git \
+    mercurial \
+    bazaar \
+    tig \
+    multitail \
+    ag \
+    cloc \
+    watch \
+    tree \
+    since \
+    pv \
+    rename \
+    jq \
+    peco \
+    lftp \
+    nmap \
+    iftop \
+    htop \
+    wget \
+    curl \
+    mtr \
+    wrk \
+    w3m \
+    gnuplot \
+    graphviz \
+    cgdb \
+    go \
+    python \
+    python3 \
+    ghc \
+    cabal-install\
+    node \
+    syncthing"
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
