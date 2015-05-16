@@ -260,11 +260,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_max_height = 20
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_lazy_update = 50
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup
       \ --ignore "**/*.pyc"
       \ -g ""'
 
