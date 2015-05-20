@@ -21,6 +21,13 @@ options     head
     ${0:TARGET:return }
   }
 
+snippet     testing
+alias       test Test Testing
+abbr        func Test... (t *testing.T) { ... }
+  func Test${1:name}(t *testing.T) {
+    ${0:TARGET}
+  }
+
 snippet     import
 options     head
   import (
