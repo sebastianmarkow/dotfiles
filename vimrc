@@ -94,6 +94,9 @@ set shortmess=aIOT
 
 " Diff
 set diffopt=filler,vertical
+"              |      |
+"              |      +-- open diff in vertical mode
+"              +--------- show filler lines
 
 
 " Completion
