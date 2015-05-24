@@ -71,6 +71,9 @@ brew_up() {
 main() {
     brew_install
 
+    brew doctor
+    brew prune
+
     brew update
     brew outdated
     brew upgrade --all
@@ -78,7 +81,6 @@ main() {
     brew_up
 
     brew cleanup
-    brew doctor
 }
 
 main
