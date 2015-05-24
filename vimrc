@@ -121,6 +121,7 @@ set wrapscan
 set gdefault " substitute globally by default
 set whichwrap+=h,l " vi keys wrap around lines
 set backspace=eol,start,indent " backspace across lines
+set virtualedit=block " use block selection in visual mode instead of longest column
 set textwidth=0 " no auto-wrapping
 set tabstop=8 " number of spaces a tab counts for
 set softtabstop=4 " number of spaces while indenting
@@ -129,6 +130,7 @@ set expandtab " use spaces rather than tabs
 set smarttab " handle spaces like tabs while deleting them
 set shiftround " round to a multiple of shiftwidth while indenting
 set nowrap " don't wrap lines
+set linebreak " don't break words at line end
 set autoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
@@ -177,7 +179,7 @@ endtry
 
 " Fileglob
 set wildmenu " enable filepath completion in the command bar
-set wildmode=longest:full
+set wildmode=longest:full,list:longest
 set wildchar=<Tab>
 set wildignore+=*~,*sw[op],*.pid,.DS_Store
 set wildignore+=.git,.hg,.svn
@@ -197,11 +199,11 @@ map <silent><leader>C :bd<cr>
 map <silent><leader>w :w<cr>
 map <leader>W :w !sudo tee %<cr>
 
-noremap <silent><leader><space> :noh<cr>
+noremap <silent><leader><esc> :noh<cr>
 noremap <silent><leader>i :set list!<cr>
 
-noremap <silent>H :bp<cr>
-noremap <silent>L :bn<cr>
+noremap <silent><c-h> :bp<cr>
+noremap <silent><c-l> :bn<cr>
 
 nnoremap Y y$
 nnoremap <c-j> :m .+1<cr>
@@ -209,11 +211,16 @@ nnoremap <c-k> :m .-2<cr>
 vnoremap <c-j> :m '>+1'<cr>gv=gv
 vnoremap <c-k> :m '<-2'<cr>gv=gv
 
-noremap <c-e> 5<c-e>
-noremap <c-y> 5<c-y>
+nnoremap <c-e> 5<c-e>
+nnoremap <c-y> 5<c-y>
 
-noremap j gj
-noremap k gk
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+nnoremap n nzz
+nnoremap } }zz
 
 nnoremap < <<
 nnoremap > >>
@@ -261,7 +268,7 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: CtrlP
-let g:ctrlp_map = '<leader>f'
+let g:ctrlp_map = '<leader><space>'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_max_files = 0
 let g:ctrlp_max_height = 20
@@ -306,8 +313,8 @@ endfunction
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=0
 hi! link SignColumn LineNr
-nmap <leader>j <Plug>GitGutterNextHunk
-nmap <leader>k <Plug>GitGutterPrevHunk
+nmap <leader>gn <Plug>GitGutterNextHunk
+nmap <leader>gp <Plug>GitGutterPrevHunk
 
 " Plugin: Vim-Go
 let g:go_fmt_command="goimports"
