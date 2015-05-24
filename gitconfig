@@ -64,9 +64,6 @@
     root = ~/repos
     root = ~/go/src
 
-[ghq "import"]
-    starred = !github-list-starred
-
 [alias]
     edit = config --global -e
     tig = !tig
