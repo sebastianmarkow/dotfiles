@@ -56,8 +56,7 @@ FORMULAS="vim --with-lua --with-luajit --without-python --without-ruby --without
     python3 \
     ghc \
     cabal-install\
-    node \
-    syncthing"
+    node"
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -71,10 +70,10 @@ brew_up() {
 main() {
     brew_install
 
+    brew update
     brew doctor
     brew prune
 
-    brew update
     brew outdated
     brew upgrade --all
 
