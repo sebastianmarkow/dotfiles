@@ -7,6 +7,7 @@ TOOLS=(
     "code.google.com/p/rog-go/exp/cmd/godef"
     "github.com/nsf/gocode"
     "github.com/motemen/ghq"
+    "github.com/motemen/gore"
 )
 
 go_get() {
