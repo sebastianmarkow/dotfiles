@@ -151,6 +151,7 @@ set updatetime=1000
 set notimeout
 set ttimeout
 set ttimeoutlen=500
+set ttyfast
 set t_ut= " no background redraw
 
 " Sync
