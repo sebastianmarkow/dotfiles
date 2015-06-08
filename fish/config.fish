@@ -48,6 +48,8 @@ eval (python3.4 -m virtualfish)
 
 set -e fish_greeting
 
+fish_vi_mode
+
 if not test -d ~/.config/fish/generated_completions
     fish_update_completions
 end
