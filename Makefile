@@ -50,11 +50,11 @@ brew:
 	@echo "Installing brew formulas"
 	@sh ./Homebrew.sh
 
-go: brew
+go:
 	@echo "Installing go tools"
 	@sh ./Go.sh
 
-python: brew
+python:
 	@echo "Installing pip python packages"
 	@sh ./Python.sh
 
