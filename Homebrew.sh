@@ -9,7 +9,7 @@ TAPS=(
     homebrew/science
 )
 
-FORMULAS="vim --with-lua --with-luajit --without-python --without-ruby --without-perl \
+FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     homebrew/dupes/rsync \
     homebrew/dupes/openssh \
     homebrew/dupes/make \
@@ -26,8 +26,8 @@ FORMULAS="vim --with-lua --with-luajit --without-python --without-ruby --without
     bash \
     tmux \
     git \
-    mercurial \
-    bazaar \
+    hg \
+    bzr \
     tig \
     multitail \
     ag \
@@ -38,6 +38,7 @@ FORMULAS="vim --with-lua --with-luajit --without-python --without-ruby --without
     pv \
     rename \
     jq \
+    autojump \
     peco \
     lftp \
     nmap \
@@ -47,12 +48,11 @@ FORMULAS="vim --with-lua --with-luajit --without-python --without-ruby --without
     curl \
     mtr \
     wrk \
+    tcpdump \
     w3m \
     gnuplot \
-    graphviz \
     cgdb \
     go \
-    python \
     python3 \
     ghc \
     cabal-install\
