@@ -37,7 +37,7 @@ set -x PATH (brew --prefix node)/bin $PATH
 
 # python
 set -x VIRTUALFISH_COMPAT_ALIASES true
-eval (python3.4 -m virtualfish)
+eval (python3 -m virtualfish)
 
 # Colors
 set normal (set_color normal)
