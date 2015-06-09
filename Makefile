@@ -29,7 +29,7 @@ help:
 
 dotfiles: $(TARGETFOLDER) $(TARGETFILES) $(TARGETCONFIGS)
 
-$(DOTFOLDER):
+$(TARGETFOLDER):
 	@printf "create $@\n"
 	@mkdir -p $@
 
