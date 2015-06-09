@@ -55,8 +55,9 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     go \
     python3 \
     ghc \
-    cabal-install\
-    node"
+    cabal-install \
+    node \
+    ctags-exuberant"
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
