@@ -43,7 +43,7 @@ $(CONFIGDIR)/%: $(PWD)/%
 
 vimplug: dotfiles
 	@printf "Installing vimplug\n"
-	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@vim +PlugUpdate +PlugClean! +qall
 
 brew:
