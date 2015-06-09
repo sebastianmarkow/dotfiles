@@ -29,7 +29,7 @@ set -e fish_greeting
 set -x HOMEBREW_NO_EMOJI 1
 
 # Hooks
-[ -d /Users/sebastian/.local/share/fish/generated_completions ]; or fish_update_completions
+[ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
 # node
