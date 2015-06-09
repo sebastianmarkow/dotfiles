@@ -19,43 +19,43 @@ default: help
 all: dotfiles brew go python vimplug
 
 help:
-	@echo "Please use \`make <target>' where <target> is one of"
-	@echo "    dotfiles  to symlink dotfiles"
-	@echo "    vimplug   to install vim plugins"
-	@echo "    brew      to install homebrew & formulas"
-	@echo "    python    to install python packages"
-	@echo "    go        to install go tools"
-	@echo "    all       for all of the above"
+	@printf "    dotfiles  to symlink dotfiles\n"
+	@printf "Please use \`make <target>' where <target> is one of\n"
+	@printf "    vimplug   to install vim plugins\n"
+	@printf "    brew      to install homebrew & formulas\n"
+	@printf "    python    to install python packages\n"
+	@printf "    go        to install go tools\n"
+	@printf "    all       for all of the above\n"
 
 dotfiles: $(TARGETFOLDER) $(TARGETFILES) $(TARGETCONFIGS)
 
 $(DOTFOLDER):
-	@echo "create $@"
+	@printf "create $@\n"
 	@mkdir -p $@
 
 $(HOME)/.%: $(PWD)/%
-	@echo "symlink $< -> $@"
+	@printf "symlink $< -> $@\n"
 	@ln -f -s $< $@
 
 $(CONFIGDIR)/%: $(PWD)/%
-	@echo "symlink $< -> $@"
+	@printf "symlink $< -> $@\n"
 	@ln -f -s $< $@
 
 vimplug: dotfiles
-	@echo "Installing vimplug"
+	@printf "Installing vimplug\n"
 	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@vim +PlugUpdate +PlugClean! +qall
 
 brew:
-	@echo "Installing brew formulas"
+	@printf "Installing brew formulas\n"
 	@sh ./Homebrew.sh
 
 go:
-	@echo "Installing go tools"
+	@printf "Installing go tools\n"
 	@sh ./Go.sh
 
 python:
-	@echo "Installing pip python packages"
+	@printf "Installing pip python packages\n"
 	@sh ./Python.sh
 
 .PHONY: default dotfiles help vimplug brew go python

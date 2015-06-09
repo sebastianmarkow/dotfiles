@@ -11,7 +11,11 @@ TOOLS=(
 )
 
 go_get() {
-    for t in "${TOOLS[@]}"; do go get -v -u $t; done
+    for t in "${TOOLS[@]}"; do
+        printf "go get -u $t"
+        go get -u $t
+        printf " done\n"
+    done
 }
 
 main() {
