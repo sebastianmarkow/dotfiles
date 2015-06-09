@@ -28,9 +28,6 @@ set -e fish_greeting
 # Homebrew
 set -x HOMEBREW_NO_EMOJI 1
 
-# Start in vi mode
-fish_vi_mode
-
 # Hooks
 [ -d /Users/sebastian/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
@@ -62,3 +59,6 @@ set __fish_git_prompt_char_stagedstate 's'
 set __fish_git_prompt_char_untrackedfiles 'u'
 set __fish_git_prompt_char_upstream_ahead '+'
 set __fish_git_prompt_char_upstream_behind '-'
+
+# Start in vi mode
+fish_vi_mode
