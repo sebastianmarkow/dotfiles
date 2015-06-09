@@ -22,7 +22,9 @@ Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'dag/vim2hs',              { 'for': 'haskell' }
+Plug 'dag/vim-fish',            { 'for': 'fish' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'cespare/vim-toml',        { 'for': 'toml' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
@@ -251,6 +253,7 @@ autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+autocmd BufNewFile,BufRead *.fish setlocal filetype=fish
 
 " Custom: Indent
 autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 shiftwidth=8 noexpandtab
@@ -296,7 +299,7 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_key='<leader>m'
 let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_skip_key='<C-j>'
 let g:multi_cursor_quit_key='<Esc>'
 
 function! Multiple_cursors_before()
@@ -320,6 +323,7 @@ nmap <leader>gp <Plug>GitGutterPrevHunk
 
 " Plugin: Vim-Go
 let g:go_fmt_command="goimports"
+let g:go_fmt_fail_silently=1
 let g:go_doc_keywordprg_enabled=1
 
 " Plugin: Better-WhiteSpace
