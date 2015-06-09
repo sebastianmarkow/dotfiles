@@ -19,8 +19,8 @@ default: help
 all: dotfiles brew go python vimplug
 
 help:
-	@printf "    dotfiles  to symlink dotfiles\n"
 	@printf "Please use \`make <target>' where <target> is one of\n"
+	@printf "    dotfiles  to symlink dotfiles\n"
 	@printf "    vimplug   to install vim plugins\n"
 	@printf "    brew      to install homebrew & formulas\n"
 	@printf "    python    to install python packages\n"
