@@ -6,7 +6,7 @@ CONFIGS:=fish
 FILES:=$(filter-out $(CONFIGS), $(wildcard [a-z_.]*))
 FOLDER:=tmp/vim/swaps \
        tmp/vim/undo \
-       tmp/zsh/cache \
+       tmp/vim/backup \
        vim/bundle \
        config
 
