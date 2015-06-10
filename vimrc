@@ -164,6 +164,7 @@ syn sync maxlines=500
 
 " Mouse
 if has("mouse")
+    set ttymouse=xterm2 " modern mouse
     set mousehide " hide mouse pointer
     set mouse=nvc " enable mouse in:
 "             |||
