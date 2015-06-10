@@ -256,6 +256,7 @@ autocmd BufNewFile,BufRead *.fish setlocal filetype=fish
 
 " Custom: Indent
 autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType yaml setlocal softtabstop=2 shiftwidth=2 noexpandtab
 
 " Custom: Spelling
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
