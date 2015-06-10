@@ -9,5 +9,5 @@ function fish_prompt --description 'Compose fish prompt'
     set -l pwd_info (prompt_pwd)
     set -l git_info (__fish_git_prompt)
 
-    echo -n -s $pwd_info $git_info ' $ '
+    echo -n -s $pwd_info $git_info (fish_user_prompt_cm)
 end
