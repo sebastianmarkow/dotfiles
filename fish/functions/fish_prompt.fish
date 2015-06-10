@@ -8,6 +8,8 @@ function fish_prompt --description 'Compose fish prompt'
 
     set -l pwd_info (prompt_pwd)
     set -l git_info (__fish_git_prompt)
+    set -l vi_cm (fish_vi_prompt_cm)
+    set -l user_cm (fish_user_prompt_cm)
 
-    echo -n -s $pwd_info $git_info (fish_user_prompt_cm)
+    echo -n -s $pwd_info $git_info ' ' $user_cm ' '
 end
