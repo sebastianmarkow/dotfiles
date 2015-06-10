@@ -239,6 +239,9 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+" Trigger: Autoread
+autocmd BufEnter * :silent checktime
+
 " Trigger: Remember cursor position
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
