@@ -198,8 +198,6 @@ let mapleader="," " `\` no thank you
 
 " Keymap
 map <silent><leader>q :qa<cr>
-map <silent><leader>c :close<cr>
-map <silent><leader>C :bd<cr>
 map <silent><leader>w :w<cr>
 map <leader>W :w !sudo tee %<cr>
 
