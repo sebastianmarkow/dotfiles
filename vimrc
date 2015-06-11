@@ -231,9 +231,6 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap / /\v
-vnoremap / /\v
-
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <left> <nop>
