@@ -16,6 +16,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
@@ -270,6 +273,20 @@ if exists('+colorcolumn')
     autocmd FileType text,markdown setlocal colorcolumn=+1
     autocmd FileType gitcommit setlocal colorcolumn=51,73
 endif
+
+" Plugin: Tagbar
+let g:tagbar_autoclose=1
+let g:tagbar_autofocus=1
+let g:tagbar_sort=0
+let g:tagbar_compact=1
+let g:tagbar_show_visibility=1
+let g:tagbar_show_linenumbers=0
+let g:tagbar_iconchars=['▸','▾']
+let g:tagbar_autopreview=1
+nmap <leader>t :TagbarToggle<cr>
+
+" Plugin: Easytags
+let g:easytags_suppress_report=1
 
 " Plugin: CtrlP
 let g:ctrlp_map='<leader><space>'
