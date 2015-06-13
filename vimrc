@@ -47,17 +47,17 @@ set autoread " load changes made from outside
 set nomodeline " seriously modelines?
 
 " History
-set directory=~/.tmp/vim/swaps
-set backupdir=~/.tmp/vim/backup
+set directory=~/.cache/vim/swaps
+set backupdir=~/.cache/vim/backup
 
 if has("persistent_undo")
-    set undodir=~/.tmp/vim/undo
+    set undodir=~/.cache/vim/undo
     set undofile
 endif
 
 set undolevels=500
 set backup
-set viminfo='10,<500,/50,:100,@100,s10,h,c,n~/.tmp/vim/viminfo
+set viminfo='10,<500,/50,:100,@100,s10,h,c,n~/.cache/vim/viminfo
 
 " Interface
 set showmode " current mode (insert, visual, etc)
