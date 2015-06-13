@@ -272,18 +272,20 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: CtrlP
-let g:ctrlp_map = '<leader><space>'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_height = 20
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_lazy_update = 50
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup
+let g:ctrlp_map='<leader><space>'
+let g:ctrlp_clear_cache_on_exit=0
+let g:ctrlp_max_files=0
+let g:ctrlp_max_height=20
+let g:ctrlp_lazy_update=50
+let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_open_new_file='v'
+let g:ctrlp_open_multiple_files = '3vjr'
+let g:ctrlp_user_command='ag %s -i --nocolor --nogroup
       \ --ignore "**/*.pyc"
       \ -g ""'
 
 " Plugin: Yankstack
-let g:yankstack_map_keys = 0
+let g:yankstack_map_keys=0
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
@@ -341,7 +343,7 @@ if has("lua")
     let g:neocomplete#auto_completion_start_length=3
     let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
-    let g:neosnippet#enable_snipmate_compatibility = 1
+    let g:neosnippet#enable_snipmate_compatibility=1
     imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
     smap <expr><tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
     imap <expr><cr>  !pumvisible() ? "\<cr>" : neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup()
