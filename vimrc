@@ -277,7 +277,7 @@ endif
 " Plugin: Tagbar
 let g:tagbar_autoclose=1
 let g:tagbar_autofocus=1
-let g:tagbar_sort=0
+let g:tagbar_sort=1
 let g:tagbar_compact=1
 let g:tagbar_show_visibility=1
 let g:tagbar_show_linenumbers=0
