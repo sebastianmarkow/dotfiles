@@ -8,7 +8,7 @@ TOOLS=(
     "github.com/nsf/gocode"
     "github.com/golang/lint/golint"
     "github.com/motemen/ghq"
-    "github.com/motemen/gore"
+    # "github.com/motemen/gore"
 )
 
 go_get() {
