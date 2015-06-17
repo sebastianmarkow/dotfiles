@@ -1,4 +1,8 @@
 function rp --description 'Go to repositories'
+    if not type "ghq" 2> /dev/null
+        echo 'rp: error ghq not installed'
+        return
+    end
     switch (count $argv)
         case 0
             cd (ghq root)
@@ -10,6 +14,6 @@ function rp --description 'Go to repositories'
                 ghq list -p -e $argv[2] | xargs rm -rf
             end
         case '*'
-            echo 'too many parameters'
+            echo 'rp: error too many parameters'
     end
 end
