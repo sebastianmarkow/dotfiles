@@ -40,6 +40,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     jq \
     autojump \
     peco \
+    spark \
     lftp \
     nmap \
     iftop \
