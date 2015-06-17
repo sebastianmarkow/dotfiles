@@ -1,5 +1,5 @@
 function rp --description 'Go to repositories'
-    if not type "ghq" 2> /dev/null
+    if not type "ghq" > /dev/null 2>&1
         echo 'rp: error ghq not installed'
         return
     end

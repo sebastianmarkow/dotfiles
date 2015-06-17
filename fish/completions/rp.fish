@@ -1,5 +1,5 @@
 function __rp_completion -d "rp path completion"
-    if not type "ghq" 2> /dev/null
+    if not type "ghq" > /dev/null 2>&1
         return
     end
     ghq list --unique
