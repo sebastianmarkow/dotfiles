@@ -8,6 +8,7 @@ TOOLS=(
     "github.com/nsf/gocode"
     "github.com/golang/lint/golint"
     "github.com/motemen/ghq"
+    "rsc.io/gt"
     # "github.com/motemen/gore"
 )
 
