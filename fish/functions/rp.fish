@@ -1,4 +1,4 @@
-function repo --description 'Go to repositories'
+function rp --description 'Go to repositories'
     switch (count $argv)
         case 0
             cd (ghq root)
