@@ -128,7 +128,7 @@ set gdefault " substitute globally by default
 set whichwrap+=h,l " vi keys wrap around lines
 set backspace=eol,start,indent " backspace across lines
 set virtualedit=block " use block selection in visual mode instead of longest column
-set textwidth=0 " no auto-wrapping
+set textwidth=80 " auto-wrapping
 set tabstop=8 " number of spaces a tab counts for
 set softtabstop=4 " number of spaces while indenting
 set shiftwidth=4 " number of spaces while shifting
@@ -145,10 +145,9 @@ set nospell " no spellcheck
 set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
-set formatoptions=qntc
-"                 ||||
-"                 |||+- auto-wrap comments using textwidth
-"                 ||+-- auto-wrap text using textwidth
+set formatoptions=qnc
+"                 |||
+"                 ||+- auto-wrap comments using textwidth
 "                 |+--- recognize numbered lists
 "                 +---- allow formatting comments
 
@@ -264,14 +263,13 @@ autocmd FileType yaml setlocal softtabstop=2 shiftwidth=2 noexpandtab
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 
 " Custom: Textwidth
-autocmd FileType text,markdown setlocal textwidth=80
 autocmd FileType gitcommit setlocal textwidth=72
 
 " Custom: Colorcolumn
 if exists('+colorcolumn')
-    autocmd FileType python setlocal colorcolumn=81
+    autocmd FileType python setlocal colorcolumn=+1
     autocmd FileType text,markdown setlocal colorcolumn=+1
-    autocmd FileType gitcommit setlocal colorcolumn=51,73
+    autocmd FileType gitcommit setlocal colorcolumn=51,+1
 endif
 
 " Plugin: Tagbar
