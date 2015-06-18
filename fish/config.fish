@@ -49,10 +49,10 @@ set blue (set_color blue)
 set gray (set_color -o black)
 
 # Git prompt
-set __fish_git_prompt_show_informative_status = true
-set __fish_git_prompt_showdirtystate = true
-set __fish_git_prompt_showuntrackedfiles = true
-set __fish_git_prompt_showcolorhints = true
+set __fish_git_prompt_show_informative_status 1
+set __fish_git_prompt_showdirtystate 1
+set __fish_git_prompt_showuntrackedfiles 1
+set __fish_git_prompt_showcolorhints 1
 
 # Vi prompt
 set __fish_vi_prompt_string_normal 'normal'
