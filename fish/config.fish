@@ -36,8 +36,8 @@ set -x HOMEBREW_NO_EMOJI 1
 set -x PATH (brew --prefix node)/bin $PATH
 
 # python
-set -x VIRTUALFISH_COMPAT_ALIASES true
-eval (python3 -m virtualfish)
+# set -x VIRTUALFISH_COMPAT_ALIASES true
+# eval (python3 -m virtualfish)
 
 # Colors
 set normal (set_color normal)
