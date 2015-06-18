@@ -236,6 +236,10 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+" Trigger: Title
+autocmd BufEnter,VimEnter * let &titlestring=' ' . expand("%:t")
+autocmd VimLeave * let &titlestring=''
+
 " Trigger: Autoread
 autocmd BufEnter * :silent checktime
 
