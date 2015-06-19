@@ -1,4 +1,4 @@
-function __fish_user_prompt_cm --description 'Display ps1'
+function fish_user_cm --description 'Display ps1'
     switch $USER
         case root
             echo '#'

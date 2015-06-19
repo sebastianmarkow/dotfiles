@@ -1,4 +1,4 @@
-function __fish_vi_prompt_cm --description 'Displays the current mode'
+function fish_mode_cm --description 'Displays the current mode'
   switch $fish_bind_mode
     case default
       set_color $__fish_vi_prompt_color_normal
