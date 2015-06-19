@@ -157,7 +157,6 @@ set notimeout
 set ttimeout
 set ttimeoutlen=500
 set ttyfast
-set t_ut= " no background redraw
 
 " Sync
 set synmaxcol=400
