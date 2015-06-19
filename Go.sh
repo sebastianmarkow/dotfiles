@@ -7,6 +7,7 @@ TOOLS=(
     "code.google.com/p/rog-go/exp/cmd/godef"
     "github.com/nsf/gocode"
     "github.com/golang/lint/golint"
+    "github.com/mailgun/godebug"
     "github.com/motemen/ghq"
     # "github.com/motemen/gore"
 )
