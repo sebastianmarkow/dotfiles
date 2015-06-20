@@ -39,28 +39,25 @@ set -x PATH (brew --prefix node)/bin $PATH
 # set -x VIRTUALFISH_COMPAT_ALIASES true
 # eval (python3 -m virtualfish)
 
-# Colors
-set normal (set_color normal)
-set magenta (set_color magenta)
-set yellow (set_color yellow)
-set green (set_color green)
-set red (set_color red)
-set blue (set_color blue)
-set gray (set_color -o black)
-
 # Git prompt
 set __fish_git_prompt_show_informative_status 1
 set __fish_git_prompt_showdirtystate 1
 set __fish_git_prompt_showuntrackedfiles 1
 set __fish_git_prompt_showcolorhints 1
 
+# User prompt
+set __fish_user_prompt_string_root '#'
+set __fish_user_prompt_color_root red
+set __fish_user_prompt_string_default '$'
+set __fish_user_prompt_color_default normal
+
 # Vi prompt
 set __fish_vi_prompt_string_normal 'normal'
 set __fish_vi_prompt_string_insert 'insert'
 set __fish_vi_prompt_string_visual 'visual'
-set __fish_vi_prompt_color_normal red
-set __fish_vi_prompt_color_insert yellow
-set __fish_vi_prompt_color_visual blue
+set __fish_vi_prompt_color_normal magenta
+set __fish_vi_prompt_color_insert blue
+set __fish_vi_prompt_color_visual cyan
 
 # Start in vi mode
 fish_vi_mode

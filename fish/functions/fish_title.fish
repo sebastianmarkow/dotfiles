@@ -1,5 +1,4 @@
 function fish_title
-    echo ' '
     if test $PWD = ~
         echo '~'
     else
