@@ -33,6 +33,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     ag \
     cloc \
     watch \
+    entr \
     tree \
     since \
     pv \
