@@ -203,6 +203,7 @@ let mapleader="," " `\` no thank you
 map <silent><leader>q :qa<cr>
 map <silent><leader>w :w<cr>
 map <leader>W :w !sudo tee %<cr>
+map <leader>r :so $MYVIMRC<cr>
 
 noremap <silent><leader><esc> :noh<cr>
 noremap <silent><leader>i :set list!<cr>
