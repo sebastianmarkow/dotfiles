@@ -26,11 +26,12 @@ Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'dag/vim2hs',              { 'for': 'haskell' }
 Plug 'dag/vim-fish',            { 'for': 'fish' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'cespare/vim-toml',        { 'for': 'toml' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'elzr/vim-json',           { 'for': 'json' }
+Plug 'cespare/vim-toml',        { 'for': 'toml' }
 if has("lua")
-    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/neocomplete.vim', { 'frozen': 'on' }
     Plug 'Shougo/neosnippet.vim'
 endif
 
@@ -255,7 +256,7 @@ autocmd InsertLeave * setlocal relativenumber
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
-autocmd BufNewFile,BufRead *.json setlocal filetype=javascript
+autocmd BufNewFile,BufRead *.json setlocal filetype=json
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
