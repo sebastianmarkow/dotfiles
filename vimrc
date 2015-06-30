@@ -294,14 +294,12 @@ nmap <leader>t :TagbarToggle<cr>
 let g:easytags_suppress_report=1
 
 " Plugin: CtrlP
+autocmd VimEnter * :if argc() is 0 | CtrlP '' | endif
 let g:ctrlp_map='<leader><space>'
-let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 let g:ctrlp_lazy_update=50
 let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_open_new_file='v'
-let g:ctrlp_open_multiple_files = '3vjr'
 let g:ctrlp_user_command='ag %s -i --nocolor --nogroup
       \ --ignore "**/*.pyc"
       \ -g ""'
