@@ -66,8 +66,8 @@ set showcmd
 set title
 set nofoldenable
 set number
-set relativenumber
-set cursorline
+set norelativenumber
+set nocursorline
 set numberwidth=3
 set cmdheight=1
 set laststatus=2 " always show statusline
@@ -79,6 +79,8 @@ set hidden " hide unsaved buffer
 set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
+set noerrorbells
+set novisualbell
 set linespace=0
 set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c
 "               |  |   | | | |            |                      |       |   |  |  |
@@ -150,7 +152,6 @@ set formatoptions=qnc
 "                 +---- allow formatting comments
 
 " Timing
-set updatetime=1000
 set notimeout
 set ttimeout
 set ttimeoutlen=500
@@ -247,8 +248,8 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter * setlocal norelativenumber
-autocmd InsertLeave * setlocal relativenumber
+" autocmd InsertEnter * setlocal norelativenumber
+" autocmd InsertLeave * setlocal relativenumber
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
