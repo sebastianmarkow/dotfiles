@@ -16,7 +16,7 @@ TARGETCONFIGS:=$(addprefix $(CONFIGDIR)/, $(CONFIGS))
 
 default: help
 
-install: dotfiles brew go python haskell vimplug
+install: dotfiles brew vimplug
 
 help:
 	@printf "Please use \`make <target>' where <target> is one of\n"
