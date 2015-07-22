@@ -9,7 +9,7 @@ TOOLS=(
     "github.com/golang/lint/golint"
     "github.com/mailgun/godebug"
     "github.com/motemen/ghq"
-    # "github.com/motemen/gore"
+    "github.com/motemen/gore"
 )
 
 go_get() {
