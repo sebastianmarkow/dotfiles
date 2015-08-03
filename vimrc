@@ -18,6 +18,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'gilligan/vim-lldb',       { 'on': ['Lrun', 'Lbreakpoint', 'Ltarget'] }
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
