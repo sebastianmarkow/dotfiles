@@ -73,7 +73,6 @@ main() {
     brew_install
 
     brew update
-    brew doctor
     brew prune
 
     brew outdated
