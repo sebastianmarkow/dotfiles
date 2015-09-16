@@ -7,6 +7,7 @@ PATH=/usr/local/bin:$PATH
 TAPS=(
     homebrew/dupes
     homebrew/science
+    homebrew/python
 )
 
 FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
@@ -56,9 +57,10 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     cgdb \
     go \
     python3 \
-    ghc \
-    cabal-install\
     node"
+
+#   ghc \
+#   cabal-install\
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
