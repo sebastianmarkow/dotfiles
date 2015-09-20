@@ -22,6 +22,7 @@ Plug 'gilligan/vim-lldb',       { 'on': ['Lrun', 'Lbreakpoint', 'Ltarget'] }
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
+Plug 'klen/python-mode',        { 'for': 'python' }
 Plug 'dag/vim2hs',              { 'for': 'haskell' }
 Plug 'dag/vim-fish',            { 'for': 'fish' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
@@ -329,6 +330,9 @@ let g:gitgutter_map_keys=0
 hi! link SignColumn LineNr
 nmap <leader>gn <Plug>GitGutterNextHunk
 nmap <leader>gp <Plug>GitGutterPrevHunk
+
+" Plugin: PyMode
+let g:pymode_rope = 0
 
 " Plugin: Vim-Go
 let g:go_fmt_command="goimports"
