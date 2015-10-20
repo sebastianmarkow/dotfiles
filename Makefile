@@ -4,7 +4,7 @@ CONFIGDIR:=$(HOME)/.config
 
 CONFIGS:=fish
 FILES:=$(filter-out $(CONFIGS), $(wildcard [a-z_.]*))
-FOLDER:=cache/vim/swaps \
+FOLDER:=cache/vim/swap \
        cache/vim/undo \
        cache/vim/backup \
        vim/bundle \
