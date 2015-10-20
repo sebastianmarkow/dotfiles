@@ -9,11 +9,15 @@ EGGS=(
     pep8
     virtualenv
     virtualfish
+    scikit-learn
+    pandas
+    seaborn
+    ipython[all]
 )
 
 pip_up() {
     unset PIP_REQUIRE_VIRTUALENV
-    for p in pip3
+    for p in pip2
     do
         for e in "${EGGS[@]}"; do
             printf "$p install --upgrade $e"

@@ -36,7 +36,7 @@ set -x HOMEBREW_NO_EMOJI 1
 set -x PATH (brew --prefix node)/bin $PATH
 
 # python
-eval (python3 -m virtualfish compat_aliases)
+eval (python2 -m virtualfish compat_aliases)
 
 # Git prompt
 set __fish_git_prompt_show_informative_status 1

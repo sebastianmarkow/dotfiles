@@ -16,7 +16,7 @@ TARGETCONFIGS:=$(addprefix $(CONFIGDIR)/, $(CONFIGS))
 
 default: help
 
-install: dotfiles brew vimplug
+install: dotfiles brew vimplug go python
 
 help:
 	@printf "Please use \`make <target>' where <target> is one of\n"
@@ -51,15 +51,15 @@ brew:
 	$(info Installing brew formulas)
 	@sh ./Homebrew.sh
 
-go:
+go: brew
 	$(info Installing go tools)
 	@sh ./Go.sh
 
-haskell:
+haskell: brew
 	$(info Installing haskell modules)
 	@sh ./Haskell.sh
 
-python:
+python: brew
 	$(info Installing python packages)
 	@sh ./Python.sh
 

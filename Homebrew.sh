@@ -42,7 +42,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     jq \
     autojump \
     peco \
-    spark \
     lftp \
     nmap \
     iftop \
@@ -55,12 +54,13 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     w3m \
     gnuplot \
     cgdb \
+    clang-format \
     go \
-    python3 \
-    node"
-
-#   ghc \
-#   cabal-install\
+    node \
+    python \
+    homebrew/python/numpy \
+    homebrew/python/scipy \
+    homebrew/python/matplotlib"
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
