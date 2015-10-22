@@ -22,7 +22,7 @@ pip_up() {
         for e in "${EGGS[@]}"; do
             printf "$p install --upgrade $e"
             $p install --upgrade --quiet $e
-            printf " done\n"
+            printf " ...done\n"
         done
     done
 }
