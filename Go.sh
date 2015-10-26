@@ -11,6 +11,7 @@ TOOLS=(
     "github.com/motemen/ghq"
     "github.com/motemen/gore"
     "github.com/cortesi/devd"
+    "github.com/pranavraja/tldr"
 )
 
 go_get() {
