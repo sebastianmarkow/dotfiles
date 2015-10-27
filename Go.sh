@@ -10,7 +10,7 @@ TOOLS=(
     "github.com/mailgun/godebug"
     "github.com/motemen/ghq"
     "github.com/motemen/gore"
-    "github.com/cortesi/devd"
+    "github.com/cortesi/devd/cmd/devd"
     "github.com/pranavraja/tldr"
 )
 
