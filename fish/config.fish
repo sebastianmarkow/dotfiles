@@ -44,6 +44,12 @@ set __fish_git_prompt_showdirtystate 1
 set __fish_git_prompt_showuntrackedfiles 1
 set __fish_git_prompt_showcolorhints 1
 
+# Color
+set fish_color_command yellow
+set fish_color_param cyan
+set fish_color_quote 'd26936'
+set fish_color_error red
+
 # User prompt
 set __fish_user_prompt_string_root '#'
 set __fish_user_prompt_color_root red
@@ -54,9 +60,9 @@ set __fish_user_prompt_color_default normal
 set __fish_vi_prompt_string_normal 'normal'
 set __fish_vi_prompt_string_insert 'insert'
 set __fish_vi_prompt_string_visual 'visual'
-set __fish_vi_prompt_color_normal magenta
-set __fish_vi_prompt_color_insert blue
-set __fish_vi_prompt_color_visual cyan
+set __fish_vi_prompt_color_normal red
+set __fish_vi_prompt_color_insert cyan
+set __fish_vi_prompt_color_visual yellow
 
 # Start in vi mode
 fish_vi_mode
