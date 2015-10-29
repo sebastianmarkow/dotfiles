@@ -8,17 +8,17 @@ set nocompatible " turn off vi-compatible mode
 " Plugins
 call plug#begin()
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'whatyouhide/vim-gotham'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'jiangmiao/auto-pairs'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'gilligan/vim-lldb',       { 'on': ['Lrun', 'Lbreakpoint', 'Ltarget'] }
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
@@ -27,8 +27,8 @@ Plug 'dag/vim2hs',              { 'for': 'haskell' }
 Plug 'dag/vim-fish',            { 'for': 'fish' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'elzr/vim-json',           { 'for': 'json' }
-Plug 'cespare/vim-toml',        { 'for': 'toml' }
+Plug 'othree/html5.vim',        { 'for': 'html' }
+
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
     Plug 'Shougo/neosnippet.vim'
@@ -68,7 +68,7 @@ set showcmd
 set title
 set nofoldenable
 set number
-set norelativenumber
+set relativenumber
 set nocursorline
 set numberwidth=3
 set cmdheight=1
@@ -179,9 +179,7 @@ endif
 
 " Color
 try
-    set background=dark
-    let g:solarized_visibility="high"
-    colorscheme solarized
+    colorscheme gotham
 catch
 endtry
 
@@ -250,13 +248,12 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-" autocmd InsertEnter * setlocal norelativenumber
-" autocmd InsertLeave * setlocal relativenumber
+autocmd InsertEnter * setlocal norelativenumber
+autocmd InsertLeave * setlocal relativenumber
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
-autocmd BufNewFile,BufRead *.json setlocal filetype=json
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
@@ -296,7 +293,7 @@ nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Plugin: Ag
-let g:agprg="ag --column"
+let g:ag_prg="ag --column"
 
 " Plugin: Markdown
 let g:vim_markdown_frontmatter=1
@@ -327,7 +324,7 @@ let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
-hi! link SignColumn LineNr
+" hi! link SignColumn LineNr
 nmap <leader>gn <Plug>GitGutterNextHunk
 nmap <leader>gp <Plug>GitGutterPrevHunk
 
@@ -343,7 +340,11 @@ let g:go_doc_keywordprg_enabled=1
 noremap <silent><leader>I :ToggleWhitespace<cr>
 
 " Plugin: Auto-Pairs
-let g:AutoPairsMapCR=0 " no funny stuff on carriage return
+" let g:AutoPairsMapCR=0 " no funny stuff on carriage return
+
+" Plugin: EasyAlign
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Plugin: NeoComplete
 if has("lua")
