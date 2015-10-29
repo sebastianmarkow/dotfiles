@@ -84,11 +84,11 @@ set lazyredraw " do not redraw during macros
 set noerrorbells
 set novisualbell
 set linespace=0
-set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %l/%L:%c
-"               |  |   | | | |            |                      |       |   |  |  |
-"               |  |   | | | |            +-- encoding           |       |   |  |  +-- column
-"               |  |   | | | +--------------- preview            |       |   |  +----- total lines
-"               |  |   | | +----------------- help               |       |   +-------- line
+set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
+"               |  |   | | | |            |                      |       |   |   |  |
+"               |  |   | | | |            +-- encoding           |       |   |   |  +-- column
+"               |  |   | | | +--------------- preview            |       |   |   +----- line
+"               |  |   | | +----------------- help               |       |   +-------- total lines
 "               |  |   | +------------------- readonly           |       +------------ filetype
 "               |  |   +--------------------- modiied            +-------------------- format
 "               |  +------------------------- filepath
