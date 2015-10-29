@@ -2,7 +2,8 @@
 set -x PATH /usr/local/bin /usr/local/sbin $PATH
 
 set -x TERM xterm-256color
-set -xU LS_COLORS "di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34:su=0:sg=0:tw=0:ow=0:"
+set -x LSCOLORS "gxfxdxcxbxexexhbhdacad";
+set -x LS_COLORS "di=36:ln=35:so=33:pi=32:ex=31:bd=34:cd=34:su=37;41:sg=37;43:tw=00;42:ow=00;43:"
 
 set -x LANG en_US.UTF-8
 set -x LC_CTYPE "en_US.UTF-8"
