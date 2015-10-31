@@ -9,6 +9,7 @@ set nocompatible " turn off vi-compatible mode
 call plug#begin()
 
 Plug 'whatyouhide/vim-gotham'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -46,7 +47,6 @@ set fileencoding=utf-8
 
 " File
 set fileformats=unix,dos,mac
-set fileformat=unix
 set autoread " load changes made from outside
 set nomodeline " seriously modelines?
 
@@ -85,7 +85,7 @@ set lazyredraw " do not redraw during macros
 set noerrorbells
 set novisualbell
 set linespace=0
-set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
+" set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
 "               |  |   | | | |            |                      |       |   |   |  |
 "               |  |   | | | |            +-- encoding           |       |   |   |  +-- column
 "               |  |   | | | +--------------- preview            |       |   |   +----- line
@@ -346,6 +346,36 @@ noremap <silent><leader>I :ToggleWhitespace<cr>
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" Plugin: Lightline
+let g:lightline = {
+    \ 'colorscheme': 'gotham',
+    \ 'mode_map': {
+    \   'n' : 'normal',
+    \   'i' : 'insert',
+    \   'R' : 'replace',
+    \   'v' : 'visual',
+    \   'V' : 'v-line',
+    \   'c' : 'command',
+    \   "\<C-v>": 'v-block',
+    \   's' : 'select',
+    \   'S' : 's-line',
+    \   "\<C-s>": 's-block',
+    \   '?': '      '
+    \ },
+    \ 'active': {
+    \   'left': [
+    \      ['mode'],
+    \      ['filename'],
+    \      ['modified', 'readonly']
+    \   ],
+    \   'right': [
+    \      ['lineinfo'],
+    \      ['percent'],
+    \      ['filetype', 'fileformat', 'fileencoding']
+    \   ]
+    \ },
+    \ }
 
 " Plugin: NeoComplete
 if has("lua")
