@@ -1,4 +1,4 @@
-# Global path
+# Path
 set -x PATH /usr/local/bin /usr/local/sbin $PATH
 
 set -x TERM xterm-256color
@@ -33,10 +33,14 @@ set -x HOMEBREW_NO_EMOJI 1
 [ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
-# node
+# NQ
+set -x NQDIR $HOME/.cache/nq/
+alias nq "nq -q"
+
+# Node
 set -x PATH (brew --prefix node)/bin $PATH
 
-# python
+# Python
 eval (python2 -m virtualfish compat_aliases)
 
 # Git prompt
@@ -51,13 +55,13 @@ set fish_color_param cyan
 set fish_color_quote 'd26936'
 set fish_color_error red
 
-# User prompt
+# Prompt
 set __fish_user_prompt_string_root '#'
 set __fish_user_prompt_color_root red
 set __fish_user_prompt_string_default '$'
 set __fish_user_prompt_color_default normal
 
-# Vi prompt
+# Prompt (vi)
 set __fish_vi_prompt_string_normal 'normal'
 set __fish_vi_prompt_string_insert 'insert'
 set __fish_vi_prompt_string_visual 'visual'
