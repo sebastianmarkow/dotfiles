@@ -36,6 +36,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     watch \
     calc \
     entr \
+    nq \
     tree \
     since \
     pv \
