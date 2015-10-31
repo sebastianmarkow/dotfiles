@@ -47,7 +47,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     lftp \
     nmap \
     iftop \
-    htop \
     wget \
     curl \
     mtr \
