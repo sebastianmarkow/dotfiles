@@ -19,7 +19,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-utils/vim-troll-stopper'
 Plug 'jiangmiao/auto-pairs'
-Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
@@ -288,11 +287,6 @@ let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_user_command='ag %s -i --nocolor --nogroup
       \ --ignore "**/*.pyc"
       \ -g ""'
-
-" Plugin: Yankstack
-let g:yankstack_map_keys=0
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Plugin: Ag
 let g:ag_prg="ag --column"
