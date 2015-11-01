@@ -6,20 +6,6 @@ Session.vim
 .netrwhist
 *~
 
-# CTags
-TAGS
-!TAGS/
-tags
-!tags/
-gtags.files
-GTAGS
-GRTAGS
-GPATH
-cscope.files
-cscope.out
-cscope.in.out
-cscope.po.out
-
 # Darwin
 .DS_Store
 .AppleDouble
