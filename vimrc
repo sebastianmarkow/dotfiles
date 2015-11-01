@@ -250,6 +250,10 @@ autocmd BufEnter * :silent checktime
 " Trigger: Remember cursor position
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Trigger: Switch between relative/norelative numbers in insert mode
+" autocmd InsertEnter * setlocal norelativenumber
+" autocmd InsertLeave * setlocal relativenumber
+
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
