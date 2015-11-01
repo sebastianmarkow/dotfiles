@@ -30,6 +30,7 @@ Plug 'dag/vim-fish',            { 'for': 'fish' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'othree/html5.vim',        { 'for': 'html' }
+Plug 'yosssi/vim-ace',          { 'for': 'ace' }
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
@@ -251,6 +252,7 @@ autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <=
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead *.go setlocal filetype=go
+autocmd BufNewFile,BufRead *.ace setlocal filetype=ace
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
