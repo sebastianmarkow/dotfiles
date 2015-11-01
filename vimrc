@@ -337,7 +337,7 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Plugin: Lightline
-let g:lightline = {
+let g:lightline={
     \ 'colorscheme': 'gotham',
     \ 'mode_map': {
     \   'n' : 'normal',
