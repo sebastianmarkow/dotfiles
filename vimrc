@@ -132,7 +132,6 @@ set gdefault " substitute globally by default
 set whichwrap+=h,l " vi keys wrap around lines
 set backspace=eol,start,indent " backspace across lines
 set virtualedit=block " use block selection in visual mode instead of longest column
-set textwidth=80 " auto-wrapping
 set tabstop=8 " number of spaces a tab counts for
 set softtabstop=4 " number of spaces while indenting
 set shiftwidth=4 " number of spaces while shifting
@@ -267,12 +266,13 @@ autocmd FileType markdown,gitcommit setlocal spell spelllang=en
 
 " Custom: Textwidth
 autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType text,markdown setlocal textwidth=80
 
 " Custom: Colorcolumn
 if exists('+colorcolumn')
-    autocmd FileType python setlocal colorcolumn=+1
-    autocmd FileType text,markdown setlocal colorcolumn=+1
-    autocmd FileType gitcommit setlocal colorcolumn=51,+1
+    autocmd FileType python,c,cpp setlocal colorcolumn=80
+    autocmd FileType text,markdown setlocal colorcolumn=80
+    autocmd FileType gitcommit setlocal colorcolumn=51,80
 endif
 
 " Plugin: CtrlP
