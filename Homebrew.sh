@@ -54,6 +54,8 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     tcpdump \
     w3m \
     gnuplot \
+    imagemagick \
+    ffmpeg \
     cgdb \
     clang-format \
     go \
