@@ -69,7 +69,7 @@ set showcmd
 set title
 set nofoldenable
 set number
-set relativenumber
+set norelativenumber
 set nocursorline
 set numberwidth=3
 set cmdheight=1
@@ -249,8 +249,8 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter * setlocal norelativenumber
-autocmd InsertLeave * setlocal relativenumber
+" autocmd InsertEnter * setlocal norelativenumber
+" autocmd InsertLeave * setlocal relativenumber
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
