@@ -30,7 +30,6 @@ Plug 'dag/vim2hs',              { 'for': 'haskell' }
 Plug 'dag/vim-fish',            { 'for': 'fish' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'othree/html5.vim',        { 'for': 'html' }
 Plug 'yosssi/vim-ace',          { 'for': 'ace' }
 
 if has("lua")
