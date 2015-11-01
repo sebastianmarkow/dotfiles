@@ -325,7 +325,7 @@ nmap <leader>gn <Plug>GitGutterNextHunk
 nmap <leader>gp <Plug>GitGutterPrevHunk
 
 " Plugin: PyMode
-let g:pymode_rope = 0
+let g:pymode_rope=0
 
 " Plugin: Vim-Go
 let g:go_fmt_command="goimports"
