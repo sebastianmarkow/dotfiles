@@ -284,9 +284,7 @@ let g:ctrlp_max_files=0
 let g:ctrlp_max_height=20
 let g:ctrlp_lazy_update=50
 let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_user_command='ag %s -i --nocolor --nogroup
-      \ --ignore "**/*.pyc"
-      \ -g ""'
+let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
 
 " Plugin: Ag
 let g:ag_prg="ag --column"
