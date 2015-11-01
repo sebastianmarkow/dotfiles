@@ -287,7 +287,8 @@ let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
 
 " Plugin: Ag
-let g:ag_prg="ag --column"
+let g:ag_prg="ag --vimgrep --smart-case"
+let g:ag_mapping_message=0
 
 " Plugin: Markdown
 let g:vim_markdown_frontmatter=1
