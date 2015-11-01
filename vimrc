@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
@@ -354,7 +355,7 @@ let g:lightline={
     \ 'active': {
     \   'left': [
     \      ['mode'],
-    \      ['filename'],
+    \      ['filename', 'fugitive'],
     \      ['modified', 'readonly']
     \   ],
     \   'right': [
@@ -363,7 +364,14 @@ let g:lightline={
     \      ['filetype', 'fileformat', 'fileencoding']
     \   ]
     \ },
+    \ 'component_function': {
+    \   'fugitive': 'LightLineFugitive',
+    \ },
     \ }
+
+function! LightLineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
 
 " Plugin: NeoComplete
 if has("lua")
