@@ -22,6 +22,7 @@ Plug 'vim-utils/vim-troll-stopper'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'takac/vim-hardtime'
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
@@ -72,7 +73,7 @@ set showcmd
 set title
 set nofoldenable
 set number
-set norelativenumber
+set relativenumber
 set nocursorline
 set numberwidth=3
 set cmdheight=1
@@ -235,11 +236,6 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
-
 " Trigger: Title
 autocmd BufEnter,VimEnter * let &titlestring=expand("%:t")
 autocmd VimLeave * let &titlestring=''
@@ -251,8 +247,8 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-" autocmd InsertEnter * setlocal norelativenumber
-" autocmd InsertLeave * setlocal relativenumber
+autocmd InsertEnter * setlocal norelativenumber
+autocmd InsertLeave * setlocal relativenumber
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
@@ -342,6 +338,10 @@ noremap <silent><leader>I :ToggleWhitespace<cr>
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" Plugin: Hardtime
+let g:hardtime_default_on=1
+let g:hardtime_showmsg=1
 
 " Plugin: Lightline
 let g:lightline={
