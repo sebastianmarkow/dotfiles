@@ -22,7 +22,6 @@ Plug 'vim-utils/vim-troll-stopper'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'takac/vim-hardtime'
 Plug 'rking/ag.vim',            { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
 Plug 'fatih/vim-go',            { 'for': 'go' }
@@ -338,10 +337,6 @@ noremap <silent><leader>I :ToggleWhitespace<cr>
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
-
-" Plugin: Hardtime
-let g:hardtime_default_on=1
-let g:hardtime_showmsg=1
 
 " Plugin: Lightline
 let g:lightline={
