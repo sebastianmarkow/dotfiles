@@ -334,6 +334,9 @@ let g:go_doc_keywordprg_enabled=1
 " Plugin: Better-WhiteSpace
 noremap <silent><leader>I :ToggleWhitespace<cr>
 
+" Plugin: Auto-Pairs
+" let g:AutoPairsMapCR=0 " no funny stuff on carriage return
+
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
