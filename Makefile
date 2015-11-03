@@ -1,18 +1,24 @@
 PWD:=$(shell pwd)
 
-CONFIGDIR:=$(HOME)/.config
+FILES=vimrc		\
+	vim		\
+	tmux.conf	\
+	gitconfig	\
+	gitignore	\
+	gitmessage	\
+	wgetrc		\
+	hushlogin	\
+	ghci
 
-CONFIGS:=fish
-FILES:=$(filter-out $(CONFIGS), $(wildcard [a-z_.]*))
-FOLDER:=cache/vim/swap \
-       cache/vim/undo \
-       cache/vim/backup \
-       vim/bundle \
-       config
+DIRS=cache/vim/swap		\
+	cache/vim/undo		\
+	cache/vim/backup	\
+	vim/bundle		\
+	config
 
-TARGETFOLDER:=$(addprefix $(HOME)/, $(FOLDER:%=.%))
-TARGETFILES:=$(addprefix $(HOME)/, $(FILES:%=.%))
-TARGETCONFIGS:=$(addprefix $(CONFIGDIR)/, $(CONFIGS))
+
+CONFIGS=fish
+
 
 default: help
 
@@ -28,23 +34,25 @@ help:
 	@printf "    haskell   to install haskell modules\n"
 	@printf "    install   for all of the above\n"
 
-dotfiles: $(TARGETFOLDER) $(TARGETFILES) $(TARGETCONFIGS)
+dotfiles: $(FILES) $(DIRS) $(CONFIGS)
 
-$(TARGETFOLDER):
-	$(info create $@)
-	@mkdir -p $@
+$(FILES):
+	@echo "Symlinking $@ -> ~/.$@"
+	@rm -rf $(HOME)/.$@ 
+	@ln -s $(PWD)/$@ $(HOME)/.$@
 
-$(HOME)/.%: $(PWD)/%
-	$(info Symlink $< -> $@)
-	@ln -f -s $< $@
+$(DIRS):
+	@echo "Making ~/.$@"
+	@mkdir -p $(HOME)/.$@
 
-$(CONFIGDIR)/%: $(PWD)/%
-	$(info Symlink $< -> $@)
-	@ln -f -s $< $@
+$(CONFIGS):
+	@echo "Symlinking $@ -> ~/.config/$@"
+	@rm -rf $(HOME)/.config/$@ 
+	@ln -s $(PWD)/$@ $(HOME)/.config/$@
 
 vimplug: dotfiles
 	$(info Installing vimplug & plugins)
-	@curl -sfLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	@curl -sfLo $(HOME)/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	@vim +PlugUpdate +PlugClean! +qall
 
 brew:
@@ -63,4 +71,4 @@ python: brew
 	$(info Installing python packages)
 	@sh ./Python.sh
 
-.PHONY: default dotfiles help vimplug brew go python haskell
+.PHONY: default $(FILES) $(DIRS) $(CONFIGS) dotfiles help vimplug brew go python haskell
