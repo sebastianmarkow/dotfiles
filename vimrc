@@ -251,12 +251,6 @@ autocmd InsertEnter * setlocal norelativenumber
 autocmd InsertLeave * setlocal relativenumber
 
 " Custom: Filetype
-autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-autocmd BufNewFile,BufRead *.go setlocal filetype=go
-autocmd BufNewFile,BufRead *.ace setlocal filetype=ace
-autocmd BufNewFile,BufRead *.fish setlocal filetype=fish
-autocmd BufNewFile,BufRead *.toml,*.tml setlocal filetype=toml
-autocmd BufNewFile,BufRead *.yaml,*.yml setlocal filetype=yaml
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
