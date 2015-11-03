@@ -274,7 +274,7 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: CtrlP
-autocmd VimEnter * :if argc() is 0 | CtrlP '' | endif
+" autocmd VimEnter * :if argc() is 0 | CtrlP '' | endif
 let g:ctrlp_map='<leader><space>'
 let g:ctrlp_max_files=0
 let g:ctrlp_lazy_update=50
