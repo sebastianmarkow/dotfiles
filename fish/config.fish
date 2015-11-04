@@ -1,3 +1,6 @@
+# No, no, no!
+status --is-interactive; or exit 0
+
 # Path
 set -x PATH /usr/local/bin /usr/local/sbin $PATH
 
