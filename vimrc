@@ -47,7 +47,6 @@ syntax on
 
 " Encoding
 set encoding=utf-8 nobomb
-set fileencoding=utf-8
 
 " File
 set fileformats=unix,dos,mac
