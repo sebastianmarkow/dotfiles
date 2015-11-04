@@ -60,6 +60,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     tcpdump \
     tig \
     tmux \
+    trash \
     tree \
     w3m \
     watch \

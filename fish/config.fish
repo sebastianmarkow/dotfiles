@@ -26,6 +26,10 @@ set -x PATH /usr/local/Cellar/go/1.4.2/libexec/bin $GOBIN $PATH
 # No greeting, thanks
 set -e fish_greeting
 
+# Alias
+alias nq "nq -q"
+alias rm "trash"
+
 # Homebrew
 set -x HOMEBREW_NO_EMOJI 1
 
@@ -35,7 +39,6 @@ set -x HOMEBREW_NO_EMOJI 1
 
 # NQ
 set -x NQDIR $HOME/.cache/nq/
-alias nq "nq -q"
 
 # Node
 set -x PATH (brew --prefix node)/bin $PATH
