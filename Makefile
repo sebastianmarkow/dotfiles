@@ -1,7 +1,6 @@
 PWD:=$(shell pwd)
 
-FILES=vimrc		\
-	vim		\
+FILES=vim		\
 	tmux.conf	\
 	gitconfig	\
 	gitignore	\
@@ -32,7 +31,7 @@ help:
 	@printf "    haskell   to install haskell modules\n"
 	@printf "    install   for all of the above\n"
 
-dotfiles: $(FILES) $(DIRS) $(CONFIGS)
+dotfiles: $(DIRS) $(FILES) $(CONFIGS)
 
 $(FILES):
 	@echo "Symlinking $@ -> ~/.$@"
