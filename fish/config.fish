@@ -31,7 +31,6 @@ set -e fish_greeting
 
 # Alias
 alias nq "nq -q"
-alias rm "trash"
 
 # Homebrew
 set -x HOMEBREW_NO_EMOJI 1
