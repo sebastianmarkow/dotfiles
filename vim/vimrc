@@ -29,18 +29,18 @@ Plug 'vim-utils/vim-troll-stopper'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kien/ctrlp.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/goyo.vim',       { 'on': 'Goyo' }
-Plug 'rking/ag.vim',            { 'on': 'Ag' }
-Plug 'tpope/vim-abolish',       { 'on': ['Abolish', 'Subvert'] }
-Plug 'fatih/vim-go',            { 'for': 'go' }
-Plug 'klen/python-mode',        { 'for': 'python' }
-Plug 'dag/vim2hs',              { 'for': 'haskell' }
-Plug 'dag/vim-fish',            { 'for': 'fish' }
-Plug 'ekalinin/Dockerfile.vim', { 'for': 'dockerfile' }
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'yosssi/vim-ace',          { 'for': 'ace' }
-Plug 'cespare/vim-toml',        { 'for': 'toml' }
-Plug 'ingydotnet/yaml-vim',     { 'for': 'yaml' }
+Plug 'junegunn/goyo.vim',               { 'on': 'Goyo' }
+Plug 'rking/ag.vim',                    { 'on': 'Ag' }
+Plug 'tpope/vim-abolish',               { 'on': ['Abolish', 'Subvert'] }
+Plug 'fatih/vim-go',                    { 'for': 'go' }
+Plug 'klen/python-mode',                { 'for': 'python' }
+Plug 'dag/vim2hs',                      { 'for': 'haskell' }
+Plug 'dag/vim-fish',                    { 'for': 'fish' }
+Plug 'ekalinin/Dockerfile.vim',         { 'for': 'dockerfile' }
+Plug 'sebastianmarkow/vim-markdown',    { 'for': 'markdown' }
+Plug 'yosssi/vim-ace',                  { 'for': 'ace' }
+Plug 'cespare/vim-toml',                { 'for': 'toml' }
+Plug 'ingydotnet/yaml-vim',             { 'for': 'yaml' }
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
