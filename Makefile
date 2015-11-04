@@ -13,7 +13,6 @@ FILES=vimrc		\
 DIRS=cache/vim/swap		\
 	cache/vim/undo		\
 	cache/vim/backup	\
-	vim/bundle		\
 	config
 
 
@@ -22,12 +21,11 @@ CONFIGS=fish
 
 default: help
 
-install: dotfiles brew vimplug go python
+install: dotfiles brew go python
 
 help:
 	@printf "Please use \`make <target>' where <target> is one of\n"
 	@printf "    dotfiles  to symlink dotfiles\n"
-	@printf "    vimplug   to install vim plugins\n"
 	@printf "    brew      to install homebrew & formulas\n"
 	@printf "    python    to install python packages\n"
 	@printf "    go        to install go tools\n"
@@ -49,11 +47,6 @@ $(CONFIGS):
 	@echo "Symlinking $@ -> ~/.config/$@"
 	@rm -rf $(HOME)/.config/$@ 
 	@ln -s $(PWD)/$@ $(HOME)/.config/$@
-
-vimplug: dotfiles
-	$(info Installing vimplug & plugins)
-	@curl -sfLo $(HOME)/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	@vim +PlugUpdate +PlugClean! +qall
 
 brew:
 	$(info Installing brew formulas)
