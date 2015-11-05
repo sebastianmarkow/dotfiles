@@ -35,6 +35,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     gnuplot \
     go \
     hg \
+    hub \
     iftop \
     imagemagick \
     jq \
