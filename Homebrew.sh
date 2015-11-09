@@ -30,6 +30,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     findutils \
     fish \
     git \
+    git-extras \
     gnu-sed \
     gnu-tar \
     gnuplot \

@@ -121,11 +121,6 @@
     local = log --branches --not --remotes
     file-added = log --diff-filter=A
     file-log = log -u
-    changelog = log --pretty=format:\"- %s\"
-    today = log --graph --since=1.day --relative-date
-    last-week = log --graph --since=1.week --relative-date
-    stats = log --stat
-    contrib = shortlog -s -n
 
     m = merge
     ma = merge --abort
