@@ -68,7 +68,8 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     w3m \
     watch \
     wget \
-    wrk"
+    wrk \
+    yank"
 
 brew_install() {
     [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
