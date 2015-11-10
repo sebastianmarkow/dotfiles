@@ -1,10 +1,8 @@
 function fish_prompt --description 'Compose fish prompt'
 
-    set -l last_status $status
-
-    set -l status_string ''
+    set -l status_string
     if test $status -ne 0
-        set status_string (set_color red --bold) '(' $last_status ') ' (set_color normal)
+        set status_string (set_color red) '(!) ' (set_color normal)
     end
 
     set -l virtualenv_string ''
