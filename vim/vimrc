@@ -299,7 +299,6 @@ nnoremap <leader><cr> :call fzf#run({
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
 
-
 " Plugin: Ag
 let g:ag_prg="ag --vimgrep --smart-case"
 let g:ag_mapping_message=0
