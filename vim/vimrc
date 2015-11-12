@@ -278,9 +278,9 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: FZF
-noremap <leader><space> :FZF<cr>
-noremap <leader>b :FZFBuffer<cr>
-noremap <leader>o :FZFMru<cr>
+noremap <silent><leader><space> :FZF<cr>
+noremap <silent><leader>b :FZFBuffer<cr>
+noremap <silent><leader>o :FZFMru<cr>
 let g:fzf_launcher = 'xterm -e fish -ic %s'
 
 function! s:buflist()
@@ -303,8 +303,9 @@ command! FZFBuffer call fzf#run({
 
 command! FZFMru call fzf#run({
     \ 'source': v:oldfiles,
-    \ 'sink' : 'e ',
-    \ 'options' : '-m',
+    \ 'sink': 'e ',
+    \ 'options': '+m',
+    \ 'down': len(v:oldfiles) + 2
     \ })
 
 " Plugin: Ag
