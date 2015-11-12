@@ -31,6 +31,7 @@ set -x PATH /usr/local/Cellar/go/1.4.2/libexec/bin $GOBIN $PATH
 
 # Alias
 alias nq "nq -q"
+alias rp "repo"
 
 # Extensions
 eval (python2 -m virtualfish compat_aliases)

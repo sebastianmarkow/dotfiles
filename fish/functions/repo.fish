@@ -1,4 +1,4 @@
-function rp --description 'Go to repositories'
+function repo --description 'Go to repository'
     if not type "ghq" > /dev/null 2>&1
         echo 'rp: error ghq not installed'
         return
@@ -16,4 +16,11 @@ function rp --description 'Go to repositories'
         case '*'
             echo 'rp: error too many parameters'
     end
+end
+
+function __repo_completion -d "Repository completion"
+    if not type "ghq" > /dev/null 2>&1
+        return
+    end
+    ghq list --unique
 end
