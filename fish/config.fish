@@ -2,7 +2,15 @@
 status --is-interactive; or exit 0
 set -e fish_greeting
 
+# Paths
 set -x PATH /usr/local/bin /usr/local/sbin $PATH
+set -x PATH (brew --prefix node)/bin $PATH
+set -x GOPATH $HOME/go
+set -x GOBIN $GOPATH/bin
+set -x NQDIR $HOME/.cache/nq/
+set -x PATH $GOBIN $PATH
+
+# Defaults
 set -x TERM xterm-256color
 set -x EDITOR vim
 set -x VISUAL $EDITOR
@@ -20,14 +28,6 @@ set -x LC_COLLATE C
 # Hooks
 [ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
-
-# Paths
-set -x PATH (brew --prefix node)/bin $PATH
-set -x HOMEBREW_NO_EMOJI 1
-set -x GOPATH $HOME/go
-set -x GOBIN $GOPATH/bin
-set -x NQDIR $HOME/.cache/nq/
-set -x PATH /usr/local/Cellar/go/1.4.2/libexec/bin $GOBIN $PATH
 
 # Alias
 alias nq "nq -q"
