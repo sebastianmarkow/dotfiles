@@ -1,4 +1,4 @@
-function update
+function update --description "Update system"
     echo -s (set_color red) "Updating OSX" (set_color normal)
     softwareupdate --install --all
     echo -s (set_color red) "Updating Homebrew" (set_color normal)
