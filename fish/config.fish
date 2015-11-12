@@ -31,7 +31,6 @@ set -x LC_COLLATE C
 # Alias
 alias nq "nq -q"
 alias rp "repo"
-alias fvim "fzf | xargs -o vim"
 
 # Extensions
 eval (python2 -m virtualfish compat_aliases)
