@@ -279,6 +279,8 @@ endif
 
 " Plugin: FZF
 noremap <leader><space> :FZF<cr>
+noremap <leader>b :FZFBuffer<cr>
+noremap <leader>o :FZFMru<cr>
 let g:fzf_launcher = 'xterm -e fish -ic %s'
 
 function! s:buflist()
@@ -292,12 +294,18 @@ function! s:bufopen(e)
   execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
-nnoremap <leader><cr> :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+command! FZFBuffer call fzf#run({
+    \ 'source': reverse(<sid>buflist()),
+    \ 'sink': function('<sid>bufopen'),
+    \ 'options': '+m',
+    \ 'down': len(<sid>buflist()) + 2
+    \ })
+
+command! FZFMru call fzf#run({
+    \ 'source': v:oldfiles,
+    \ 'sink' : 'e ',
+    \ 'options' : '-m',
+    \ })
 
 " Plugin: Ag
 let g:ag_prg="ag --vimgrep --smart-case"
