@@ -1,6 +1,6 @@
 function repo --description 'Go to repository'
     if not type "ghq" > /dev/null 2>&1
-        echo 'rp: error ghq not installed'
+        echo 'repo: error ghq not installed'
         return
     end
     switch (count $argv)
