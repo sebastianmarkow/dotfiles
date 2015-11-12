@@ -27,7 +27,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-utils/vim-troll-stopper'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/goyo.vim',               { 'on': 'Goyo' }
 Plug 'rking/ag.vim',                    { 'on': 'Ag' }
@@ -277,14 +277,9 @@ if exists('+colorcolumn')
     autocmd FileType gitcommit setlocal colorcolumn=51,80
 endif
 
-" Plugin: CtrlP
-" autocmd VimEnter * :if argc() is 0 | CtrlP '' | endif
-let g:ctrlp_map='<leader><space>'
-let g:ctrlp_max_files=0
-let g:ctrlp_lazy_update=50
-let g:ctrlp_working_path_mode='ra'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:25,results:25'
-let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
+" Plugin: FZF
+noremap <leader><space> :FZF<cr>
+let g:fzf_launcher = 'xterm -e fish -ic %s'
 
 " Plugin: Ag
 let g:ag_prg="ag --vimgrep --smart-case"

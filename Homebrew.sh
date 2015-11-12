@@ -29,6 +29,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     ffmpeg \
     findutils \
     fish \
+    fzf \
     git \
     git-extras \
     gnu-sed \
@@ -52,7 +53,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     node \
     nq \
     openssh \
-    peco \
     pv \
     python \
         numpy \

@@ -32,11 +32,15 @@ set -x PATH /usr/local/Cellar/go/1.4.2/libexec/bin $GOBIN $PATH
 # Alias
 alias nq "nq -q"
 alias rp "repo"
+alias fvim "fzf | xargs -o vim"
 
 # Extensions
 eval (python2 -m virtualfish compat_aliases)
 
 # Env
+set -x HOMEBREW_NO_EMOJI 1
+set -x FZF_DEFAULT_OPTS "--color=16 --black"
+set -x FZF_DEFAULT_COMMAND "ag -g ''"
 
 set fish_color_command yellow
 set fish_color_param cyan
