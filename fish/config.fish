@@ -11,7 +11,6 @@ set -x NQDIR $HOME/.cache/nq/
 set -x PATH $GOBIN $PATH
 
 # Defaults
-set -x TERM xterm-256color
 set -x EDITOR vim
 set -x VISUAL $EDITOR
 set -x PAGER less
