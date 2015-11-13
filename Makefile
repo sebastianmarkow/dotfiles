@@ -51,15 +51,15 @@ brew:
 	$(info Installing brew formulas)
 	@sh ./Homebrew.sh
 
-go: brew
+go:
 	$(info Installing go tools)
 	@sh ./Go.sh
 
-haskell: brew
+haskell:
 	$(info Installing haskell modules)
 	@sh ./Haskell.sh
 
-python: brew
+python:
 	$(info Installing python packages)
 	@sh ./Python.sh
 
