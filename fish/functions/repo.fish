@@ -8,17 +8,18 @@ function repo --description 'Go to repository'
     end
     switch (count $argv)
         case 0
-            ghq list | fzf | read fzf_last_select
+            ghq list | fzf --header="repository" | read -l fzf_last_select
             if [ $fzf_last_select ]
                 cd (ghq list -e -p $fzf_last_select)
             end
         case 1
-            cd (ghq list -p -e $argv[1]) case 2 echo $argv[1]
+            cd (ghq list -p $argv[1])
+        case 2
             if test $argv[1] = '-d'
                 ghq list -p -e $argv[2] | xargs rm -rf
             end
         case '*'
-            echo 'rp: error too many parameters'
+            echo 'repo: error too many parameters'
     end
 end
 

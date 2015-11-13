@@ -3,10 +3,10 @@ function ihistory --description "Interactive history"
         echo "ihistory: error fzf not installed"
         return 1
     end
-    history | fzf --tiebreak=index | read fzf_last_select
+    history | fzf --tiebreak=index --header="history" -q (commandline -b) | read -l fzf_last_select
     if [ $fzf_last_select ]
-        commandline $fzf_last_select
+        commandline -rb $fzf_last_select
     else
-        commandline ''
+        commandline -i ""
     end
 end
