@@ -37,7 +37,7 @@ eval (python2 -m virtualfish compat_aliases)
 
 # Env
 set -x HOMEBREW_NO_EMOJI 1
-set -x FZF_DEFAULT_OPTS "--color=16 --inline-info"
+set -x FZF_DEFAULT_OPTS "--color=16,header:11 --inline-info"
 set -x FZF_DEFAULT_COMMAND "ag -g ''"
 
 set fish_color_command yellow
