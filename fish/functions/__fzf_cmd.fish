@@ -3,8 +3,10 @@ function __fzf_cmd
         echo "__fzf_cmd: error fzf not installed"
         return 1
     end
-    fzf | read fzf_last_select
+    fzf -m -q (commandline -t) | string join " " | read -l fzf_last_select
     if [ $fzf_last_select ]
-        commandline -i $fzf_last_select
+        commandline -rt "$fzf_last_select "
+    else
+        commandline -it ""
     end
 end
