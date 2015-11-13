@@ -4,7 +4,7 @@ set -e
 
 TOOLS=(
     "golang.org/x/tools/cmd/..."
-    "code.google.com/p/rog-go/exp/cmd/godef"
+    "github.com/rogpeppe/godef"
     "github.com/nsf/gocode"
     "github.com/golang/lint/golint"
     "github.com/mailgun/godebug"
