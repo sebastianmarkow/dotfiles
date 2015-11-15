@@ -3,12 +3,10 @@ status --is-interactive; or exit 0
 set -e fish_greeting
 
 # Paths
-set -x PATH /usr/local/bin /usr/local/sbin $PATH
-set -x PATH (brew --prefix node)/bin $PATH
 set -x GOPATH $HOME/go
 set -x GOBIN $GOPATH/bin
 set -x NQDIR $HOME/.cache/nq/
-set -x PATH $GOBIN $PATH
+set -x PATH /usr/local/sbin $GOBIN $PATH
 
 # Defaults
 set -x EDITOR vim
@@ -47,17 +45,18 @@ set __fish_git_prompt_showdirtystate 1
 set __fish_git_prompt_showuntrackedfiles 1
 set __fish_git_prompt_showcolorhints 1
 
-set __fish_user_prompt_string_root '#'
-set __fish_user_prompt_color_root red
-set __fish_user_prompt_string_default '$'
-set __fish_user_prompt_color_default normal
+set __fish_prompt_sign_root '#'
+set __fish_prompt_sign_default '$'
+set __fish_prompt_sign_error '!'
 
-set __fish_vi_prompt_string_normal 'normal'
-set __fish_vi_prompt_string_insert 'insert'
-set __fish_vi_prompt_string_visual 'visual'
-set __fish_vi_prompt_color_normal red
-set __fish_vi_prompt_color_insert cyan
-set __fish_vi_prompt_color_visual yellow
+set __fish_mode_string_normal ' normal '
+set __fish_mode_string_insert ' insert '
+set __fish_mode_string_replace ' replace '
+set __fish_mode_string_visual ' visual '
+set __fish_mode_color_normal --background blue --bold white
+set __fish_mode_color_insert --background green --bold white
+set __fish_mode_color_replace --background red --bold white
+set __fish_mode_color_visual --background magenta --bold white
 
 # Vi mode
 fish_vi_mode
