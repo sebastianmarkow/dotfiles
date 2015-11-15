@@ -49,14 +49,14 @@ set __fish_prompt_sign_root '#'
 set __fish_prompt_sign_default '$'
 set __fish_prompt_sign_error '!'
 
-set __fish_mode_string_normal ' normal '
-set __fish_mode_string_insert ' insert '
-set __fish_mode_string_replace ' replace '
-set __fish_mode_string_visual ' visual '
-set __fish_mode_color_normal --background blue --bold white
-set __fish_mode_color_insert --background green --bold white
-set __fish_mode_color_replace --background red --bold white
-set __fish_mode_color_visual --background magenta --bold white
+set __fish_mode_string_normal 'normal'
+set __fish_mode_string_insert 'insert'
+set __fish_mode_string_replace 'replace'
+set __fish_mode_string_visual 'visual'
+set __fish_mode_color_normal blue
+set __fish_mode_color_insert green
+set __fish_mode_color_replaced red
+set __fish_mode_color_visual magenta
 
 # Vi mode
 fish_vi_mode
