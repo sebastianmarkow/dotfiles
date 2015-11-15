@@ -59,5 +59,7 @@ set __fish_mode_color_insert green
 set __fish_mode_color_replaced red
 set __fish_mode_color_visual magenta
 
+type -q fuck
+
 # Vi mode
 fish_vi_mode

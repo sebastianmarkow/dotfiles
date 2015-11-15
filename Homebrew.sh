@@ -62,6 +62,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     rsync \
     since \
     tcpdump \
+    thefuck \
     tig \
     tmux \
     trash \
