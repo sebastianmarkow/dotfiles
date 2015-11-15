@@ -278,7 +278,7 @@ if exists('+colorcolumn')
 endif
 
 " Plugin: FZF
-noremap <silent><leader><space> :FZF<cr>
+noremap <silent><c-p> :FZF<cr>
 noremap <silent><leader>b :FZFBuffer<cr>
 noremap <silent><leader>o :FZFMru<cr>
 let g:fzf_launcher = 'xterm -e fish -ic %s'
