@@ -34,6 +34,7 @@ alias rp "repo"
 set -x HOMEBREW_NO_EMOJI 1
 set -x FZF_DEFAULT_OPTS "--color=16,header:11 --inline-info"
 set -x FZF_DEFAULT_COMMAND "ag -g ''"
+set -x YANKCM "pbcopy make"
 
 set fish_color_command yellow
 set fish_color_param cyan
