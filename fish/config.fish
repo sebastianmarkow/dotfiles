@@ -2,13 +2,13 @@
 status --is-interactive; or exit 0
 set -e fish_greeting
 
-# Paths
+# Path
 set -x GOPATH $HOME/go
 set -x GOBIN $GOPATH/bin
 set -x NQDIR $HOME/.cache/nq/
 set -x PATH /usr/local/sbin $GOBIN $PATH
 
-# Defaults
+# Default
 set -x EDITOR vim
 set -x VISUAL $EDITOR
 set -x PAGER less
@@ -22,7 +22,13 @@ set -x LC_CTYPE "en_US.UTF-8"
 set -x LC_MESSAGES "en_US.UTF-8"
 set -x LC_COLLATE C
 
-# Hooks
+# Env
+set -x HOMEBREW_NO_EMOJI 1
+set -x FZF_DEFAULT_OPTS "--color=16,header:11 --inline-info"
+set -x FZF_DEFAULT_COMMAND "ag -g ''"
+set -x YANKCM "pbcopy make"
+
+# Hook
 [ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
@@ -30,12 +36,7 @@ set -x LC_COLLATE C
 alias nq "nq -q"
 alias rp "repo"
 
-# Env
-set -x HOMEBREW_NO_EMOJI 1
-set -x FZF_DEFAULT_OPTS "--color=16,header:11 --inline-info"
-set -x FZF_DEFAULT_COMMAND "ag -g ''"
-set -x YANKCM "pbcopy make"
-
+# Fish
 set fish_color_command yellow
 set fish_color_param cyan
 set fish_color_quote 'd26936'
