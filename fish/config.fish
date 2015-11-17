@@ -33,8 +33,8 @@ set -x YANKCM "pbcopy make"
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
 # Alias
-alias nq "nq -q"
-alias rp "repo"
+abbr nq "nq -q"
+abbr rp "repo"
 
 # Fish
 set fish_color_command yellow
