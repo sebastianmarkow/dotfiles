@@ -32,10 +32,16 @@ set -x YANKCM 'pbcopy make'
 [ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
-# Alias
+# Abbreviations
 abbr nq 'nq -q'
 abbr rp 'repo'
-abbr near '-C 10'
+abbr mv 'mv -i'
+abbr cp 'cp -i'
+
+# Alias
+alias near 'grep -C 10'
+alias lower 'tr A-Z a-z'
+alias upper 'tr a-z A-Z'
 
 # Fish
 set fish_color_command yellow
