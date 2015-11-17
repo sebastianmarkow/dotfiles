@@ -15,26 +15,27 @@ set -x PAGER less
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
 set -x GREP_COLOR '3;33'
-set -x LSCOLORS "gxfxdxcxbxexexhbhdacad";
-set -x LS_COLORS "di=36:ln=35:so=33:pi=32:ex=31:bd=34:cd=34:su=37;41:sg=37;43:tw=00;42:ow=00;43:"
+set -x LSCOLORS 'gxfxdxcxbxexexhbhdacad'
+set -x LS_COLORS 'di=36:ln=35:so=33:pi=32:ex=31:bd=34:cd=34:su=37;41:sg=37;43:tw=00;42:ow=00;43:'
 set -x LANG en_US.UTF-8
-set -x LC_CTYPE "en_US.UTF-8"
-set -x LC_MESSAGES "en_US.UTF-8"
+set -x LC_CTYPE 'en_US.UTF-8'
+set -x LC_MESSAGES 'en_US.UTF-8'
 set -x LC_COLLATE C
 
 # Env
 set -x HOMEBREW_NO_EMOJI 1
-set -x FZF_DEFAULT_OPTS "--color=16,header:11 --inline-info"
-set -x FZF_DEFAULT_COMMAND "ag -g ''"
-set -x YANKCM "pbcopy make"
+set -x FZF_DEFAULT_OPTS '--color=16,header:11 --inline-info'
+set -x FZF_DEFAULT_COMMAND 'ag -g ""'
+set -x YANKCM 'pbcopy make'
 
 # Hook
 [ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
 # Alias
-abbr nq "nq -q"
-abbr rp "repo"
+abbr nq 'nq -q'
+abbr rp 'repo'
+abbr near '-C 10'
 
 # Fish
 set fish_color_command yellow

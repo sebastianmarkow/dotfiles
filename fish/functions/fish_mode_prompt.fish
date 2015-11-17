@@ -1,4 +1,4 @@
-function fish_mode_prompt --description "Displays the current mode"
+function fish_mode_prompt --description 'Displays the current mode'
   if set -q __fish_vi_mode
     switch $fish_bind_mode
       case default

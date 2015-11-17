@@ -1,1 +1,1 @@
-complete -x -c brew -a "(brew search)"
+complete -x -c brew -a '(brew search)'
