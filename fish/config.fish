@@ -3,7 +3,8 @@ status --is-interactive; or exit 0
 set -e fish_greeting
 
 # Path
-set -x GOPATH $HOME/go
+set -x DEVPATH $HOME/Developer
+set -x GOPATH $DEVPATH/go
 set -x GOBIN $GOPATH/bin
 set -x NQDIR $HOME/.cache/nq/
 set -x PATH /usr/local/sbin $GOBIN $PATH

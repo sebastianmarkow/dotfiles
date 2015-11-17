@@ -61,8 +61,8 @@
     whitespace = fix
 
 [ghq]
-    root = ~/repos
-    root = ~/go/src
+    root = ~/Developer/repos
+    root = ~/Developer/go/src
 
 [alias]
     edit = config --global -e
