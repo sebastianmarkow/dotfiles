@@ -5,6 +5,7 @@ set -e
 PATH=/usr/local/bin:$PATH
 
 TAPS=(
+    homebrew/services
     homebrew/dupes
     homebrew/science
     homebrew/python
