@@ -235,7 +235,9 @@ nnoremap gj j
 nnoremap gk k
 
 nnoremap n nzz
-nnoremap } }zz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
 
 nnoremap < <<
 nnoremap > >>
