@@ -253,8 +253,8 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter * setlocal norelativenumber
-autocmd InsertLeave * setlocal relativenumber
+autocmd InsertEnter * if !exists('#goyo') | setlocal norelativenumber | endif
+autocmd InsertLeave * if !exists('#goyo') | setlocal relativenumber | endif
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
