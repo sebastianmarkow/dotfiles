@@ -21,6 +21,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'moll/vim-bbye'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
@@ -209,8 +210,9 @@ let mapleader="," " `\` no thank you
 " Keymap
 map <silent><leader>q :qa<cr>
 map <silent><leader>w :w<cr>
+map <silent><leader>c :close<cr>
 map <leader>W :w !sudo tee %<cr>
-map <leader>r :so $MYVIMRC<cr>
+map <leader>R :so $MYVIMRC<cr>
 
 noremap <silent><leader><esc> :noh<cr>
 noremap <silent><leader>i :set list!<cr>
@@ -343,6 +345,9 @@ let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
 nmap <leader>gn <Plug>GitGutterNextHunk
 nmap <leader>gp <Plug>GitGutterPrevHunk
+
+" Plugin: BBye
+nnoremap <silent><leader>d :Bdelete<CR>
 
 " Plugin: PyMode
 let g:pymode_rope=0
