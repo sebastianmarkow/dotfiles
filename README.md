@@ -18,5 +18,4 @@ A heavily opinionated set of dotfiles (git, vim, fish & tmux).
         haskell   to install haskell modules
         install   for all of the above
 
-**Notice:**
-Existing dotfiles will be overwritten.
+**Warning:** Existing dotfiles in `$HOME`will be overwritten.
