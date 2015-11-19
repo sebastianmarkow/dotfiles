@@ -366,7 +366,9 @@ noremap <silent><leader>I :ToggleWhitespace<cr>
 
 " Plugin: Auto-Pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
-autocmd FileType markdown let b:AutoPairs=extend(copy(g:AutoPairs), {"$":"$"})
+if exists('g:AutoPairs')
+    autocmd FileType markdown let b:AutoPairs=extend(copy(g:AutoPairs), {"$":"$"})
+endif
 
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
