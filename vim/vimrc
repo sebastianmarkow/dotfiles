@@ -151,8 +151,9 @@ set autoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
 set nolist " don't show invisble character
+set spelllang=en,de
 set nospell " no spellcheck
-set spellfile=~/.vim/spell/en.utf-8.add
+set spellfile=~/.vim/spell/spellfile.utf-8.add
 set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
@@ -268,7 +269,8 @@ autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 shiftwidth
 autocmd FileType yaml,toml,json setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
-autocmd FileType markdown,gitcommit setlocal spell spelllang=en
+autocmd FileType markdown,gitcommit setlocal spell
+autocmd FileType gitcommit setlocal spelllang=en
 
 " Custom: Textwidth
 autocmd FileType gitcommit setlocal textwidth=72
