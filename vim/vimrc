@@ -282,6 +282,10 @@ if exists('+colorcolumn')
     autocmd FileType gitcommit setlocal colorcolumn=51,80
 endif
 
+" Colors: Spelling Errors
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=1
+
 " Plugin: FZF
 noremap <silent><c-p> :FZF<cr>
 noremap <silent><leader>b :FZFBuffer<cr>
