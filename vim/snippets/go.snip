@@ -21,11 +21,23 @@ options     head
     ${0:TARGET:return }
   }
 
-snippet     testing
-alias       test Test Testing
+snippet     test
+alias       unittest
 abbr        func Test... (t *testing.T) { ... }
+options     head
   func Test${1:name}(t *testing.T) {
     ${0:TARGET}
+  }
+
+snippet     benchmark
+abbr        func Benchmark... (b *testing.B) { ... }
+options     head
+  func Benchmark${1:name}(b *testing.B) {
+    ${2:#:variable}
+    b.ResetTimer()
+    for n := 0; n < b.N; n++ {
+      ${0:TARGET}
+    }
   }
 
 snippet     import
@@ -33,10 +45,6 @@ options     head
   import (
     "${0:TARGET}"
   )
-
-snippet     package
-options     head
-  package ${0:TARGET}
 
 snippet     print
 options     word
