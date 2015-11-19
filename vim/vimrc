@@ -320,6 +320,7 @@ let g:ag_mapping_message=0
 
 " Plugin: Markdown
 let g:vim_markdown_frontmatter=1
+let g:vim_markdown_math=1
 
 " Plugin: Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
