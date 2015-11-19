@@ -115,7 +115,6 @@ set diffopt=filler,vertical
 "              |      +-- open diff in vertical mode
 "              +--------- show filler lines
 
-
 " Completion
 set infercase
 set omnifunc=syntaxcomplete#Complete
@@ -132,7 +131,7 @@ set smartcase
 set hlsearch " highlight search
 set incsearch " highlight search string while typing
 set magic " use backslashes for magic characters
-set wrapscan
+set nowrapscan
 
 " Editing
 set gdefault " substitute globally by default
@@ -287,7 +286,7 @@ endif
 noremap <silent><c-p> :FZF<cr>
 noremap <silent><leader>b :FZFBuffer<cr>
 noremap <silent><leader>o :FZFMru<cr>
-let g:fzf_launcher = 'xterm -e fish -ic %s'
+let g:fzf_launcher='xterm -e fish -ic %s'
 
 function! s:buflist()
   redir => ls
