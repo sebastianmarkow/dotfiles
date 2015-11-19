@@ -6,7 +6,7 @@ TOOLS=(
     "golang.org/x/tools/cmd/..."
     "github.com/rogpeppe/godef"
     "github.com/nsf/gocode"
-    "github.com/golang/lint/golint"
+    "github.com/alecthomas/gometalinter"
     "github.com/mailgun/godebug"
     "github.com/motemen/ghq"
     "github.com/motemen/gore"
