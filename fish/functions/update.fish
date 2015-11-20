@@ -7,4 +7,6 @@ function update --description "Update system"
         echo -s (set_color red) "Updating Fish completion" (set_color normal)
         fish_update_completions
     end
+    echo -s (set_color red) "Updating vim plugins" (set_color normal)
+    vim +PlugUpgrade +PlugClean! +PlugUpdate! +qall
 end
