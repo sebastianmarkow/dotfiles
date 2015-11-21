@@ -210,6 +210,7 @@ let mapleader="," " `\` no thank you
 " Keymap
 map <silent><leader>q :qa<cr>
 map <silent><leader>w :w<cr>
+map <silent><leader>x :x<cr>
 map <silent><leader>c :close<cr>
 map <leader>W :w !sudo tee %<cr>
 map <leader>R :so $MYVIMRC<cr>
