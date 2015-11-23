@@ -15,8 +15,13 @@ function repo --description 'Go to repository'
         case 1
             cd (ghq list -p $argv[1])
         case 2
-            if test $argv[1] = '-d'
-                ghq list -p -e $argv[2] | xargs rm -rf
+            switch $argv[1]
+                case 'del'
+                    ghq list -p -e $argv[2] | xargs rm -rf
+                case 'get'
+                    ghq get $argv[2]
+                case '*'
+                    echo 'repo: error unknown command'
             end
         case '*'
             echo 'repo: error too many parameters'
