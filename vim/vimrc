@@ -131,7 +131,7 @@ set smartcase
 set hlsearch " highlight search
 set incsearch " highlight search string while typing
 set magic " use backslashes for magic characters
-set nowrapscan
+set wrapscan
 
 " Editing
 set gdefault " substitute globally by default
