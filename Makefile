@@ -9,7 +9,7 @@ FILES=vim		\
 	hushlogin	\
 	ghci
 
-DIRS=cache/vim/swap		\
+DIRS=cache/vim     		\
 	cache/vim/undo		\
 	cache/vim/backup	\
 	config

@@ -59,8 +59,8 @@ set autoread " load changes made from outside
 set nomodeline " seriously modelines?
 
 " History
-set directory=~/.cache/vim/swap
 set backupdir=~/.cache/vim/backup
+set noswapfile
 
 if has("persistent_undo")
     set undodir=~/.cache/vim/undo
