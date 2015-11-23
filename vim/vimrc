@@ -216,7 +216,8 @@ map <leader>W :w !sudo tee %<cr>
 map <leader>R :so $MYVIMRC<cr>
 
 noremap <silent><leader><esc> :noh<cr>
-noremap <silent><leader>i :set list!<cr>
+noremap <silent><leader>i :setlocal list!<cr>
+noremap <silent><leader>s :setlocal spell!<cr>
 
 noremap <silent><c-h> :bp<cr>
 noremap <silent><c-l> :bn<cr>
