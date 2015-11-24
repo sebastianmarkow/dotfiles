@@ -27,6 +27,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     curl \
     diffutils \
     entr \
+    fdupes \
     ffmpeg \
     findutils \
     fish \
