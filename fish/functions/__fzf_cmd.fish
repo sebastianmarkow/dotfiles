@@ -3,7 +3,8 @@ function __fzf_cmd
         echo '__fzf_cmd: error fzf not installed'
         return 1
     end
-    fzf -m --header="file" -q (commandline -t) | string join " " | read -l fzf_last_select
+    set -lx FZF_DEFAULT_COMMAND "$FZF_DEFAULT_COMMAND $argv[1]"
+    fzf -m --header='file' -q (commandline -t) | string join ' ' | read -l fzf_last_select
     if [ $fzf_last_select ]
         commandline -rt $fzf_last_select
     else
