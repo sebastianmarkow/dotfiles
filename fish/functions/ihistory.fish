@@ -6,7 +6,6 @@ function ihistory --description 'Interactive history'
     history | fzf --tiebreak=index --header="history" -q (commandline -b) | read -l fzf_last_select
     if [ $fzf_last_select ]
         commandline -rb $fzf_last_select
-    else
-        commandline -i ''
     end
+    commandline -f repaint
 end
