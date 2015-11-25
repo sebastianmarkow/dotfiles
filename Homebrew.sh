@@ -26,6 +26,10 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     coreutils \
     curl \
     diffutils \
+    docker \
+    docker-machine \
+    docker-compose \
+    docker-swarm \
     entr \
     fdupes \
     ffmpeg \
