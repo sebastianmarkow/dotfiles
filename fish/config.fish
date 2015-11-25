@@ -3,8 +3,7 @@ status --is-interactive; or exit 0
 set -e fish_greeting
 
 # Path
-set -x DEVPATH $HOME/Developer
-set -x GOPATH $DEVPATH/go
+set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
 set -x NQDIR $HOME/.cache/nq/
 set -x PATH /usr/local/sbin $GOBIN $PATH
@@ -15,13 +14,12 @@ set -x VISUAL $EDITOR
 set -x PAGER less
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
-set -x GREP_COLOR '3;33'
 set -x LSCOLORS 'gxfxdxcxbxexexhbhdacad'
 set -x LS_COLORS 'di=36:ln=35:so=33:pi=32:ex=31:bd=34:cd=34:su=37;41:sg=37;43:tw=00;42:ow=00;43:'
-set -x LANG en_US.UTF-8
+set -x LANG 'en_US.UTF-8'
 set -x LC_CTYPE 'en_US.UTF-8'
 set -x LC_MESSAGES 'en_US.UTF-8'
-set -x LC_COLLATE C
+set -x LC_COLLATE 'C'
 
 # Env
 set -x HOMEBREW_NO_EMOJI 1
