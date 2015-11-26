@@ -10,11 +10,13 @@ Session.vim
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon must end with two \r
 Icon
 ._*
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
 .AppleDB
 .AppleDesktop
 Network Trash Folder
@@ -23,8 +25,31 @@ Temporary Items
 
 # *nix
 *~
+.Trash-*
+
+# SVN
+.svn/
+
+# CVS
+/CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore
 
 # Mercurial
-/.hg/*
-*/.hg/*
+.hg/
 .hgignore
+.hgsigs
+.hgsub
+.hgsubstate
+.hgtags
+
+# Virtualenv
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+pip-selfcheck.json
