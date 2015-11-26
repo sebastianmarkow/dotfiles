@@ -28,7 +28,7 @@ help:
 	@printf "    go        to install go tools\n"
 	@printf "    haskell   to install haskell modules\n"
 
-all: install brew go python haskell
+all: install brew go python
 
 install: $(DIRS) $(FILES) $(CONFIGS)
 
