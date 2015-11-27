@@ -356,8 +356,8 @@ let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
-nmap <leader>gn <Plug>GitGutterNextHunk
-nmap <leader>gp <Plug>GitGutterPrevHunk
+nmap gn <Plug>GitGutterNextHunk
+nmap gp <Plug>GitGutterPrevHunk
 
 " Plugin: BBye
 nnoremap <silent><leader>d :Bdelete<CR>
@@ -384,8 +384,8 @@ nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
 " Plugin: Sidways
-nnoremap <c-h> :SidewaysLeft<cr>
-nnoremap <c-l> :SidewaysRight<cr>
+nnoremap gh :SidewaysLeft<cr>
+nnoremap gl :SidewaysRight<cr>
 
 " Plugin: Lightline
 let g:lightline={
