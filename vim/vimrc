@@ -24,6 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'moll/vim-bbye'
 Plug 'danro/rename.vim'
 Plug 'andrewradev/splitjoin.vim'
+Plug 'andrewradev/sideways.vim'
 Plug 'wellle/targets.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
@@ -381,6 +382,10 @@ endif
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" Plugin: Sidways
+nnoremap <c-h> :SidewaysLeft<cr>
+nnoremap <c-l> :SidewaysRight<cr>
 
 " Plugin: Lightline
 let g:lightline={
