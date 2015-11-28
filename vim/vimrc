@@ -383,7 +383,7 @@ endif
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
-" Plugin: Sidways
+" Plugin: Sideways
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
 
