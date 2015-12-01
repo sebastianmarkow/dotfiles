@@ -32,13 +32,18 @@
     log = true
     ff = false
     conflictstyle = diff3
-    tool = vimdiff
+    tool = fugitive
 
 [mergetool "vimdiff"]
     prompt = false
 
+[mergetool "fugitive"]
+    prompt = false
+    cmd = vim -f -c \"Gvdiff\" \"$MERGED\"
+
 [diff]
     tool = vimdiff
+    renames = copies
 
 [difftool "vimdiff"]
     prompt = false
