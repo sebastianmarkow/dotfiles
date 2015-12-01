@@ -12,6 +12,7 @@ set -x PATH /usr/local/sbin $GOBIN $PATH
 set -x EDITOR vim
 set -x VISUAL $EDITOR
 set -x PAGER less
+set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
 set -x LSCOLORS 'gxfxdxcxbxexexhbhdacad'
