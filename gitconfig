@@ -88,8 +88,8 @@
     dc = diff --cached
     ds = diff --staged
     dt = difftool
-    dtc = difftool --cached
-    dts = difftool --staged
+    dcs = difftool --cached
+    dst = difftool --staged
     last = diff -R HEAD..HEAD^
 
     c = commit
