@@ -9,7 +9,7 @@ set nocompatible " turn off vi-compatible mode
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall! | source $MYVIMRC
+  autocmd VimEnter * PlugInstall! | source $MYVIMRC | close
 endif
 
 " Plugins
@@ -153,16 +153,16 @@ set autoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
 set nostartofline " cursor stays at same column while moving horizontal
 set nolist " don't show invisble character
-set spelllang=en,de
 set nospell " no spellcheck
+set spelllang=en,de
 set spellfile=~/.vim/spell/spellfile.utf-8.add
 set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
-set formatoptions=qnc
+set formatoptions=qcn
 "                 |||
-"                 ||+- auto-wrap comments using textwidth
-"                 |+--- recognize numbered lists
+"                 ||+-- recognize numbered lists
+"                 |+--- auto-wrap comments using textwidth
 "                 +---- allow formatting comments
 
 " Timing
