@@ -8,8 +8,10 @@ TAPS=(
     homebrew/services
     homebrew/dupes
     homebrew/science
-    homebrew/python
-    laurent22/massren
+)
+
+HEAD=(
+    fish
 )
 
 FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
@@ -26,43 +28,36 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     curl \
     diffutils \
     docker \
-    docker-machine \
     docker-compose \
+    docker-machine \
     docker-swarm \
     entr \
     fdupes \
     ffmpeg \
     findutils \
-    fish \
     fzf \
     git \
     git-extras \
     gnu-sed \
     gnu-tar \
     gnuplot \
-    go \
     hg \
     hub \
     iftop \
     imagemagick \
     jq \
+    laurent22/massren/massren \
     less \
     lftp \
     make \
-    massren \
     moreutils \
     mtr \
     multitail \
     nmap \
-    node \
     nq \
     openssh \
     pam_yubico \
     pv \
-    python \
-        numpy \
-        scipy \
-        matplotlib \
     rename \
     rsync \
     since \
@@ -83,6 +78,7 @@ brew_install() {
 
 brew_up() {
     for t in "${TAPS[@]}"; do brew tap $t; done
+    for h in "${HEAD[@]}"; do brew install $h --HEAD; done
     brew install ${FORMULAS}
 }
 

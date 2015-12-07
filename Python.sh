@@ -8,12 +8,16 @@ EGGS=(
     pip
     pep8
     virtualenv
-    virtualfish
     scikit-learn
     pandas
     seaborn
     ipython[all]
 )
+
+FORMULAS="python \
+        homebrew/python/numpy \
+        homebrew/python/scipy \
+        homebrew/python/matplotlib"
 
 pip_up() {
     unset PIP_REQUIRE_VIRTUALENV
@@ -28,6 +32,7 @@ pip_up() {
 }
 
 main() {
+    brew install ${FORMULAS}
     pip_up
 }
 

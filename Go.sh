@@ -14,6 +14,8 @@ TOOLS=(
     "github.com/pranavraja/tldr"
 )
 
+FORMULAS="go"
+
 go_get() {
     for t in "${TOOLS[@]}"; do
         printf "go get -u $t"
@@ -23,6 +25,7 @@ go_get() {
 }
 
 main() {
+    brew install ${FORMULAS}
     go_get
 }
 
