@@ -93,8 +93,6 @@ set hidden " hide unsaved buffer
 set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
-set noerrorbells
-set novisualbell
 set linespace=0
 " set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
 "               |  |   | | | |            |                      |       |   |   |  |
@@ -105,6 +103,8 @@ set linespace=0
 "               |  |   +--------------------- modiied            +-------------------- format
 "               |  +------------------------- filepath
 "               +---------------------------- truncate from left
+set noerrorbells
+set novisualbell
 set shortmess=aIOT
 "             ||||
 "             |||+-- truncate message in the middle
