@@ -57,6 +57,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     node \
     nq \
     openssh \
+    pam_yubico \
     pv \
     python \
         numpy \
