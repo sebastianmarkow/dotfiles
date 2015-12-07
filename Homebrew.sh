@@ -10,7 +10,6 @@ TAPS=(
     homebrew/science
     homebrew/python
     laurent22/massren
-    staticfloat/julia
 )
 
 FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
@@ -47,7 +46,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     iftop \
     imagemagick \
     jq \
-    julia \
     less \
     lftp \
     make \
