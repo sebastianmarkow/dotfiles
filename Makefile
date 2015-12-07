@@ -37,16 +37,16 @@ all: base go python haskell js
 install: $(DIRS) $(FILES) $(CONFIGS)
 
 $(FILES):
-	@echo "Symlinking $@ -> ~/.$@"
+	@echo "Symlink $@ -> ~/.$@"
 	@rm -rf $(HOME)/.$@ 
 	@ln -s $(PWD)/$@ $(HOME)/.$@
 
 $(DIRS):
-	@echo "Making ~/.$@"
+	@echo "Make directory ~/.$@"
 	@mkdir -p $(HOME)/.$@
 
 $(CONFIGS):
-	@echo "Symlinking $@ -> ~/.config/$@"
+	@echo "Symlink $@ -> ~/.config/$@"
 	@rm -rf $(HOME)/.config/$@ 
 	@ln -s $(PWD)/$@ $(HOME)/.config/$@
 
