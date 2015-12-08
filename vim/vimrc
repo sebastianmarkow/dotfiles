@@ -15,38 +15,38 @@ endif
 " Plugins
 call plug#begin()
 
-Plug 'whatyouhide/vim-gotham'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'moll/vim-bbye'
-Plug 'ap/vim-buftabline'
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'danro/rename.vim'
-Plug 'andrewradev/splitjoin.vim'
-Plug 'andrewradev/sideways.vim'
-Plug 'wellle/targets.vim'
-Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'vim-utils/vim-troll-stopper'
+Plug 'andrewradev/sideways.vim'
+Plug 'andrewradev/splitjoin.vim'
+Plug 'ap/vim-buftabline'
+Plug 'danro/rename.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
+Plug 'junegunn/vim-easy-align'
+Plug 'moll/vim-bbye'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-utils/vim-troll-stopper'
+Plug 'wellle/targets.vim'
+Plug 'whatyouhide/vim-gotham'
 Plug 'junegunn/goyo.vim',               { 'on': 'Goyo' }
 Plug 'rking/ag.vim',                    { 'on': 'Ag' }
 Plug 'tpope/vim-abolish',               { 'on': ['Abolish', 'Subvert'] }
-Plug 'fatih/vim-go',                    { 'for': 'go' }
-Plug 'klen/python-mode',                { 'for': 'python' }
-Plug 'dag/vim2hs',                      { 'for': 'haskell' }
+Plug 'cespare/vim-toml',                { 'for': 'toml' }
 Plug 'dag/vim-fish',                    { 'for': 'fish' }
+Plug 'dag/vim2hs',                      { 'for': 'haskell' }
 Plug 'ekalinin/Dockerfile.vim',         { 'for': 'dockerfile' }
+Plug 'fatih/vim-go',                    { 'for': 'go' }
+Plug 'ingydotnet/yaml-vim',             { 'for': 'yaml' }
+Plug 'klen/python-mode',                { 'for': 'python' }
 Plug 'plasticboy/vim-markdown',         { 'for': 'markdown' }
 Plug 'yosssi/vim-ace',                  { 'for': 'ace' }
-Plug 'cespare/vim-toml',                { 'for': 'toml' }
-Plug 'ingydotnet/yaml-vim',             { 'for': 'yaml' }
 
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
