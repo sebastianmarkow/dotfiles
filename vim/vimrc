@@ -51,6 +51,8 @@ Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
 if has("lua")
     Plug 'Shougo/neocomplete.vim'
     Plug 'Shougo/neosnippet.vim'
+else
+    echom 'warning: neocomplete disabled (lua support missing)'
 endif
 
 call plug#end()
