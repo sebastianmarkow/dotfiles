@@ -22,6 +22,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'moll/vim-bbye'
+Plug 'ap/vim-buftabline'
 Plug 'danro/rename.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'andrewradev/sideways.vim'
@@ -386,6 +387,11 @@ xmap ga <Plug>(EasyAlign)
 " Plugin: Sideways
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
+
+" Plugin: Buftabline
+let g:buftabline_show=1
+let g:buftabline_numbers=2
+let g:buftabline_indicators=1
 
 " Plugin: Lightline
 let g:lightline={
