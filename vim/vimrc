@@ -32,6 +32,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim',                   { 'on': 'Goyo' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'klen/python-mode',                    { 'for': 'python' }
+Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
@@ -386,6 +387,9 @@ endif
 " Plugin: EasyAlign
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
+
+" Plugin: UndoTree
+nnoremap <leader>u :UndotreeToggle<cr>
 
 " Plugin: Sideways
 nnoremap gh :SidewaysLeft<cr>
