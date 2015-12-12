@@ -428,6 +428,14 @@ let g:lightline={
     \      ['filetype', 'fileformat', 'fileencoding']
     \   ]
     \ },
+    \ 'inactive': {
+    \   'left': [
+    \      ['filename']
+    \   ],
+    \   'right': [
+    \      ['percent']
+    \   ]
+    \ },
     \ 'component_function': {
     \   'fugitive': 'LightLineFugitive',
     \ },
