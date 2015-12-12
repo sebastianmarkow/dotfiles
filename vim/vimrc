@@ -38,7 +38,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-abolish',                   { 'on': ['Abolish', 'Subvert'] }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
