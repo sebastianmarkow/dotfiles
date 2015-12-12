@@ -84,13 +84,13 @@
     ss = stash save
     sw = stash show
 
-    d = diff
-    dc = diff --cached
-    ds = diff --staged
+    d = diff --color-words
+    dc = diff --cached --color-words
+    ds = diff --staged --color-words
     dt = difftool
     dcs = difftool --cached
     dst = difftool --staged
-    last = diff -R HEAD..HEAD^
+    last = diff --color-words -R HEAD..HEAD^
 
     c = commit
     ca = commit -a
