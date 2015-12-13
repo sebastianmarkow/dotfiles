@@ -61,6 +61,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     rename \
     rsync \
     since \
+    sshuttle \
     tcpdump \
     tig \
     tmux \
