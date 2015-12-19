@@ -163,10 +163,9 @@ set spellfile=~/.vim/spell/spellfile.utf-8.add
 set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
-set formatoptions=qcnro
-"                 |||||
-"                 |||||
-"                 ||||+-- insert comment leader after o/O
+set formatoptions=qcnr
+"                 ||||
+"                 ||||
 "                 |||+--- insert comment leader after enter
 "                 ||+---- recognize numbered lists
 "                 |+----- auto-wrap comments using textwidth
