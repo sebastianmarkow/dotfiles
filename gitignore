@@ -43,13 +43,3 @@ Temporary Items
 .hgsub
 .hgsubstate
 .hgtags
-
-# Virtualenv
-.Python
-[Bb]in
-[Ii]nclude
-[Ll]ib
-[Ll]ocal
-[Ss]cripts
-pyvenv.cfg
-pip-selfcheck.json
