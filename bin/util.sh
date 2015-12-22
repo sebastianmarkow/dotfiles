@@ -4,12 +4,6 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
-TAPS=(
-    homebrew/services
-    homebrew/dupes
-    homebrew/science
-)
-
 HEAD=(
     fish
 )
@@ -73,28 +67,9 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     wrk \
     yank"
 
-brew_install() {
-    [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-}
-
-brew_up() {
-    for t in "${TAPS[@]}"; do brew tap $t; done
+main() {
     for h in "${HEAD[@]}"; do brew install $h --HEAD; done
     brew install ${FORMULAS}
-}
-
-main() {
-    brew_install
-
-    brew update
-    brew prune
-
-    brew outdated
-    brew upgrade --all
-
-    brew_up
-
-    brew cleanup
 }
 
 main

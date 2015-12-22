@@ -29,10 +29,11 @@ help:
 	@printf "    go        to install go tools\n"
 	@printf "    js        to install node modules\n"
 	@printf "    haskell   to install haskell modules\n"
+	@printf "    clojure   to install clojure\n"
 
-base: install brew
+base: install brew util
 
-all: base go python haskell js
+all: install brew util go python haskell js clojure
 
 install: $(DIRS) $(FILES) $(CONFIGS)
 
@@ -51,23 +52,31 @@ $(CONFIGS):
 	@ln -s $(PWD)/$@ $(HOME)/.config/$@
 
 brew:
-	$(info Installing brew & formulas)
-	@sh ./Homebrew.sh
+	$(info Installing Homebrew)
+	@sh ./bin/Homebrew.sh
+
+util: brew
+	$(info Installing formulas)
+	@sh ./bin/Util.sh
 
 go: brew
 	$(info Installing go & tools)
-	@sh ./Go.sh
+	@sh ./bin/Go.sh
 
 haskell: brew
 	$(info Installing haskell & modules)
-	@sh ./Haskell.sh
+	@sh ./bin/Haskell.sh
+
+clojure: brew
+	$(info Installing clojure)
+	@sh ./bin/Clojure.sh
 
 js: brew
 	$(info Installing node & modules)
-	@sh ./Javascript.sh
+	@sh ./bin/Javascript.sh
 
 python: brew
 	$(info Installing python & packages)
-	@sh ./Python.sh
+	@sh ./bin/Python.sh
 
 .PHONY: default $(FILES) $(DIRS) $(CONFIGS) install help brew go python haskell js
