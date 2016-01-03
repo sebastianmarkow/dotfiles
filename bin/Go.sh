@@ -3,7 +3,13 @@
 set -e
 
 TOOLS=(
-    "golang.org/x/tools/cmd/..."
+    "golang.org/x/tools/cmd/benchcmp"
+    "golang.org/x/tools/cmd/cover"
+    "golang.org/x/tools/cmd/godoc"
+    "golang.org/x/tools/cmd/goimports"
+    "golang.org/x/tools/cmd/gorename"
+    "golang.org/x/tools/cmd/stringer"
+    "golang.org/x/tools/cmd/vet"
     "github.com/rogpeppe/godef"
     "github.com/nsf/gocode"
     "github.com/alecthomas/gometalinter"
