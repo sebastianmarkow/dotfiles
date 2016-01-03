@@ -44,7 +44,8 @@ alias near 'grep -C 10'
 alias lower 'tr A-Z a-z'
 alias upper 'tr a-z A-Z'
 alias map 'xargs -n1'
-alias tree 'tree -C --dirsfirst . | less -FRX'
+alias tree 'command tree -C --dirsfirst | less -FRX'
+alias treed 'command tree -d -C | less -FRX'
 
 # Fish
 set fish_color_command yellow
