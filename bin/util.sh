@@ -20,6 +20,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     cloc \
     coreutils \
     curl \
+    devd \
     diffutils \
     docker \
     docker-compose \
@@ -30,6 +31,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     ffmpeg \
     findutils \
     fzf \
+    ghq \
     git \
     git-extras \
     gnu-sed \
