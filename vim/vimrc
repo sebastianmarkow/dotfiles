@@ -35,7 +35,6 @@ Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish',                   { 'on': ['Abolish', 'Subvert'] }
