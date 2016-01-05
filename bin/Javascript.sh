@@ -6,6 +6,7 @@ PATH=/usr/local/bin:$PATH
 
 MODULES=(
     gulp
+    shout
 )
 
 FORMULAS="node"
