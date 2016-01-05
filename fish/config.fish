@@ -40,6 +40,7 @@ abbr mv 'mv -i'
 abbr cp 'cp -i'
 
 # Alias
+alias vi 'vim'
 alias near 'grep -C 10'
 alias lower 'tr A-Z a-z'
 alias upper 'tr a-z A-Z'
