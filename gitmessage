@@ -1,12 +1,18 @@
 
-# If applied, this commit will (50 character):
+# Summarize change(s) in one sentence:
+# Limit to 50 characters, capitalize, use imperative, no period
+#
+#     If applied, this commit will __________.
 
-# Explain why this change is being made (72 character):
+# Discuss what and why it changes:
+# Limit to 72 characters, split into paragraphs, separate \w blank line
+#
+#     Focus on why this change is necessary.
+#     Point out side effects.
 
-# * Why was this change necessary?
-
-# * How does it address the problem?
-
-# * Are there any side effects?
-
-# Provide links to any relevant tickets, articles or other resources:
+# Point to references (ticket(s), link(s), citation(s), person):
+# Limit at 72 characters
+#
+#     Resolves: #ticket
+#     See also: citation, link, #ticket
+#     Discussed with @person
