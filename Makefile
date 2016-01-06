@@ -22,14 +22,14 @@ default: help
 help:
 	@printf "Please use \`make <target>' where <target> is one of\n"
 	@printf "    all       for all of the below\n"
-	@printf "    base      for dotfiles/homebrew\n"
+	@printf "    brew      to install Hombrew\n"
+	@printf "    util      to install util formulas\n"
 	@printf "    install   to symlink dotfiles\n"
-	@printf "    brew      to install homebrew & formulas\n"
+	@printf "    clojure   to install clojure leiningen\n"
+	@printf "    haskell   to install haskell modules\n"
 	@printf "    python    to install python packages\n"
 	@printf "    go        to install go tools\n"
 	@printf "    js        to install node modules\n"
-	@printf "    haskell   to install haskell modules\n"
-	@printf "    clojure   to install clojure\n"
 
 base: install brew util
 

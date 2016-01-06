@@ -5,6 +5,7 @@ A heavily opinionated set of dotfiles (git, vim, fish & tmux).
 ## Requirements
 
 * `make`
+* `bash`
 
 ## Installation
 
@@ -12,12 +13,13 @@ A heavily opinionated set of dotfiles (git, vim, fish & tmux).
     $ cd dotfiles && make
     Please use `make <target>' where <target> is one of
         all       for all of the below
-        base      for dotfiles/homebrew
+        brew      to install Hombrew
+        util      to install util formulas
         install   to symlink dotfiles
-        brew      to install homebrew & formulas
+        clojure   to install clojure leiningen
+        haskell   to install haskell modules
         python    to install python packages
         go        to install go tools
         js        to install node modules
-        haskell   to install haskell modules
 
 **Warning:** Existing dotfiles in `$HOME`will be overwritten.
