@@ -7,9 +7,9 @@ set nocompatible " turn off vi-compatible mode
 
 " Install vimplug
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall! | source $MYVIMRC | close
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall! | source $MYVIMRC | close
 endif
 
 " Plugins
@@ -303,14 +303,14 @@ noremap <leader>o :FZFMru<cr>
 let g:fzf_launcher='xterm -e fish -ic %s'
 
 function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
+    redir => ls
+    silent ls
+    redir END
+    return split(ls, '\n')
 endfunction
 
 function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+    execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
 
 command! FZFBuffer call fzf#run({
@@ -340,15 +340,15 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
+    if exists(':NeoCompleteLock')==2
+        exe 'NeoCompleteLock'
+    endif
 endfunction
 
 function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
+    if exists(':NeoCompleteUnlock')==2
+        exe 'NeoCompleteUnlock'
+    endif
 endfunction
 
 " Plugin: Gitgutter
@@ -400,45 +400,45 @@ let g:buftabline_indicators=1
 let g:lightline={
     \ 'colorscheme': 'gotham',
     \ 'mode_map': {
-    \   'n' : 'normal',
-    \   'i' : 'insert',
-    \   'R' : 'replace',
-    \   'v' : 'visual',
-    \   'V' : 'v-line',
-    \   'c' : 'command',
-    \   "\<C-v>": 'v-block',
-    \   's' : 'select',
-    \   'S' : 's-line',
-    \   "\<C-s>": 's-block',
-    \   '?': '      '
+    \     'n': 'normal',
+    \     'i': 'insert',
+    \     'R': 'replace',
+    \     'v': 'visual',
+    \     'V': 'v-line',
+    \     'c': 'command',
+    \     "\<C-v>": 'v-block',
+    \     's': 'select',
+    \     'S': 's-line',
+    \     "\<C-s>": 's-block',
+    \     '?': '      '
     \ },
     \ 'active': {
-    \   'left': [
-    \      ['mode'],
-    \      ['filename', 'fugitive'],
-    \      ['modified', 'readonly']
-    \   ],
-    \   'right': [
-    \      ['lineinfo'],
-    \      ['percent'],
-    \      ['filetype', 'fileformat', 'fileencoding']
-    \   ]
+    \     'left': [
+    \         ['mode'],
+    \         ['filename', 'fugitive'],
+    \         ['modified', 'readonly']
+    \     ],
+    \     'right': [
+    \         ['lineinfo'],
+    \         ['percent'],
+    \         ['filetype', 'fileformat', 'fileencoding']
+    \     ]
     \ },
     \ 'inactive': {
-    \   'left': [
-    \      ['filename']
-    \   ],
-    \   'right': [
-    \      ['percent']
-    \   ]
+    \     'left': [
+    \         ['filename']
+    \     ],
+    \     'right': [
+    \         ['percent']
+    \     ]
     \ },
     \ 'component_function': {
-    \   'fugitive': 'LightLineFugitive',
+    \     'fugitive': 'LightLineFugitive',
     \ },
     \ }
 
 function! LightLineFugitive()
-  return exists('*fugitive#head') ? fugitive#head() : ''
+    return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
 " Plugin: NeoComplete
@@ -460,6 +460,6 @@ if has("lua")
     inoremap <expr><c-g> neocomplete#undo_completion()
     inoremap <expr><c-l> neocomplete#complete_common_string()
     if has('conceal')
-          set conceallevel=2 concealcursor=niv
+        set conceallevel=2 concealcursor=niv
     endif
 endif
