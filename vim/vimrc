@@ -216,19 +216,19 @@ set wildignore+=*.db,*.sqlite
 let mapleader="," " `\` no thank you
 
 " Keymap
-map <silent><leader>q :qa<cr>
-map <silent><leader>w :w<cr>
-map <silent><leader>x :x<cr>
-map <silent><leader>c :close<cr>
+map <leader>q :qa<cr>
+map <leader>w :w<cr>
+map <leader>x :x<cr>
+map <leader>c :close<cr>
 map <leader>W :w !sudo tee %<cr>
 map <leader>R :so $MYVIMRC<cr>
 
-noremap <silent><leader><esc> :noh<cr>
-noremap <silent><leader>i :setlocal list!<cr>
-noremap <silent><leader>s :setlocal spell!<cr>
+noremap <leader><esc> :noh<cr>
+noremap <leader>i :setlocal list!<cr>
+noremap <leader>s :setlocal spell!<cr>
 
-noremap <silent><c-h> :bp<cr>
-noremap <silent><c-l> :bn<cr>
+noremap <c-h> :bp<cr>
+noremap <c-l> :bn<cr>
 
 nnoremap Y y$
 nnoremap <c-j> :m .+1<cr>
@@ -297,9 +297,9 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
 
 " Plugin: FZF
-noremap <silent><c-p> :FZF<cr>
-noremap <silent><leader>b :FZFBuffer<cr>
-noremap <silent><leader>o :FZFMru<cr>
+noremap <c-p> :FZF<cr>
+noremap <leader>b :FZFBuffer<cr>
+noremap <leader>o :FZFMru<cr>
 let g:fzf_launcher='xterm -e fish -ic %s'
 
 function! s:buflist()
@@ -361,7 +361,7 @@ nmap gn <Plug>GitGutterNextHunk
 nmap gp <Plug>GitGutterPrevHunk
 
 " Plugin: BBye
-nnoremap <silent><leader>d :Bdelete<CR>
+nnoremap <leader>d :Bdelete<CR>
 
 " Plugin: PyMode
 let g:pymode_rope=0
@@ -372,7 +372,7 @@ let g:go_fmt_fail_silently=1
 let g:go_doc_keywordprg_enabled=1
 
 " Plugin: Better-WhiteSpace
-noremap <silent><leader>I :ToggleWhitespace<cr>
+noremap <leader>I :ToggleWhitespace<cr>
 
 " Plugin: Auto-Pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
