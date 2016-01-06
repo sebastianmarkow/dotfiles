@@ -331,10 +331,6 @@ command! FZFMru call fzf#run({
 let g:ag_prg="ag --vimgrep --smart-case"
 let g:ag_mapping_message=0
 
-" Plugin: Markdown
-let g:vim_markdown_frontmatter=1
-let g:vim_markdown_math=1
-
 " Plugin: Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_key='<leader>m'
