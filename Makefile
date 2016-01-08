@@ -39,7 +39,7 @@ install: $(DIRS) $(FILES) $(CONFIGS)
 
 $(FILES):
 	@echo "Symlink $@ -> ~/.$@"
-	@rm -rf $(HOME)/.$@ 
+	@rm -rf $(HOME)/.$@
 	@ln -s $(PWD)/$@ $(HOME)/.$@
 
 $(DIRS):
@@ -48,35 +48,35 @@ $(DIRS):
 
 $(CONFIGS):
 	@echo "Symlink $@ -> ~/.config/$@"
-	@rm -rf $(HOME)/.config/$@ 
+	@rm -rf $(HOME)/.config/$@
 	@ln -s $(PWD)/$@ $(HOME)/.config/$@
 
 brew:
 	$(info Installing Homebrew)
-	@sh ./bin/Homebrew.sh
+	@sh ./bin/brew.sh
 
 util: brew
 	$(info Installing formulas)
-	@sh ./bin/Util.sh
+	@sh ./bin/util.sh
 
 go: brew
 	$(info Installing go & tools)
-	@sh ./bin/Go.sh
+	@sh ./bin/go.sh
 
 haskell: brew
 	$(info Installing haskell & modules)
-	@sh ./bin/Haskell.sh
+	@sh ./bin/haskell.sh
 
 clojure: brew
 	$(info Installing clojure)
-	@sh ./bin/Clojure.sh
+	@sh ./bin/clojure.sh
 
 js: brew
 	$(info Installing node & modules)
-	@sh ./bin/Javascript.sh
+	@sh ./bin/javascript.sh
 
 python: brew
 	$(info Installing python & packages)
-	@sh ./bin/Python.sh
+	@sh ./bin/python.sh
 
 .PHONY: default $(FILES) $(DIRS) $(CONFIGS) install help brew go python haskell js

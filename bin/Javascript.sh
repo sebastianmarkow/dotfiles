@@ -20,6 +20,7 @@ npm_install() {
 
 main() {
     brew install ${FORMULAS}
+
     npm_install
 }
 

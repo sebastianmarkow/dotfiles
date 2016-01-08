@@ -4,6 +4,12 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
+TAPS=(
+    homebrew/services
+    homebrew/dupes
+    homebrew/science
+)
+
 HEAD=(
     fish
 )
@@ -70,6 +76,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     yank"
 
 main() {
+    for t in "${TAPS[@]}"; do brew tap $t; done
     for h in "${HEAD[@]}"; do brew install $h --HEAD; done
     brew install ${FORMULAS}
 }

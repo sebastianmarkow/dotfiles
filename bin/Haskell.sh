@@ -10,16 +10,20 @@ MODULES=(
     hoogle
 )
 
-cabal_up() {
+FORMULAS="go"
+
+cabal_install() {
     for m in "${MODULES[@]}"; do
+        printf "cabal install $m\n"
         cabal install $m
     done
 }
 
 main() {
-    cabal update
+    brew install ${FORMULAS}
 
-    cabal_up
+    cabal update
+    cabal_install
 }
 
 main

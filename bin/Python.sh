@@ -19,7 +19,7 @@ FORMULAS="python \
         homebrew/python/scipy \
         homebrew/python/matplotlib"
 
-pip_up() {
+pip_install() {
     unset PIP_REQUIRE_VIRTUALENV
     for p in pip2
     do
@@ -33,7 +33,8 @@ pip_up() {
 
 main() {
     brew install ${FORMULAS}
-    pip_up
+
+    pip_install
 }
 
 main
