@@ -7,7 +7,8 @@ FILES=vim		\
 	gitmessage	\
 	wgetrc		\
 	hushlogin	\
-	ghci
+	ghci            \
+	npmrc
 
 DIRS=cache/vim     		\
 	cache/vim/undo		\
