@@ -2,6 +2,8 @@
 
 set -e
 
+PATH=/usr/local/bin:$PATH
+
 TOOLS=(
     "golang.org/x/tools/cmd/benchcmp"
     "golang.org/x/tools/cmd/cover"
