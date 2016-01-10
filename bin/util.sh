@@ -21,8 +21,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     bash \
     bzr \
     calc \
-    cgdb \
-    clang-format \
     cloc \
     coreutils \
     curl \

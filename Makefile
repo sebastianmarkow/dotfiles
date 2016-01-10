@@ -28,13 +28,14 @@ help:
 	@printf "    install   to symlink dotfiles\n"
 	@printf "    clojure   to install clojure leiningen\n"
 	@printf "    haskell   to install haskell modules\n"
+	@printf "    c         to install c utilities\n"
 	@printf "    python    to install python packages\n"
 	@printf "    go        to install go tools\n"
 	@printf "    js        to install node modules\n"
 
 base: install brew util
 
-all: install brew util go python haskell js clojure
+all: install brew util go python c haskell js clojure
 
 install: $(DIRS) $(FILES) $(CONFIGS)
 
@@ -63,6 +64,10 @@ util: brew
 go: brew
 	$(info Installing go & tools)
 	@sh ./bin/go.sh
+
+c: brew
+	$(info Installing c utilities)
+	@sh ./bin/c.sh
 
 haskell: brew
 	$(info Installing haskell & modules)
