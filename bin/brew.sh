@@ -12,12 +12,6 @@ main() {
     brew_install
 
     brew update
-    brew outdated
-
-    brew upgrade --all
-
-    brew cleanup
-    brew prune
 }
 
 main
