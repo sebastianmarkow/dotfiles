@@ -6,6 +6,7 @@ PATH=/usr/local/bin:$PATH
 
 FORMULAS="cgdb \
         clang-format \
+        make \
         valgrind"
 
 main() {
