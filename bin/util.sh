@@ -58,6 +58,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     openssh \
     pam_yubico \
     pv \
+    ranger \
     rename \
     rsync \
     since \
