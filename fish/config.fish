@@ -31,7 +31,7 @@ set -x XZ_OPT '-T0'
 
 # Hook
 [ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
-[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+if type jump > /dev/null; . (jump shell fish | psub); end
 
 # Abbreviations
 abbr nq 'nq -q'

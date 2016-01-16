@@ -16,7 +16,6 @@ HEAD=(
 
 FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     ag \
-    autojump \
     awk \
     bash \
     bzr \
@@ -41,6 +40,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     gnu-sed \
     gnu-tar \
     gnuplot \
+    gsamokovarov/jump/jump \
     hg \
     hub \
     iftop \
