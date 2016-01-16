@@ -30,6 +30,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim',                   { 'on': 'Goyo' }
+Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
