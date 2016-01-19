@@ -71,7 +71,6 @@
 
 [alias]
     edit = config --global -e
-    tig = !tig
 
     s = status -s -u
     ignored = status -s --ignored

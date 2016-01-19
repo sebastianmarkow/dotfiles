@@ -64,7 +64,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     since \
     sshuttle \
     tcpdump \
-    tig \
     tmux \
     trash \
     tree \
