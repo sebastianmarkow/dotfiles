@@ -5,13 +5,13 @@ set -e
 PATH=/usr/local/bin:$PATH
 
 EGGS=(
-    pip
-    pep8
-    virtualenv
-    scikit-learn
-    pandas
-    seaborn
-    ipython[all]
+    "pip"
+    "pep8"
+    "virtualenv"
+    "scikit-learn"
+    "pandas"
+    "seaborn"
+    "ipython[all]"
 )
 
 FORMULAS="python \
@@ -21,18 +21,15 @@ FORMULAS="python \
 
 pip_install() {
     unset PIP_REQUIRE_VIRTUALENV
-    for p in pip2
-    do
-        for e in "${EGGS[@]}"; do
-            printf "$p install --upgrade $e"
-            $p install --upgrade --quiet $e
-            printf " ...done\n"
-        done
+    for e in "${EGGS[@]}"; do
+        printf "pip2 install --upgrade --quiet %s" "$e"
+        pip2 install --upgrade --quiet "$e"
+        printf " ...done\n"
     done
 }
 
 main() {
-    brew install ${FORMULAS}
+    brew install "${FORMULAS}"
 
     pip_install
 }

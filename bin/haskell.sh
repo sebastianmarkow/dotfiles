@@ -14,13 +14,13 @@ FORMULAS="go"
 
 cabal_install() {
     for m in "${MODULES[@]}"; do
-        printf "cabal install $m\n"
-        cabal install $m
+        printf "cabal install %s\n" "$m"
+        cabal install "$m"
     done
 }
 
 main() {
-    brew install ${FORMULAS}
+    brew install "${FORMULAS}"
 
     cabal update
     cabal_install
