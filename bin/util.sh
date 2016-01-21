@@ -61,6 +61,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     ranger \
     rename \
     rsync \
+    shellcheck \
     since \
     sshuttle \
     tcpdump \
