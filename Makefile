@@ -38,20 +38,20 @@ all: install brew util go python c haskell js clojure
 
 install: $(DIRS) $(FILES) $(CONFIGS)
 
+.PHONY: $(DIRS)
+$(DIRS):
+	$(info Make directory ~/.$@)
+	@mkdir -p $(HOME)/.$@
+
 .PHONY: $(FILES)
 $(FILES):
-	@echo "Symlink $@ -> ~/.$@"
+	$(info Symlink $@ -> ~/.$@)
 	@rm -rf $(HOME)/.$@
 	@ln -s $(PWD)/$@ $(HOME)/.$@
 
-.PHONY: $(DIRS)
-$(DIRS):
-	@echo "Make directory ~/.$@"
-	@mkdir -p $(HOME)/.$@
-
 .PHONY: $(CONFIGS)
 $(CONFIGS):
-	@echo "Symlink $@ -> ~/.config/$@"
+	$(info Symlink $@ -> ~/.config/$@)
 	@rm -rf $(HOME)/.config/$@
 	@ln -s $(PWD)/$@ $(HOME)/.config/$@
 
