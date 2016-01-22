@@ -28,6 +28,7 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'luochen1990/rainbow',                 { 'on': 'RainbowToggle' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim',                   { 'on': 'Goyo' }
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
@@ -331,6 +332,9 @@ command! FZFMru call fzf#run({
 " Plugin: Ag
 let g:ag_prg="ag --vimgrep --smart-case"
 let g:ag_mapping_message=0
+
+" Plugin: Rainbow parentheses
+let g:rainbow_active=0
 
 " Plugin: Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
