@@ -28,12 +28,12 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'luochen1990/rainbow',                 { 'on': 'RainbowToggle' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/goyo.vim',                   { 'on': 'Goyo' }
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'klen/python-mode',                    { 'for': 'python' }
+Plug 'luochen1990/rainbow',                 { 'on': 'RainbowToggle' }
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'ntpeters/vim-better-whitespace'
