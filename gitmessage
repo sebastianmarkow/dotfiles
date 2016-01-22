@@ -4,14 +4,14 @@
 #
 #     If applied, this commit will __________.
 
-# Discuss what and why it changes:
+# Discuss what it does and why it changes:
 # Limit to 72 characters, split into paragraphs, separate \w blank line
 #
 #     Focus on why this change is necessary.
 #     Point out side effects.
 
-# Point to references (ticket(s), link(s), citation(s), person):
-# Limit at 72 characters
+# Point to references (ticket(s), link(s), citation(s), people):
+# Limit to 72 characters
 #
 #     Resolves: #ticket
 #     See also: citation, link, #ticket
