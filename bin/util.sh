@@ -77,7 +77,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
 main() {
     for t in "${TAPS[@]}"; do brew tap "$t"; done
     for h in "${HEAD[@]}"; do brew install "$h" --HEAD; done
-    brew install "${FORMULAS}"
+    brew install ${FORMULAS}
 }
 
 main

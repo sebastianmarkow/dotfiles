@@ -10,7 +10,7 @@ FORMULAS="cgdb \
         valgrind"
 
 main() {
-    brew install "${FORMULAS}"
+    brew install ${FORMULAS}
 }
 
 main

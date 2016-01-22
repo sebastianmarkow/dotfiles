@@ -20,7 +20,7 @@ cabal_install() {
 }
 
 main() {
-    brew install "${FORMULAS}"
+    brew install ${FORMULAS}
 
     cabal update
     cabal_install

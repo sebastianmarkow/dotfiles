@@ -29,7 +29,7 @@ pip_install() {
 }
 
 main() {
-    brew install "${FORMULAS}"
+    brew install ${FORMULAS}
 
     pip_install
 }
