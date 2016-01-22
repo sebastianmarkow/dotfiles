@@ -7,19 +7,12 @@ A heavily opinionated set of dotfiles (git, vim, fish & tmux).
 * `make`
 * `bash`
 
-## Installation
+## Usage
 
     $ git clone https://github.com/sebastianmarkow/dotfiles.git
-    $ cd dotfiles && make
-    Please use `make <target>' where <target> is one of
-        all       for all of the below
-        brew      to install Hombrew
-        util      to install util formulas
-        install   to symlink dotfiles
-        clojure   to install clojure leiningen
-        haskell   to install haskell modules
-        python    to install python packages
-        go        to install go tools
-        js        to install node modules
+    $ cd dotfiles
+    $ make help
 
-**Warning:** Existing dotfiles in `$HOME`will be overwritten.
+**Warning:** `install` and `all` target will overwrite existing dotfiles in the
+`$HOME` directory of the current user. Be sure to backup any files you'd like to
+keep.
