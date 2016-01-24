@@ -29,7 +29,6 @@ Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
-Plug 'junegunn/goyo.vim',                   { 'on': 'Goyo' }
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'klen/python-mode',                    { 'for': 'python' }
@@ -267,8 +266,8 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter,WinLeave,FocusLost * if !exists('#goyo') | setlocal norelativenumber | endif
-autocmd InsertLeave,WinEnter,FocusGained * if !exists('#goyo') | setlocal relativenumber | endif
+autocmd InsertEnter,WinLeave,FocusLost * setlocal norelativenumber
+autocmd InsertLeave,WinEnter,FocusGained * setlocal relativenumber
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
