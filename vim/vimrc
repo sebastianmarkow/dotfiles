@@ -338,10 +338,10 @@ let g:rainbow_active=0
 " Plugin: Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_key='<leader>m'
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+let g:multi_cursor_next_key='<c-n>'
+let g:multi_cursor_prev_key='<c-p>'
+let g:multi_cursor_skip_key='<c-x>'
+let g:multi_cursor_quit_key='<esc>'
 
 function! Multiple_cursors_before()
     if exists(':NeoCompleteLock')==2
