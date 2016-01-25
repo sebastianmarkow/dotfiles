@@ -284,7 +284,7 @@ autocmd FileType gitcommit setlocal spelllang=en
 
 " Custom: Textwidth
 autocmd FileType gitcommit setlocal textwidth=72 wrap
-autocmd FileType text,markdown setlocal textwidth=80 wrap
+autocmd FileType text,markdown setlocal textwidth=79 wrap
 
 " Custom: Colorcolumn
 if exists('+colorcolumn')
