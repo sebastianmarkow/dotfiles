@@ -85,7 +85,7 @@ set title
 set nofoldenable
 set number
 set relativenumber
-set nocursorline
+set cursorline
 set numberwidth=3
 set cmdheight=1
 set laststatus=2 " always show statusline
