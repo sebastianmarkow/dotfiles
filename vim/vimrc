@@ -204,7 +204,7 @@ endtry
 " Fileglob
 set wildmenu " enable filepath completion in the command bar
 set wildmode=longest:full,list:longest
-set wildchar=<Tab>
+set wildchar=<tab>
 set wildignore+=*~,*sw[op],*.pid,.DS_Store
 set wildignore+=.git,.hg,.svn
 set wildignore+=*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib
@@ -218,24 +218,24 @@ let mapleader="," " `\` no thank you
 
 " Keymap
 map <leader>q :qa<cr>
-map <leader>w :w<cr>
-map <leader>x :x<cr>
+map <leader>w :write<cr>
+map <leader>x :xit<cr>
 map <leader>c :close<cr>
-map <leader>W :w !sudo tee %<cr>
-map <leader>R :so $MYVIMRC<cr>
+map <leader>W :write !sudo tee %<cr>
+map <leader>R :source $MYVIMRC<cr>
 
-noremap <leader><esc> :noh<cr>
+noremap <leader><esc> :nohlsearch<cr>
 noremap <leader>i :setlocal list!<cr>
 noremap <leader>s :setlocal spell!<cr>
 
-noremap <c-h> :bp<cr>
-noremap <c-l> :bn<cr>
+noremap <c-h> :bprev<cr>
+noremap <c-l> :bnext<cr>
 
 nnoremap Y y$
-nnoremap <c-j> :m .+1<cr>
-nnoremap <c-k> :m .-2<cr>
-vnoremap <c-j> :m '>+1'<cr>gv=gv
-vnoremap <c-k> :m '<-2'<cr>gv=gv
+nnoremap <c-j> :move .+1<cr>
+nnoremap <c-k> :move .-2<cr>
+vnoremap <c-j> :move '>+1'<cr>gv=gv
+vnoremap <c-k> :move '<-2'<cr>gv=gv
 
 nnoremap <c-e> 5<c-e>
 nnoremap <c-y> 5<c-y>
@@ -263,7 +263,7 @@ autocmd VimLeave * let &titlestring=''
 autocmd BufEnter * :silent checktime
 
 " Trigger: Remember cursor position
-autocmd BufReadPost * if &ft != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
 autocmd InsertEnter,WinLeave,FocusLost * setlocal norelativenumber
