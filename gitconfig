@@ -3,9 +3,6 @@
     email = sebastian@markow.io
     signingkey = EF08BEA6
 
-[github]
-    user = sebastianmarkow
-
 [core]
     editor = vim
     pager = less -R
@@ -64,10 +61,6 @@
 
 [apply]
     whitespace = fix
-
-[ghq]
-    root = ~/Developer/repos
-    root = ~/Developer/go/src
 
 [alias]
     edit = config --global -e
@@ -161,7 +154,9 @@
     insteadOf = "github:"
     pushInsteadOf = "https://github.com/"
 
-[url "git@bitbucket.org:"]
-    insteadOf = "bb:"
-    insteadOf = "bitbucket:"
-    pushInsteadOf = "https://bitbucket.org/"
+[github]
+    user = sebastianmarkow
+
+[ghq]
+    root = ~/Developer/repos
+    root = ~/Developer/go/src
