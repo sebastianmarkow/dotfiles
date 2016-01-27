@@ -76,9 +76,12 @@
     ss = stash save
     sw = stash show
 
-    d = diff --color-words
-    dc = diff --cached --color-words
-    ds = diff --staged --color-words
+    d = diff
+    dw = diff --color-words
+    dc = diff --cached
+    dcw = diff --cached --color-words
+    ds = diff --staged
+    dsw = diff --staged --color-words
     dt = difftool
     dcs = difftool --cached
     dst = difftool --staged
