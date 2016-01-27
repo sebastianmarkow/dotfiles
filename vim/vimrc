@@ -361,8 +361,8 @@ let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
-nmap gn <Plug>GitGutterNextHunk
-nmap gp <Plug>GitGutterPrevHunk
+nmap gn <plug>GitGutterNextHunk
+nmap gp <plug>GitGutterPrevHunk
 
 " Plugin: BBye
 nnoremap <leader>d :Bdelete<CR>
@@ -385,8 +385,8 @@ if exists('g:AutoPairs')
 endif
 
 " Plugin: EasyAlign
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
+nmap ga <plug>(EasyAlign)
+xmap ga <plug>(EasyAlign)
 
 " Plugin: UndoTree
 nnoremap <leader>u :UndotreeToggle<cr>
@@ -456,9 +456,9 @@ if has("lua")
     let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
     let g:neosnippet#snippets_directory="~/.vim/snippets"
     let g:neosnippet#enable_snipmate_compatibility=1
-    imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
-    smap <expr><tab> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<tab>"
-    imap <expr><cr>  !pumvisible() ? "\<cr>\<Plug>AutoPairsReturn" : neosnippet#expandable() ? "\<Plug>(neosnippet_expand)" : neocomplete#close_popup()
+    imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
+    smap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
+    imap <expr><cr>  !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : neocomplete#close_popup()
     inoremap <expr><esc> pumvisible() ? neocomplete#cancel_popup() : "\<esc>"
     inoremap <expr><bs> neocomplete#smart_close_popup()."\<bs>"
     inoremap <expr><c-g> neocomplete#undo_completion()
