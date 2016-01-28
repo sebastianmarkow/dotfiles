@@ -5,7 +5,6 @@ set -e fish_greeting
 # Path
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
-set -x NQDIR $HOME/.cache/nq/
 set -x PATH /usr/local/sbin $GOBIN $PATH
 
 # Default
@@ -34,7 +33,6 @@ set -x XZ_OPT '-T0'
 if type jump > /dev/null; . (jump shell fish | psub); end
 
 # Abbreviations
-abbr nq 'nq -q'
 abbr rp 'repo'
 abbr mv 'mv -i'
 abbr cp 'cp -i'
