@@ -155,6 +155,7 @@ set nowrap " don't wrap lines
 set linebreak " don't break words at line end
 set autoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
+set smartindent " do smart autoindenting when starting a new line
 set nostartofline " cursor stays at same column while moving horizontal
 set nolist " don't show invisble character
 set nospell " no spellcheck
@@ -275,7 +276,8 @@ autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType c,cpp setlocal cindent
+autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType yaml,toml,json setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
