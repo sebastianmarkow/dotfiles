@@ -16,7 +16,6 @@ HEAD=(
 
 FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     ag \
-    awk \
     bash \
     bzr \
     calc \
@@ -24,7 +23,6 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     coreutils \
     curl \
     devd \
-    diffutils \
     docker \
     docker-compose \
     docker-machine \
@@ -42,29 +40,31 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     gnuplot \
     gsamokovarov/jump/jump \
     hg \
+    homebrew/dupes/awk \
+    homebrew/dupes/diffutils \
+    homebrew/dupes/less \
+    homebrew/dupes/make \
+    homebrew/dupes/openssh \
+    homebrew/dupes/rsync \
+    homebrew/dupes/tcpdump \
     hub \
     iftop \
     imagemagick \
     jq \
     laurent22/massren/massren \
-    less \
     lftp \
-    make \
     moreutils \
     mtr \
     multitail \
     nmap \
-    openssh \
     pam_yubico \
     pstree \
     pv \
     ranger \
     rename \
-    rsync \
     shellcheck \
     since \
     sshuttle \
-    tcpdump \
     tmux \
     trash \
     tree \
