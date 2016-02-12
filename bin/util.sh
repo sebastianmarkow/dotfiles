@@ -47,6 +47,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     homebrew/dupes/openssh \
     homebrew/dupes/rsync \
     homebrew/dupes/tcpdump \
+    htop \
     hub \
     iftop \
     imagemagick \
