@@ -20,6 +20,7 @@ Plug 'andrewradev/sideways.vim',            { 'on': ['SidewaysLeft', 'SidewaysRi
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
+Plug 'cohama/lexima.vim'
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'dag/vim2hs',                          { 'for': 'haskell' }
 Plug 'danro/rename.vim'
@@ -28,7 +29,6 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'gorodinskiy/vim-coloresque',          { 'for': ['html', 'css', 'sass']}
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'itchyny/lightline.vim'
-Plug 'cohama/lexima.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
