@@ -54,6 +54,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     jq \
     laurent22/massren/massren \
     lftp \
+    mandoc \
     moreutils \
     mtr \
     multitail \
