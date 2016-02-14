@@ -38,6 +38,7 @@ Plug 'luochen1990/rainbow',                 { 'on': 'RainbowToggle' }
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'rip-rip/clang_complete',              { 'for': ['cpp', 'c'] }
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish',                   { 'on': ['Abolish', 'Subvert'] }
