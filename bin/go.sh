@@ -18,7 +18,6 @@ TOOLS=(
     "github.com/mailgun/godebug"
     "github.com/motemen/gore"
     "github.com/pranavraja/tldr"
-    "github.com/nlf/dlite"
 )
 
 FORMULAS="go"

@@ -23,6 +23,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     coreutils \
     curl \
     devd \
+    dlite \
     docker \
     docker-compose \
     docker-machine \
