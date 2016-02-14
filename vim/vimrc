@@ -21,7 +21,7 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'cohama/lexima.vim'
-Plug 'dag/vim-fish',                        { 'for': ['fish', 'markdown'] }
+Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'dag/vim2hs',                          { 'for': 'haskell' }
 Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'fatih/vim-go',                        { 'for': 'go' }
@@ -307,7 +307,6 @@ let g:markdown_fenced_languages = [
     \ 'Dockerfile',
     \ 'bash=sh',
     \ 'c',
-    \ 'fish',
     \ 'go',
     \ 'python',
     \ 'vim',
