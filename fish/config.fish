@@ -66,10 +66,10 @@ set __fish_mode_string_normal 'normal'
 set __fish_mode_string_insert 'insert'
 set __fish_mode_string_replace 'replace'
 set __fish_mode_string_visual 'visual'
-set __fish_mode_color_normal blue
+set __fish_mode_color_normal cyan
 set __fish_mode_color_insert green
-set __fish_mode_color_replaced red
-set __fish_mode_color_visual magenta
+set __fish_mode_color_replace red
+set __fish_mode_color_visual yellow
 
 # Vi mode
 fish_vi_mode
