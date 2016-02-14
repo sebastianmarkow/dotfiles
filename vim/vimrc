@@ -21,7 +21,7 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'cohama/lexima.vim'
-Plug 'dag/vim-fish',                        { 'for': 'fish' }
+Plug 'dag/vim-fish',                        { 'for': ['fish', 'markdown'] }
 Plug 'dag/vim2hs',                          { 'for': 'haskell' }
 Plug 'danro/rename.vim'
 Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
@@ -301,6 +301,17 @@ endif
 " Colors: Spelling Errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
+
+" Markdown:
+let g:markdown_fenced_languages = [
+    \ 'Dockerfile',
+    \ 'bash=sh',
+    \ 'c',
+    \ 'fish',
+    \ 'go',
+    \ 'python',
+    \ 'vim',
+    \ ]
 
 " Plugin: FZF
 noremap <c-p> :FZF<cr>
