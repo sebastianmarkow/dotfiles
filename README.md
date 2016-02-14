@@ -13,6 +13,6 @@ A heavily opinionated set of dotfiles (git, vim, fish & tmux).
     $ cd dotfiles
     $ make help
 
-**Warning:** `install` and `all` target will overwrite existing dotfiles in the
-`$HOME` directory of the current user. Be sure to backup any files you'd like to
-keep.
+**Warning:** `make install` and `make all` targets will overwrite existing
+dotfiles in the `$HOME` directory of the current user. Be sure to backup any
+files you'd like to keep.
