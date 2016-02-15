@@ -20,7 +20,6 @@ Plug 'andrewradev/sideways.vim',            { 'on': ['SidewaysLeft', 'SidewaysRi
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
-Plug 'cohama/lexima.vim'
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'dag/vim2hs',                          { 'for': 'haskell' }
 Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
@@ -28,6 +27,7 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'gorodinskiy/vim-coloresque',          { 'for': ['html', 'css', 'sass']}
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
@@ -463,9 +463,6 @@ function! LightLineFugitive()
     return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
-" Plugin: Lexima
-call lexima#init()
-
 " Plugin: NeoComplete
 if has("lua")
     let g:acp_enableAtStartup=0
@@ -479,7 +476,7 @@ if has("lua")
     let g:neosnippet#enable_snipmate_compatibility=1
     imap <expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
     smap <expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
-    imap <expr><cr>  !pumvisible() ? lexima#expand('<LT>cr>', 'i') : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : neocomplete#close_popup()
+    imap <expr><cr>  !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : neocomplete#close_popup()
     inoremap <expr><esc> pumvisible() ? neocomplete#cancel_popup() : "\<esc>"
     inoremap <expr><bs> neocomplete#smart_close_popup()."\<bs>"
     inoremap <expr><c-g> neocomplete#undo_completion()
