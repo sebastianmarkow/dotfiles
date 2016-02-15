@@ -382,6 +382,9 @@ nmap gp <plug>GitGutterPrevHunk
 " Plugin: BBye
 nnoremap <leader>d :Bdelete<CR>
 
+" Plugin: Clang complete
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+
 " Plugin: PyMode
 let g:pymode_rope=0
 
