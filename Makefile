@@ -7,7 +7,6 @@ FILES=vim		\
 	gitmessage	\
 	wgetrc		\
 	hushlogin	\
-	ghci            \
 	npmrc
 
 DIRS=cache/vim     		\
@@ -28,7 +27,6 @@ help:
 	@printf "    util      to install util formulas\n"
 	@printf "    install   to symlink dotfiles\n"
 	@printf "    clojure   to install clojure leiningen\n"
-	@printf "    haskell   to install haskell modules\n"
 	@printf "    c         to install c utilities\n"
 	@printf "    python    to install python packages\n"
 	@printf "    go        to install go tools\n"
@@ -74,11 +72,6 @@ go: brew
 c: brew
 	$(info Installing c utilities)
 	@sh ./bin/c.sh
-
-.PHONY: haskell
-haskell: brew
-	$(info Installing haskell & modules)
-	@sh ./bin/haskell.sh
 
 .PHONY: clojure
 clojure: brew

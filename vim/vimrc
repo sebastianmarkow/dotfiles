@@ -21,7 +21,6 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
-Plug 'dag/vim2hs',                          { 'for': 'haskell' }
 Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'gorodinskiy/vim-coloresque',          { 'for': ['html', 'css', 'sass']}
