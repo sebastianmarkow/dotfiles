@@ -62,11 +62,11 @@ set __fish_prompt_sign_root '#'
 set __fish_prompt_sign_default '$'
 set __fish_prompt_sign_error '!'
 
-set __fish_mode_string_normal 'normal'
-set __fish_mode_string_insert 'insert'
-set __fish_mode_string_replace 'replace'
-set __fish_mode_string_visual 'visual'
-set __fish_mode_color_normal cyan
+set __fish_mode_string_normal 'n'
+set __fish_mode_string_insert '>'
+set __fish_mode_string_replace '_'
+set __fish_mode_string_visual '='
+set __fish_mode_color_normal brmagenta
 set __fish_mode_color_insert green
 set __fish_mode_color_replace red
 set __fish_mode_color_visual yellow

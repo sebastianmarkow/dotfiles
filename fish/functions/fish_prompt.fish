@@ -13,5 +13,5 @@ function fish_prompt --description 'Compose fish prompt'
             set sign (set_color red)$__fish_prompt_sign_error(set_color normal)
     end
 
-    echo -n (prompt_pwd) $sign ''
+    echo -n -s (prompt_pwd) $sign ' '
 end
