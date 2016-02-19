@@ -24,15 +24,16 @@ default: help
 .PHONE: help
 help:
 	@printf "Please use \`make <target>' where <target> is one of\n"
-	@printf "    all       for all of the below\n"
-	@printf "    brew      to install Hombrew\n"
-	@printf "    util      to install util formulas\n"
-	@printf "    install   to symlink dotfiles\n"
-	@printf "    clojure   to install clojure leiningen\n"
-	@printf "    c         to install c utilities\n"
-	@printf "    python    to install python packages\n"
-	@printf "    go        to install go tools\n"
-	@printf "    js        to install node modules\n"
+	@printf "    all          for all of the below\n"
+	@printf "    brew         to install Hombrew\n"
+	@printf "    util         to install util formulas\n"
+	@printf "    install      to symlink dotfiles\n"
+	@printf "    clojure      to install clojure leiningen\n"
+	@printf "    c            to install c utilities\n"
+	@printf "    python       to install python packages\n"
+	@printf "    datascience  to install python data science packages\n"
+	@printf "    go           to install go tools\n"
+	@printf "    js           to install node modules\n"
 
 all: install brew util go python c haskell js clojure
 
@@ -89,3 +90,8 @@ js: brew
 python: brew
 	$(info Installing python & packages)
 	@sh ./bin/python.sh
+
+.PHONY: datascience
+datascience: brew
+	$(info Installing python datascience packages)
+	@sh ./bin/datascience.sh
