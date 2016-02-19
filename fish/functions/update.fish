@@ -9,5 +9,5 @@ function update --description "Update system"
         fish_update_completions
     end
     echo -s (set_color red) "Update Vim" (set_color normal)
-    vim +PlugUpgrade +PlugClean! +PlugUpdate! +qall
+    vim +PlugUpgrade +PlugClean! +PlugUpdate! +UpdateRemotePlugins +qall
 end

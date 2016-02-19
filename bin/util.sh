@@ -14,8 +14,7 @@ HEAD=(
     fish
 )
 
-FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
-    ag \
+FORMULAS="ag \
     bash \
     bzr \
     calc \
@@ -59,6 +58,7 @@ FORMULAS="vim --with-lua --with-luajit --without-ruby --without-perl \
     moreutils \
     mtr \
     multitail \
+    neovim/neovim/neovim \
     nmap \
     pam_yubico \
     pstree \

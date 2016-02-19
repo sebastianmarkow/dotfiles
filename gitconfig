@@ -4,7 +4,7 @@
     signingkey = EF08BEA6
 
 [core]
-    editor = vim
+    editor = nvim
     pager = less -R
     excludesfile = ~/.gitignore
     whitespace = trailing-space,space-before-tab,blank-at-eof
@@ -36,7 +36,7 @@
 
 [mergetool "fugitive"]
     prompt = false
-    cmd = vim -f -c \"Gvdiff\" \"$MERGED\"
+    cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
 
 [diff]
     tool = vimdiff
@@ -44,6 +44,7 @@
 
 [difftool "vimdiff"]
     prompt = false
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [log]
     abbrevCommit = true

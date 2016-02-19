@@ -1,6 +1,6 @@
 # 💥🔫 dotdotdotdotdotfiles
 
-A heavily opinionated set of dotfiles (git, vim, fish & tmux).
+A heavily opinionated set of dotfiles (git, neovim, fish & tmux).
 
 ## Requirements
 

@@ -6,11 +6,13 @@ set -e fish_greeting
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
 set -x PATH /usr/local/sbin $GOBIN $PATH
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_DATA_HOME $HOME/.local/share
 
 # Default
-set -x EDITOR vim
+set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
-set -x PAGER less
+set -x PAGER 'less'
 set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
@@ -38,8 +40,9 @@ abbr mv 'mv -i'
 abbr cp 'cp -i'
 
 # Alias
-alias vi 'vim'
-alias tig 'vim +GV +bd1'
+alias vi 'nvim'
+alias vim 'nvim'
+alias tig 'nvim +GV +bd1'
 alias near 'grep -C 10'
 alias lower 'tr A-Z a-z'
 alias upper 'tr a-z A-Z'

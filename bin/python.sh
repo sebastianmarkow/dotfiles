@@ -8,22 +8,16 @@ EGGS=(
     "pip"
     "pep8"
     "virtualenv"
-    "scikit-learn"
-    "pandas"
-    "seaborn"
-    "ipython[all]"
+    "neovim"
 )
 
-FORMULAS="python \
-        homebrew/python/numpy \
-        homebrew/python/scipy \
-        homebrew/python/matplotlib"
+FORMULAS="python3"
 
 pip_install() {
     unset PIP_REQUIRE_VIRTUALENV
     for e in "${EGGS[@]}"; do
-        printf "pip2 install --upgrade --quiet %s" "$e"
-        pip2 install --upgrade --quiet "$e"
+        printf "pip3 install --upgrade --quiet %s" "$e"
+        pip3 install --upgrade --quiet "$e"
         printf " ...done\n"
     done
 }

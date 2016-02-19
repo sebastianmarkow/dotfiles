@@ -7,8 +7,10 @@ Session.vim
 *~
 
 # Vimplug
-vim/autoload
-vim/plugged
+nvim/autoload
+nvim/plugged
+nvim/spell/*.sug
+nvim/spell/*.spl
 
 # Fish
 fish/fish*
