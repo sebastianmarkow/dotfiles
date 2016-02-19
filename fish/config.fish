@@ -53,7 +53,7 @@ alias treed 'command tree -d -C | less -FRX'
 # Fish
 set fish_color_command yellow
 set fish_color_param cyan
-set fish_color_quote 'd26936'
+set fish_color_quote brred
 set fish_color_error red
 
 set __fish_git_prompt_show_informative_status 1
@@ -65,10 +65,10 @@ set __fish_prompt_sign_root '#'
 set __fish_prompt_sign_default '$'
 set __fish_prompt_sign_error '!'
 
-set __fish_mode_string_normal 'n'
+set __fish_mode_string_normal '|'
 set __fish_mode_string_insert '>'
 set __fish_mode_string_replace '_'
-set __fish_mode_string_visual '='
+set __fish_mode_string_visual '-'
 set __fish_mode_color_normal brmagenta
 set __fish_mode_color_insert green
 set __fish_mode_color_replace red
