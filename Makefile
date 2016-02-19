@@ -26,14 +26,14 @@ help:
 	@printf "Please use \`make <target>' where <target> is one of\n"
 	@printf "    all          for all of the below\n"
 	@printf "    brew         to install Hombrew\n"
-	@printf "    util         to install util formulas\n"
-	@printf "    install      to symlink dotfiles\n"
-	@printf "    clojure      to install clojure leiningen\n"
 	@printf "    c            to install c utilities\n"
-	@printf "    python       to install python packages\n"
+	@printf "    clojure      to install clojure leiningen\n"
 	@printf "    datascience  to install python data science packages\n"
 	@printf "    go           to install go tools\n"
+	@printf "    install      to symlink dotfiles\n"
 	@printf "    js           to install node modules\n"
+	@printf "    python       to install python packages\n"
+	@printf "    util         to install util formulas\n"
 
 all: install brew util go python c haskell js clojure
 
