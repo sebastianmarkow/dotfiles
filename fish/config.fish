@@ -38,10 +38,10 @@ if type jump > /dev/null; . (jump shell fish | psub); end
 abbr rp 'repo'
 abbr mv 'mv -i'
 abbr cp 'cp -i'
+abbr vi 'nvim'
+abbr vim 'nvim'
 
 # Alias
-alias vi 'nvim'
-alias vim 'nvim'
 alias tig 'nvim +GV +bd1'
 alias near 'grep -C 10'
 alias lower 'tr A-Z a-z'
