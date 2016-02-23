@@ -438,3 +438,5 @@ imap <silent><expr><cr> pumvisible() ? deoplete#mappings#close_popup() : "\<cr>\
 imap <silent><expr><esc> pumvisible() ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs> deoplete#mappings#smart_close_popup()."\<bs>"
 imap <silent><expr><c-g> deoplete#mappings#smart_close_popup()
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
