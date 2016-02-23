@@ -14,7 +14,6 @@ call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
-Plug 'tommcdo/vim-exchange'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
@@ -38,6 +37,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'shougo/deoplete.nvim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
