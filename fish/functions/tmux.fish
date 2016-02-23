@@ -1,7 +1,8 @@
 function tmux --description 'Attach to tmux session'
+    set -e TMPDIR
     switch (count $argv)
         case 0
-            command tmux attach-session -t $USER > /dev/null 2>&1; or command tmux new-session -s $USER
+            command tmux new-session -A -s $USER
         case '*'
             command tmux $argv
     end
