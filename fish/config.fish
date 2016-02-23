@@ -42,6 +42,7 @@ abbr vi 'nvim'
 abbr vim 'nvim'
 
 # Alias
+alias ldd 'otool -L'
 alias tig 'nvim +GV +bd1'
 alias near 'grep -C 10'
 alias lower 'tr A-Z a-z'
