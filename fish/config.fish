@@ -31,7 +31,7 @@ set -x YANKCM              'pbcopy make'
 set -x XZ_OPT              '-T0'
 
 # Hook
-[ -d $HOME/.local/share/fish/generated_completions ]; or fish_update_completions
+test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 command -s jump > /dev/null; and . (jump shell fish | psub)
 
 # Abbreviations
