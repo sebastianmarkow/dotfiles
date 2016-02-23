@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
+Plug 'benekastah/neomake'
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'critiqjo/lldb.nvim',                  { 'for': ['c', 'cpp'] }
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
@@ -290,6 +291,9 @@ let g:markdown_fenced_languages=[
     \ 'python',
     \ 'vim',
     \ ]
+
+" Plugin: neomake
+noremap <leader><space> :Neomake!<cr>
 
 " Plugin: fzf
 noremap <c-p> :FZF<cr>
