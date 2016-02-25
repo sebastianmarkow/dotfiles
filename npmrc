@@ -1,4 +1,2 @@
-cache = ~/.cache/npm
-
 loglevel = "warn"
 progress = false
