@@ -12,6 +12,7 @@ main() {
     brew_install
 
     brew update
+    brew upgrade --all
 }
 
 main
