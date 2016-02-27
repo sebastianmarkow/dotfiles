@@ -37,6 +37,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'shougo/deoplete.nvim'
+Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
@@ -439,10 +440,16 @@ function! LightLineFugitive()
     return exists('*fugitive#head') ? fugitive#head() : ''
 endfunction
 
+" Plugin: neosnippet.vim
+let g:neosnippet#disable_runtime_snippets={ '_' : 1, }
+let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME."/nvim/snippets"
+let g:neosnippet#enable_snipmate_compatibility=1
+
 " Plugin: deocomplete.nvim
 let g:deoplete#enable_at_startup=1
-imap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-imap <silent><expr><cr> pumvisible() ? deoplete#mappings#close_popup() : "\<cr>\<plug>AutoPairsReturn"
+smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
+imap <silent><expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
+imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
 imap <silent><expr><esc> pumvisible() ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs> deoplete#mappings#smart_close_popup()."\<bs>"
 imap <silent><expr><c-g> deoplete#mappings#smart_close_popup()
