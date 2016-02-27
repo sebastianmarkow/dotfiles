@@ -294,6 +294,14 @@ let g:markdown_fenced_languages=[
 
 " Plugin: neomake
 noremap <leader><space> :Neomake!<cr>
+let g:neomake_warning_sign = {
+    \ 'text': '!',
+    \ 'texthl': 'WarningMsg',
+    \ }
+let g:neomake_error_sign = {
+    \ 'text': '>',
+    \ 'texthl': 'ErrorMsg',
+    \ }
 
 " Plugin: fzf
 noremap <c-p> :FZF<cr>
