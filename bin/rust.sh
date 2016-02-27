@@ -4,7 +4,7 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
-FORMULAS="leiningen"
+FORMULAS="rust"
 
 main() {
     brew install ${FORMULAS}

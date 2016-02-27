@@ -27,7 +27,7 @@ help:
 	@printf "    base         for base setup\n"
 	@printf "    brew         to install Hombrew\n"
 	@printf "    c            to install c utilities\n"
-	@printf "    clojure      to install clojure leiningen\n"
+	@printf "    rust         to install rust\n"
 	@printf "    datascience  to install python data science packages\n"
 	@printf "    go           to install go tools\n"
 	@printf "    install      to symlink dotfiles\n"
@@ -76,10 +76,10 @@ c: brew
 	$(info Installing c utilities)
 	@sh ./bin/c.sh
 
-.PHONY: clojure
-clojure: brew
-	$(info Installing clojure)
-	@sh ./bin/clojure.sh
+.PHONY: rust
+rust: brew
+	$(info Installing rust)
+	@sh ./bin/rust.sh
 
 .PHONY: js
 js: brew
