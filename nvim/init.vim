@@ -14,7 +14,6 @@ call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
-Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
@@ -37,6 +36,7 @@ Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
+Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'shougo/deoplete.nvim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
