@@ -14,6 +14,7 @@ call plug#begin()
 
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
+Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
