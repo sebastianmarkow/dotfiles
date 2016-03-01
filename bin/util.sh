@@ -51,6 +51,7 @@ FORMULAS="ag \
     hub \
     iftop \
     imagemagick \
+    irssi \
     jq \
     laurent22/massren/massren \
     lftp \
