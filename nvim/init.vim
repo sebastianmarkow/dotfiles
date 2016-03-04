@@ -9,33 +9,23 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall! | qall
 endif
 
-" Plugins
 call plug#begin()
 
+" Plugins:
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
-Plug 'cespare/vim-toml',                    { 'for': 'toml' }
-Plug 'dag/vim-fish',                        { 'for': 'fish' }
-Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
-Plug 'fatih/vim-go',                        { 'for': 'go' }
-Plug 'gorodinskiy/vim-coloresque',          { 'for': ['html', 'css', 'sass']}
-Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'klen/python-mode',                    { 'for': 'python' }
-Plug 'lervag/vimtex',                       { 'for': ['tex', 'plaintex'] }
-Plug 'luochen1990/rainbow',                 { 'on': 'RainbowToggle' }
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
-Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -49,6 +39,16 @@ Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
 Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
+
+" Filetype:
+Plug 'cespare/vim-toml',                    { 'for': 'toml' }
+Plug 'dag/vim-fish',                        { 'for': 'fish' }
+Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
+Plug 'fatih/vim-go',                        { 'for': 'go' }
+Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
+Plug 'klen/python-mode',                    { 'for': 'python' }
+Plug 'lervag/vimtex',                       { 'for': 'tex' }
+Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
 
 call plug#end()
@@ -154,7 +154,7 @@ set nojoinspaces " do not add additional spaces on join
 set nolist " don't show invisble character
 set nospell " no spellcheck
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/spellfile.utf-8.add
-set spelllang=en,de
+set spelllang=en
 set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
@@ -201,10 +201,10 @@ set wildignore+=*.db,*.sqlite
 let mapleader="," " `\` no thank you
 
 " Keymap
-map <leader>q :qa<cr>
+map <leader>q :quitall<cr>
 map <leader>w :write<cr>
-map <leader>x :xit<cr>
-map <leader>c :close<cr>
+map <leader>x :exit<cr>
+map <leader>c :quit<cr>
 map <leader>W :write !sudo tee %<cr>
 
 noremap <leader><esc> :nohlsearch<cr>
@@ -285,12 +285,17 @@ hi SpellBad cterm=underline ctermfg=1
 
 " Markdown:
 let g:markdown_fenced_languages=[
-    \ 'Dockerfile',
     \ 'bash=sh',
+    \ 'fish',
+    \ 'conf',
+    \ 'make',
+    \ 'vim',
     \ 'c',
     \ 'go',
+    \ 'lua',
+    \ 'rust',
     \ 'python',
-    \ 'vim',
+    \ 'Dockerfile',
     \ ]
 
 " Plugin: neomake
@@ -376,7 +381,7 @@ noremap <leader>I :ToggleWhitespace<cr>
 " Plugin: auto-pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
 if exists('g:AutoPairs')
-    autocmd FileType markdown let b:AutoPairs=extend(copy(g:AutoPairs), {"$":"$"})
+    autocmd filetype markdown let b:AutoPairs=extend(copy(g:AutoPairs), {"$":"$"})
 endif
 
 " Plugin: vim-easy-align
@@ -392,7 +397,6 @@ nnoremap gl :SidewaysRight<cr>
 
 " Plugin: vim-buftabline
 let g:buftabline_show=1
-let g:buftabline_numbers=2
 let g:buftabline_indicators=1
 
 " Plugin: lightline.vim
@@ -451,7 +455,6 @@ smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\
 imap <silent><expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
 imap <silent><expr><esc> pumvisible() ? deoplete#mappings#close_popup() : "\<esc>"
-imap <silent><expr><bs> deoplete#mappings#smart_close_popup()."\<bs>"
-imap <silent><expr><c-g> deoplete#mappings#smart_close_popup()
+imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
