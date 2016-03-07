@@ -56,6 +56,7 @@ FORMULAS="ag \
     laurent22/massren/massren \
     lftp \
     mandoc \
+    mercurial \
     moreutils \
     mtr \
     multitail \
@@ -69,6 +70,7 @@ FORMULAS="ag \
     shellcheck \
     since \
     sshuttle \
+    subversion \
     tmux \
     trash \
     tree \
