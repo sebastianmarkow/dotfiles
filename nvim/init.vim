@@ -50,6 +50,7 @@ Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
+Plug 'zchee/deoplete-go',                   { 'for': 'go' }
 
 call plug#end()
 
