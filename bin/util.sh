@@ -12,6 +12,8 @@ TAPS=(
 
 HEAD=(
     fish
+    neovim/neovim/neovim
+    tmux
 )
 
 FORMULAS="ag \
@@ -60,7 +62,6 @@ FORMULAS="ag \
     moreutils \
     mtr \
     multitail \
-    neovim/neovim/neovim \
     nmap \
     pam_yubico \
     pstree \
@@ -71,7 +72,6 @@ FORMULAS="ag \
     since \
     sshuttle \
     subversion \
-    tmux \
     trash \
     tree \
     w3m \
