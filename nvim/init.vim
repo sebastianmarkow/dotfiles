@@ -122,9 +122,12 @@ set infercase
 set complete+=kspell
 "               |
 "               +-- add spell dictionary
-set completeopt=menuone
-"                  |
-"                  +-- show popup menu if there's only one item
+set completeopt=menuone,preview,noselect,noinsert
+"                  |       |       |        |
+"                  |       |       |        +-- do not insert any text
+"                  |       |       +----------- do not select a match
+"                  |       +------------------- show extra information
+"                  +--------------------------- always show menu if there's a match
 
 " Search
 set ignorecase
@@ -454,6 +457,8 @@ autocmd InsertLeave * NeoSnippetClearMarkers
 
 " Plugin: deocomplete.nvim
 let g:deoplete#enable_at_startup=1
+let g:deoplete#max_list=30
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
