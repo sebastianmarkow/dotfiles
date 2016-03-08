@@ -8,6 +8,7 @@ set -x GOBIN $GOPATH/bin
 set -x PATH /usr/local/sbin $GOBIN $PATH
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
+set -x XDG_CACHE_HOME $HOME/.cache
 
 # Default
 set -x EDITOR       'nvim'
