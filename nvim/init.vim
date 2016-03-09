@@ -291,16 +291,8 @@ hi SpellBad cterm=underline ctermfg=1
 " Markdown:
 let g:markdown_fenced_languages=[
     \ 'bash=sh',
-    \ 'fish',
     \ 'conf',
     \ 'make',
-    \ 'vim',
-    \ 'c',
-    \ 'go',
-    \ 'lua',
-    \ 'rust',
-    \ 'python',
-    \ 'Dockerfile',
     \ ]
 
 " Plugin: neomake
