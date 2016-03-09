@@ -471,7 +471,9 @@ autocmd InsertLeave * NeoSnippetClearMarkers
 
 " Plugin: deocomplete.nvim
 let g:deoplete#enable_at_startup=1
-let g:deoplete#max_list=30
+let g:deoplete#auto_completion_start_length=1
+let g:deoplete#enable_camel_case=1
+let g:deoplete#max_list=100
 let g:deoplete#sources#go#sort_class=['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
