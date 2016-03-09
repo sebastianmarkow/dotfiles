@@ -50,6 +50,7 @@ Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
+Plug 'zchee/deoplete-clang',                { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-go',                   { 'for': 'go', 'do': 'make' }
 
 call plug#end()
@@ -297,11 +298,11 @@ let g:markdown_fenced_languages=[
 
 " Plugin: neomake
 noremap <leader><space> :Neomake!<cr>
-let g:neomake_warning_sign = {
+let g:neomake_warning_sign={
     \ 'text': '!',
     \ 'texthl': 'WarningMsg',
     \ }
-let g:neomake_error_sign = {
+let g:neomake_error_sign={
     \ 'text': '>',
     \ 'texthl': 'ErrorMsg',
     \ }
@@ -450,7 +451,11 @@ autocmd InsertLeave * NeoSnippetClearMarkers
 " Plugin: deocomplete.nvim
 let g:deoplete#enable_at_startup=1
 let g:deoplete#max_list=30
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#sort_class=['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
+let g:deoplete#sources#clang#std#c='c11'
+let g:deoplete#sources#clang#std#cpp='c++1z'
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
