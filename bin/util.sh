@@ -5,9 +5,9 @@ set -e
 PATH=/usr/local/bin:$PATH
 
 TAPS=(
-    homebrew/services
     homebrew/dupes
     homebrew/science
+    homebrew/services
 )
 
 HEAD=(
@@ -41,7 +41,6 @@ FORMULAS="ag \
     gnu-tar \
     gnuplot \
     gsamokovarov/jump/jump \
-    hg \
     homebrew/dupes/awk \
     homebrew/dupes/diffutils \
     homebrew/dupes/less \
@@ -50,7 +49,6 @@ FORMULAS="ag \
     homebrew/dupes/rsync \
     homebrew/dupes/tcpdump \
     htop \
-    hub \
     iftop \
     imagemagick \
     irssi \
@@ -66,13 +64,10 @@ FORMULAS="ag \
     pam_yubico \
     pstree \
     pv \
-    ranger \
     rename \
     shellcheck \
     since \
-    sshuttle \
     subversion \
-    trash \
     tree \
     w3m \
     watch \
