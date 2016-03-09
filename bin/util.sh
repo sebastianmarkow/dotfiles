@@ -19,6 +19,7 @@ HEAD=(
 FORMULAS="ag \
     bash \
     bzr \
+    caius/jo/jo \
     calc \
     cloc \
     coreutils \

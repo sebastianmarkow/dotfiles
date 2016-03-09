@@ -9,7 +9,8 @@ FILES=tmux.conf	\
 	gitmessage	\
 	wgetrc		\
 	hushlogin	\
-	npmrc
+	npmrc           \
+	irssi
 
 DIRS=$(XDG_CONFIG_HOME) \
 	$(XDG_DATA_HOME)/nvim/undo	\
