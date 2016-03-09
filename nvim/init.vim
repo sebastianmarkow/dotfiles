@@ -2,6 +2,9 @@
 set noexrc
 set shell=/bin/sh
 
+let g:python3_host_prog='/usr/local/bin/python3'
+let g:python3_host_skip_check=1
+
 " Install vimplug
 if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
