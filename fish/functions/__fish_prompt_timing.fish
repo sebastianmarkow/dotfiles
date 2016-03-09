@@ -8,11 +8,11 @@ function __fish_prompt_timing
         if test $cmd_duration -gt 0
             set seconds (math $cmd_duration%68400%3600%60)'s'
             if test $cmd_duration -ge 60
-                set minutes (math $cmd_duration%68400%3600/60)'m '
+                set minutes (math $cmd_duration%68400%3600/60)'m'
                 if test $cmd_duration -ge 3600
-                    set hours (math $cmd_duration%68400/3600)'h '
+                    set hours (math $cmd_duration%68400/3600)'h'
                     if test $cmd_duration -ge 68400
-                        set days (math $cmd_duration/68400)'d '
+                        set days (math $cmd_duration/68400)'d'
                     end
                 end
             end
