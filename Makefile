@@ -36,7 +36,7 @@ help:
 	@printf "    python       to install python packages\n"
 	@printf "    util         to install util formulas\n"
 
-base: install brew util
+base: install brew util python
 
 install: $(DIRS) $(FILES) $(CONFIGS)
 
