@@ -6,6 +6,7 @@ PATH=/usr/local/bin:$PATH
 
 TOOLS=(
     "github.com/alecthomas/gometalinter"
+    "github.com/dominikh/go-unused"
     "github.com/golang/lint/golint"
     "github.com/lukehoban/go-find-references"
     "github.com/lukehoban/go-outline"
