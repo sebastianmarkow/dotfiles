@@ -126,12 +126,11 @@ set infercase
 set complete+=kspell
 "               |
 "               +-- add spell dictionary
-set completeopt=menuone,preview,noselect,noinsert
-"                  |       |       |        |
-"                  |       |       |        +-- do not insert any text
-"                  |       |       +----------- do not select a match
-"                  |       +------------------- show extra information
-"                  +--------------------------- always show menu if there's a match
+set completeopt=menuone,noselect,noinsert
+"                  |       |        |
+"                  |       |        +-- do not insert any text
+"                  |       +----------- do not select a match
+"                  +------------------- always show menu if there's a match
 
 " Search
 set ignorecase
