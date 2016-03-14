@@ -13,7 +13,6 @@ TOOLS=(
     "github.com/motemen/gore"
     "github.com/newhook/go-symbols"
     "github.com/nsf/gocode"
-    "github.com/pranavraja/tldr"
     "github.com/rogpeppe/godef"
     "github.com/tpng/gopkgs"
     "golang.org/x/tools/cmd/benchcmp"
