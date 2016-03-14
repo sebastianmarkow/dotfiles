@@ -479,7 +479,7 @@ let g:deoplete#sources#go#sort_class=['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 let g:deoplete#sources#clang#std#c='c11'
-let g:deoplete#sources#clang#std#cpp='c++1z'
+let g:deoplete#sources#clang#std#cpp='c++11'
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
 imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
