@@ -106,12 +106,13 @@ set linespace=0
 "               +---------------------------- truncate from left
 set noerrorbells
 set novisualbell
-set shortmess=aIOT
-"             ||||
-"             |||+-- truncate message in the middle
-"             ||+--- no message on file changes (autoread)
-"             |+---- no startup message
-"             +----- use abbreviations
+set shortmess=aIOTF
+"             |||||
+"             ||||+-- hide file read messages
+"             |||+--- truncate message in the middle
+"             ||+---- no message on file changes (autoread)
+"             |+----- no startup message
+"             +------ use abbreviations
 set conceallevel=2
 set concealcursor=niv
 
