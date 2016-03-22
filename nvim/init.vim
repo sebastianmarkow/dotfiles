@@ -143,7 +143,7 @@ set wrapscan
 
 " Editing
 set gdefault " substitute globally by default
-set backspace=indent,eol,start " backspace across lines
+set backspace=indent,start " backspace over indentation and insert position
 set virtualedit=block " use block selection in visual mode instead of longest column
 set tabstop=8 " number of spaces a tab counts for
 set softtabstop=4 " number of spaces while indenting
@@ -162,7 +162,6 @@ set nolist " don't show invisble character
 set nospell " no spellcheck
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/spellfile.utf-8.add
 set spelllang=en
-set noeol " do not add empty newlines at end of file
 set clipboard=unnamed " use os clipboard
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 set formatoptions=qcnr
