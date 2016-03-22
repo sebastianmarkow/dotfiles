@@ -249,6 +249,9 @@ vnoremap <c-k> :move '<-2'<cr>gv=gv
 nnoremap <c-e> 5<c-e>
 nnoremap <c-y> 5<c-y>
 
+nnoremap ; ,
+nnoremap , ;
+
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
