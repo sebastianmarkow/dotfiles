@@ -229,6 +229,7 @@ map <leader>q :quitall<cr>
 map <leader>w :write<cr>
 map <leader>x :exit<cr>
 map <leader>c :quit<cr>
+map <leader>C :cclose<cr>
 map <leader>W :write !sudo tee %<cr>
 map <leader>f :echo expand("%:p")<cr>
 
