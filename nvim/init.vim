@@ -441,8 +441,8 @@ let g:lightline={
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['filename'],
-    \         ['fugitive', 'modified', 'readonly']
+    \         ['fugitive'],
+    \         ['filename', 'modified', 'readonly']
     \     ],
     \     'right': [
     \         ['lineinfo'],
