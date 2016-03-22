@@ -143,7 +143,6 @@ set wrapscan
 
 " Editing
 set gdefault " substitute globally by default
-set whichwrap+=h,l " vi keys wrap around lines
 set backspace=indent,eol,start " backspace across lines
 set virtualedit=block " use block selection in visual mode instead of longest column
 set tabstop=8 " number of spaces a tab counts for
