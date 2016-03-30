@@ -6,8 +6,8 @@ function fish_right_prompt
         case 0
             set last_status ''
         case '*'
-            set last_status (set_color red) ' (' $last_status ')' (set_color normal)
+            set last_status (set_color red) '(' $last_status ') ' (set_color normal)
     end
 
-    echo -s -n $duration $last_status (__fish_git_prompt)
+    echo -s -n $last_status $duration (__fish_git_prompt)
 end
