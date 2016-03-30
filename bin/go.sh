@@ -6,7 +6,6 @@ PATH=/usr/local/bin:$PATH
 
 TOOLS=(
     "github.com/alecthomas/gometalinter"
-    "github.com/dominikh/go-unused"
     "github.com/golang/lint/golint"
     "github.com/lukehoban/go-find-references"
     "github.com/lukehoban/go-outline"
@@ -24,6 +23,7 @@ TOOLS=(
     "golang.org/x/tools/cmd/gorename"
     "golang.org/x/tools/cmd/stringer"
     "golang.org/x/tools/cmd/vet"
+    "honnef.co/go/unused/cmd/unused"
     "sourcegraph.com/sqs/goreturns"
 )
 
