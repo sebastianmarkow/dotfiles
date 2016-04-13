@@ -2,6 +2,7 @@
 set noexrc
 set shell=/bin/sh
 
+" Setup python3 environment
 let g:python3_host_prog='/usr/local/bin/python3'
 let g:python3_host_skip_check=1
 
@@ -12,9 +13,10 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall! | qall
 endif
 
+" Plugins
 call plug#begin()
 
-" Plugins:
+" Utility:
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/splitjoin.vim'
@@ -42,7 +44,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
 Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
-
 
 " Filetype:
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
