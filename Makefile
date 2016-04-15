@@ -20,25 +20,15 @@ CONFIGS=fish	\
 	nvim
 
 
-default: help
-
+.DEFAULT_GOAL: help
 .PHONE: help
 help:
-	@printf "Please use \`make <target>' where <target> is one of\n"
-	@printf "    base         for base setup\n"
-	@printf "    brew         to install Hombrew\n"
-	@printf "    c            to install c utilities\n"
-	@printf "    rust         to install rust\n"
-	@printf "    datascience  to install python data science packages\n"
-	@printf "    go           to install go tools\n"
-	@printf "    install      to symlink dotfiles\n"
-	@printf "    js           to install node modules\n"
-	@printf "    python       to install python packages\n"
-	@printf "    util         to install util formulas\n"
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-base: install brew util python
 
-install: $(DIRS) $(FILES) $(CONFIGS)
+base: dotfiles util python ## Run `dotfiles`, `util` and `python` targets
+
+dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles into current user $HOME
 
 .PHONY: $(DIRS)
 $(DIRS):
@@ -58,41 +48,41 @@ $(CONFIGS):
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
 .PHONY: brew
-brew:
+brew: ## Install Homebrew
 	$(info Installing Homebrew)
 	@sh ./bin/brew.sh
 
 .PHONY: util
-util: brew
+util: brew ## Install cli utilities
 	$(info Installing formulas)
 	@sh ./bin/util.sh
 
 .PHONY: go
-go: brew
+go: brew ## Install go and development toolchain
 	$(info Installing go & tools)
 	@sh ./bin/go.sh
 
 .PHONY: c
-c: brew
+c: brew ## Install c development toolchain
 	$(info Installing c utilities)
 	@sh ./bin/c.sh
 
 .PHONY: rust
-rust: brew
+rust: brew ## Install rust and development toolchain
 	$(info Installing rust)
 	@sh ./bin/rust.sh
 
-.PHONY: js
-js: brew
-	$(info Installing node & modules)
-	@sh ./bin/javascript.sh
-
 .PHONY: python
-python: brew
+python: brew ## Install python3 and utility packages
 	$(info Installing python & packages)
 	@sh ./bin/python.sh
 
 .PHONY: datascience
-datascience: brew
+datascience: brew ## Install python datascience packages
 	$(info Installing python datascience packages)
 	@sh ./bin/datascience.sh
+
+.PHONY: js
+js: brew ## Install node and development toolchain
+	$(info Installing node & modules)
+	@sh ./bin/javascript.sh
