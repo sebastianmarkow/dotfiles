@@ -69,6 +69,7 @@ FORMULAS="ag \
     shellcheck \
     since \
     subversion \
+    trash \
     tree \
     w3m \
     watch \
