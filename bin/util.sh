@@ -71,6 +71,7 @@ FORMULAS="ag \
     subversion \
     trash \
     tree \
+    upx \
     w3m \
     watch \
     wget \
