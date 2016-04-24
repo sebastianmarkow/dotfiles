@@ -1,6 +1,6 @@
 function update --description "Update system"
 
-    echo -s (set_color red) "Update OSX" (set_color normal)
+    echo -s (set_color red) "Update OS" (set_color normal)
     set -l OSX_OUTDATED (softwareupdate --list --no-scan 2>&1 | grep "No new software available.")
     if test -z "$OSX_OUTDATED"
         softwareupdate --install --all
