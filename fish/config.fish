@@ -25,11 +25,12 @@ set -x LC_MESSAGES  'en_US.UTF-8'
 set -x LC_COLLATE   'C'
 
 # Env
-set -x HOMEBREW_NO_EMOJI   1
-set -x FZF_DEFAULT_OPTS    '--color=16,header:13,info:5,pointer:3,marker:9,spinner:1,prompt:5,fg:7,hl:14,fg+:3,hl+:9 --inline-info --bind=shift-tab:toggle-down,tab:toggle-up'
-set -x FZF_DEFAULT_COMMAND 'ag -g ""'
-set -x YANKCM              'pbcopy make'
-set -x XZ_OPT              '-T0'
+set -x HOMEBREW_NO_ANALYTICS 1
+set -x HOMEBREW_NO_EMOJI     1
+set -x FZF_DEFAULT_OPTS      '--color=16,header:13,info:5,pointer:3,marker:9,spinner:1,prompt:5,fg:7,hl:14,fg+:3,hl+:9 --inline-info --bind=shift-tab:toggle-down,tab:toggle-up'
+set -x FZF_DEFAULT_COMMAND   'ag -g ""'
+set -x YANKCM                'pbcopy make'
+set -x XZ_OPT                '-T0'
 
 # Hook
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
