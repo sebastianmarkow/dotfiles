@@ -15,6 +15,6 @@ function update --description "Update system"
     end
 
     echo -s (set_color red) "Update Neovim" (set_color normal)
-    nvim +PlugUpgrade +PlugClean! +PlugUpdate! +UpdateRemotePlugins +qall
+    nvim "+let g:plug_window=''" +PlugUpgrade +PlugClean! +PlugUpdate! +UpdateRemotePlugins +qall
 
 end
