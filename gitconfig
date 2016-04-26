@@ -70,7 +70,6 @@
     ignored = status -s --ignored
 
     d = diff
-    cached = diff --cached
     staged = diff --staged
     dt = difftool
     dtc = difftool --cached
