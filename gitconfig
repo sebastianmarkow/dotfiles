@@ -69,41 +69,27 @@
     s = status -s -u
     ignored = status -s --ignored
 
-    sa = stash apply
-    sc = stash clear
-    sd = stash drop
-    sl = stash list
-    sp = stash pop
-    ss = stash save
-    sw = stash show
-
     d = diff
-    dw = diff --color-words
-    dc = diff --cached
-    dcw = diff --cached --color-words
-    ds = diff --staged
-    dsw = diff --staged --color-words
+    cached = diff --cached
+    staged = diff --staged
     dt = difftool
-    dcs = difftool --cached
-    dst = difftool --staged
+    dtc = difftool --cached
+    dts = difftool --staged
     last = diff --color-words -R HEAD..HEAD^
 
     c = commit
-    ca = commit -a
-    cd = commit --amend
+    amend = commit --amend
 
     a = add
-    ai = add -i
-    ap = add --patch
+    patch = add --patch
 
     b = branch
-    br = branch -r
-    ba = branch -a
-    bd = branch -d
-    bv = branch -v
+    branches = branch -a
+    delete = branch -d
 
     co = checkout
-    cob = checkout -b
+    new = checkout -b
+    discard = checkout --
 
     cp = cherry-pick -x
 
@@ -115,18 +101,15 @@
 
     grep-group = grep --break --heading --line-number
 
-    l = log --graph --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
-    la = log --graph --all --pretty=format:'%C(red)%h%C(reset) %C(cyan)%d%C(reset) %s  %C(magenta)%cn%C(reset) %C(blue)%ar%C(reset)'
+    l = log --graph --pretty=format:'%Cgreen%h%Creset %<(50,trunc)%s  (%cn, %ar)'
     ll = log --unified
     lc = log --graph --name-status
     local = log --branches --not --remotes
     file-added = log --diff-filter=A
     file-log = log -u
+    overview = log --graph -10 --branches --remotes --tags --pretty=format:'%Cgreen%h%Creset %<(50,trunc)%s  (%cn, %ar)' --date-order
 
     m = merge
-    ma = merge --abort
-    mc = merge --continue
-    ms = merge --skip
     mt = mergetool
 
     pl = pull
@@ -135,21 +118,13 @@
     p = push
 
     rb = rebase
-    rba = rebase --abort
-    rbc = rebase --continue
     rbi = rebase --interactive
-    rbs = rebase --skip
 
     r = remote
-    ra = remote add
-    rm = remote rm
-    rv = remote -v
-    rs = remote show
-    rp = remote prune
-    re = reset
 
-    unstage = reset HEAD
-    uncommit = reset --soft HEAD^
+    re = reset
+    unstage = reset -q HEAD --
+    uncommit = reset --mixed HEAD~
 
     t = tag -n
 
