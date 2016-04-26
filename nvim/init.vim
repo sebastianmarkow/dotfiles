@@ -278,7 +278,7 @@ autocmd VimLeave * let &titlestring=''
 autocmd BufEnter * :silent checktime
 
 " Trigger: Remember cursor position
-autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
 autocmd InsertEnter,WinLeave,FocusLost * setlocal norelativenumber
