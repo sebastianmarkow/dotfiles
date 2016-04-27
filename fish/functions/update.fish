@@ -9,7 +9,8 @@ function update --description "Update system"
     echo -s (set_color red) "Update Homebrew" (set_color normal)
     brew update; and set -l BREW_OUTDATED (brew outdated)
     if test -n "$BREW_OUTDATED"
-        brew upgrade --all; and brew prune; and brew cleanup
+        echo -s (set_color red) "Update Formulas" (set_color normal)
+        brew upgrade --all; and brew prune; and brew cleanup -s
         echo -s (set_color red) "Update Completion" (set_color normal)
         fish_update_completions
     end
