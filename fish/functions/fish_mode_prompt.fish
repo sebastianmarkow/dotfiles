@@ -1,5 +1,5 @@
 function fish_mode_prompt --description 'Displays the current mode'
-  if set -q __fish_vi_mode
+  if test "$fish_key_bindings" = "fish_vi_key_bindings"
     switch $fish_bind_mode
       case default
         set_color $__fish_mode_color_normal

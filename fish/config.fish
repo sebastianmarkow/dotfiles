@@ -78,4 +78,4 @@ set __fish_mode_color_replace  red
 set __fish_mode_color_visual   yellow
 
 # Vi mode
-fish_vi_mode
+set -g fish_key_bindings fish_vi_key_bindings
