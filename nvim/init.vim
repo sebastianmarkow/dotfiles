@@ -21,7 +21,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
-Plug 'benekastah/neomake'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
@@ -29,6 +28,7 @@ Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
+Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'shougo/deoplete.nvim'
