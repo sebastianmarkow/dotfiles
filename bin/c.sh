@@ -9,6 +9,7 @@ FORMULAS="cgdb \
         deheader \
         gdb \
         make \
+        mitchty/clang-scan-build/clang-scan-build \
         valgrind"
 
 main() {
