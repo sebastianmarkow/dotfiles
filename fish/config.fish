@@ -42,6 +42,7 @@ abbr mv  'mv -i'
 abbr cp  'cp -i'
 abbr vi  'nvim'
 abbr vim 'nvim'
+abbr h   'ihistory'
 
 # Alias
 alias ldd   'otool -L'
