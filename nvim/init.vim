@@ -30,6 +30,7 @@ Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/neosnippet.vim'
@@ -423,6 +424,17 @@ nnoremap gl :SidewaysRight<cr>
 " Plugin: vim-buftabline
 let g:buftabline_show=1
 let g:buftabline_indicators=1
+
+" Plugin: comittia.vim
+let g:committia_open_only_vim_starting=0
+let g:committia_min_window_width=160
+let g:committia_hooks={}
+function! g:committia_hooks.edit_open(info)
+    imap <buffer><c-j> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><c-k> <Plug>(committia-scroll-diff-up-half)
+    imap <buffer><c-n> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
+endfunction
 
 " Plugin: lightline.vim
 let g:lightline={
