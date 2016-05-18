@@ -2,6 +2,24 @@
 set noexrc
 set shell=/bin/sh
 
+" Disable buildin plugins
+let g:loaded_2html_plugin=1
+let g:loaded_getscript=1
+let g:loaded_getscriptPlugin=1
+let g:loaded_gzip=1
+let g:loaded_netrw=1
+let g:loaded_netrwFileHandlers=1
+let g:loaded_netrwPlugin=1
+let g:loaded_netrwSettings=1
+let g:loaded_rrhelper=1
+let g:loaded_tar=1
+let g:loaded_tarPlugin=1
+let g:loaded_tutor_mode_plugin=1
+let g:loaded_vimball=1
+let g:loaded_vimballPlugin=1
+let g:loaded_zip=1
+let g:loaded_zipPlugin=1
+
 " Setup python3 environment
 let g:python3_host_prog='/usr/local/bin/python3'
 let g:python3_host_skip_check=1
@@ -50,11 +68,13 @@ Plug 'whatyouhide/vim-gotham'
 " Filetype:
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
-Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
+Plug 'docker/docker',                       { 'for': 'dockerfile', 'rtp': '/contrib/syntax/vim/' }
 Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
+Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
+Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
 Plug 'zchee/deoplete-clang',                { 'for': ['c', 'cpp'] }
@@ -206,24 +226,6 @@ set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso
 set wildignore+=*.pdf,*.doc*,*.aux,*.out,*.toc
 set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp,*.psd,*.ai,*.ico
 set wildignore+=*.db,*.sqlite
-
-" Disable buildin plugins
-let g:loaded_2html_plugin=1
-let g:loaded_getscript=1
-let g:loaded_getscriptPlugin=1
-let g:loaded_gzip=1
-let g:loaded_netrw=1
-let g:loaded_netrwFileHandlers=1
-let g:loaded_netrwPlugin=1
-let g:loaded_netrwSettings=1
-let g:loaded_rrhelper=1
-let g:loaded_tar=1
-let g:loaded_tarPlugin=1
-let g:loaded_tutor_mode_plugin=1
-let g:loaded_vimball=1
-let g:loaded_vimballPlugin=1
-let g:loaded_zip=1
-let g:loaded_zipPlugin=1
 
 " Leader
 let mapleader="," " `\` no thank you
