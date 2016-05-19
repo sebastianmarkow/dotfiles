@@ -437,6 +437,10 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><c-k> <Plug>(committia-scroll-diff-up-half)
     imap <buffer><c-n> <Plug>(committia-scroll-diff-down-half)
     imap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
+    nmap <buffer><c-j> <Plug>(committia-scroll-diff-down-half)
+    nmap <buffer><c-k> <Plug>(committia-scroll-diff-up-half)
+    nmap <buffer><c-n> <Plug>(committia-scroll-diff-down-half)
+    nmap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
 " Plugin: lightline.vim
