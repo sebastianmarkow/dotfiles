@@ -81,6 +81,7 @@
 
     a = add
     patch = add --patch
+    statch = stash --patch
 
     b = branch
     branches = branch -a
@@ -107,6 +108,7 @@
     file-added = log --diff-filter=A
     file-log = log -u
     overview = log --graph -10 --branches --remotes --tags --pretty=format:'%Cgreen%h%Creset %<(50,trunc)%s  %cn %ar' --date-order
+    unmerged = log --no-merges master..
 
     m = merge
     mt = mergetool
@@ -122,6 +124,7 @@
     r = remote
 
     re = reset
+    forgive = revert -n HEAD --
     unstage = reset -q HEAD --
     uncommit = reset --mixed HEAD~
 
