@@ -308,8 +308,8 @@ autocmd FileType markdown,gitcommit setlocal spell
 autocmd FileType gitcommit setlocal spelllang=en
 
 " Custom: Textwidth
-autocmd FileType gitcommit setlocal textwidth=72 wrap
-autocmd FileType text,markdown setlocal textwidth=80 wrap
+autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType text,markdown setlocal textwidth=80
 
 " Custom: Colorcolumn
 autocmd FileType python,c,cpp setlocal colorcolumn=81
