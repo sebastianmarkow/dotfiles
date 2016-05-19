@@ -5,7 +5,7 @@ function __fish_prompt_timing
         set -l hours ''
         set -l days ''
         set -l cmd_duration (math $CMD_DURATION/1000)
-        if test $cmd_duration -gt 0
+        if test $cmd_duration -gt 5
             set seconds (math $cmd_duration%68400%3600%60)'s'
             if test $cmd_duration -ge 60
                 set minutes (math $cmd_duration%68400%3600/60)'m'
