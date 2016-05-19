@@ -66,6 +66,7 @@ Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
 
 " Filetype:
+Plug 'luxurypro/deoplete-rtags',            { 'for': ['c', 'cpp'] }
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'docker/docker',                       { 'for': 'dockerfile', 'rtp': '/contrib/syntax/vim/' }
