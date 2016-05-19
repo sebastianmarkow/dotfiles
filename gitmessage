@@ -1,16 +1,18 @@
 
 # Summarize change(s) in one sentence:
-# Limit to 50 characters, capitalize, use imperative, no period
+# Limit to 50 characters
+# Capitalize, use imperative, no period
 #
 #     If applied, this commit will __________.
 
 # Discuss what it does and why it changes:
-# Limit to 72 characters, split into paragraphs, separate \w blank line
+# Limit to 72 characters
+# Split into paragraphs, separate \w blank line
 #
 #     Focus on why this change is necessary.
 #     Point out side effects.
 
-# Point to references (ticket(s), link(s), citation(s), people):
+# Point to references:
 # Limit to 72 characters
 #
 #     Resolves: #ticket
