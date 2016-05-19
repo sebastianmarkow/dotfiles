@@ -10,6 +10,7 @@ FORMULAS="cgdb \
         gdb \
         make \
         mitchty/clang-scan-build/clang-scan-build \
+        rtags \
         valgrind"
 
 main() {
