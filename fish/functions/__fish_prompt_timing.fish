@@ -16,7 +16,7 @@ function __fish_prompt_timing
                     end
                 end
             end
-            echo -n -s '(' $days $hours $minutes $seconds ')'
+            echo -n -s ' (' $days $hours $minutes $seconds ')'
         end
     end
 end
