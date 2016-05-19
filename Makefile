@@ -61,10 +61,10 @@ go: brew ## Install go and development toolchain
 	$(info Installing go & tools)
 	@sh ./bin/go.sh
 
-.PHONY: c
-c: brew ## Install c development toolchain
+.PHONY: cxx
+cxx: brew ## Install cxx development toolchain
 	$(info Installing c utilities)
-	@sh ./bin/c.sh
+	@sh ./bin/cxx.sh
 
 .PHONY: rust
 rust: brew ## Install rust and development toolchain
