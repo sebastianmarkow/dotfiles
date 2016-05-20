@@ -236,8 +236,7 @@ let mapleader="," " `\` no thank you
 map <leader>q :quitall<cr>
 map <leader>w :write<cr>
 map <leader>x :exit<cr>
-map <leader>c :quit<cr>
-map <leader>C :cclose<cr>
+map <leader>c :cclose<cr>
 map <leader>W :write !sudo tee %<cr>
 map <leader>f :echo expand("%:p")<cr>
 
@@ -274,6 +273,12 @@ nnoremap < <<
 nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
+
+let i = 1
+while i <= 9
+    execute 'nnoremap <c-w>'.i.' :'.i.'wincmd w<cr>'
+    let i = i + 1
+endwhile
 
 " Trigger: Title
 autocmd BufEnter,VimEnter * let &titlestring=expand("%:t")
@@ -467,8 +472,8 @@ let g:lightline={
     \         ['filename', 'modified', 'readonly']
     \     ],
     \     'right': [
-    \         ['lineinfo'],
-    \         ['percent'],
+    \         ['windownr'],
+    \         ['lineinfo', 'percent'],
     \         ['filetype', 'fileformat', 'fileencoding']
     \     ]
     \ },
@@ -477,8 +482,11 @@ let g:lightline={
     \         ['filename']
     \     ],
     \     'right': [
-    \         ['percent']
+    \         ['windownr']
     \     ]
+    \ },
+    \ 'component': {
+    \     'windownr': '%{winnr()}',
     \ },
     \ 'component_function': {
     \     'fugitive': 'LightLineFugitive',
