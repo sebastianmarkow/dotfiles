@@ -41,6 +41,7 @@ FORMULAS="ag \
     gnu-sed \
     gnu-tar \
     gnuplot \
+    graphviz \
     gsamokovarov/jump/jump \
     homebrew/dupes/awk \
     homebrew/dupes/diffutils \
