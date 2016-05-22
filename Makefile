@@ -24,10 +24,7 @@ CONFIGS=fish	\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-
-base: dotfiles util python ## Run `dotfiles`, `util` and `python` targets
-
-dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles into current user $HOME
+dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles to user $HOME
 
 .PHONY: $(DIRS)
 $(DIRS):
@@ -48,40 +45,40 @@ $(CONFIGS):
 
 .PHONY: brew
 brew: ## Install Homebrew
-	$(info Installing Homebrew)
+	$(info Install Homebrew)
 	@sh ./bin/brew.sh
 
 .PHONY: util
-util: brew ## Install cli utilities
-	$(info Installing formulas)
+util: brew ## Install util formulas
+	$(info Install util formulas)
 	@sh ./bin/util.sh
 
 .PHONY: go
 go: brew ## Install go and development toolchain
-	$(info Installing go & tools)
+	$(info Install go and toolchain)
 	@sh ./bin/go.sh
 
 .PHONY: cxx
 cxx: brew ## Install cxx development toolchain
-	$(info Installing c utilities)
+	$(info Install cxx toolchain)
 	@sh ./bin/cxx.sh
 
 .PHONY: rust
 rust: brew ## Install rust and development toolchain
-	$(info Installing rust)
+	$(info Installing rust and toolchain)
 	@sh ./bin/rust.sh
 
 .PHONY: python
 python: brew ## Install python3 and utility packages
-	$(info Installing python & packages)
+	$(info Installing python3 and packages)
 	@sh ./bin/python.sh
 
 .PHONY: datascience
-datascience: brew ## Install python datascience packages
-	$(info Installing python datascience packages)
+datascience: brew ## Install datascience toolchain
+	$(info Installing datascience toolchain)
 	@sh ./bin/datascience.sh
 
-.PHONY: js
-js: brew ## Install node and development toolchain
-	$(info Installing node & modules)
+.PHONY: javascript
+javascript: brew ## Install node and development toolchain
+	$(info Installing node and toolchain)
 	@sh ./bin/javascript.sh
