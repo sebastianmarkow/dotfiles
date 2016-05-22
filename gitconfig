@@ -25,9 +25,7 @@
     autosquash = true
 
 [merge]
-    summary = true
-    log = true
-    ff = false
+    ff = true
     conflictstyle = diff3
     tool = fugitive
 
