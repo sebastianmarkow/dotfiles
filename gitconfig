@@ -84,6 +84,7 @@
     statch = stash --patch
 
     b = branch
+    list = branch -a
     branches = branch -a
     delete = branch -d
 
