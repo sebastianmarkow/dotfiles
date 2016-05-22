@@ -8,7 +8,7 @@ function repo --description 'Go to repository'
     end
     switch (count $argv)
         case 0
-            ghq list | fzf --header="repository" | read -l fzf_last_select
+            ghq list | fzf --header="repository" --tiebreak=end,length | read -l fzf_last_select
             if [ $fzf_last_select ]
                 cd (ghq list -e -p $fzf_last_select)
             end
