@@ -326,7 +326,11 @@ hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
 
 " Markdown:
-let g:markdown_fenced_languages=[
+let g:vim_markdown_no_default_key_mappings=1
+let g:vim_markdown_math=1
+let g:vim_markdown_frontmatter=1
+let g:vim_markdown_toml_frontmatter=1
+let g:vim_markdown_fenced_languages=[
     \ 'bash=sh',
     \ 'conf',
     \ 'make',
