@@ -19,7 +19,6 @@ HEAD=(
 FORMULAS="ag \
     bash \
     bzr \
-    jo \
     calc \
     cloc \
     coreutils \
@@ -42,7 +41,6 @@ FORMULAS="ag \
     gnu-tar \
     gnuplot \
     graphviz \
-    gsamokovarov/jump/jump \
     homebrew/dupes/awk \
     homebrew/dupes/diffutils \
     homebrew/dupes/less \
@@ -54,7 +52,9 @@ FORMULAS="ag \
     iftop \
     imagemagick \
     irssi \
+    jo \
     jq \
+    jump \
     laurent22/massren/massren \
     lftp \
     mandoc \
