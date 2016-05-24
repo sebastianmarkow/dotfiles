@@ -39,9 +39,7 @@ command -s jump > /dev/null; and . (jump shell fish | psub)
 abbr rp  'repo'
 abbr mv  'mv -i'
 abbr cp  'cp -i'
-abbr vi  'nvim'
 abbr vim 'nvim'
-abbr h   'ihistory'
 
 # Alias
 alias ldd   'otool -L'
