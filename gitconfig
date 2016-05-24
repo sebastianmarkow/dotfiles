@@ -72,7 +72,7 @@
     staged = diff --staged
     dt = difftool
     dts = difftool --staged
-    last = diff --color-words -R HEAD..HEAD^
+    last = diff -R HEAD..HEAD^
 
     c = commit
     amend = commit --amend
