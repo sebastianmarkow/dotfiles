@@ -100,13 +100,13 @@
 
     grep-group = grep --break --heading --line-number
 
-    l = log --graph --pretty=format:'%Cgreen%h%Creset %<(50,trunc)%s  %cn %ar'
+    l = log --graph --pretty=format:'%Cgreen%h%Creset %<(52,trunc)%s  %cn %ar %Cred%d%Creset'
     ll = log --unified
     lc = log --graph --name-status
     local = log --branches --not --remotes
     file-added = log --diff-filter=A
     file-log = log -u
-    overview = log --graph -10 --branches --remotes --tags --pretty=format:'%Cgreen%h%Creset %<(50,trunc)%s  %cn %ar' --date-order
+    overview = log --graph -10 --branches --remotes --tags --pretty=format:'%Cgreen%h%Creset %<(52,trunc)%s  %cn %ar %Cred%d%Creset' --date-order
     unmerged = log --no-merges master..
 
     m = merge
