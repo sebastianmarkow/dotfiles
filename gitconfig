@@ -127,6 +127,8 @@
     unstage = reset -q HEAD --
     uncommit = reset --mixed HEAD~
 
+    stashed = stash list
+
     t = tag -n
 
 [url "git@github.com:"]
