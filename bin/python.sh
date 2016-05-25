@@ -9,6 +9,7 @@ EGGS=(
     "pep8"
     "virtualenv"
     "neovim"
+    "http-prompt"
 )
 
 FORMULAS="python3"
