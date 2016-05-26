@@ -24,7 +24,12 @@ CONFIGS=fish	\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles to user $HOME
+.PHONY: brew
+brew:
+	$(info Install Homebrew)
+	@sh ./install/brew.sh
+
+dot: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles
 
 .PHONY: $(DIRS)
 $(DIRS):
@@ -43,42 +48,37 @@ $(CONFIGS):
 	@rm -rf $(XDG_CONFIG_HOME)/$@
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
-.PHONY: brew
-brew: ## Install Homebrew
-	$(info Install Homebrew)
-	@sh ./bin/brew.sh
-
 .PHONY: util
-util: brew ## Install util formulas
-	$(info Install util formulas)
-	@sh ./bin/util.sh
+util: brew ## Install utility
+	$(info Install utility)
+	@sh ./install/util.sh
 
 .PHONY: go
-go: brew ## Install go and development toolchain
-	$(info Install go and toolchain)
-	@sh ./bin/go.sh
+go: brew ## Install Go
+	$(info Install Go & toolchain)
+	@sh ./install/go.sh
 
 .PHONY: cxx
-cxx: brew ## Install cxx development toolchain
-	$(info Install cxx toolchain)
-	@sh ./bin/cxx.sh
+cxx: brew ## Install CXX toolchain
+	$(info Install CXX toolchain)
+	@sh ./install/cxx.sh
 
 .PHONY: rust
-rust: brew ## Install rust and development toolchain
-	$(info Installing rust and toolchain)
-	@sh ./bin/rust.sh
+rust: brew ## Install Rust
+	$(info Installing Rust & toolchain)
+	@sh ./install/rust.sh
 
 .PHONY: python
-python: brew ## Install python3 and utility packages
-	$(info Installing python3 and packages)
-	@sh ./bin/python.sh
+python: brew ## Install Python3
+	$(info Installing Python3 & toolchain)
+	@sh ./install/python.sh
 
-.PHONY: datascience
-datascience: brew ## Install datascience toolchain
+.PHONY: js
+js: brew ## Install Node
+	$(info Installing Node & toolchain)
+	@sh ./install/js.sh
+
+.PHONY: data
+data: brew python ## Install datascience toolchain
 	$(info Installing datascience toolchain)
-	@sh ./bin/datascience.sh
-
-.PHONY: javascript
-javascript: brew ## Install node and development toolchain
-	$(info Installing node and toolchain)
-	@sh ./bin/javascript.sh
+	@sh ./install/data.sh

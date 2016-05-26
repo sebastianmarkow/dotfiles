@@ -12,7 +12,7 @@ FORMULAS="node"
 
 npm_install() {
     for m in "${MODULES[@]}"; do
-        printf "npm -g install --upgrade %s\n" "$m"
+        printf "Install node module %s\n" "$m"
         npm -g install --upgrade "$m"
     done
 }

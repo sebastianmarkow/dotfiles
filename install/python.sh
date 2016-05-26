@@ -5,21 +5,17 @@ set -e
 PATH=/usr/local/bin:$PATH
 
 EGGS=(
-    "scikit-learn"
-    "pandas"
-    "seaborn"
-    "ipython[all]"
+    "pip"
+    "pep8"
+    "virtualenv"
 )
 
-FORMULAS="python3 \
-        homebrew/python/numpy \
-        homebrew/python/scipy \
-        homebrew/python/matplotlib"
+FORMULAS="python3"
 
 pip_install() {
     unset PIP_REQUIRE_VIRTUALENV
     for e in "${EGGS[@]}"; do
-        printf "pip3 install --upgrade --quiet %s" "$e"
+        printf "Install python module %s" "$e"
         pip3 install --upgrade --quiet "$e"
         printf " ...done\n"
     done

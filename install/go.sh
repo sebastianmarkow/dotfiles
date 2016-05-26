@@ -24,7 +24,7 @@ FORMULAS="go"
 
 go_get() {
     for t in "${TOOLS[@]}"; do
-        printf "go get -u %s" "$t"
+        printf "Install go tool %s" "$t"
         go get -u "$t"
         printf " ...done\n"
     done

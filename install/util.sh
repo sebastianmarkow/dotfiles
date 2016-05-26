@@ -16,6 +16,11 @@ HEAD=(
     tmux
 )
 
+EGGS=(
+    "neovim"
+    "http-prompt"
+)
+
 FORMULAS="ag \
     bash \
     bzr \
@@ -66,6 +71,7 @@ FORMULAS="ag \
     pam_yubico \
     pstree \
     pv \
+    python3 \
     rename \
     shellcheck \
     since \
@@ -79,10 +85,22 @@ FORMULAS="ag \
     wrk \
     yank"
 
+
+pip_install() {
+    unset PIP_REQUIRE_VIRTUALENV
+    for e in "${EGGS[@]}"; do
+        printf "Install python module %s" "$e"
+        pip3 install --upgrade --quiet "$e"
+        printf " ...done\n"
+    done
+}
+
 main() {
     for t in "${TAPS[@]}"; do brew tap "$t"; done
     for h in "${HEAD[@]}"; do brew install "$h" --HEAD; done
     brew install ${FORMULAS}
+
+    pip_install
 }
 
 main
