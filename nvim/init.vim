@@ -525,4 +525,5 @@ imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnipp
 imap <silent><expr><esc> pumvisible() ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
