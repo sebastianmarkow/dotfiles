@@ -337,8 +337,7 @@ let g:vim_markdown_fenced_languages=[
     \ ]
 
 " Plugin: neomake
-noremap <leader><space> :Neomake!<cr>
-let g:neomake_serialize=1
+noremap <leader><space> :Neomake<cr>
 let g:neomake_warning_sign={
     \ 'text': '!',
     \ 'texthl': 'WarningMsg',
