@@ -29,7 +29,7 @@ brew:
 	$(info Install Homebrew)
 	@sh ./install/brew.sh
 
-dot: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles
+dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles
 
 .PHONY: $(DIRS)
 $(DIRS):
