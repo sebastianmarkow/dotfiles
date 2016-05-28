@@ -202,9 +202,9 @@ set formatoptions=qcnr
 "                 +------ allow formatting comments
 
 " Sync
-set synmaxcol=200
-syn sync minlines=200
-syn sync maxlines=500
+set synmaxcol=128
+syntax sync minlines=256
+syntax sync maxlines=512
 
 " Mouse
 set mousehide " hide mouse pointer
