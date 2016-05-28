@@ -50,7 +50,6 @@ Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/vim-peekaboo'
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
-Plug 'moll/vim-bbye',                       { 'on': 'Bdelete' }
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
@@ -418,9 +417,6 @@ let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
 nmap gn <plug>GitGutterNextHunk
 nmap gp <plug>GitGutterPrevHunk
-
-" Plugin: vim-bbye
-nnoremap <leader>d :Bdelete<cr>
 
 " Plugin: python-mode
 let g:pymode_rope=0
