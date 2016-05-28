@@ -1,6 +1,6 @@
 # 💥🔫 dotdotdotdotdotfiles
 
-A heavily opinionated set of dotfiles (git, neovim, fish & tmux).
+A heavily opinionated set of dotfiles (neovim, fish, tmux, git & homebrew).
 
 > **Dotfile's Creed**  
 > These are my dotfiles. There are many like them, but these ones are mine. My
