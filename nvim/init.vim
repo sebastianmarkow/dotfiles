@@ -274,10 +274,10 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-let i = 1
+let i=1
 while i <= 9
     execute 'nnoremap <silent><c-w>'.i.' :'.i.'wincmd w<cr>'
-    let i = i + 1
+    let i=i+1
 endwhile
 
 " Trigger: Title
