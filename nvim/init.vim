@@ -144,7 +144,7 @@ set shortmess=aIOTF
 "             |+----- no startup message
 "             +------ use abbreviations
 set conceallevel=2
-set concealcursor=niv
+set concealcursor=nv
 
 " Diff
 set diffopt=filler,vertical
@@ -234,24 +234,23 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp,*.psd,*.ai,*.ico
 set wildignore+=*.db,*.sqlite
 
 " Leader
-let mapleader=',' " `\` no thank you
+let g:mapleader=',' " `\` no thank you
 
 " Keymap
-map <leader>q :quitall<cr>
-map <leader>w :write<cr>
-map <leader>x :exit<cr>
-map <leader>c :cclose<cr>
-map <leader>W :write !sudo tee %<cr>
-map <leader>f :echo expand("%:p")<cr>
+nnoremap <leader>e :vsplit $MYVIMRC<cr>
+nnoremap <leader>f :echo expand("%:p")<cr>
+nnoremap <leader>q :quitall<cr>
+nnoremap <leader>w :write<cr>
+nnoremap <leader>W :write !sudo tee %<cr>
+nnoremap <leader>x :exit<cr>
 
-noremap <leader><esc> :setlocal hlsearch!<cr>
-noremap <leader>i :setlocal list!<cr>
-noremap <leader>s :setlocal spell!<cr>
+nnoremap <leader><esc> :setlocal hlsearch!<cr>
+nnoremap <leader>i     :setlocal list!<cr>
+nnoremap <leader>s     :setlocal spell!<cr>
 
-noremap <c-h> :bprev<cr>
-noremap <c-l> :bnext<cr>
+nnoremap <c-h> :bprev<cr>
+nnoremap <c-l> :bnext<cr>
 
-nnoremap Y y$
 nnoremap <c-j> :move .+1<cr>
 nnoremap <c-k> :move .-2<cr>
 vnoremap <c-j> :move '>+1'<cr>gv=gv
@@ -259,6 +258,8 @@ vnoremap <c-k> :move '<-2'<cr>gv=gv
 
 nnoremap <c-e> 5<c-e>
 nnoremap <c-y> 5<c-y>
+
+nnoremap Y y$
 
 nnoremap ; ,
 nnoremap , ;
@@ -278,18 +279,21 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-let i=1
-while i <= 9
-    execute 'nnoremap <silent><c-w>'.i.' :'.i.'wincmd w<cr>'
-    let i=i+1
-endwhile
+function! s:winbind()
+    let l:i=1
+    while l:i <= 9
+        execute 'nnoremap <silent><c-w>'.l:i.' :'.l:i.'wincmd w<cr>'
+        let l:i+=1
+    endwhile
+endfunction
+call s:winbind()
 
 augroup trigger
 autocmd!
 
 " Trigger: Title
 autocmd BufEnter,VimEnter * let &titlestring=expand("%:t")
-autocmd VimLeave * let &titlestring=''
+autocmd VimLeave          * let &titlestring=''
 
 " Trigger: Autoread
 autocmd BufEnter * :silent checktime
@@ -298,7 +302,7 @@ autocmd BufEnter * :silent checktime
 autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter,WinLeave,FocusLost * setlocal norelativenumber
+autocmd InsertEnter,WinLeave,FocusLost   * setlocal norelativenumber
 autocmd InsertLeave,WinEnter,FocusGained * setlocal relativenumber
 
 " Trigger: Cursorline
@@ -311,27 +315,27 @@ augroup custom
 autocmd!
 
 " Custom: Filetype
-autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
+autocmd BufNewFile,BufRead *.cls,*.sty                   setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
-autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType c,cpp setlocal cindent
-autocmd FileType make,go,glsl,c,cpp,neosnippet setlocal softtabstop=8 tabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType c,cpp                          setlocal cindent
+autocmd FileType make,go,glsl,c,cpp,neosnippet  setlocal softtabstop=8 shiftwidth=8 tabstop=8 noexpandtab
 autocmd FileType yaml,toml,json,ruby,javascript setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
 autocmd FileType markdown,gitcommit setlocal spell
-autocmd FileType gitcommit setlocal spelllang=en
+autocmd FileType gitcommit          setlocal spelllang=en
 
 " Custom: Textwidth
-autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType gitcommit     setlocal textwidth=72
 autocmd FileType text,markdown setlocal textwidth=80
 
 " Custom: Colorcolumn
-autocmd FileType python,c,cpp setlocal colorcolumn=81
+autocmd FileType python,c,cpp  setlocal colorcolumn=81
 autocmd FileType text,markdown setlocal colorcolumn=+1
-autocmd FileType gitcommit setlocal colorcolumn=51,+1
+autocmd FileType gitcommit     setlocal colorcolumn=51,+1
 
 augroup end
 
@@ -339,7 +343,7 @@ augroup end
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
 
-" Markdown:
+" Plugin: Markdown
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
@@ -364,16 +368,16 @@ let g:neomake_error_sign={
     \ }
 
 " Plugin: fzf
-noremap <c-p> :FZF<cr>
+noremap <c-p>     :FZF<cr>
 noremap <leader>b :FZFBuffer<cr>
 noremap <leader>o :FZFMru<cr>
 let g:fzf_launcher='xterm -e fish -ic %s'
 
 function! s:buflist()
-    redir => ls
+    redir => l:ls
     silent ls
-    redir END
-    return split(ls, '\n')
+    redir end
+    return split(l:ls, '\n')
 endfunction
 
 function! s:bufopen(e)
@@ -398,9 +402,6 @@ command! FZFMru call fzf#run({
 let g:ag_prg='ag --vimgrep --smart-case'
 let g:ag_mapping_message=0
 
-" Plugin: rainbow
-let g:rainbow_active=0
-
 " Plugin: vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_key='<leader>m'
@@ -419,7 +420,7 @@ nmap gn <plug>GitGutterNextHunk
 nmap gp <plug>GitGutterPrevHunk
 
 " Plugin: vim-bbye
-nnoremap <leader>d :Bdelete<CR>
+nnoremap <leader>d :Bdelete<cr>
 
 " Plugin: python-mode
 let g:pymode_rope=0
@@ -434,9 +435,10 @@ noremap <leader>I :ToggleWhitespace<cr>
 
 " Plugin: auto-pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
-if exists('g:AutoPairs')
-    autocmd filetype markdown let b:AutoPairs=extend(copy(g:AutoPairs), {"$":"$"})
-endif
+augroup autopairsextend
+autocmd!
+autocmd FileType markdown let b:AutoPairs={'(': ')', '[': ']', '{': '}', "'": "'", '"': '"', '`': '`', '$': '$', '_': '_'}
+augroup end
 
 " Plugin: vim-easy-align
 nmap ga <plug>(EasyAlign)
@@ -537,11 +539,10 @@ let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Dev
 let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 let g:deoplete#sources#clang#std#c='c11'
 let g:deoplete#sources#clang#std#cpp='c++11'
-smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
-imap <silent><expr><tab> pumvisible() ? "\<c-n>" : neosnippet#jumpable() ? "\<plug>(neosnippet_jump)" : "\<tab>"
-imap <silent><expr><cr> !pumvisible() ? "\<cr>\<plug>AutoPairsReturn" : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
-imap <silent><expr><esc> pumvisible() ? deoplete#mappings#close_popup() : "\<esc>"
+smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
+imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>"
+imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
+imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

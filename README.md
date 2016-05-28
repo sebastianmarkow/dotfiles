@@ -8,7 +8,7 @@ A heavily opinionated set of dotfiles (git, neovim, fish & tmux).
 > master my life. Without me, my dotfiles are useless. Without my dotfiles, I am
 > useless. I must hack my dotfiles true. I must hack slyer than my enemy who is
 > trying to out-kaggle me. I must push my commits before another pushes its. I
-> will… 
+> will…  
 > My dotfiles and I know that what counts in industry are not the stickers on
 > our laptops, the noise of our marketing, nor the buzzwords we make up. We know
 > that it is the solution that counts. We will solve…  
@@ -32,5 +32,5 @@ A heavily opinionated set of dotfiles (git, neovim, fish & tmux).
     $ cd dotfiles
     $ make help
 
-**Warning:** `make dotfiles` target will overwrite existing files in the `$HOME`
+__Warning:__ `make dotfiles` target will overwrite existing files in the `$HOME`
 directory of the current user. Be sure to backup any files you'd like to keep.
