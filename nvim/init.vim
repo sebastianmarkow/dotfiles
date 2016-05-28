@@ -1,5 +1,6 @@
-" No, no, no!
-set noexrc
+scriptencoding utf-8
+
+set noexrc " No, no, no!
 set shell=/bin/sh
 
 " Disable buildin plugins
@@ -28,7 +29,10 @@ let g:python3_host_skip_check=1
 if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     silent !curl -fLo $XDG_CONFIG_HOME/nvim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    augroup install
+    autocmd!
     autocmd VimEnter * PlugInstall! | qall
+    augroup END
 endif
 
 " Plugins
@@ -230,7 +234,7 @@ set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp,*.psd,*.ai,*.ico
 set wildignore+=*.db,*.sqlite
 
 " Leader
-let mapleader="," " `\` no thank you
+let mapleader=',' " `\` no thank you
 
 " Keymap
 map <leader>q :quitall<cr>
@@ -280,6 +284,9 @@ while i <= 9
     let i=i+1
 endwhile
 
+augroup trigger
+autocmd!
+
 " Trigger: Title
 autocmd BufEnter,VimEnter * let &titlestring=expand("%:t")
 autocmd VimLeave * let &titlestring=''
@@ -297,6 +304,11 @@ autocmd InsertLeave,WinEnter,FocusGained * setlocal relativenumber
 " Trigger: Cursorline
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+
+augroup end
+
+augroup custom
+autocmd!
 
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.cls,*.sty setlocal filetype=tex
@@ -320,6 +332,8 @@ autocmd FileType text,markdown setlocal textwidth=80
 autocmd FileType python,c,cpp setlocal colorcolumn=81
 autocmd FileType text,markdown setlocal colorcolumn=+1
 autocmd FileType gitcommit setlocal colorcolumn=51,+1
+
+augroup end
 
 " Colors: Spelling Errors
 hi clear SpellBad
@@ -380,7 +394,7 @@ command! FZFMru call fzf#run({
     \ })
 
 " Plugin: ag.vim
-let g:ag_prg="ag --vimgrep --smart-case"
+let g:ag_prg='ag --vimgrep --smart-case'
 let g:ag_mapping_message=0
 
 " Plugin: rainbow
@@ -410,7 +424,7 @@ nnoremap <leader>d :Bdelete<CR>
 let g:pymode_rope=0
 
 " Plugin: vim-go
-let g:go_fmt_command="goimports"
+let g:go_fmt_command='goimports'
 let g:go_fmt_fail_silently=1
 let g:go_doc_keywordprg_enabled=1
 
@@ -503,9 +517,12 @@ endfunction
 
 " Plugin: neosnippet.vim
 let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
-let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME."/nvim/snippets"
+let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME.'/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility=1
+augroup neosnippetclear
+autocmd!
 autocmd InsertLeave * NeoSnippetClearMarkers
+augroup end
 
 " Plugin: deocomplete.nvim
 let g:deoplete#enable_at_startup=1
