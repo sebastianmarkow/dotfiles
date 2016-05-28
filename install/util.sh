@@ -18,6 +18,7 @@ HEAD=(
 
 EGGS=(
     "neovim"
+    "proselint"
     "http-prompt"
 )
 
