@@ -19,6 +19,7 @@ HEAD=(
 EGGS=(
     "neovim"
     "proselint"
+    "vim-vint"
     "http-prompt"
 )
 
