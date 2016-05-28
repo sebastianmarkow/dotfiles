@@ -276,7 +276,7 @@ vnoremap > >gv
 
 let i = 1
 while i <= 9
-    execute 'nnoremap <c-w>'.i.' :'.i.'wincmd w<cr>'
+    execute 'nnoremap <silent><c-w>'.i.' :'.i.'wincmd w<cr>'
     let i = i + 1
 endwhile
 
