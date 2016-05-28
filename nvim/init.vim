@@ -240,7 +240,7 @@ map <leader>c :cclose<cr>
 map <leader>W :write !sudo tee %<cr>
 map <leader>f :echo expand("%:p")<cr>
 
-noremap <leader><esc> :nohlsearch<cr>
+noremap <leader><esc> :setlocal hlsearch!<cr>
 noremap <leader>i :setlocal list!<cr>
 noremap <leader>s :setlocal spell!<cr>
 
