@@ -70,7 +70,6 @@ Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
 
 " Filetype:
-Plug 'luxurypro/deoplete-rtags',            { 'for': ['c', 'cpp'] }
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'docker/docker',                       { 'for': 'dockerfile', 'rtp': '/contrib/syntax/vim/' }
@@ -78,6 +77,7 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
+Plug 'luxurypro/deoplete-rtags',            { 'for': ['c', 'cpp'] }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
@@ -342,7 +342,7 @@ augroup end
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
 
-" Plugin: Markdown
+" Plugin: vim-markdown
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_math=1
 let g:vim_markdown_frontmatter=1
