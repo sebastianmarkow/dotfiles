@@ -1,9 +1,11 @@
 
+
 # Summarize change(s) in one sentence:
 # Limit to 50 characters
 # Capitalize, use imperative, no period
 #
 #     If applied, this commit will __________.
+
 
 # Discuss what it does and why it changes:
 # Limit to 72 characters
@@ -11,6 +13,7 @@
 #
 #     Focus on why this change is necessary.
 #     Point out side effects.
+
 
 # Point to references:
 # Limit to 72 characters
