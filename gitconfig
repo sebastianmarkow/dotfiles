@@ -64,8 +64,9 @@
 [alias]
     edit = config --global -e
 
+    contributers = authors --list
+
     s = status -s -u
-    ignored = status -s --ignored
 
     d = diff
     ds = diff --staged
@@ -109,7 +110,9 @@
     overview = log --graph -10 --branches --remotes --tags --pretty=format:'%Cgreen%h%Creset %<(52,trunc)%s  %cn %ar %Cred%d%Creset' --date-order
     unmerged = log --no-merges master..
 
-    contributers = authors --list
+    tracked = ls-files
+    untracked = ls-files --others --exclude-standard
+    ignored = ls-files --others --exclude-standard --ignored
 
     m = merge
     mt = mergetool
