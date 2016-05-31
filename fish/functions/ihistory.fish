@@ -1,7 +1,7 @@
 function ihistory --description 'Interactive history'
     if not type 'fzf' >/dev/null 2>&1
         echo 'ihistory: error fzf not installed'
-        return 1
+        exit 1
     end
     history | fzf --tiebreak=begin,index --header="history" -q (commandline -b) | read -l fzf_last_select
     if [ $fzf_last_select ]

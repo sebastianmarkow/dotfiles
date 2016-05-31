@@ -3,11 +3,11 @@ function screencast --description "Take screenshots every x seconds"
         case 2
             if not test -d $argv[1]
                 echo "screencast: error\"" $argv[1] "\" not a directory"
-                return 1
+                exit 1
             end
             if not test $argv[2] -gt 0
                 echo -s "screencast: error \"" $argv[2] "\" is not greater than zero or not a number"
-                return 1
+                exit 1
             end
             while true
                 set -l screen_date (date +%s)
@@ -16,6 +16,6 @@ function screencast --description "Take screenshots every x seconds"
             end
         case '*'
             echo 'screencast: error too many parameters'
-            return 1
+            exit 1
     end
 end

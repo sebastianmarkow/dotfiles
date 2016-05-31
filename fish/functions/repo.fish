@@ -1,10 +1,10 @@
 function repo --description 'Go to repository'
     if not type 'ghq' >/dev/null 2>&1
         echo 'repo: error ghq not installed'
-        return 1
+        exit 1
     else if not type 'fzf' >/dev/null 2>&1
         echo 'repo: error fzf not installed'
-        return 1
+        exit 1
     end
     switch (count $argv)
         case 0
