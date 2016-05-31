@@ -202,7 +202,7 @@ set formatoptions=qcnr
 "                 +------ allow formatting comments
 
 " Sync
-set synmaxcol=128
+set synmaxcol=256
 syntax sync minlines=256
 syntax sync maxlines=512
 
