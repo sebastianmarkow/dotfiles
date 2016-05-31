@@ -5,9 +5,12 @@ function update --description "Update system"
         softwareupdate --install --all
     end
 
-    brew update; and set -l BREW_OUTDATED (brew outdated)
+    brew update
+    and set -l BREW_OUTDATED (brew outdated)
     if test -n "$BREW_OUTDATED"
-        brew upgrade --all; and brew prune; and brew cleanup -s
+        brew upgrade --all
+        and brew prune
+        and brew cleanup -s
         fish_update_completions
     end
 

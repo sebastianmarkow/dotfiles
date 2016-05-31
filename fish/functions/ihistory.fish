@@ -1,5 +1,5 @@
 function ihistory --description 'Interactive history'
-    if not type 'fzf' > /dev/null 2>&1
+    if not type 'fzf' >/dev/null 2>&1
         echo 'ihistory: error fzf not installed'
         return 1
     end

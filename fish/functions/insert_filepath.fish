@@ -1,5 +1,5 @@
 function insert_filepath --description 'Select/insert filepath into commandline'
-    if not type 'fzf' > /dev/null 2>&1
+    if not type 'fzf' >/dev/null 2>&1
         echo 'error: fzf not found'
         return 1
     end

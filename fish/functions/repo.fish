@@ -1,8 +1,8 @@
 function repo --description 'Go to repository'
-    if not type 'ghq' > /dev/null 2>&1
+    if not type 'ghq' >/dev/null 2>&1
         echo 'repo: error ghq not installed'
         return 1
-    else if not type 'fzf' > /dev/null 2>&1
+    else if not type 'fzf' >/dev/null 2>&1
         echo 'repo: error fzf not installed'
         return 1
     end
@@ -29,7 +29,7 @@ function repo --description 'Go to repository'
 end
 
 function __repo_completion -d 'Repository completion'
-    if not type 'ghq' > /dev/null 2>&1
+    if not type 'ghq' >/dev/null 2>&1
         return
     end
     ghq list --unique
