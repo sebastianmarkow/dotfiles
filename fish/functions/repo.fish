@@ -29,8 +29,7 @@ function repo --description 'Go to repository'
 end
 
 function __repo_completion -d 'Repository completion'
-    if not type 'ghq' >/dev/null 2>&1
-        return
+    if type 'ghq' >/dev/null 2>&1
+        ghq list --unique
     end
-    ghq list --unique
 end
