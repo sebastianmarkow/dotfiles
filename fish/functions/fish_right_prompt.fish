@@ -3,11 +3,11 @@ function fish_right_prompt
     set -l last_status $status
     set -l duration (__fish_prompt_timing)
     switch $last_status
-        case 0
-            set last_status ''
+        case '0'
+            set last_status ""
         case '*'
-            set last_status (set_color red) '(' $last_status ')' (set_color normal)
+            set last_status (set_color red)$last_status(set_color normal)
     end
 
-    echo -s -n $last_status $duration (__fish_git_prompt)
+    echo -n -s (__fish_git_prompt) $duration $last_status
 end
