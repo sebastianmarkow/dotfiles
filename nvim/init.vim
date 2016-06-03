@@ -236,6 +236,7 @@ set wildignore+=*.db,*.sqlite
 let g:mapleader=',' " `\` no thank you
 
 " Keymap
+nnoremap <leader>d :bd<cr>
 nnoremap <leader>e :vsplit $MYVIMRC<cr>
 nnoremap <leader>f :echo expand("%:p")<cr>
 nnoremap <leader>q :quitall<cr>
