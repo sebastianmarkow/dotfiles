@@ -366,6 +366,11 @@ let g:neomake_error_sign={
     \ 'text': '>',
     \ 'texthl': 'ErrorMsg',
     \ }
+augroup neomaketrigger
+autocmd!
+autocmd FileType go autocmd BufWritePost * Neomake
+autocmd FileType vim autocmd BufWritePost * Neomake
+augroup end
 
 " Plugin: fzf
 noremap <c-p>     :FZF<cr>
