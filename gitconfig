@@ -49,6 +49,10 @@
     decorate = short
     date = local
 
+[pretty]
+    default = "format:%Cgreen%h%Creset %<(52,trunc)%s  %cn %ar %Cred%d%Creset"
+    changelog = "format:* %s"
+
 [advice]
     statusHints = false
 
@@ -93,6 +97,7 @@
 
     cp = cherry-pick -x
 
+    log-compare = log --graph --pretty=default master..HEAD
     compare = diff master..HEAD
     changes = diff --stat
 
@@ -101,13 +106,14 @@
 
     grep-group = grep --break --heading --line-number
 
-    l = log --graph --pretty=format:'%Cgreen%h%Creset %<(52,trunc)%s  %cn %ar %Cred%d%Creset'
+    l = log --graph --pretty=default
     ll = log --unified
     lc = log --graph --name-status
     local = log --branches --not --remotes
     file-added = log --diff-filter=A
     file-log = log -u
-    overview = log --graph -10 --branches --remotes --tags --pretty=format:'%Cgreen%h%Creset %<(52,trunc)%s  %cn %ar %Cred%d%Creset' --date-order
+    logbook = log --pretty=changelog
+    overview = log --graph -10 --branches --remotes --tags --pretty=default --date-order
     unmerged = log --no-merges master..
 
     tracked = ls-files
