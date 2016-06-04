@@ -60,23 +60,32 @@ set fish_color_param cyan
 set fish_color_quote brred
 set fish_color_error red
 
-set __fish_git_prompt_show_informative_status 1
-set __fish_git_prompt_showdirtystate 1
-set __fish_git_prompt_showuntrackedfiles 1
-set __fish_git_prompt_showcolorhints 1
+set __sk_status_code_color (set_color -b red)(set_color black)
 
-set __fish_prompt_sign_root '#'
-set __fish_prompt_sign_default '$'
-set __fish_prompt_sign_error '!'
+set __sk_cmd_timing_limit 3
+set __sk_cmd_timing_color (set_color -b brmagenta)(set_color black)
 
-set __fish_mode_string_normal '|'
-set __fish_mode_string_insert '>'
-set __fish_mode_string_replace '_'
-set __fish_mode_string_visual '-'
-set __fish_mode_color_normal brmagenta
-set __fish_mode_color_insert green
-set __fish_mode_color_replace red
-set __fish_mode_color_visual yellow
+set __sk_prompt_sign_root '#'
+set __sk_prompt_sign_default '$'
+
+set __sk_mode_string_normal '|'
+set __sk_mode_string_insert '>'
+set __sk_mode_string_replace '_'
+set __sk_mode_string_visual '-'
+set __sk_mode_color_normal brmagenta
+set __sk_mode_color_insert green
+set __sk_mode_color_replace red
+set __sk_mode_color_visual yellow
+
+set __sk_git_status_staged_sign '+'
+set __sk_git_status_unstaged_sign '-'
+set __sk_git_status_unmerged_sign '?'
+set __sk_git_status_untracked_sign '…'
+set __sk_git_status_default_color (set_color normal)
+set __sk_git_status_staged_color (set_color green)
+set __sk_git_status_unstaged_color (set_color red)
+set __sk_git_status_unmerged_color (set_color brred)
+set __sk_git_status_untracked_color (set_color blue)
 
 # Vi mode
 fish_vi_key_bindings
