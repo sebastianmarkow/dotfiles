@@ -87,5 +87,10 @@ set __sk_git_status_unstaged_color (set_color red)
 set __sk_git_status_unmerged_color (set_color brred)
 set __sk_git_status_untracked_color (set_color blue)
 
+set __fish_git_prompt_show_informative_status 1
+set __fish_git_prompt_showdirtystate 1
+set __fish_git_prompt_showuntrackedfiles 1
+set __fish_git_prompt_showcolorhints 1
+
 # Vi mode
 fish_vi_key_bindings
