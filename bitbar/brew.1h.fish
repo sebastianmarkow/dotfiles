@@ -19,17 +19,17 @@ switch "$num"
         set sym $num
 end
 
-echo "⇡$sym | dropdown=false"
+echo "⇡$sym| dropdown=false"
 echo "---"
 
 if test -n "$formulas"
-    echo "Upgrade all | bash=$brew param1=upgrade param2=--all terminal=false refresh=true"
+    echo "Upgrade all| bash=$brew param1=upgrade param2=--all terminal=false refresh=true"
     for item in $formulas
         if test "$item" = "$formulas[-1]"
             echo -n "└"
         else
             echo -n "├"
         end
-        printf " %s | bash=$brew param1=upgrade param2=%s terminal=false refresh=true\n" $item (echo "$item" | cut -f 1 -d " ")
+        printf " %s| bash=$brew param1=upgrade param2=%s terminal=false refresh=true\n" $item (echo "$item" | cut -f 1 -d " ")
     end
 end

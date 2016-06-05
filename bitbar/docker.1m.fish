@@ -43,18 +43,18 @@ for machine in $machines
                 else
                     set sym "├"
                 end
-                set items $items "$sym $clabel | $ccolor terminal=false refresh=true bash=$d param1=$ccmd param2=$cid"
+                set items $items "$sym $clabel| $ccolor terminal=false refresh=true bash=$d param1=$ccmd param2=$cid"
             end
         case '*'
-            set items $items " $machine | color=red terminal=false refresh=true bash=$dm param1=start param2=$machine"
+            set items $items " $machine| color=red terminal=false refresh=true bash=$dm param1=start param2=$machine"
     end
 end
 
 if test $num -gt 0
-    set sym "($cnum) $num"
+    set sym "$num ($cnum)"
 end
 
-echo "$sym | templateImage=$icon dropdown=false"
+echo "$sym| templateImage=$icon dropdown=false"
 echo "---"
 for item in $items
     echo $item
