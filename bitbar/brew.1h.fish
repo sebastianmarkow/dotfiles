@@ -10,19 +10,29 @@ set -l brew /usr/local/bin/brew
 command brew update >/dev/null; or exit 1
 
 set -l formulas (command brew outdated -1 --verbose)
-set -l num (string split '\n' $formulas | wc -l | string trim)
+set -l num (count $formulas)
 
-if test $num = "0"
-    set num "✓"
+switch $num
+    case '0'
+        set sym "✓"
+    case '*'
+        set sym $num
 end
 
-echo "⇡$num | dropdown=false"
+echo "⇡$sym | dropdown=false"
 echo "---"
 
 if test -n "$formulas"
     echo "Upgrade all | bash=$brew param1=upgrade param2=--all terminal=false refresh=true"
+    set -l i 1
     for item in $formulas
-        printf "%s | bash=$brew param1=upgrade param2=%s terminal=false refresh=true\n" $item (echo "$item" | cut -f 1 -d " ")
+        switch $i
+            case $num
+                echo -n "└"
+            case '*'
+                echo -n "├"
+        end
+        printf " %s | bash=$brew param1=upgrade param2=%s terminal=false refresh=true\n" $item (echo "$item" | cut -f 1 -d " ")
+        set i (math "$i+1")
     end
 end
-
