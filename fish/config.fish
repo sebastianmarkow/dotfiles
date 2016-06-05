@@ -45,6 +45,8 @@ abbr cp 'cp -i'
 abbr vim 'nvim'
 
 # Alias
+alias dm 'docker-machine'
+alias d 'docker'
 alias ldd 'otool -L'
 alias tig 'nvim +GV +bd1'
 alias near 'grep -C 10'
