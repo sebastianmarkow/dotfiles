@@ -1,6 +1,7 @@
 # 💥🔫 dotdotdotdotdotfiles
 
-A heavily opinionated set of dotfiles (neovim, fish, tmux, git & homebrew).
+A heavily opinionated set of dotfiles (neovim, fish, tmux, git, homebrew,
+iterm2 & bitbar).
 
 > **Dotfile's Creed**  
 > These are my dotfiles. There are many like them, but these ones are mine. My
