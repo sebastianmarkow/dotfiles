@@ -6,8 +6,8 @@
 # <bitbar.dependencies>fish,cut,wc,printf</bitbar.dependencies>
 
 set -l brew (which brew)
-
-command brew update >/dev/null; or exit 1
+and command brew update >/dev/null
+or exit 1
 
 set -l formulas (command brew outdated -1 --verbose)
 set -l num (count $formulas)
