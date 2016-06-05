@@ -20,7 +20,7 @@ for machine in $machines
     set -l state (echo $machine | cut -d "|" -f 2)
     switch "$state"
         case 'Running'
-            set items $items "$label| color=green terminal=false refresh=true bash=$dm param1=stop param2=$label"
+            set items $items "$label ($state)| color=green terminal=false refresh=true bash=$dm param1=stop param2=$label"
             eval (command docker-machine env --shell fish "$label" | sed 's/\-gx/\-x/g')
             set -l containers (command docker ps -a --format "{{.Names}} ({{.Image}})|{{.ID}}|{{.Status}}")
             for container in $containers
@@ -43,7 +43,7 @@ for machine in $machines
                 set items $items "$sym $clabel| $ccolor terminal=false refresh=true bash=$d param1=$ccmd param2=$cid"
             end
         case '*'
-            set items $items "$label| color=red terminal=false refresh=true bash=$dm param1=start param2=$label"
+            set items $items "$label ($state)| color=red terminal=false refresh=true bash=$dm param1=start param2=$label"
     end
 end
 
@@ -55,4 +55,5 @@ echo "$sym| templateImage=$icon dropdown=false"
 echo "---"
 for item in $items
     echo $item
+    echo "---"
 end
