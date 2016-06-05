@@ -5,7 +5,7 @@
 # <bitbar.desc>List available updates from Homebrew</bitbar.desc>
 # <bitbar.dependencies>fish,cut,wc,printf</bitbar.dependencies>
 
-set -l brew (which brew)
+set -l brew (command -s brew)
 and command brew update >/dev/null
 or exit 1
 
