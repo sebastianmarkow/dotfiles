@@ -59,6 +59,7 @@ set fish_color_command yellow
 set fish_color_param cyan
 set fish_color_quote brred
 set fish_color_error red
+set fish_color_autosuggestion brblue
 
 set __sk_status_code_color (set_color -b red)(set_color black)
 
