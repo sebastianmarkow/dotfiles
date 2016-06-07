@@ -4,12 +4,21 @@ or exit 0
 set -e fish_greeting
 
 # Path
+set -x PATH $PATH /usr/local/sbin
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
-set -x PATH $PATH /usr/local/sbin $GOBIN
+set -x CARGO_HOME $HOME/Developer/cargo
+set -x CARGO_BIN $CARGO_HOME/bin
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
+
+if test -d $GOBIN
+    set -x PATH $PATH $GOBIN
+end
+if test -d $CARGO_BIN
+    set -x PATH $PATH $CARGO_BIN
+end
 
 # Default
 set -x EDITOR 'nvim'
