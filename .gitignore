@@ -14,3 +14,6 @@ nvim/spell/*.spl
 
 # Fish
 fish/fish*
+
+# Rust
+target-install
