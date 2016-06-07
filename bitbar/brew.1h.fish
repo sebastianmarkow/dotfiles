@@ -22,6 +22,7 @@ end
 echo "⇡$sym| dropdown=false"
 echo "---"
 echo "Update| refresh=true"
+echo "---"
 
 if test -n "$formulas"
     echo "Upgrade all| bash=$brew param1=upgrade param2=--all terminal=false refresh=true"
