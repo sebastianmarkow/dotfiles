@@ -31,10 +31,10 @@ FORMULAS="ag \
     coreutils \
     curl \
     devd \
-    dlite \
     docker \
     docker-compose \
     docker-machine \
+    docker-machine-driver-xhyve \
     docker-swarm \
     entr \
     fdupes \
