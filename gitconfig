@@ -70,36 +70,36 @@
 
     contributers = authors --list
 
-    s = status -s -u
+    c = commit
+    fix = commit --fixup
+    amend = commit --amend
+    reword = commit --amend -v
 
     d = diff
     ds = diff --staged
     staged = diff --staged
+    compare = diff master..HEAD
+    compare-last = diff -R HEAD..HEAD^
+    changed = diff --stat
+    conflicts = diff --name-only --diff-filter=U
+
     dt = difftool
     dts = difftool --staged
-    last = diff -R HEAD..HEAD^
-
-    c = commit
-    amend = commit --amend
 
     a = add
     patch = add --patch
-    statch = stash --patch
+    patch-stash = stash --patch
 
     b = branch
-    list = branch -a
-    branches = branch -a
-    delete = branch -d
-
     co = checkout
+    list = branch -a -vv
+    delete = branch -d
+    rename = branch -m
     new = checkout -b
+    switch = checkout -
     discard = checkout --
 
     cp = cherry-pick -x
-
-    log-compare = log --graph --pretty=default master..HEAD
-    compare = diff master..HEAD
-    changes = diff --stat
 
     f = fetch
     fa = fetch --all
@@ -107,14 +107,12 @@
     grep-group = grep --break --heading --line-number
 
     l = log --graph --pretty=default
-    ll = log --unified
-    lc = log --graph --name-status
-    local = log --branches --not --remotes
-    file-added = log --diff-filter=A
-    file-log = log -u
-    logbook = log --pretty=changelog
+    files-added = log --diff-filter=A
+    changes = log --pretty=changelog
+    compare-log = log --graph --pretty=default master..HEAD
     overview = log --graph -10 --branches --remotes --tags --pretty=default --date-order
     unmerged = log --no-merges master..
+    today = log -u --name-only --since='1 day ago' --remotes --branches --date-order --tags --pretty=default
 
     tracked = ls-files
     untracked = ls-files --others --exclude-standard
@@ -125,22 +123,27 @@
 
     pl = pull
     pla = pull --all
+    plm = pull --no-rebase
+    pull-merge = pull --no-rebase
 
     p = push
 
     rb = rebase
     rbi = rebase --interactive
 
-    r = remote
-
     re = reset
-    forgive = revert -n HEAD --
     unstage = reset -q HEAD --
     uncommit = reset --mixed HEAD~
 
-    stashed = stash list
+    untrack = rm --cached
+
+    r = revert
+    forgive = revert -n HEAD --
+
+    s = status -s -u
 
     t = tag -n
+    last-tag = describe --tags --abrev=0
 
 [url "git@github.com:"]
     insteadOf = "gh:"
