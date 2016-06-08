@@ -13,6 +13,7 @@ set -l icon "iVBORw0KGgoAAAANSUhEUgAAABoAAAAQCAYAAAAI0W+oAAAAAXNSR0IArs4c6QAAAZd
 
 set -l machines (command docker-machine ls --format "{{.Name}}|{{.State}}|{{.DockerVersion}}|{{.DriverName}}")
 set -l num (count (echo $machines | grep 'Running'))
+set -l cnum 0
 
 for machine in $machines
     set -l label (echo $machine | cut -d "|" -f 1)
@@ -28,6 +29,7 @@ for machine in $machines
             set items $items "$label ($state) $version $driver| color=green terminal=false refresh=true bash=/usr/local/bin/fish param1=-c param2=\"docker-machine stop $label\""
             eval (command docker-machine env --shell fish "$label" | sed 's/\-gx/\-x/g')
             set -l containers (command docker ps -a --format "{{.Names}} ({{.Image}})|{{.ID}}|{{.Status}}")
+            set cnum (math $cnum + (count (echo $containers | grep 'Up')))
             for container in $containers
                 set -l clabel (echo $container | cut -d "|" -f 1)
                 set -l cid (echo $container | cut -d "|" -f 2)
@@ -51,7 +53,11 @@ for machine in $machines
 end
 
 if test $num -gt 0
-    set sym "$num"
+    set sym "⚑"
+end
+
+if test $cnum -gt 0
+    set sym "$sym $cnum"
 end
 
 echo "$sym| templateImage=$icon dropdown=false"

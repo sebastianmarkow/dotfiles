@@ -16,10 +16,10 @@ switch "$num"
     case '0'
         set sym "✓"
     case '*'
-        set sym $num
+        set sym "⇡$num"
 end
 
-echo "⇡$sym| dropdown=false"
+echo "$sym| dropdown=false"
 echo "---"
 echo "Update| refresh=true"
 echo "---"
