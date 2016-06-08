@@ -5,9 +5,8 @@
 # <bitbar.desc>List running Docker machines</bitbar.desc>
 # <bitbar.dependencies>fish</bitbar.dependencies>
 
-set -l dm (command -s docker-machine)
-or exit 1
-set -l d (command -s docker)
+command -s docker-machine > /dev/null ^ /dev/null
+and command -s docker > /dev/null ^ /dev/null
 or exit 1
 
 set -l icon "iVBORw0KGgoAAAANSUhEUgAAABoAAAAQCAYAAAAI0W+oAAAAAXNSR0IArs4c6QAAAZdJREFUOBGlk80rRUEYxg8O+Ui+UihuWdhbY3eThZ1SEn+Gva2w8hdY2NiQIh8rURI2vqKEUj4Kpexw/Z6auffc05lzTp2nfs07M8+ZM/POvJ6XXrNYv2E//SclZ2UpTIxqcNRDbaIzwuBHjGkoD1r0EXIgncAcPKsTowrmCjHzZVMPxrxgWn24ZOJjWpeqmNiCtrDBlTotHEd4HdvvJhiBRTtgWx3TapJgFG6gFdphB4ZB2gOl9A6U1k5YgQ2waib4BKV8CvrhCYIeb54BneIA7k3sSt2tmZ+hDWuZgWA2tun7fsB1RqwdBk90bsZks/M6UQN0wBVIupteGIIBWIULOIVNKCh1WkCmLKrjYz1/6R1yoJorSifSbpqKI9kDpbvsJ3ZJHTOY0yyxUlVtFw63444fHTI+Ab+O+fCGXvH1QaRUR2twCX+GD1r95Bp+QAsm6Q1DHvQaI2XrSHelp9oFLaCdqQZ0f0naxTANL0lGO99DoKIMp8TVP8KrAk8le6KgWbUwBoOgWmmEL9CzVYp14eugekqtfzBGhW68tV5IAAAAAElFTkSuQmCC"
@@ -20,7 +19,7 @@ for machine in $machines
     set -l state (echo $machine | cut -d "|" -f 2)
     switch "$state"
         case 'Running'
-            set items $items "$label ($state)| color=green terminal=false refresh=true bash=$dm param1=stop param2=$label"
+            set items $items "$label ($state)| color=green terminal=false refresh=true bash=/usr/local/bin/fish param1=-c param2=\"docker-machine stop $label\""
             eval (command docker-machine env --shell fish "$label" | sed 's/\-gx/\-x/g')
             set -l containers (command docker ps -a --format "{{.Names}} ({{.Image}})|{{.ID}}|{{.Status}}")
             for container in $containers
@@ -40,10 +39,12 @@ for machine in $machines
                 else
                     set sym "├"
                 end
-                set items $items "$sym $clabel| $ccolor terminal=false refresh=true bash=$d param1=$ccmd param2=$cid"
+                set items $items "$sym $clabel| $ccolor terminal=false refresh=true bash=/usr/local/bin/fish param1=-c param2=\"eval (docker-machine env --shell fish $label); docker $ccmd $cid > /Users/sebastian/Downloads/lol.txt\""
             end
+            set items $items "---"
         case '*'
-            set items $items "$label ($state)| color=red terminal=false refresh=true bash=$dm param1=start param2=$label"
+            set items $items "$label ($state)| color=red terminal=false refresh=true bash=/usr/local/bin/fish param1=-c param2=\"docker-machine start $label\""
+            set items $items "---"
     end
 end
 
@@ -55,5 +56,4 @@ echo "$sym| templateImage=$icon dropdown=false"
 echo "---"
 for item in $items
     echo $item
-    echo "---"
 end
