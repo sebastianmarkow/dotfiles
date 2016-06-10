@@ -260,6 +260,9 @@ vnoremap <c-k> :move '<-2'<cr>gv=gv
 nnoremap <c-e> 5<c-e>
 nnoremap <c-y> 5<c-y>
 
+nnoremap zl 5zl
+nnoremap zh 5zh
+
 nnoremap Y y$
 
 nnoremap ; ,
