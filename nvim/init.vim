@@ -116,7 +116,7 @@ set numberwidth=3
 set cmdheight=1
 set laststatus=2 " always show statusline
 set scrolloff=3
-set sidescrolloff=5 " number of horizontal columns visible around cursor
+set sidescrolloff=3 " number of horizontal columns visible around cursor
 set showmatch
 set matchtime=2 " matching brackets cursor blink time (1/10 * n)
 set hidden " hide unsaved buffer
@@ -256,9 +256,6 @@ nnoremap <c-j> :move .+1<cr>
 nnoremap <c-k> :move .-2<cr>
 vnoremap <c-j> :move '>+1'<cr>gv=gv
 vnoremap <c-k> :move '<-2'<cr>gv=gv
-
-nnoremap <c-e> 5<c-e>
-nnoremap <c-y> 5<c-y>
 
 nnoremap zl 5zl
 nnoremap zh 5zh
