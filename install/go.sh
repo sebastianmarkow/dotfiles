@@ -16,6 +16,7 @@ TOOLS=(
     "github.com/rogpeppe/godef"
     "github.com/tpng/gopkgs"
     "golang.org/x/tools/cmd/..."
+    "guthub.com/tools/godep"
     "honnef.co/go/unused/cmd/unused"
     "sourcegraph.com/sqs/goreturns"
 )
