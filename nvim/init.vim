@@ -551,6 +551,8 @@ imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup()
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 
 " Plugin: Hardtime
-let g:hardtime_default_on = 1
+let g:hardtime_default_on=1
+let g:hardtime_ignore_quickfix=1
+let g:list_of_visual_keys = ['h', 'l', '-', '+', '<up>', '<down>', '<left>', '<right>']
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

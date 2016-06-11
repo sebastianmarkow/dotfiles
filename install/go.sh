@@ -7,16 +7,15 @@ PATH=/usr/local/bin:$PATH
 TOOLS=(
     "github.com/alecthomas/gometalinter"
     "github.com/golang/lint/golint"
-    "github.com/lukehoban/go-find-references"
     "github.com/lukehoban/go-outline"
     "github.com/mailgun/godebug"
     "github.com/motemen/gore"
     "github.com/newhook/go-symbols"
     "github.com/nsf/gocode"
     "github.com/rogpeppe/godef"
+    "github.com/tools/godep"
     "github.com/tpng/gopkgs"
     "golang.org/x/tools/cmd/..."
-    "guthub.com/tools/godep"
     "honnef.co/go/unused/cmd/unused"
     "sourcegraph.com/sqs/goreturns"
 )
