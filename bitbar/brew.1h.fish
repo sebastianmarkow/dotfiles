@@ -7,6 +7,7 @@
 
 set -l brew (command -s brew)
 and command brew update ^ /dev/null > /dev/null
+and command brew cleanup ^ /dev/null > /dev/null
 or exit 1
 
 set -l formulas (command brew outdated -1 --verbose)
