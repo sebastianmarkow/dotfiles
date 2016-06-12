@@ -78,12 +78,12 @@ function brew_install() {
 }
 
 function pip_install() {
-    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip list)"}
+    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip3 list)"}
     task "install $1"
     unset PIP_REQUIRE_VIRTUALENV
     echo "$INSTALLED_MODULES"| grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
-        pip install --quiet "$1" > /dev/null 2>&1
+        pip3 install --quiet "$1" > /dev/null 2>&1
         if [[ $? != 0 ]]; then
             error
         else
