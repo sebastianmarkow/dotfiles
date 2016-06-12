@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 ESC_SEQ="\x1b["
 COL_RESET=$ESC_SEQ"39;49;00m"
@@ -46,8 +46,9 @@ function warn() {
 }
 
 function brew_tap() {
+    INSTALLED_TAPS=${INSTALLED_TAPS:-"$(brew tap)"}
     task "tap $1"
-    brew tap | grep "$1" > /dev/null 2>&1 | true
+    echo "$INSTALLED_TAPS" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
         brew tap "$1" > /dev/null 2>&1
         if [[ $? != 0 ]]; then
@@ -61,9 +62,10 @@ function brew_tap() {
 }
 
 function brew_install() {
+    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew list --full-name)"}
     task "install $1"
-    brew list "$1" > /dev/null 2>&1 | true
-    if [[ ${PIPESTATUS[0]} != 0 ]]; then
+    echo "$INSTALLED_FORMULAS" | grep "$1" > /dev/null 2>&1 | true
+    if [[ ${PIPESTATUS[1]} != 0 ]]; then
         brew install $1 $2 > /dev/null 2>&1
         if [[ $? != 0 ]]; then
             error
@@ -76,9 +78,10 @@ function brew_install() {
 }
 
 function pip_install() {
+    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip list)"}
     task "install $1"
     unset PIP_REQUIRE_VIRTUALENV
-    pip list | grep "$1" > /dev/null 2>&1 | true
+    echo "$INSTALLED_MODULES"| grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
         pip install --quiet "$1" > /dev/null 2>&1
         if [[ $? != 0 ]]; then
@@ -102,8 +105,9 @@ function go_get() {
 }
 
 function cargo_install() {
+    INSTALLED_CRATES=${INSTALLED_CRATES:-"$(cargo install --list)"}
     task "install $1"
-    cargo install --list | grep "$1" > /dev/null 2>&1 | true
+    echo "$INSTALLED_CRATES" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
         cargo install --quiet "$1" > /dev/null 2>&1
         if [[ $? != 0 ]]; then
