@@ -10,7 +10,7 @@ function update --description "Update system"
     if test -n "$BREW_OUTDATED"
         brew upgrade --all
         and brew prune
-        and brew cleanup -s
+        and brew cleanup
         fish_update_completions
     end
 
