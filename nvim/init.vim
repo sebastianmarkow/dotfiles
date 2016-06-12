@@ -57,7 +57,6 @@ Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/neosnippet.vim'
 Plug 'sickill/vim-pasta'
-Plug 'takac/vim-hardtime'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
@@ -549,10 +548,5 @@ imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                       
 imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
 imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
-
-" Plugin: Hardtime
-let g:hardtime_default_on=1
-let g:hardtime_ignore_quickfix=1
-let g:list_of_visual_keys = ['h', 'l', '-', '+', '<up>', '<down>', '<left>', '<right>']
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
