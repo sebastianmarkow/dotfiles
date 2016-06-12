@@ -64,7 +64,7 @@ function brew_install() {
     task "install $1"
     brew list "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
-        brew install "$1" "$2" > /dev/null 2>&1
+        brew install $1 $2 > /dev/null 2>&1
         if [[ $? != 0 ]]; then
             error
         else
