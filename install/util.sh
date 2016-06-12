@@ -28,6 +28,7 @@ EGGS=(
 FORMULAS=(
     ag
     bash
+    bazaar
     calc
     cloc
     coreutils
@@ -52,6 +53,7 @@ FORMULAS=(
     graphviz
     homebrew/dupes/awk
     homebrew/dupes/diffutils
+    homebrew/dupes/grep
     homebrew/dupes/less
     homebrew/dupes/make
     homebrew/dupes/openssh
@@ -67,7 +69,6 @@ FORMULAS=(
     laurent22/massren/massren
     lftp
     mandoc
-    mercurial
     mercurial
     moreutils
     mtr
