@@ -4,15 +4,18 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
-brew_install() {
-    [ -x "/usr/local/bin/brew" ] || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-}
+source "${BASH_SOURCE%/*}/lib.sh"
 
-main() {
-    brew_install
-
-    brew update
-    brew upgrade --all
-}
-
-main
+h1 "brew"
+task "install"
+if [ -x "/usr/local/bin/brew" ]; then
+    warn "installed"
+else
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    if [[ $? != 0 ]]; then
+        error
+        exit 1
+    else
+        success
+    fi
+fi

@@ -2,25 +2,20 @@
 
 set -e
 
-CRATES=(
-    "rustfmt"
-)
-
 PATH=/usr/local/bin:$PATH
 
-FORMULAS="rust"
+source "${BASH_SOURCE%/*}/lib.sh"
 
-cargo_install() {
-    for c in "${CRATES[@]}"; do
-        printf "Install cargo crate %s" "$c"
-        cargo install --quiet "$c"
-        printf " ...done\n"
-    done
-}
+CRATES=(
+    rustfmt
+)
 
-main() {
-    brew install ${FORMULAS}
-    cargo_install
-}
+FORMULAS=(
+    rust
+)
 
-main
+h1 "rust"
+h2 "brew formulas"
+for f in "${FORMULAS[@]}"; do brew_install "$f"; done
+h2 "cargo crates"
+for c in "${CRATES[@]}"; do cargo_install "$c"; done

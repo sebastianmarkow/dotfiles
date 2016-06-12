@@ -4,17 +4,17 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
-FORMULAS="cgdb \
-        clang-format \
-        deheader \
-        gdb \
-        make \
-        mitchty/clang-scan-build/clang-scan-build \
-        rtags \
-        valgrind"
+source "${BASH_SOURCE%/*}/lib.sh"
 
-main() {
-    brew install ${FORMULAS}
-}
+FORMULAS=(
+    cgdb
+    clang-format
+    deheader
+    gdb
+    make
+    valgrind
+)
 
-main
+h1 "c/cpp"
+h2 "brew formulas"
+for f in "${FORMULAS[@]}"; do brew_install "$f"; done

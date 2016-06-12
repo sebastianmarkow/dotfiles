@@ -26,7 +26,6 @@ help:
 
 .PHONY: brew
 brew:
-	$(info Install Homebrew)
 	@sh ./install/brew.sh
 
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## Symlink dotfiles
@@ -49,36 +48,25 @@ $(CONFIGS):
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
 .PHONY: util
-util: brew ## Install utility
-	$(info Install utility)
+util: brew ## Install utilities
 	@sh ./install/util.sh
 
 .PHONY: go
 go: brew ## Install Go
-	$(info Install Go & toolchain)
 	@sh ./install/go.sh
 
 .PHONY: cxx
 cxx: brew ## Install CXX toolchain
-	$(info Install CXX toolchain)
 	@sh ./install/cxx.sh
 
 .PHONY: rust
 rust: brew ## Install Rust
-	$(info Installing Rust & toolchain)
 	@sh ./install/rust.sh
 
 .PHONY: python
 python: brew ## Install Python3
-	$(info Installing Python3 & toolchain)
 	@sh ./install/python.sh
-
-.PHONY: js
-js: brew ## Install Node
-	$(info Installing Node & toolchain)
-	@sh ./install/js.sh
 
 .PHONY: data
 data: brew python ## Install datascience toolchain
-	$(info Installing datascience toolchain)
 	@sh ./install/data.sh

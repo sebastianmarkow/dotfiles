@@ -4,27 +4,20 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
+source "${BASH_SOURCE%/*}/lib.sh"
+
 EGGS=(
-    "pip"
-    "pep8"
-    "virtualenv"
+    pip
+    pep8
+    virtualenv
 )
 
-FORMULAS="python3"
+FORMULAS=(
+    python3
+)
 
-pip_install() {
-    unset PIP_REQUIRE_VIRTUALENV
-    for e in "${EGGS[@]}"; do
-        printf "Install python module %s" "$e"
-        pip3 install --upgrade --quiet "$e"
-        printf " ...done\n"
-    done
-}
-
-main() {
-    brew install ${FORMULAS}
-
-    pip_install
-}
-
-main
+h1 "python"
+h2 "brew formulas"
+for f in "${FORMULAS[@]}"; do brew_install "$f"; done
+h2 "pip modules"
+for e in "${EGGS[@]}"; do pip_install "$e"; done

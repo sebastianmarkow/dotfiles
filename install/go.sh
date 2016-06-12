@@ -4,35 +4,29 @@ set -e
 
 PATH=/usr/local/bin:$PATH
 
+source "${BASH_SOURCE%/*}/lib.sh"
+
 TOOLS=(
-    "github.com/alecthomas/gometalinter"
-    "github.com/golang/lint/golint"
-    "github.com/lukehoban/go-outline"
-    "github.com/mailgun/godebug"
-    "github.com/motemen/gore"
-    "github.com/newhook/go-symbols"
-    "github.com/nsf/gocode"
-    "github.com/rogpeppe/godef"
-    "github.com/tools/godep"
-    "github.com/tpng/gopkgs"
-    "golang.org/x/tools/cmd/..."
-    "honnef.co/go/unused/cmd/unused"
-    "sourcegraph.com/sqs/goreturns"
+    github.com/alecthomas/gometalinter
+    github.com/golang/lint/golint
+    github.com/lukehoban/go-outline
+    github.com/mailgun/godebug
+    github.com/motemen/gore
+    github.com/newhook/go-symbols
+    github.com/nsf/gocode
+    github.com/rogpeppe/godef
+    github.com/tools/godep
+    github.com/tpng/gopkgs
+    golang.org/x/tools/cmd/...
+    honnef.co/go/unused/cmd/unused
+    sourcegraph.com/sqs/goreturns
 )
 
-FORMULAS="go"
+FORMULAS=(
+    go
+)
 
-go_get() {
-    for t in "${TOOLS[@]}"; do
-        printf "Install go tool %s" "$t"
-        go get -u "$t"
-        printf " ...done\n"
-    done
-}
-
-main() {
-    brew install ${FORMULAS}
-    go_get
-}
-
-main
+h1 "go"
+for f in "${FORMULAS[@]}"; do brew_install "$f"; done
+h2 "go tools"
+for t in "${TOOLS[@]}"; do go_get "$t"; done
