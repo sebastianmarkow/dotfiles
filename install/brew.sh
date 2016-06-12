@@ -19,3 +19,12 @@ else
         success
     fi
 fi
+
+task "update"
+brew update > /dev/null 2>&1
+if [[ $? != 0 ]]; then
+    error
+    exit 1
+else
+    success
+fi
