@@ -28,7 +28,6 @@ EGGS=(
 FORMULAS=(
     ag
     bash
-    bzr
     calc
     cloc
     coreutils
@@ -68,6 +67,7 @@ FORMULAS=(
     laurent22/massren/massren
     lftp
     mandoc
+    mercurial
     mercurial
     moreutils
     mtr
