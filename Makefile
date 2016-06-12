@@ -37,13 +37,13 @@ $(DIRS):
 
 .PHONY: $(FILES)
 $(FILES):
-	$(info Symlink $@ -> $(HOME)/.$@)
+	$(info Symlink $@ → $(HOME)/.$@)
 	@rm -rf $(HOME)/.$@
 	@ln -s $(PWD)/$@ $(HOME)/.$@
 
 .PHONY: $(CONFIGS)
 $(CONFIGS):
-	$(info Symlink $@ -> $(XDG_CONFIG_HOME)/$@)
+	$(info Symlink $@ → $(XDG_CONFIG_HOME)/$@)
 	@rm -rf $(XDG_CONFIG_HOME)/$@
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
