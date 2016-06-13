@@ -5,8 +5,7 @@
 # <bitbar.desc>List available updates from Homebrew</bitbar.desc>
 # <bitbar.dependencies>fish,cut,wc,printf</bitbar.dependencies>
 
-set -l brew (command -s brew)
-and command brew update ^ /dev/null > /dev/null
+command brew update ^ /dev/null > /dev/null
 or exit 1
 
 set -l formulas (command brew outdated -1 --verbose)
@@ -25,6 +24,7 @@ echo "Update| refresh=true"
 echo "---"
 
 if test -n "$formulas"
+    set -l brew (command -s brew)
     echo "Upgrade all| bash=$brew param1=upgrade param2=--all terminal=false refresh=true"
     for item in $formulas
         if test "$item" = "$formulas[-1]"
