@@ -28,6 +28,8 @@ help:
 brew:
 	@sh ./install/brew.sh
 
+all: dotfiles cxx data go python rust util ## all of the below
+
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
 
 .PHONY: $(DIRS)
