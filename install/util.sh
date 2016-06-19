@@ -21,6 +21,7 @@ HEAD=(
 EGGS=(
     neovim
     proselint
+    sphinx
     vim-vint
     http-prompt
 )
