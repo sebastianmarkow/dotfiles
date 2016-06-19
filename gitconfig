@@ -79,7 +79,7 @@
     ds = diff --staged
     staged = diff --staged
     compare = diff master..HEAD
-    compare-last = diff -R HEAD..HEAD^
+    last = diff -R HEAD..HEAD^
     changed = diff --stat
     conflicts = diff --name-only --diff-filter=U
 
@@ -88,7 +88,6 @@
 
     a = add
     patch = add --patch
-    patch-stash = stash --patch
 
     b = branch
     co = checkout
@@ -107,9 +106,8 @@
     grep-group = grep --break --heading --line-number
 
     l = log --graph --pretty=default
-    files-added = log --diff-filter=A
+    added = log --diff-filter=A
     changes = log --pretty=changelog
-    compare-log = log --graph --pretty=default master..HEAD
     overview = log --graph -10 --branches --remotes --tags --pretty=default --date-order
     unmerged = log --no-merges master..
     today = log -u --name-only --since='1 day ago' --remotes --branches --date-order --tags --pretty=default
