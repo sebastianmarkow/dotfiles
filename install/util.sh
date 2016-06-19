@@ -19,11 +19,11 @@ HEAD=(
 )
 
 EGGS=(
+    http-prompt
     neovim
     proselint
     sphinx
     vim-vint
-    http-prompt
 )
 
 FORMULAS=(

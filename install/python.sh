@@ -7,8 +7,8 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
-    pip
     pep8
+    pip
     virtualenv
 )
 
