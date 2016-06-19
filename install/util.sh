@@ -75,6 +75,7 @@ FORMULAS=(
     mtr
     multitail
     nmap
+    node
     pam_yubico
     pstree
     pv
