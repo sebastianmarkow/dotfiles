@@ -1245,7 +1245,7 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>-887 895 222 309 -1920 240 1920 1177 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>495 150 445 77 0 0 1440 877 </string>
+	<string>495 37 445 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>213 420 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -1255,7 +1255,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>155 93 810 483 0 0 1440 877 </string>
+	<string>380 394 810 483 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>720 312 720 274 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 10</key>
@@ -1899,7 +1899,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-Regular 16</string>
+			<string>Hack-Regular 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2090,6 +2090,8 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncConfirmBeta</key>
+	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
@@ -2199,7 +2201,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-01T14:54:23Z</date>
+	<date>2016-06-20T16:52:58Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2256,7 +2258,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.0</string>
+	<string>3.0.2</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
