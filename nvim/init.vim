@@ -516,10 +516,12 @@ let g:lightline={
     \ 'component_function': {
     \     'fugitive': 'LightLineFugitive',
     \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' },
     \ }
 
 function! LightLineFugitive()
-    return exists('*fugitive#head') ? fugitive#head() : ''
+    return exists('*fugitive#head') ? ' '.fugitive#head() : ''
 endfunction
 
 " Plugin: neosnippet.vim
