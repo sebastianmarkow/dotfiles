@@ -32,6 +32,7 @@ FORMULAS=(
     bazaar
     calc
     cloc
+    cloog
     coreutils
     curl
     devd
@@ -80,6 +81,7 @@ FORMULAS=(
     pstree
     pv
     python3
+    ragel
     rename
     shellcheck
     since
@@ -92,6 +94,7 @@ FORMULAS=(
     wget
     wrk
     yank
+    xz
 )
 
 h1 "brew utilities"

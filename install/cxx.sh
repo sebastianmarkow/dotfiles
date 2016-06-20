@@ -7,8 +7,11 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 FORMULAS=(
+    autoconf
+    automake
     cgdb
     clang-format
+    cmake
     deheader
     gdb
     make
