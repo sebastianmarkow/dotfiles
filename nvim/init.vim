@@ -289,6 +289,10 @@ function! s:winbind()
 endfunction
 call s:winbind()
 
+function! s:choosewin()
+
+endfunction
+
 augroup trigger
 autocmd!
 
@@ -307,8 +311,8 @@ autocmd InsertEnter,WinLeave,FocusLost   * setlocal norelativenumber
 autocmd InsertLeave,WinEnter,FocusGained * setlocal relativenumber
 
 " Trigger: Cursorline
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+autocmd WinEnter,FocusGained * setlocal cursorline
+autocmd WinLeave,FocusLost * setlocal nocursorline
 
 augroup end
 
@@ -478,17 +482,17 @@ endfunction
 let g:lightline={
     \ 'colorscheme': 'gotham',
     \ 'mode_map': {
-    \     'n': 'normal',
-    \     'i': 'insert',
-    \     'R': 'replace',
-    \     'v': 'visual',
-    \     'V': 'v-line',
-    \     'c': 'command',
-    \     "\<C-v>": 'v-block',
-    \     's': 'select',
-    \     'S': 's-line',
-    \     "\<C-s>": 's-block',
-    \     '?': '      '
+    \ 'n': 'normal',
+    \ 'i': 'insert',
+    \ 'R': 'replace',
+    \ 'v': 'visual',
+    \ 'V': 'v-line',
+    \ "\<C-v>": 'v-block',
+    \ 'c': 'command',
+    \ 's': 'select',
+    \ 'S': 's-line',
+    \ "\<C-s>": 's-block',
+    \ 't': 'terminal',
     \ },
     \ 'active': {
     \     'left': [
@@ -511,7 +515,7 @@ let g:lightline={
     \     ]
     \ },
     \ 'component': {
-    \     'windownr': '%{winnr()}',
+    \     'windownr': '⧉ %{winnr()}',
     \ },
     \ 'component_function': {
     \     'fugitive': 'LightLineFugitive',

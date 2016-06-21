@@ -22,7 +22,7 @@ EGGS=(
     http-prompt
     neovim
     proselint
-    sphinx
+    Sphinx
     vim-vint
 )
 

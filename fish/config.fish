@@ -20,15 +20,14 @@ if test -d $CARGO_BIN
     set -x PATH $PATH $CARGO_BIN
 end
 
-# Default
+# Base
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
 set -x PAGER 'less'
 set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
-set -x LSCOLORS 'gxfxdxcxbxexexhbhdacad'
-set -x LS_COLORS 'di=36:ln=35:so=33:pi=32:ex=31:bd=34:cd=34:su=37;41:sg=37;43:tw=00;42:ow=00;43:'
+set -x LSCOLORS 'ExGxBxDxCxEgEdxbxgxcxd'
 set -x LANG 'en_US.UTF-8'
 set -x LC_CTYPE 'en_US.UTF-8'
 set -x LC_MESSAGES 'en_US.UTF-8'
@@ -79,17 +78,14 @@ set __sk_status_code_color (set_color -b red)(set_color black)
 set __sk_cmd_timing_limit 3
 set __sk_cmd_timing_color (set_color -b brmagenta)(set_color black)
 
-set __sk_prompt_sign_root '#'
-set __sk_prompt_sign_default '$'
-
 set __sk_mode_string_normal '|'
 set __sk_mode_string_insert '>'
 set __sk_mode_string_replace '_'
-set __sk_mode_string_visual '-'
-set __sk_mode_color_normal brmagenta
+set __sk_mode_string_visual '/'
+set __sk_mode_color_normal blue
 set __sk_mode_color_insert green
 set __sk_mode_color_replace red
-set __sk_mode_color_visual yellow
+set __sk_mode_color_visual magenta
 
 set __sk_git_status_staged_sign '+'
 set __sk_git_status_unstaged_sign '-'

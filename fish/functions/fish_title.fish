@@ -1,5 +1,5 @@
 function fish_title
-    if test $PWD = ~
+    if test "$PWD" = ~
         echo '~'
     else
         echo (basename $PWD)

@@ -39,6 +39,8 @@
 [diff]
     tool = vimdiff
     renames = copies
+    algorithm = histogram
+    compactionHeuristic = true
 
 [difftool "vimdiff"]
     prompt = false
