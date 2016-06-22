@@ -8,17 +8,18 @@
 command brew update ^ /dev/null > /dev/null
 or exit 1
 
+set -l icon "iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAQAAACoAz4qAAAA7UlEQVQoFQXBPyuEARwA4Od97yVy13v+lDpn0nUb0xnUKWG4SfEJTGwmqw9wZbHYb7Ao+QBsuroyKQZXDISMV3SJfp6nAKBl3aOSMUMAMkzaN+9dz5VnP2709XwDnGnakGBZKnHqwCUAHaMAADoSyHDiTsOha21ASVsA8Kuia1cIIYSBW2ukKCpg1hYAzk27UIKqUPEphBBCWLEqbKbIcWQKAOT6mMmQYw8AUFbDa4YyAAC2LXrRTZEDAGDHQMtfijIAAI413JMiBwDABJBK1AEAsGAEmPMkhBBCCCF8WIIE1NRVFY0b+vKm70HAP3Q8RCuxKyTxAAAAAElFTkSuQmCC"
+
 set -l formulas (command brew outdated -1 --verbose)
 set -l num (count $formulas)
 
 switch "$num"
     case '0'
-        set sym "✓"
     case '*'
         set sym "⇡$num"
 end
 
-echo "$sym| dropdown=false"
+echo "$sym| templateImage=$icon dropdown=false"
 echo "---"
 echo "Update| refresh=true"
 echo "---"
