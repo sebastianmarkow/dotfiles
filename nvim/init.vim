@@ -488,19 +488,6 @@ endfunction
 " Plugin: lightline.vim
 let g:lightline={
     \ 'colorscheme': 'gotham',
-    \ 'mode_map': {
-    \ 'n': 'normal',
-    \ 'i': 'insert',
-    \ 'R': 'replace',
-    \ 'v': 'visual',
-    \ 'V': 'v-line',
-    \ "\<C-v>": 'v-block',
-    \ 'c': 'command',
-    \ 's': 'select',
-    \ 'S': 's-line',
-    \ "\<C-s>": 's-block',
-    \ 't': 'terminal',
-    \ },
     \ 'active': {
     \     'left': [
     \         ['mode'],
