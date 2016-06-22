@@ -279,6 +279,9 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
+cnoremap <c-j> <down>
+cnoremap <c-k> <up>
+
 " Tmux-like pane switching
 function! s:panebind()
     let l:i=1
