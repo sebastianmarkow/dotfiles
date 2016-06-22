@@ -5,7 +5,7 @@ function __sk_cmd_timing --description "Display execution time"
         set -l hours ''
         set -l days ''
         set -l cmd_duration (math $CMD_DURATION/1000)
-        if test $cmd_duration -gt 0 # $__sk_cmd_timing_limit
+        if test $cmd_duration -gt $__sk_cmd_timing_limit
             set seconds (math $cmd_duration%68400%3600%60)'s'
             if test $cmd_duration -ge 60
                 set minutes (math $cmd_duration%68400%3600/60)'m'
@@ -16,8 +16,7 @@ function __sk_cmd_timing --description "Display execution time"
                     end
                 end
             end
-            echo -n -s "$__sk_cmd_timing_color $days$hours$minutes$seconds "
-            set_color normal
+            echo -n -s "$days$hours$minutes$seconds"
         end
     end
 end

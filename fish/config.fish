@@ -74,10 +74,17 @@ set fish_color_quote brred
 set fish_color_error red
 set fish_color_autosuggestion brblue
 
-set __sk_status_code_color (set_color -b red)(set_color black)
-
 set __sk_cmd_timing_limit 3
-set __sk_cmd_timing_color (set_color -b brmagenta)(set_color black)
+
+set __sk_right_prompt_status_fg white
+set __sk_right_prompt_status_bg red
+set __sk_right_prompt_timing_fg white
+set __sk_right_prompt_timing_bg magenta
+
+set __sk_prompt_pwd_fg brblue
+set __sk_prompt_pwd_bg 95a5a6
+set __sk_prompt_root_fg brblue
+set __sk_prompt_root_bg yellow
 
 set __sk_mode_string_normal '|'
 set __sk_mode_string_insert '>'
