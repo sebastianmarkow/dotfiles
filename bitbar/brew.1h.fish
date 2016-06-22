@@ -20,7 +20,7 @@ end
 
 echo "$sym| dropdown=false"
 echo "---"
-echo "↻ Update| refresh=true"
+echo "Update| refresh=true"
 echo "---"
 
 if test -n "$formulas"

@@ -29,12 +29,12 @@ for machine in $machines
             set items $items "--$driver ($version)"
             set items $items "--$ip"
             set items $items "-----"
-            set items $items "--↓ Stop| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine stop $label\""
-            set items $items "--↻ Restart| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine restart $label\""
+            set items $items "--Stop| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine stop $label\""
+            set items $items "--Restart| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine restart $label\""
             set items $items "-----"
-            set items $items "--⇈ Upgrade| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine upgrade $label\""
+            set items $items "--Upgrade| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine upgrade $label\""
             set items $items "-----"
-            set items $items "--↯ Kill| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine kill $label\""
+            set items $items "--Kill| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine kill $label\""
             eval (command docker-machine env --shell fish "$label" | sed 's/\-gx/\-x/g')
             set -l containers (command docker ps -a --format "{{.Names}} ({{.Image}})|{{.ID}}|{{.Status}}")
             set cnum (math $cnum + (count (echo $containers | grep 'Up')))
@@ -59,7 +59,7 @@ for machine in $machines
             set items $items "$label ($state)| color=red"
             set items $items "--$driver"
             set items $items "-----"
-            set items $items "--↑ Start| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine start $label\""
+            set items $items "--Start| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine start $label\""
             set items $items "---"
     end
 end
