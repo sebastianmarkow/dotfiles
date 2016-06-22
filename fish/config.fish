@@ -1,6 +1,6 @@
 # No, no, no!
 status --is-interactive
-or exit 0
+or exit 1
 set -e fish_greeting
 
 # Path
