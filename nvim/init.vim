@@ -386,7 +386,7 @@ autocmd FileType vim autocmd BufWritePost * Neomake
 augroup end
 
 " Plugin: fzf
-noremap <c-p>     :FZF<cr>
+noremap <c-p>     :FZFopen<cr>
 noremap <leader>b :FZFBuffer<cr>
 noremap <leader>o :FZFMru<cr>
 let g:fzf_launcher='xterm -e fish -ic %s'
@@ -401,6 +401,12 @@ endfunction
 function! s:bufopen(e)
     execute 'buffer' matchstr(a:e, '^[ 0-9]*')
 endfunction
+
+command! FZFopen call fzf#run({
+    \ 'sink': 'e ',
+    \ 'options': '+m',
+    \ 'down': '100%'
+    \ })
 
 command! FZFBuffer call fzf#run({
     \ 'source': reverse(<sid>buflist()),
