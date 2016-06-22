@@ -8,8 +8,7 @@ FILES=tmux.conf	\
 	gitignore	\
 	gitmessage	\
 	wgetrc		\
-	hushlogin	\
-	npmrc
+	hushlogin
 
 DIRS=$(XDG_CONFIG_HOME) \
 	$(XDG_DATA_HOME)/nvim/undo	\
