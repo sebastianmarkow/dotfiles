@@ -280,17 +280,22 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-function! s:winbind()
+" Tmux-like pane switching
+function! s:panebind()
     let l:i=1
     while l:i <= 9
-        execute 'nnoremap <silent><c-w>'.l:i.' :'.l:i.'wincmd w<cr>'
+        execute 'nnoremap <silent><c-w>'.l:i.' :call <sid>choosepane('.l:i.')<cr>'
         let l:i+=1
     endwhile
 endfunction
-call s:winbind()
+call s:panebind()
 
-function! s:choosewin()
-
+function! s:choosepane(nr)
+    if a:nr <= winnr('$')
+        execute a:nr.'wincmd w'
+    else
+        echom 'Can''t find pane '.a:nr
+    endif
 endfunction
 
 augroup trigger
