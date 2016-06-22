@@ -91,10 +91,10 @@ set __sk_prompt_pwd_bg 95a5a6
 set __sk_prompt_root_fg brblue
 set __sk_prompt_root_bg red
 
-set __sk_mode_string_normal '?'
-set __sk_mode_string_insert '>'
-set __sk_mode_string_replace '_'
-set __sk_mode_string_visual '/'
+set __sk_mode_string_normal 'n'
+set __sk_mode_string_insert 'i'
+set __sk_mode_string_replace 'r'
+set __sk_mode_string_visual 'v'
 set __sk_mode_color_normal blue
 set __sk_mode_color_insert green
 set __sk_mode_color_replace red
