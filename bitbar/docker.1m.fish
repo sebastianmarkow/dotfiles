@@ -24,7 +24,17 @@ for machine in $machines
     end
     switch "$state"
         case 'Running'
-            set items $items "$label ($state) $version $driver| color=green terminal=false refresh=true bash=/usr/local/bin/fish param1=-c param2=\"docker-machine stop $label\""
+            set -l ip (command docker-machine ip "$label")
+            set items $items "$label ($state)| color=green"
+            set items $items "--$driver ($version)"
+            set items $items "--$ip"
+            set items $items "-----"
+            set items $items "--↓ Stop| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine stop $label\""
+            set items $items "--↻ Restart| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine restart $label\""
+            set items $items "-----"
+            set items $items "--⇈ Upgrade| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine upgrade $label\""
+            set items $items "-----"
+            set items $items "--↯ Kill| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine kill $label\""
             eval (command docker-machine env --shell fish "$label" | sed 's/\-gx/\-x/g')
             set -l containers (command docker ps -a --format "{{.Names}} ({{.Image}})|{{.ID}}|{{.Status}}")
             set cnum (math $cnum + (count (echo $containers | grep 'Up')))
@@ -42,10 +52,14 @@ for machine in $machines
             end
             set items $items "---"
         case 'Pending'
-            set items $items "$label ($state) $driver| color=orange"
+            set items $items "$label ($state)| color=orange"
+            set items $items "--$driver"
             set items $items "---"
         case '*'
-            set items $items "$label ($state) $driver| color=red terminal=false refresh=true bash=/usr/local/bin/fish param1=-c param2=\"docker-machine start $label\""
+            set items $items "$label ($state)| color=red"
+            set items $items "--$driver"
+            set items $items "-----"
+            set items $items "--↑ Start| refresh=true terminal=false bash=/usr/local/bin/fish param1=-c param2=\"docker-machine start $label\""
             set items $items "---"
     end
 end
