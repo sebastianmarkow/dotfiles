@@ -14,7 +14,7 @@ function fish_right_prompt
     end
 
     # status code
-    if test "$last_status" -gt 0
+    if not test "$last_status" = "0"
         set_color $__sk_right_prompt_status_bg -b $last_color
         echo -n -s ''
         set_color $__sk_right_prompt_status_fg -b $__sk_right_prompt_status_bg
