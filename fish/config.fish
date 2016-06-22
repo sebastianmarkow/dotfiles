@@ -68,11 +68,16 @@ alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
 
 # Fish
+set fish_color_comment blue
 set fish_color_command yellow
-set fish_color_param cyan
+set fish_color_param yellow
 set fish_color_quote brred
 set fish_color_error red
+set fish_color_redirection brred
+set fish_color_operator brred
 set fish_color_autosuggestion brblue
+set fish_color_selection --background=blue
+set fish_color_end brred
 
 set __sk_cmd_timing_limit 3
 
@@ -84,9 +89,9 @@ set __sk_right_prompt_timing_bg magenta
 set __sk_prompt_pwd_fg brblue
 set __sk_prompt_pwd_bg 95a5a6
 set __sk_prompt_root_fg brblue
-set __sk_prompt_root_bg yellow
+set __sk_prompt_root_bg red
 
-set __sk_mode_string_normal '|'
+set __sk_mode_string_normal '?'
 set __sk_mode_string_insert '>'
 set __sk_mode_string_replace '_'
 set __sk_mode_string_visual '/'
