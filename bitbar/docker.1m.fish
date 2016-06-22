@@ -65,11 +65,7 @@ for machine in $machines
 end
 
 if test $num -gt 0
-    set sym "⚑"
-end
-
-if test $cnum -gt 0
-    set sym "$sym $cnum"
+    set sym "$num"
 end
 
 echo "$sym| templateImage=$icon dropdown=false"
