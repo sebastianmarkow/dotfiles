@@ -55,6 +55,7 @@ abbr v 'nvim'
 abbr g 'git'
 abbr dm 'docker-machine'
 abbr d 'docker'
+abbr t 'tmux'
 
 # Alias
 alias ldd 'otool -L'
