@@ -56,7 +56,6 @@ Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
 Plug 'shougo/deoplete.nvim'
 Plug 'shougo/neosnippet.vim'
-Plug 'sickill/vim-pasta'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
