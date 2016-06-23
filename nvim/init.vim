@@ -570,7 +570,7 @@ endfunction
 
 function! LightLineFileformat()
     return winwidth(0) > g:responsive_width ?
-        \ (&fileformat !=? g:omit_fileformat ? &fileformat : '') : ''
+        \ (&fileformat !=# g:omit_fileformat ? &fileformat : '') : ''
 endfunction
 
 function! LightLinePercent()
@@ -581,8 +581,8 @@ endfunction
 function! LightLineFileencoding()
     return winwidth(0) > g:responsive_width ?
         \ (&fileencoding !=# '' ?
-            \ (&fileencoding !=? g:omit_fileencoding ? &fileencoding : '') :
-                \ (&encoding !=? g:omit_fileencoding ? &encoding : '')) : ''
+            \ (&fileencoding !=# g:omit_fileencoding ? &fileencoding : '') :
+                \ (&encoding !=# g:omit_fileencoding ? &encoding : '')) : ''
 endfunction
 
 " Plugin: neosnippet.vim
