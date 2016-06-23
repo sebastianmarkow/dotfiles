@@ -514,7 +514,7 @@ let g:lightline={
     \     'left': [
     \         ['mode'],
     \         ['fugitive'],
-    \         ['filename', 'modified', 'readonly']
+    \         ['filename', 'readonly', 'modified']
     \     ],
     \     'right': [
     \         ['windownr'],
@@ -532,7 +532,7 @@ let g:lightline={
     \ },
     \ 'component': {
     \     'windownr': '⧉ %{winnr()}',
-    \     'lineinfo': ' %3l:%-2v',
+    \     'lineinfo': ' %l:%-2v',
     \ },
     \ 'component_function': {
     \     'fugitive': 'LightLineFugitive',
