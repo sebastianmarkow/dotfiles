@@ -307,15 +307,12 @@ autocmd!
 autocmd BufEnter,VimEnter * let &titlestring=expand("%:t")
 autocmd VimLeave          * let &titlestring=''
 
-" Trigger: Autoread
-autocmd BufEnter * :silent checktime
-
 " Trigger: Remember cursor position
-autocmd BufReadPost * if &filetype != "gitcommit" && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd BufReadPost * if &filetype !~? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter,WinLeave,FocusLost   * setlocal norelativenumber
-autocmd InsertLeave,WinEnter,FocusGained * setlocal relativenumber
+autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? 'help\|undotree\|GV\|gitcommit' | setlocal norelativenumber | endif
+autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? 'help\|undotree\|GV\|gitcommit' | setlocal relativenumber | endif
 
 " Trigger: Cursorline
 autocmd WinEnter,FocusGained * setlocal cursorline
@@ -329,6 +326,7 @@ autocmd!
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.cls,*.sty                   setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
+autocmd BufNewFile,BufRead gitcommit                     setlocal filetype=gitcommit
 autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitconfig
 
 " Custom: Indent
@@ -348,6 +346,9 @@ autocmd FileType text,markdown setlocal textwidth=80
 autocmd FileType python,c,cpp  setlocal colorcolumn=81
 autocmd FileType text,markdown setlocal colorcolumn=+1
 autocmd FileType gitcommit     setlocal colorcolumn=51,+1
+
+" Custom: Disable decoration
+autocmd FileType GV,qf,gitcommit setlocal nonumber norelativenumber
 
 augroup end
 
@@ -492,6 +493,9 @@ function! g:committia_hooks.edit_open(info)
 endfunction
 
 " Plugin: lightline.vim
+let g:responsive_width=70
+let g:omit_fileencoding='utf-8'
+let g:omit_fileformat='unix'
 let g:lightline={
     \ 'colorscheme': 'gotham',
     \ 'active': {
@@ -516,16 +520,49 @@ let g:lightline={
     \ },
     \ 'component': {
     \     'windownr': '⧉ %{winnr()}',
+    \     'lineinfo': ' %3l:%-2v',
     \ },
     \ 'component_function': {
     \     'fugitive': 'LightLineFugitive',
+    \     'readonly': 'LightLineReadonly',
+    \     'fileformat': 'LightLineFileformat',
+    \     'fileencoding': 'LightLineFileencoding',
+    \     'filetype': 'LightLineFiletype',
+    \     'percent': 'LightLinePercent',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' },
     \ }
 
 function! LightLineFugitive()
-    return exists('*fugitive#head') ? ' '.fugitive#head() : ''
+    return winwidth(0) > g:responsive_width ?
+        \ (exists('*fugitive#head') ? ' '.fugitive#head() : '') : ''
+endfunction
+
+function! LightLineReadonly()
+    return winwidth(0) > g:responsive_width ?
+        \ (&filetype !~? 'help\|undotree' && &readonly ? '' : '') : ''
+endfunction
+
+function! LightLineFiletype()
+    return winwidth(0) > g:responsive_width ?
+        \ (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileformat()
+    return winwidth(0) > g:responsive_width ?
+        \ (&fileformat !=? g:omit_fileformat ? &fileformat : '') : ''
+endfunction
+
+function! LightLinePercent()
+    return winwidth(0) > g:responsive_width ?
+        \ line('.') * 100 / line('$') . '%' : ''
+endfunction
+
+function! LightLineFileencoding()
+    return winwidth(0) > g:responsive_width ?
+        \ (&fileencoding !=# '' ?
+            \ (&fileencoding !=? g:omit_fileencoding ? &fileencoding : '') : &encoding) : ''
 endfunction
 
 " Plugin: neosnippet.vim
