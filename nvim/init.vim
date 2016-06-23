@@ -123,6 +123,8 @@ set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
 set linespace=0
+set nolist " don't show invisble character
+set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 " set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
 "               |  |   | | | |            |                      |       |   |   |  |
 "               |  |   | | | |            +-- encoding           |       |   |   |  +-- column
@@ -186,12 +188,10 @@ set copyindent " use the same indentation for autoindent
 set smartindent " do smart autoindenting when starting a new line
 set nostartofline " cursor stays at same column while moving horizontal
 set nojoinspaces " do not add additional spaces on join
-set nolist " don't show invisble character
 set nospell " no spellcheck
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/spellfile.utf-8.add
 set spelllang=en
 set clipboard=unnamed " use os clipboard
-set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 set formatoptions=qcnr
 "                 ||||
 "                 ||||
