@@ -520,8 +520,8 @@ let g:lightline={
     \         ['filename', 'readonly', 'modified']
     \     ],
     \     'right': [
-    \         ['windownr'],
-    \         ['lineinfo', 'percent'],
+    \         ['percent', 'windownr'],
+    \         ['lineinfo'],
     \         ['filetype', 'fileformat', 'fileencoding']
     \     ]
     \ },
@@ -534,7 +534,6 @@ let g:lightline={
     \     ]
     \ },
     \ 'component': {
-    \     'windownr': '⧉ %{winnr()}',
     \     'lineinfo': ' %l:%-2v',
     \ },
     \ 'component_function': {
@@ -544,6 +543,7 @@ let g:lightline={
     \     'fileencoding': 'LightLineFileencoding',
     \     'filetype': 'LightLineFiletype',
     \     'percent': 'LightLinePercent',
+    \     'windownr': 'LightLineWindownr',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' },
@@ -552,6 +552,10 @@ let g:lightline={
 function! LightLineFugitive()
     return winwidth(0) > g:responsive_width ?
         \ (exists('*fugitive#head') ? ' '.fugitive#head() : '') : ''
+endfunction
+
+function! LightLineWindownr()
+    return winnr('$') > 1 ? printf('⧉ %d', winnr()) : ''
 endfunction
 
 function! LightLineReadonly()
