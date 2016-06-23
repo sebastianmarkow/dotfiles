@@ -36,3 +36,7 @@ if test -n "$formulas"
         printf " %s| bash=$brew param1=upgrade param2=%s terminal=false refresh=true\n" $item (echo "$item" | cut -f 1 -d " ")
     end
 end
+
+echo "---"
+echo "Prune| refresh=true terminal=false bash=$brew param1=prune"
+echo "Cleanup| refresh=true terminal=false bash=$brew param1=cleanup"
