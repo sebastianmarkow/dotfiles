@@ -217,6 +217,7 @@ set mouse=nvc " enable mouse in:
 try
     colorscheme gotham
 catch
+    echom 'colorscheme not found'
 endtry
 
 " Fileglob
