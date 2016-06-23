@@ -29,9 +29,6 @@
     conflictstyle = diff3
     tool = fugitive
 
-[mergetool "vimdiff"]
-    prompt = false
-
 [mergetool "fugitive"]
     prompt = false
     cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
@@ -58,14 +55,14 @@
 [advice]
     statusHints = false
 
-[help]
-    autocorrect = 1
-
 [color]
     ui = true
 
 [apply]
     whitespace = fix
+
+[rerere]
+    enabled = 1
 
 [alias]
     edit = config --global -e
@@ -78,7 +75,9 @@
     reword = commit --amend -v
 
     d = diff
+    dw = diff --word-diff=color
     ds = diff --staged
+    dsw = diff --staged --word-diff=color
     staged = diff --staged
     compare = diff master..HEAD
     last = diff -R HEAD..HEAD^
