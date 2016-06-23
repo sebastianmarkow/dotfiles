@@ -128,14 +128,14 @@ set linespace=0
 set nolist " don't show invisble character
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 " set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
-"               |  |   | | | |            |                      |       |   |   |  |
-"               |  |   | | | |            +-- encoding           |       |   |   |  +-- column
-"               |  |   | | | +--------------- preview            |       |   |   +----- line
-"               |  |   | | +----------------- help               |       |   +-------- total lines
-"               |  |   | +------------------- readonly           |       +------------ filetype
-"               |  |   +--------------------- modiied            +-------------------- format
-"               |  +------------------------- filepath
-"               +---------------------------- truncate from left
+"                 |  |   | | | |          |                        |       |   |   |  |
+"                 |  |   | | | |          +-- encoding        i    |       |   |   |  +-- column
+"                 |  |   | | | +--------------- preview            |       |   |   +----- line
+"                 |  |   | | +----------------- help               |       |   +-------- total lines
+"                 |  |   | +------------------- readonly           |       +------------ filetype
+"                 |  |   +--------------------- modiied            +-------------------- format
+"                 |  +------------------------- filepath
+"                 +---------------------------- truncate from left
 set noerrorbells
 set novisualbell
 set shortmess=aIOTF
