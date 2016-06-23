@@ -3,6 +3,8 @@ scriptencoding utf-8
 set noexrc " No, no, no!
 set shell=/bin/sh
 
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
 " Disable buildin plugins
 let g:loaded_2html_plugin=1
 let g:loaded_getscript=1
@@ -379,6 +381,7 @@ let g:neomake_error_sign={
     \ 'text': '>',
     \ 'texthl': 'ErrorMsg',
     \ }
+
 augroup neomaketrigger
 autocmd!
 autocmd FileType go autocmd BufWritePost * Neomake
@@ -435,13 +438,13 @@ let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
 
 " Plugin: vim-gitgutter
+nmap gn <plug>GitGutterNextHunk
+nmap gp <plug>GitGutterPrevHunk
 let g:gitgutter_override_sign_column_highlight=0
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
-nmap gn <plug>GitGutterNextHunk
-nmap gp <plug>GitGutterPrevHunk
 
 " Plugin: python-mode
 let g:pymode_rope=0
@@ -568,25 +571,32 @@ endfunction
 
 function! LightLinePercent()
     return winwidth(0) > g:responsive_width ?
-        \ line('.') * 100 / line('$') . '%' : ''
+        \ printf('%2d%%', line('.') * 100 / line('$')) : ''
 endfunction
 
 function! LightLineFileencoding()
     return winwidth(0) > g:responsive_width ?
         \ (&fileencoding !=# '' ?
-            \ (&fileencoding !=? g:omit_fileencoding ? &fileencoding : '') : &encoding) : ''
+            \ (&fileencoding !=? g:omit_fileencoding ? &fileencoding : '') :
+                \ (&encoding !=? g:omit_fileencoding ? &encoding : '')) : ''
 endfunction
 
 " Plugin: neosnippet.vim
 let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
 let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME.'/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility=1
+
 augroup neosnippetclear
 autocmd!
 autocmd InsertLeave * NeoSnippetClearMarkers
 augroup end
 
 " Plugin: deocomplete.nvim
+smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
+imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>"
+imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
+imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
+imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
 let g:deoplete#auto_completion_start_length=1
 let g:deoplete#enable_camel_case=1
@@ -598,10 +608,3 @@ let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Dev
 let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 let g:deoplete#sources#clang#std#c='c11'
 let g:deoplete#sources#clang#std#cpp='c++11'
-smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
-imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>"
-imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
-imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
-imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
-
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
