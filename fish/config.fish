@@ -23,7 +23,7 @@ end
 # Base
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
-set -x PAGER 'less'
+set -x PAGER 'less -R'
 set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
