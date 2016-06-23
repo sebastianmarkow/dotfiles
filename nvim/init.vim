@@ -472,8 +472,8 @@ xmap ga <plug>(EasyAlign)
 
 " Plugin: undotree
 nnoremap <leader>u :UndotreeToggle<cr>
-
 " Plugin: sideways.vim
+
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
 
