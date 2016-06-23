@@ -311,8 +311,8 @@ autocmd VimLeave          * let &titlestring=''
 autocmd BufReadPost * if &filetype !~? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Trigger: Switch between relative/norelative numbers in insert mode
-autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? 'help\|undotree\|GV\|gitcommit' | setlocal norelativenumber | endif
-autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? 'help\|undotree\|GV\|gitcommit' | setlocal relativenumber | endif
+autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? 'help\|undotree\|GV\|gitcommit\|git\|diff' | setlocal norelativenumber | endif
+autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? 'help\|undotree\|GV\|gitcommit\|git\|diff' | setlocal relativenumber | endif
 
 " Trigger: Cursorline
 autocmd WinEnter,FocusGained * setlocal cursorline
@@ -348,7 +348,7 @@ autocmd FileType text,markdown setlocal colorcolumn=+1
 autocmd FileType gitcommit     setlocal colorcolumn=51,+1
 
 " Custom: Disable decoration
-autocmd FileType GV,qf,gitcommit setlocal nonumber norelativenumber
+autocmd FileType qf,diff,git,gitcommit,GV setlocal nonumber norelativenumber
 
 augroup end
 
@@ -454,9 +454,11 @@ let g:go_doc_keywordprg_enabled=1
 
 " Plugin: vim-better-whitespace
 noremap <leader>I :ToggleWhitespace<cr>
+let g:better_whitespace_filetypes_blacklist=['git', 'diff']
 
 " Plugin: auto-pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
+
 augroup autopairsextend
 autocmd!
 autocmd FileType markdown let b:AutoPairs={'(': ')', '[': ']', '{': '}', "'": "'", '"': '"', '`': '`', '$': '$', '_': '_'}
@@ -481,6 +483,17 @@ let g:buftabline_indicators=1
 let g:committia_open_only_vim_starting=0
 let g:committia_min_window_width=160
 let g:committia_hooks={}
+
+function! g:committia_hooks.diff_open(info)
+    setlocal nonumber
+    setlocal norelativenumber
+endfunction
+
+function! g:committia_hooks.status_open(info)
+    setlocal nonumber
+    setlocal norelativenumber
+endfunction
+
 function! g:committia_hooks.edit_open(info)
     imap <buffer><c-j> <Plug>(committia-scroll-diff-down-half)
     imap <buffer><c-k> <Plug>(committia-scroll-diff-up-half)
