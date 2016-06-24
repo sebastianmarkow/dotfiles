@@ -90,12 +90,13 @@ FORMULAS=(
     trash
     tree
     upx
+    vmtouch
     w3m
     watch
     wget
     wrk
-    yank
     xz
+    yank
 )
 
 h1 "brew utilities"
