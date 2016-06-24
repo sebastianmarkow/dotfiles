@@ -31,6 +31,7 @@ FORMULAS=(
     bash
     bazaar
     calc
+    catimg
     cloc
     cloog
     coreutils
