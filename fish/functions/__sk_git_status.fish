@@ -11,11 +11,11 @@ function __sk_git_status --description "Display git status"
     set -l branch $repo_info[2]
     set -l files_status (command git status --porcelain ^/dev/null | cut -c 1-2 | sort)
 
-    set staged 0
-    set unstaged 0
-    set untracked 0
-    set unmerged 0
-    set stashed 0
+    set -l staged 0
+    set -l unstaged 0
+    set -l untracked 0
+    set -l unmerged 0
+    set -l stashed 0
 
     if test -r $git_dir/refs/stash
         set stashed (count (command git stash list ^ /dev/null))
@@ -46,7 +46,7 @@ function __sk_git_status --description "Display git status"
         end
     end
 
-    set files "$staged$unstaged$unmerged$untracked$stashed"
+    set -l files "$staged$unstaged$unmerged$untracked$stashed"
 
     if test -n "$files"
         set files "$files  "
@@ -63,11 +63,13 @@ function __sk_git_status --description "Display git status"
         end
     end
 
-    set upstream "$ahead$behind"
+    set -l upstream "$ahead$behind"
 
     if test -n "$upstream"
         set upstream "$upstream  "
     end
+
+    set -l operation
 
     if test -d $git_dir/rebase-merge -o -d $git_dir/rebase-apply
         set operation "rebase"
