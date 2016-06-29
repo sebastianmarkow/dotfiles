@@ -79,7 +79,7 @@ set fish_color_autosuggestion brblue
 set fish_color_selection --background=blue
 set fish_color_end brred
 
-set __sk_cmd_timing_limit 3
+set __sk_cmd_timing_limit 5
 
 set __sk_git_status_staged_sign '→'
 set __sk_git_status_unstaged_sign '↯'
