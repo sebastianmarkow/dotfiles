@@ -5,7 +5,7 @@ function __sk_git_status --description "Display git status"
 
     set -l repo_info (command git rev-parse --git-dir --abbrev-ref HEAD ^/dev/null)
     test -n "$repo_info"
-    or return
+    or return 0
 
     set -l git_dir $repo_info[1]
     set -l branch $repo_info[2]
@@ -15,6 +15,11 @@ function __sk_git_status --description "Display git status"
     set unstaged 0
     set untracked 0
     set unmerged 0
+    set stashed 0
+
+    if test -r $git_dir/refs/stash
+        set stashed (count (command git stash list ^ /dev/null))
+    end
 
     for f in $files_status
         switch $f
@@ -32,6 +37,38 @@ function __sk_git_status --description "Display git status"
         end
     end
 
+    for t in staged unstaged untracked unmerged stashed
+        if test "$$t" != "0"
+            set -l sign __sk_git_status_"$t"_sign
+            set $t "$$sign$$t"
+        else
+            set -e "$t"
+        end
+    end
+
+    set files "$staged$unstaged$unmerged$untracked$stashed"
+
+    if test -n "$files"
+        set files "$files  "
+    end
+
+    echo (command git rev-list --count --left-right '@{upstream}'...HEAD ^/dev/null) | read -l behind ahead
+
+    for t in behind ahead
+        if test "$$t" != "0"
+            set -l sign __sk_git_status_"$t"_sign
+            set $t "$$sign$$t"
+        else
+            set -e "$t"
+        end
+    end
+
+    set upstream "$ahead$behind"
+
+    if test -n "$upstream"
+        set upstream "$upstream  "
+    end
+
     if test -d $git_dir/rebase-merge -o -d $git_dir/rebase-apply
         set operation "rebase"
     else if test -f $git_dir/MERGE_HEAD
@@ -45,27 +82,8 @@ function __sk_git_status --description "Display git status"
     end
 
     if test -n "$operation"
-        set operation "$operation|"
+        set operation "$operation  "
     end
 
-    set -l neutral "$__sk_git_status_default_color"
-
-    for t in staged unstaged untracked unmerged
-        if test "$$t" != "0"
-            set -l color __sk_git_status_"$t"_color
-            set -l sign __sk_git_status_"$t"_sign
-            set $t "$$color$$sign$$t$neutral"
-        else
-            set -e "$t"
-        end
-    end
-
-    set file_desc "$staged$unstaged$unmerged$untracked"
-
-    if test -n "$file_desc"
-        set file_desc "$file_desc|"
-    end
-
-    echo -n "$neutral$file_desc$operation$branch"
-    set_color normal
+    echo -n "$files$upstream$operation$branch"
 end

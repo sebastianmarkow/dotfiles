@@ -81,6 +81,16 @@ set fish_color_end brred
 
 set __sk_cmd_timing_limit 3
 
+set __sk_git_status_staged_sign '→'
+set __sk_git_status_unstaged_sign '↯'
+set __sk_git_status_unmerged_sign '⇄'
+set __sk_git_status_untracked_sign '…'
+set __sk_git_status_stashed_sign '↩'
+set __sk_git_status_ahead_sign '↑'
+set __sk_git_status_behind_sign '↓'
+set __sk_right_prompt_git_fg white
+set __sk_right_prompt_git_bg brred
+
 set __sk_right_prompt_status_fg white
 set __sk_right_prompt_status_bg red
 set __sk_right_prompt_timing_fg white
@@ -99,21 +109,6 @@ set __sk_mode_color_normal blue
 set __sk_mode_color_insert green
 set __sk_mode_color_replace red
 set __sk_mode_color_visual magenta
-
-set __sk_git_status_staged_sign '+'
-set __sk_git_status_unstaged_sign '-'
-set __sk_git_status_unmerged_sign '?'
-set __sk_git_status_untracked_sign '…'
-set __sk_git_status_default_color (set_color normal)
-set __sk_git_status_staged_color (set_color green)
-set __sk_git_status_unstaged_color (set_color red)
-set __sk_git_status_unmerged_color (set_color brred)
-set __sk_git_status_untracked_color (set_color blue)
-
-set __fish_git_prompt_show_informative_status 1
-set __fish_git_prompt_showdirtystate 1
-set __fish_git_prompt_showuntrackedfiles 1
-set __fish_git_prompt_showcolorhints 1
 
 # Vi mode
 fish_vi_key_bindings
