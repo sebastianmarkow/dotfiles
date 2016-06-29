@@ -110,5 +110,9 @@ set __sk_mode_color_insert green
 set __sk_mode_color_replace red
 set __sk_mode_color_visual magenta
 
+
 # Vi mode
 fish_vi_key_bindings
+
+# User bindings
+fish_user_key_bindings
