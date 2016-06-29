@@ -4,7 +4,7 @@ function cdf --description "Interactive cd"
         exit 1
     end
 
-    find * -type d | fzf --header="cd" --tiebreak=end,length | read -l fzf_last_select
+    find * -type d | fzf --header="Change directory" --tiebreak=end,length | read -l fzf_last_select
     if [ $fzf_last_select ]
         cd $fzf_last_select
     end
