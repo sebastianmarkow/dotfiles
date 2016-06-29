@@ -250,6 +250,8 @@ nnoremap <leader><esc> :setlocal hlsearch!<cr>
 nnoremap <leader>i     :setlocal list!<cr>
 nnoremap <leader>s     :setlocal spell!<cr>
 
+nnoremap gm `
+
 nnoremap <c-h> :bprev<cr>
 nnoremap <c-l> :bnext<cr>
 
