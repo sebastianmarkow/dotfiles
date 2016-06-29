@@ -56,8 +56,10 @@ abbr g 'git'
 abbr dm 'docker-machine'
 abbr d 'docker'
 abbr t 'tmux'
+abbr tn 'tmux-new'
 
 # Alias
+alias tmux-new 'tmux new -A -s'
 alias ldd 'otool -L'
 alias tig 'nvim +GV +bd1'
 alias near 'grep -C 10'
