@@ -55,7 +55,7 @@ function __sk_git_status --description "Display git status"
     echo (command git rev-list --count --left-right '@{upstream}'...HEAD ^/dev/null) | read -l behind ahead
 
     for t in behind ahead
-        if test "$$t" != "0"
+        if test "$$t" != "" -a "$$t" != "0"
             set -l sign __sk_git_status_"$t"_sign
             set $t "$$sign$$t"
         else
