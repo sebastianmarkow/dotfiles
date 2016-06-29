@@ -38,5 +38,5 @@ if test -n "$formulas"
 end
 
 echo "---"
-echo "Prune| refresh=true terminal=false bash=$brew param1=prune"
-echo "Cleanup| refresh=true terminal=false bash=$brew param1=cleanup"
+echo "Prune| bash=$brew param1=prune terminal=false refresh=true"
+echo "Cleanup| bash=$brew param1=cleanup terminal=false refresh=true"
