@@ -11,6 +11,14 @@ function __sk_git_status --description "Display git status"
     set -l branch $repo_info[2]
     set -l files_status (command git status --porcelain ^/dev/null | cut -c 1-2 | sort)
 
+    set -l sign_staged '→'
+    set -l sign_unstaged '↯'
+    set -l sign_unmerged '⇄'
+    set -l sign_untracked '…'
+    set -l sign_stashed '↩'
+    set -l sign_ahead '↑'
+    set -l sign_behind '↓'
+
     set -l staged 0
     set -l unstaged 0
     set -l untracked 0
@@ -37,9 +45,11 @@ function __sk_git_status --description "Display git status"
         end
     end
 
-    for t in staged unstaged untracked unmerged stashed
-        if test "$$t" != "0"
-            set -l sign __sk_git_status_"$t"_sign
+    echo (command git rev-list --count --left-right '@{upstream}'...HEAD ^/dev/null) | read -l behind ahead
+
+    for t in staged unstaged untracked unmerged stashed ahead behind
+        if test "$$t" != "" -a "$$t" != "0"
+            set -l sign sign_"$t"
             set $t "$$sign$$t"
         else
             set -e "$t"
@@ -50,17 +60,6 @@ function __sk_git_status --description "Display git status"
 
     if test -n "$files"
         set files "$files  "
-    end
-
-    echo (command git rev-list --count --left-right '@{upstream}'...HEAD ^/dev/null) | read -l behind ahead
-
-    for t in behind ahead
-        if test "$$t" != "" -a "$$t" != "0"
-            set -l sign __sk_git_status_"$t"_sign
-            set $t "$$sign$$t"
-        else
-            set -e "$t"
-        end
     end
 
     set -l upstream "$ahead$behind"

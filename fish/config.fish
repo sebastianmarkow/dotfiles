@@ -83,16 +83,8 @@ set fish_color_end brred
 
 set __sk_cmd_timing_limit 5
 
-set __sk_git_status_staged_sign '→'
-set __sk_git_status_unstaged_sign '↯'
-set __sk_git_status_unmerged_sign '⇄'
-set __sk_git_status_untracked_sign '…'
-set __sk_git_status_stashed_sign '↩'
-set __sk_git_status_ahead_sign '↑'
-set __sk_git_status_behind_sign '↓'
 set __sk_right_prompt_git_fg white
 set __sk_right_prompt_git_bg brred
-
 set __sk_right_prompt_status_fg white
 set __sk_right_prompt_status_bg red
 set __sk_right_prompt_timing_fg white
