@@ -109,7 +109,7 @@
     l = log --graph --pretty=default
     added = log --diff-filter=A
     changes = log --pretty=changelog
-    overview = log --graph -10 --branches --remotes --tags --pretty=default --date-order
+    overview = log --graph --branches --remotes --tags --pretty=default --date-order
     unmerged = log --no-merges master..
     today = log -u --name-only --since='1 day ago' --remotes --branches --date-order --tags --pretty=default
 
