@@ -7,7 +7,9 @@ function tmux --description 'Attach to tmux session'
                     command tmux new-session -A -s $USER
                     return 0
                 case 1
-                    command tmux new-session -A -s (echo $sessions | cut -f 1 -d " ")
+                    if [ ! $TMUX ]
+                        command tmux new-session -A -s (echo $sessions | cut -f 1 -d " ")
+                    end
                     return 0
                 case '*'
                     echo -e (string join "\n" $sessions) | fzf --header="Choose tmux session" | read -l fzf_last_select
