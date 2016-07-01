@@ -375,6 +375,7 @@ noremap <leader><space> :Neomake<cr>
 let g:neomake_serialize=1
 let g:neomake_open_list=0
 let g:neomake_go_enabled_makers=['go', 'govet']
+let g:neomake_c_enabled_makers=['clang']
 let g:neomake_warning_sign={
     \ 'text': '!',
     \ 'texthl': 'WarningMsg',
