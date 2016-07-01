@@ -127,7 +127,7 @@ set lazyredraw " do not redraw during macros
 set linespace=0
 set nolist " don't show invisble character
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
-" set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c
+" set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c " disabled, using LightLine
 "                 |  |   | | | |          |                        |       |   |   |  |
 "                 |  |   | | | |          +-- encoding        i    |       |   |   |  +-- column
 "                 |  |   | | | +--------------- preview            |       |   |   +----- line
