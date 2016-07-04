@@ -283,6 +283,9 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
+" Avoid tmux conflict (increment number)
+nnoremap <c-b> <c-a>
+
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 
