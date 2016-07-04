@@ -15,7 +15,6 @@ TAPS=(
 HEAD=(
     fish
     neovim/neovim/neovim
-    tmux
 )
 
 EGGS=(
@@ -87,6 +86,7 @@ FORMULAS=(
     shellcheck
     since
     subversion
+    tmux
     trash
     tree
     upx
