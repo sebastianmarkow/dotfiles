@@ -96,7 +96,7 @@
     delete = branch -d
     rename = branch -m
     new = checkout -b
-    switch = checkout -
+    switch = checkout
     discard = checkout --
 
     cp = cherry-pick -x
