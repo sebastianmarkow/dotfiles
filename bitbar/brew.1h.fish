@@ -5,7 +5,7 @@
 # <bitbar.desc>List available updates from Homebrew</bitbar.desc>
 # <bitbar.dependencies>fish,cut,wc,printf</bitbar.dependencies>
 
-command brew update ^ /dev/null > /dev/null
+command nice -n 19 brew update ^ /dev/null > /dev/null
 or exit 1
 
 set -l icon "iVBORw0KGgoAAAANSUhEUgAAAA0AAAAQCAQAAABnqj2yAAAA2klEQVQYGQXBMSuEAQAG4Oe+7yOdfBYlnNJRBoPFWWT0K2wGg0H5Bwb5AzfJwGS1qKvrVhnULUYlA5Eyia5ueD1PicKcK/smHVn3AEBHz0Bb4daiAwM3FoCuGQA0tKw6g8q9E+cW/NkGdAwBhrb0HYuIeHZomQpNDZUJAGsu/NiBDx2vxiIiHrV96haoTZtSAZj1om+jUmkaKAFQo2FUqFECgNq8PUNWRERERMTIuxabIiIiIuLUEuyKiIiIiDYUagAA1EBPRERERFxC6cvYWKVQ+vXtyZ1rb/wDfLxUtQtQYsQAAAAASUVORK5CYII="
