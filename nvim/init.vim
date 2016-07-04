@@ -250,34 +250,43 @@ nnoremap <leader><esc> :setlocal hlsearch!<cr>
 nnoremap <leader>i     :setlocal list!<cr>
 nnoremap <leader>s     :setlocal spell!<cr>
 
+" Go to mark
 nnoremap gm `
 
+" Jump to next buffer
 nnoremap <c-h> :bprev<cr>
 nnoremap <c-l> :bnext<cr>
 
+" Move line/visual selection vertically
 nnoremap <c-j> :move .+1<cr>
 nnoremap <c-k> :move .-2<cr>
 vnoremap <c-j> :move '>+1'<cr>gv=gv
 vnoremap <c-k> :move '<-2'<cr>gv=gv
 
+" Speed up horizontal scroll
 nnoremap zl 5zl
 nnoremap zh 5zh
 
+" Yank til line end
 nnoremap Y y$
 
+" Reverse f,t,F,T jump direction
 nnoremap ; ,
 nnoremap , ;
 
+" Jump over wrapped lines
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" Center screen when jumping to the next search match
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
 
+" Do not lose visual selection while indenting
 nnoremap < <<
 nnoremap > >>
 vnoremap < <gv
@@ -286,6 +295,7 @@ vnoremap > >gv
 " Avoid tmux conflict (increment number)
 nnoremap <c-b> <c-a>
 
+" Walk history with j/k
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 
