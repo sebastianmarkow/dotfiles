@@ -393,6 +393,10 @@ let g:vim_markdown_fenced_languages=[
     \ 'bash=sh',
     \ 'conf',
     \ 'make',
+    \ 'go',
+    \ 'python',
+    \ 'rust',
+    \ 'c'
     \ ]
 
 " Plugin: neomake
