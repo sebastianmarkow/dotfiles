@@ -14,7 +14,9 @@ FORMULAS=(
     cmake
     deheader
     gdb
+    llvm
     make
+    rtags
     valgrind
 )
 
