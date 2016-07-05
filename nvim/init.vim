@@ -301,15 +301,15 @@ cnoremap <c-k> <up>
 
 " Search for visual selected
 vnoremap <silent>* :<c-u>
-  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \ gvy/<C-R><C-R>=substitute(
-  \ escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \ gV:call setreg('"', old_reg, old_regtype)<CR>
+  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<cr>
+  \ gvy/<c-r><c-r>=substitute(
+  \ escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
+  \ gV:call setreg('"', old_reg, old_regtype)<cr>
 vnoremap <silent># :<c-u>
-  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \ gvy?<C-R><C-R>=substitute(
-  \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \ gV:call setreg('"', old_reg, old_regtype)<CR>
+  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<cr>
+  \ gvy?<c-r><c-r>=substitute(
+  \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
+  \ gV:call setreg('"', old_reg, old_regtype)<cr>
 
 " Tmux-like pane switching
 function! s:panebind()
