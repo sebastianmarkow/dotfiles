@@ -267,7 +267,7 @@ vnoremap <c-k> :move '<-2'<cr>gv=gv
 nnoremap zl 5zl
 nnoremap zh 5zh
 
-" Yank til line end
+" Yank until line end
 nnoremap Y y$
 
 " Reverse f,t,F,T jump direction
@@ -280,7 +280,7 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" Center screen when jumping to the next search match
+" Center screen when jumping between search matches
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
@@ -292,13 +292,14 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-" Avoid tmux conflict (increment number)
+" Increment number (avoid tmux keymap conflict)
 nnoremap <c-b> <c-a>
 
 " Walk history with j/k
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 
+" Search for visual selected
 vnoremap <silent>* :<c-u>
   \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
   \ gvy/<C-R><C-R>=substitute(
