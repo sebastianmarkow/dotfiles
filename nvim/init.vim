@@ -491,7 +491,8 @@ noremap <leader>I :ToggleWhitespace<cr>
 let g:better_whitespace_filetypes_blacklist=['git', 'diff']
 
 " Plugin: auto-pairs
-let g:AutoPairsMapCR=0 " no funny stuff on carriage return
+" no funny stuff on carriage return
+let g:AutoPairsMapCR=0
 
 augroup autopairsextend
 autocmd!
