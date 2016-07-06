@@ -307,8 +307,9 @@ nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
-" Increment number (avoid tmux keymap conflict)
-nnoremap <c-b> <c-a>
+" Increment/decrement number
+nnoremap + <c-a>
+nnoremap - <c-x>
 
 " Walk history with j/k
 cnoremap <c-j> <down>
