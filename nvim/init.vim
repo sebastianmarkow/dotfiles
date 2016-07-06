@@ -497,6 +497,9 @@ let g:gitgutter_map_keys=0
 " Plugin: python-mode
 let g:pymode_rope=0
 
+" Plugin: rust.vim
+let g:rustfmt_autosave=1
+
 " Plugin: vim-go
 let g:go_fmt_command='goimports'
 let g:go_fmt_fail_silently=1
