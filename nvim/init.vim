@@ -239,7 +239,7 @@ endtry
 
 " Fileglob
 set wildmenu " enable filepath completion in the command bar
-set wildmode=longest:full,list:longest
+set wildmode=longest,full
 set wildchar=<tab>
 set wildignore+=*~,*sw[op],*.pid,.DS_Store
 set wildignore+=.git,.hg,.svn,.bzr
