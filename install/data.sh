@@ -7,7 +7,7 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
-    ipython[all]
+    jupyter
     pandas
     scikit-learn
     seaborn
