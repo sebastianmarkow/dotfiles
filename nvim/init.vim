@@ -79,7 +79,6 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
-Plug 'luxurypro/deoplete-rtags',            { 'for': ['c', 'cpp'] }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
