@@ -619,6 +619,11 @@ function! LightLineReadonly()
         \ (&filetype !~? 'help\|undotree' && &readonly ? '' : '') : ''
 endfunction
 
+function! LightLineModified()
+    return winwidth(0) > g:responsive_width ?
+        \ (&filetype !~? 'help\|undotree' ? '' : &modified ? '+' : &modifiable ? '' : '-') : ''
+endfunction
+
 function! LightLineFiletype()
     return winwidth(0) > g:responsive_width ?
         \ (&filetype !=# '' ? &filetype : 'no ft') : ''
