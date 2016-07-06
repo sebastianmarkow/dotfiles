@@ -5,18 +5,21 @@
 Session.vim
 .netrwhist
 *~
+tags
 
 # Darwin
-.DS_Store
+*.DS_Store
 .AppleDouble
 .LSOverride
 Icon
 ._*
+.DocumentRevisions-V100
 .fseventsd
 .Spotlight-V100
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 .AppleDB
 .AppleDesktop
 Network Trash Folder
@@ -25,6 +28,8 @@ Temporary Items
 
 # *nix
 *~
+.fuse_hidden*
+.directory
 .Trash-*
 
 # SVN
@@ -32,7 +37,7 @@ Temporary Items
 
 # CVS
 /CVS/*
-*/CVS/*
+**/CVS/*
 .cvsignore
 */.cvsignore
 
@@ -43,3 +48,45 @@ Temporary Items
 .hgsub
 .hgsubstate
 .hgtags
+
+# Bazaar
+.bzr/
+.bzrignore
+
+# Tags
+.TAGS
+!TAGS/
+tags
+.tags
+!tags/
+gtags.files
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+
+# Archive
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.cab
+*.iso
+*.tar
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+*.msi
+*.msm
+*.msp
