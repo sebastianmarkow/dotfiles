@@ -116,8 +116,8 @@ set cursorline
 set numberwidth=3
 set cmdheight=1
 set laststatus=2 " always show statusline
-set scrolloff=3
-set sidescrolloff=3 " number of horizontal columns visible around cursor
+set scrolloff=1
+set sidescrolloff=5 " number of horizontal columns visible around cursor
 set showmatch
 set matchtime=2 " matching brackets cursor blink time (1/10 * n)
 set hidden " hide unsaved buffer
@@ -145,6 +145,7 @@ set shortmess=aIOTF
 "             ||+---- no message on file changes (autoread)
 "             |+----- no startup message
 "             +------ use abbreviations
+set display+=lastline
 set conceallevel=2
 set concealcursor=nv
 
@@ -156,6 +157,9 @@ set diffopt=filler,vertical
 
 " Completion
 set infercase
+set complete-=i
+"             |
+"             +-- scan current and included files
 set complete+=kspell
 "               |
 "               +-- add spell dictionary
@@ -194,18 +198,29 @@ set nospell " no spellcheck
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/spellfile.utf-8.add
 set spelllang=en
 set clipboard=unnamed " use os clipboard
-set formatoptions=qcnr
-"                 ||||
-"                 ||||
+set formatoptions=qcnrj
+"                 |||||
+"                 |||||
+"                 ||||+-- delete comment character when joining comments
 "                 |||+--- insert comment leader after enter
 "                 ||+---- recognize numbered lists
 "                 |+----- auto-wrap comments using textwidth
 "                 +------ allow formatting comments
+set nrformats-=octal
+"               |
+"               +-- interpret numbers with leading zeros as octal
 
 " Sync
 set synmaxcol=256
 syntax sync minlines=256
 syntax sync maxlines=512
+
+" Timeout
+set ttimeout
+set ttimeoutlen=100
+
+" Session
+set sessionoptions-=options,buffers,tabpages,help
 
 " Mouse
 set mousehide " hide mouse pointer
@@ -227,7 +242,7 @@ set wildmenu " enable filepath completion in the command bar
 set wildmode=longest:full,list:longest
 set wildchar=<tab>
 set wildignore+=*~,*sw[op],*.pid,.DS_Store
-set wildignore+=.git,.hg,.svn
+set wildignore+=.git,.hg,.svn,.bzr
 set wildignore+=*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib
 set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso
 set wildignore+=*.pdf,*.doc*,*.aux,*.out,*.toc
