@@ -13,7 +13,6 @@ TAPS=(
 )
 
 HEAD=(
-    fish
     neovim/neovim/neovim
 )
 
@@ -45,6 +44,7 @@ FORMULAS=(
     fdupes
     ffmpeg
     findutils
+    fish
     fzf
     ghq
     git
