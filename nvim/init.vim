@@ -290,8 +290,8 @@ nnoremap ; ,
 nnoremap , ;
 
 " Jump over wrapped lines
-nnoremap j gj
-nnoremap k gk
+nnoremap j  gj
+nnoremap k  gk
 nnoremap gj j
 nnoremap gk k
 
@@ -355,13 +355,13 @@ autocmd VimLeave          * let &titlestring=''
 " Trigger: Remember cursor position
 autocmd BufReadPost * if &filetype !~? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-" Trigger: Switch between relative/norelative numbers in insert mode
+" Trigger: Switch from relative to norelative numbers in insert mode
 autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? 'help\|undotree\|GV\|gitcommit\|git\|diff' | setlocal norelativenumber | endif
 autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? 'help\|undotree\|GV\|gitcommit\|git\|diff' | setlocal relativenumber | endif
 
 " Trigger: Cursorline
 autocmd WinEnter,FocusGained * setlocal cursorline
-autocmd WinLeave,FocusLost * setlocal nocursorline
+autocmd WinLeave,FocusLost   * setlocal nocursorline
 
 augroup end
 
@@ -375,8 +375,8 @@ autocmd BufNewFile,BufRead gitcommit                     setlocal filetype=gitco
 autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType c,cpp setlocal cindent
-autocmd FileType make,go,c,cpp,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType c,cpp                                        setlocal cindent
+autocmd FileType make,go,c,cpp,glsl                           setlocal softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType yaml,toml,json,ruby,javascript,css,scss,html setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
@@ -433,7 +433,7 @@ let g:neomake_error_sign={
 
 augroup neomaketrigger
 autocmd!
-autocmd FileType go autocmd BufWritePost * Neomake
+autocmd FileType go  autocmd BufWritePost * Neomake
 autocmd FileType vim autocmd BufWritePost * Neomake
 augroup end
 
@@ -461,17 +461,17 @@ command! FZFopen call fzf#run({
     \ })
 
 command! FZFBuffer call fzf#run({
-    \ 'source': reverse(<sid>buflist()),
-    \ 'sink': function('<sid>bufopen'),
+    \ 'source':  reverse(<sid>buflist()),
+    \ 'sink':    function('<sid>bufopen'),
     \ 'options': '+m',
-    \ 'down': len(<sid>buflist()) + 2
+    \ 'down':    len(<sid>buflist()) + 2
     \ })
 
 command! FZFMru call fzf#run({
-    \ 'source': v:oldfiles,
-    \ 'sink': 'e ',
+    \ 'source':  v:oldfiles,
+    \ 'sink':    'e ',
     \ 'options': '+m',
-    \ 'down': len(v:oldfiles) + 2
+    \ 'down':    len(v:oldfiles) + 2
     \ })
 
 " Plugin: ag.vim
@@ -658,8 +658,8 @@ let g:neosnippet#enable_snipmate_compatibility=1
 
 " Plugin: deocomplete.nvim
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
-imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>"
-imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup()
+imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
+imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
 imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
