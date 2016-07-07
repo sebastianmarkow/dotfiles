@@ -573,7 +573,7 @@ let g:lightline={
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
-    \         ['lineinfo'],
+    \         ['lineno'],
     \         ['filetype', 'fileformat', 'fileencoding']
     \     ]
     \ },
@@ -585,17 +585,15 @@ let g:lightline={
     \         ['windownr']
     \     ]
     \ },
-    \ 'component': {
-    \     'lineinfo': ' %l:%-2v',
-    \ },
     \ 'component_function': {
-    \     'fugitive': 'LightLineFugitive',
-    \     'obsession': 'LightLineObsession',
-    \     'readonly': 'LightLineReadonly',
-    \     'fileformat': 'LightLineFileformat',
     \     'fileencoding': 'LightLineFileencoding',
+    \     'fileformat': 'LightLineFileformat',
     \     'filetype': 'LightLineFiletype',
+    \     'fugitive': 'LightLineFugitive',
+    \     'lineno': 'LightLineLineno',
+    \     'obsession': 'LightLineObsession',
     \     'percent': 'LightLinePercent',
+    \     'readonly': 'LightLineReadonly',
     \     'windownr': 'LightLineWindownr',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
@@ -637,6 +635,11 @@ endfunction
 function! LightLineFileformat()
     return winwidth(0) > g:responsive_width ?
         \ (&fileformat !=# g:omit_fileformat ? &fileformat : '') : ''
+endfunction
+
+function! LightLineLineno()
+    return winwidth(0) > g:responsive_width ?
+        \ printf(' %d:%-2d', line('.'), col('.')) : ''
 endfunction
 
 function! LightLinePercent()
