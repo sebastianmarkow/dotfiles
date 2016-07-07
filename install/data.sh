@@ -11,6 +11,7 @@ EGGS=(
     pandas
     scikit-learn
     seaborn
+    ggplot
 )
 
 FORMULAS=(
