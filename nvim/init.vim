@@ -375,8 +375,8 @@ autocmd BufNewFile,BufRead gitcommit                     setlocal filetype=gitco
 autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType c,cpp                                        setlocal cindent
-autocmd FileType make,go,c,cpp,glsl,neosnippet                setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType c,cpp setlocal cindent
+autocmd FileType make,go,c,cpp,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
 autocmd FileType yaml,toml,json,ruby,javascript,css,scss,html setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
