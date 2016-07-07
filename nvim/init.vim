@@ -587,18 +587,23 @@ let g:lightline={
     \ },
     \ 'component_function': {
     \     'fileencoding': 'LightLineFileencoding',
-    \     'fileformat': 'LightLineFileformat',
-    \     'filetype': 'LightLineFiletype',
-    \     'fugitive': 'LightLineFugitive',
-    \     'lineno': 'LightLineLineno',
-    \     'obsession': 'LightLineObsession',
-    \     'percent': 'LightLinePercent',
-    \     'readonly': 'LightLineReadonly',
-    \     'windownr': 'LightLineWindownr',
+    \     'fileformat':   'LightLineFileformat',
+    \     'filetype':     'LightLineFiletype',
+    \     'fugitive':     'LightLineFugitive',
+    \     'lineno':       'LightLineLineno',
+    \     'mode':         'LightLineMode',
+    \     'obsession':    'LightLineObsession',
+    \     'percent':      'LightLinePercent',
+    \     'readonly':     'LightLineReadonly',
+    \     'windownr':     'LightLineWindownr',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' },
     \ }
+
+function! LightLineMode()
+    return winwidth(0) > g:responsive_width ? lightline#mode() : ''
+endfunction
 
 function! LightLineFugitive()
     if winwidth(0) > g:responsive_width && exists('*fugitive#head')
