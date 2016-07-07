@@ -656,11 +656,6 @@ let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
 let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME.'/nvim/snippets'
 let g:neosnippet#enable_snipmate_compatibility=1
 
-augroup neosnippetclear
-autocmd!
-autocmd InsertLeave * NeoSnippetClearMarkers
-augroup end
-
 " Plugin: deocomplete.nvim
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
 imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>"
