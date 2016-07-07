@@ -603,8 +603,11 @@ let g:lightline={
     \ }
 
 function! LightLineFugitive()
-    return winwidth(0) > g:responsive_width ?
-        \ (exists('*fugitive#head') ? ' '.fugitive#head() : '') : ''
+    if winwidth(0) > g:responsive_width && exists('*fugitive#head')
+        let l:head=fugitive#head()
+        return l:head != '' ? ' '.l:head : ''
+    endif
+    return ''
 endfunction
 
 function! LightLineObsession()
