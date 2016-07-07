@@ -511,8 +511,7 @@ noremap <leader>I :ToggleWhitespace<cr>
 let g:better_whitespace_filetypes_blacklist=['git', 'diff']
 
 " Plugin: auto-pairs
-" no funny stuff on carriage return
-let g:AutoPairsMapCR=0
+let g:AutoPairsMapCR=0 " no funny stuff on carriage return
 
 augroup autopairsextend
 autocmd!
@@ -525,8 +524,8 @@ xmap ga <plug>(EasyAlign)
 
 " Plugin: undotree
 nnoremap <leader>u :UndotreeToggle<cr>
-" Plugin: sideways.vim
 
+" Plugin: sideways.vim
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
 
