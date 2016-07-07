@@ -560,7 +560,8 @@ function! g:committia_hooks.edit_open(info)
 endfunction
 
 " Plugin: lightline.vim
-let g:responsive_width=70
+let g:responsive_width_mid=70
+let g:responsive_width_small=50
 let g:omit_fileencoding='utf-8'
 let g:omit_fileformat='unix'
 let g:lightline={
@@ -602,11 +603,11 @@ let g:lightline={
     \ }
 
 function! LightLineMode()
-    return winwidth(0) > g:responsive_width ? lightline#mode() : ''
+    return winwidth(0) > g:responsive_width_small ? lightline#mode() : ''
 endfunction
 
 function! LightLineFugitive()
-    if winwidth(0) > g:responsive_width && exists('*fugitive#head')
+    if winwidth(0) > g:responsive_width_mid && exists('*fugitive#head')
         let l:head=fugitive#head()
         return l:head != '' ? ' '.l:head : ''
     endif
@@ -614,7 +615,7 @@ function! LightLineFugitive()
 endfunction
 
 function! LightLineObsession()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ (exists('*ObsessionStatus') ? ObsessionStatus('↺ session') : '') : ''
 endfunction
 
@@ -623,37 +624,37 @@ function! LightLineWindownr()
 endfunction
 
 function! LightLineReadonly()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ (&filetype !~? 'help\|undotree' && &readonly ? '' : '') : ''
 endfunction
 
 function! LightLineModified()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ (&filetype !~? 'help\|undotree' ? '' : &modified ? '+' : &modifiable ? '' : '-') : ''
 endfunction
 
 function! LightLineFiletype()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
 
 function! LightLineFileformat()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ (&fileformat !=# g:omit_fileformat ? &fileformat : '') : ''
 endfunction
 
 function! LightLineLineno()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_small ?
         \ printf(' %d:%-2d', line('.'), col('.')) : ''
 endfunction
 
 function! LightLinePercent()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ printf('%2d%%', line('.') * 100 / line('$')) : ''
 endfunction
 
 function! LightLineFileencoding()
-    return winwidth(0) > g:responsive_width ?
+    return winwidth(0) > g:responsive_width_mid ?
         \ (&fileencoding !=# '' ?
             \ (&fileencoding !=# g:omit_fileencoding ? &fileencoding : '') :
                 \ (&encoding !=# g:omit_fileencoding ? &encoding : '')) : ''
