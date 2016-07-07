@@ -412,7 +412,8 @@ let g:vim_markdown_fenced_languages=[
     \ 'go',
     \ 'python',
     \ 'rust',
-    \ 'c'
+    \ 'c',
+    \ 'vim',
     \ ]
 
 " Plugin: neomake
