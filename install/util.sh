@@ -61,7 +61,7 @@ FORMULAS=(
     yank
 )
 
-h1 "brew utilities"
+h1 "utilities"
 h2 "brew taps"
 for t in "${TAPS[@]}"; do brew_tap "$t"; done
 h2 "brew formulas"

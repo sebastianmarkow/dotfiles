@@ -49,7 +49,7 @@ FORMULAS=(
     xz
 )
 
-h1 "brew base"
+h1 "base"
 h2 "brew taps"
 for t in "${TAPS[@]}"; do brew_tap "$t"; done
 h2 "brew formulas (HEAD)"
