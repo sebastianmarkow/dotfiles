@@ -64,7 +64,6 @@ FORMULAS=(
     htop
     iftop
     imagemagick
-    irssi
     jo
     jq
     jump
