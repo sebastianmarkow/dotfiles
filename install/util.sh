@@ -10,28 +10,18 @@ TAPS=(
     homebrew/services
 )
 
-HEAD=(
-    neovim/neovim/neovim
-)
-
 EGGS=(
-    http-prompt
-    neovim
-    proselint
     Sphinx
+    http-prompt
+    proselint
     vim-vint
 )
 
 FORMULAS=(
-    ag
-    bash
-    bazaar
     calc
     catimg
     cloc
     cloog
-    coreutils
-    curl
     devd
     docker
     docker-compose
@@ -41,66 +31,39 @@ FORMULAS=(
     entr
     fdupes
     ffmpeg
-    findutils
-    fish
-    fzf
-    ghq
-    git
     git-extras
-    gnu-sed
-    gnu-tar
     gnuplot
     graphviz
-    homebrew/dupes/awk
-    homebrew/dupes/diffutils
-    homebrew/dupes/grep
-    homebrew/dupes/less
-    homebrew/dupes/make
-    homebrew/dupes/openssh
-    homebrew/dupes/rsync
     homebrew/dupes/tcpdump
     htop
-    iftop
     imagemagick
     jo
     jq
-    jump
     laurent22/massren/massren
     lftp
     mandoc
-    mercurial
-    moreutils
     mtr
     multitail
     nmap
     node
-    pam_yubico
-    pstree
     pv
     python3
     ragel
     rename
     shellcheck
     since
-    subversion
     tmux
     trash
-    tree
     upx
     vmtouch
     w3m
-    watch
-    wget
     wrk
-    xz
     yank
 )
 
 h1 "brew utilities"
 h2 "brew taps"
 for t in "${TAPS[@]}"; do brew_tap "$t"; done
-h2 "brew formulas (HEAD)"
-for h in "${HEAD[@]}"; do brew_install "$h" "--HEAD"; done
 h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "pip modules"

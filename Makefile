@@ -23,11 +23,7 @@ CONFIGS=fish	\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-.PHONY: brew
-brew:
-	@sh ./install/brew.sh
-
-all: dotfiles cxx data go python rust util ## all of the below
+all: dotfiles base util cxx go python rust data ## all of the below
 
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
 
@@ -47,6 +43,14 @@ $(CONFIGS):
 	$(info Symlink $@ → $(XDG_CONFIG_HOME)/$@)
 	@rm -rf $(XDG_CONFIG_HOME)/$@
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
+
+.PHONY: base
+base: brew ## install base
+	@sh ./install/base.sh
+
+.PHONY: brew
+brew:
+	@sh ./install/brew.sh
 
 .PHONY: cxx
 cxx: brew ## install cxx toolchain
