@@ -3,6 +3,8 @@
 A heavily opinionated set of dotfiles (neovim, fish, tmux, git, homebrew,
 iterm2 & bitbar).
 
+[![Screenshot](https://s31.postimg.org/55rprcrgb/Bildschirmfoto_2016_07_08_um_11_29_26.png)](https://s31.postimg.org/55rprcrgb/Bildschirmfoto_2016_07_08_um_11_29_26.png)
+
 > **Dotfile's Creed**  
 > These are my dotfiles. There are many like them, but these ones are mine. My
 > dotfiles are my best friends. They are my life. I must master them as I must
