@@ -16,7 +16,6 @@ FORMULAS=(
     gdb
     llvm
     make
-    rtags
     valgrind
 )
 
