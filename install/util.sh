@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 PATH=/usr/local/bin:$PATH
 
 source "${BASH_SOURCE%/*}/lib.sh"
