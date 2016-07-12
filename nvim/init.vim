@@ -37,6 +37,10 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     augroup END
 endif
 
+function! UpdateRemote()
+    UpdateRemotePlugins
+endfunction
+
 " Plugins
 call plug#begin()
 
@@ -56,7 +60,7 @@ Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
-Plug 'shougo/deoplete.nvim'
+Plug 'shougo/deoplete.nvim',                { 'do': function('UpdateRemote') }
 Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
