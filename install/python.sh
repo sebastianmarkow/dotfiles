@@ -7,6 +7,7 @@ source "${BASH_SOURCE%/*}/lib.sh"
 EGGS=(
     pep8
     pip
+    pylint
     virtualenv
 )
 
