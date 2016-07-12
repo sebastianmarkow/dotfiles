@@ -82,6 +82,7 @@ Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
+Plug 'sebastianmarkow/deoplete-rust',       { 'for': 'rust'}
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
 Plug 'zchee/deoplete-clang',                { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-go',                   { 'for': 'go', 'do': 'make' }
@@ -699,3 +700,6 @@ let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Dev
 let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 let g:deoplete#sources#clang#std#c='c11'
 let g:deoplete#sources#clang#std#cpp='c++11'
+let g:deoplete#sources#rust#racer_binary='racer'
+let g:deoplete#sources#rust#rust_source_path='/Users/sebastian/Developer/repos/github.com/rust-lang/rust/src'
+let g:deoplete#sources#rust#cargo_path='/Users/sebastian/Developer/cargo'
