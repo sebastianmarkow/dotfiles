@@ -86,7 +86,7 @@ Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
-Plug 'sebastianmarkow/deoplete-rust',       { 'for': 'rust'}
+Plug 'sebastianmarkow/deoplete-rust',       { 'for': 'rust', 'frozen': 1}
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
 Plug 'zchee/deoplete-clang',                { 'for': ['c', 'cpp'] }
 Plug 'zchee/deoplete-go',                   { 'for': 'go', 'do': 'make' }
