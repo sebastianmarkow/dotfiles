@@ -108,6 +108,7 @@
 
     l = log --graph --pretty=default
     added = log --diff-filter=A
+    changed-files = log --stat --pretty=changelog
     changes = log --pretty=changelog
     overview = log --graph --branches --remotes --tags --pretty=default --date-order
     unmerged = log --no-merges master..
