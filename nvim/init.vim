@@ -81,7 +81,6 @@ Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'docker/docker',                       { 'for': 'dockerfile', 'rtp': '/contrib/syntax/vim/' }
 Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
-Plug 'klen/python-mode',                    { 'for': 'python' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
 Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
