@@ -438,8 +438,7 @@ let g:neomake_error_sign={
 
 augroup neomaketrigger
 autocmd!
-autocmd FileType go  autocmd BufWritePost * Neomake
-autocmd FileType vim autocmd BufWritePost * Neomake
+autocmd FileType go,vim,python,rust,markdown autocmd BufWritePost * Neomake
 augroup end
 
 " Plugin: fzf
