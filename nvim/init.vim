@@ -360,8 +360,9 @@ autocmd VimLeave          * let &titlestring=''
 autocmd BufReadPost * if &filetype !~? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Trigger: Switch from relative to norelative numbers in insert mode
-autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? 'help\|undotree\|GV\|gitcommit\|git\|diff\|vim\-plug' | setlocal norelativenumber | endif
-autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? 'help\|undotree\|GV\|gitcommit\|git\|diff\|vim\-plug' | setlocal relativenumber | endif
+let g:omit_numbers='help\|undotree\|GV\|gitcommit\|git\|diff\|vim\-plug\|rustdoc\|godoc'
+autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? g:omit_numbers | setlocal norelativenumber | endif
+autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? g:omit_numbers | setlocal relativenumber | endif
 
 " Trigger: Cursorline
 autocmd WinEnter,FocusGained * setlocal cursorline
@@ -396,7 +397,7 @@ autocmd FileType text,markdown setlocal colorcolumn=+1
 autocmd FileType gitcommit     setlocal colorcolumn=51,+1
 
 " Custom: Disable decoration
-autocmd FileType qf,diff,git,gitcommit,GV,vim-plug setlocal nonumber norelativenumber
+autocmd FileType qf,diff,git,gitcommit,GV,vim-plug,rustdoc,godoc setlocal nonumber norelativenumber
 
 augroup end
 
