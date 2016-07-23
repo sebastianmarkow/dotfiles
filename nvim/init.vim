@@ -78,7 +78,7 @@ Plug 'whatyouhide/vim-gotham'
 " Filetype:
 Plug 'cespare/vim-toml',                    { 'for': 'toml' }
 Plug 'dag/vim-fish',                        { 'for': 'fish' }
-Plug 'docker/docker',                       { 'for': 'dockerfile', 'rtp': '/contrib/syntax/vim/' }
+Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
