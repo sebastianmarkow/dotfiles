@@ -37,7 +37,7 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     augroup END
 endif
 
-function! UpdateRemote()
+function! UpdateRemote(info)
     UpdateRemotePlugins
 endfunction
 
