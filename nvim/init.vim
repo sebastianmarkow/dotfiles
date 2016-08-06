@@ -102,9 +102,11 @@ set nomodeline " seriously modelines?
 " State
 set noswapfile
 set backup
+set backupdir=$XDG_DATA_HOME/nvim/backup
 set undofile
 set undolevels=500
-set shada='100,<500,/50,:100,@100,s10,h,c
+set undodir=$XDG_DATA_HOME/nvim/undo
+set shada='100,<500,/50,:100,@100,s10,h,c,n$XDG_DATA_HOME/nvim/shada
 
 " Interface
 set showmode " current mode (insert, visual, etc)
