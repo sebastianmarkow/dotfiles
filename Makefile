@@ -8,7 +8,8 @@ FILES=tmux.conf	\
 	gitignore	\
 	gitmessage	\
 	wgetrc		\
-	hushlogin
+	hushlogin	\
+	hammerspoon
 
 DIRS=$(XDG_CONFIG_HOME) \
 	$(XDG_DATA_HOME)/nvim/undo	\
