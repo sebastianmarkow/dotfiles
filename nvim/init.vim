@@ -83,7 +83,6 @@ Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
 Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
-Plug 'plasticboy/vim-markdown',             { 'for': 'markdown' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'sebastianmarkow/deoplete-rust',       { 'for': 'rust' }
 Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
@@ -402,13 +401,6 @@ augroup end
 " Colors: Spelling Errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
-
-" Plugin: vim-markdown
-let g:vim_markdown_no_default_key_mappings=1
-let g:vim_markdown_conceal=1
-let g:vim_markdown_math=1
-let g:vim_markdown_frontmatter=1
-let g:vim_markdown_toml_frontmatter=1
 
 " Plugin: neomake
 noremap <leader><space> :Neomake<cr>
