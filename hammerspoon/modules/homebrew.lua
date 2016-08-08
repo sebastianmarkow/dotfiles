@@ -50,6 +50,6 @@ end
 if Homebrew then
     Homebrew.menubar:removeFromMenuBar()
     Homebrew.menubar:setTooltip("Homebrew")
-    Homebrew.menubar:setIcon("./assets/homebrew.pdf")
+    Homebrew.menubar:setIcon("./assets/cask.pdf")
     Homebrew:update(); hs.timer.new(3600, function() Homebrew:update() end):start()
 end
