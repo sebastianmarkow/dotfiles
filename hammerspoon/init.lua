@@ -1,13 +1,12 @@
 -- Caffeinate replacement menubar
 local caffeine = hs.menubar.new()
-caffeine:setTitle("Caffeinate")
 caffeine:setTooltip("Caffeinate")
 
 function setCaffeineIcon(state)
     if state then
-        caffeine:setIcon("./icon/caffeine-on.pdf")
+        caffeine:setIcon("./assets/caffeinate_active.pdf")
     else
-        caffeine:setIcon("./icon/caffeine-off.pdf")
+        caffeine:setIcon("./assets/caffeinate_inactive.pdf")
     end
 end
 
@@ -21,21 +20,23 @@ if caffeine then
 end
 
 -- Homebrew menubar
+local logger = hs.logger.new("homebrew", "debug")
+
 function getHomebrewOutdated()
-    brew = io.popen("/usr/local/bin/brew outdated -1 --verbose")
-    local outdated = {}
-    for formula in brew:lines() do
-        local full, name = formula, string.gmatch(formula, "%S+")[1]
-        table.insert(outdated, {title=full, fn=function() os.execute("/usr/local/bin/brew upgrade " .. name); updateHomebrewMenu() end})
+    local f = io.popen("/usr/local/bin/brew outdated -1 --quiet", "r")
+    local outdated = false
+    local items = {}
+    for formula in f:lines() do
+        table.insert(items, {title=formula, fn=function() os.execute("/usr/local/bin/brew upgrade " .. formula); updateHomebrewMenu() end})
+        outdated = true
     end
-    brew:close()
-    return outdated
+    f:close()
+    return outdated, items
 end
 
 local homebrew = hs.menubar.new()
 homebrew:removeFromMenuBar()
--- homebrew:setIcon("./icon/beer.pdf")
-homebrew:setTitle("Brew")
+homebrew:setIcon("./assets/homebrew.pdf")
 homebrew:setTooltip("Homebrew")
 
 local defaultMenu = {
@@ -44,18 +45,20 @@ local defaultMenu = {
 }
 
 function updateHomebrewMenu()
-    local tableMenu = defaultMenu
-    local outdated = getHomebrewOutdated()
+    homebrew:setMenu(nil)
 
-    if (#outdated > 0) then
-        for item in ipairs(outdated) do
+    local tableMenu = {}
+    tableMenu = defaultMenu
+    local outdated, items = getHomebrewOutdated()
+
+    if outdated then
+        for i, item in ipairs(items) do
             table.insert(tableMenu, item)
         end
-        homebrew:returnToMenuBar()
         homebrew:setMenu(tableMenu)
+        homebrew:returnToMenuBar()
     else
         homebrew:removeFromMenuBar()
-        homebrew:setMenu(nil)
     end
 end
 
