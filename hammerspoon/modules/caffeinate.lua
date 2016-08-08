@@ -18,7 +18,7 @@ end
 
 function Caffeinate:batteryCallback()
     if hs.battery.powerSource() == "Battery Power" then
-        if hs.battery.percentage <= self.batteryCap and hs.caffeinate.get("displayIdle") then
+        if hs.battery.percentage() <= self.batteryCap and hs.caffeinate.get("displayIdle") then
             self:toggle()
         end
     end
