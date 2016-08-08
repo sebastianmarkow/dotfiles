@@ -27,7 +27,7 @@ function Homebrew:loadMenu()
         local tableMenu = {}
         tableMenu = self.header
         for i, item in ipairs(self.items) do
-            table.insert(tableMenu, {title=item, fn=function() os.execute("/usr/local/bin/brew upgrade " .. item ) end})
+            table.insert(tableMenu, {title=item, fn=function() os.execute("/usr/local/bin/brew upgrade " .. item ); Homebrew:refresh() end})
         end
         self.menubar:setMenu(tableMenu)
         self.menubar:returnToMenuBar()
