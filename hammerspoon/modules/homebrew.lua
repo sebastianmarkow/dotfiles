@@ -27,7 +27,7 @@ function Homebrew:loadMenu()
         local tableMenu = {}
         tableMenu = self.header
         for i, item in ipairs(self.items) do
-            table.insert(tableMenu, {title=item, fn=function() os.execute("/usr/local/bin/brew upgrade " .. item ); Homebrew:refresh() end})
+            table.insert(tableMenu, {title=item, fn=function() hs.task.new("/usr/local/bin/brew", function(code, stdout, stderr) Homebrew:refresh() end, {"upgrade", item}):start() end})
         end
         self.menubar:setMenu(tableMenu)
         self.menubar:returnToMenuBar()
@@ -44,17 +44,12 @@ end
 
 function Homebrew:update()
     print("fetching homebrew")
-    os.execute("/usr/local/bin/brew update")
-end
-
-function Homebrew:cron()
-    Homebrew:update()
-    Homebrew:refresh()
+    hs.task.new("/usr/local/bin/brew", function(code, stdout, stderr) Homebrew:refresh() end, {"update"}):start()
 end
 
 if Homebrew then
     Homebrew.menubar:removeFromMenuBar()
     Homebrew.menubar:setTooltip("Homebrew")
     Homebrew.menubar:setIcon("./assets/homebrew.pdf")
-    Homebrew.cron(); hs.timer.new(3600, function() Homebrew:cron() end)
+    Homebrew:update(); hs.timer.new(3600, function() Homebrew:update() end)
 end
