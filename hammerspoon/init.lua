@@ -1,13 +1,26 @@
--- loading modules
-local pipe = io.popen('ls ./modules/*.lua | sed "s/\\.lua$//g"')
-for module in pipe:lines() do
-    print("loading '" .. module .. "'")
-    require(module)
-end
-pipe:close()
-
--- Install cli
+-- install cli
 hs.ipc.cliInstall()
 
--- Hostname
+-- leader
+hs.settings.set("leader", {"ctrl", "alt"})
+
+-- hostname
 local hostname = hs.host.localizedName()
+
+-- window
+hs.window.animationDuration = 0
+
+-- zhora
+if hostname == "zhora" then
+
+end
+
+-- pris
+if hostname == "pris" then
+
+end
+
+-- loading modules
+require("./modules/caffeinate")
+require("./modules/redshift")
+require("./modules/homebrew")

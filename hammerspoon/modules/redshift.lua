@@ -7,7 +7,7 @@ local Redshift = {
     stop = "08:00",
     fade = "2h",
     inverted = false,
-    filter = hs.window.filter.new({loginwindow={visible=true, allowRoles='*'}}, 'wf-redshift')
+    filter = hs.window.filter.new({loginwindow = {visible = true, allowRoles = '*'}}, 'wf-redshift')
 }
 
 function Redshift:on()
@@ -34,5 +34,5 @@ if Redshift then
     Redshift.menubar:setTooltip("Redshift")
     Redshift.menubar:setClickCallback(function() Redshift:toggle() end)
     Redshift:on()
-    hs.hotkey.bind('ctrl-alt', 'r', 'Redshift', function() Redshift:toggle() end)
+    hs.hotkey.bind(hs.settings.get("leader"), 'r', 'Redshift', function() Redshift:toggle() end)
 end
