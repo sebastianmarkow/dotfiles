@@ -1,7 +1,13 @@
 -- loading modules
-local modules = io.popen('ls ./modules/*.lua | sed "s/\\.lua$//g"')
-for module in modules:lines() do
-    print("loading module in '" .. module .. "'")
+local pipe = io.popen('ls ./modules/*.lua | sed "s/\\.lua$//g"')
+for module in pipe:lines() do
+    print("loading '" .. module .. "'")
     require(module)
 end
-modules:close()
+pipe:close()
+
+-- Install cli
+hs.ipc.cliInstall()
+
+-- Hostname
+local hostname = hs.host.localizedName()
