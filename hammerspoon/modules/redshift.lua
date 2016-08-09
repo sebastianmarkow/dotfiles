@@ -33,5 +33,5 @@ if Redshift then
     Redshift.menubar:setTooltip("Redshift")
     Redshift.menubar:setClickCallback(function() Redshift:toggle() end)
     Redshift:on()
-    hs.hotkey.bind(hs.settings.get("leader"), 'r', 'Redshift', function() Redshift:toggle() end)
+    hs.hotkey.bind(hs.settings.get("leader"), 'r', 'Redshift toggle', function() Redshift:toggle() end)
 end
