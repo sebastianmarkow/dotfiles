@@ -20,6 +20,7 @@ function Caffeinate:batteryCallback()
     if hs.battery.powerSource() == "Battery Power" then
         if hs.battery.percentage() <= self.batteryCap and hs.caffeinate.get("displayIdle") then
             self:toggle()
+            hs.notify.show("Caffeinate disabled", "", "Battery power below " .. self.batteryCap .. "%")
         end
     end
 end
@@ -28,6 +29,6 @@ if Caffeinate then
     Caffeinate.menubar:setTooltip("Caffeinate")
     Caffeinate.menubar:setClickCallback(function() Caffeinate:toggle() end)
     Caffeinate:setIcon(hs.caffeinate.get("displayIdle"))
-    watcher = hs.battery.watcher.new(function() Caffeinate:batteryCallback() end)
+    local watcher = hs.battery.watcher.new(function() Caffeinate:batteryCallback() end)
     watcher:start()
 end
