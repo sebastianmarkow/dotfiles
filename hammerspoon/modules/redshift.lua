@@ -6,14 +6,13 @@ local Redshift = {
     start = "20:00",
     stop = "08:00",
     fade = "2h",
-    inverted = false,
-    filter = hs.window.filter.new({loginwindow = {visible = true, allowRoles = '*'}}, 'wf-redshift')
+    inverted = false
 }
 
 function Redshift:on()
         self.active = true
         self.menubar:setIcon("./assets/moon.pdf")
-        hs.redshift.start(self.temperature, self.start, self.stop, self.fade, self.inverted, self.filter)
+        hs.redshift.start(self.temperature, self.start, self.stop, self.fade, self.inverted)
 end
 
 function Redshift:off()
