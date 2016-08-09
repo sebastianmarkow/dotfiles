@@ -4,8 +4,8 @@ local Homebrew = {
     outdated = false,
     items = {},
     header = {
-        {title="Upgrade all", fn=function() os.execute("/usr/local/bin/brew upgrade --all"); Homebrew:refresh() end},
-        {title="-"},
+        {title="Upgrade all", fn=function() hs.task.new("/usr/local/bin/brew", function(code, stdout, stderr) Homebrew:refresh() end, {"upgrade", "--all"}) end},
+        {title="-"}
     }
 }
 
