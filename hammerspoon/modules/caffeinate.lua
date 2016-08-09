@@ -29,6 +29,6 @@ if Caffeinate then
     Caffeinate.menubar:setTooltip("Caffeinate")
     Caffeinate.menubar:setClickCallback(function() Caffeinate:toggle() end)
     Caffeinate:setIcon(hs.caffeinate.get("displayIdle"))
-    local watcher = hs.battery.watcher.new(function() Caffeinate:batteryCallback() end)
-    watcher:start()
+    hs.battery.watcher.new(function() Caffeinate:batteryCallback() end):start()
+    hs.hotkey.bind(hs.settings.get("leader"), 'c', 'Caffeinate toggle', function() Caffeinate:toggle() end)
 end
