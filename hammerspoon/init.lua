@@ -1,26 +1,27 @@
 -- install cli
-hs.ipc.cliInstall()
+if not hs.ipc.cliStatus() then
+    hs.ipc.cliInstall()
+end
 
 -- leader
-hs.settings.set("leader", {"ctrl", "alt"})
+hs.settings.set('leader', {'ctrl', 'alt'})
+hs.settings.set('leadermeta', {'shift', 'ctrl', 'alt'})
 
 -- hostname
 local hostname = hs.host.localizedName()
 
--- window
-hs.window.animationDuration = 0
 
--- zhora
-if hostname == "zhora" then
+-- host specific
+if hostname == 'zhora' then -- zhora
 
-end
+elseif hostname == 'pris' then -- pris
 
--- pris
-if hostname == "pris" then
+else -- any
 
 end
 
 -- loading modules
-require("./modules/caffeinate")
-require("./modules/redshift")
-require("./modules/homebrew")
+require('./modules/redshift')
+require('./modules/caffeinate')
+require('./modules/grid')
+require('./modules/homebrew')

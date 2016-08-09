@@ -6,7 +6,7 @@ local Homebrew = {
 
 function Homebrew:loadOutdated()
     local items, outdated = {}, false
-    local b = io.popen("/usr/local/bin/brew outdated -1 --quiet", "r")
+    local b = io.popen('/usr/local/bin/brew outdated -1 --quiet', 'r')
     for formula in b:lines() do
         table.insert(items, formula)
         outdated = true
@@ -24,25 +24,25 @@ end
 
 function Homebrew:getMenu()
     local tableMenu = {
-        {title="Upgrade all", fn=function() hs.task.new("/usr/local/bin/brew", function(code, stdout, stderr) Homebrew:loadOutdated() end, {"upgrade", "--all"}):start() end},
-        {title="-"},
+        {title='Upgrade all', fn=function() hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'upgrade', '--all'}):start() end},
+        {title='-'},
     }
     for i, item in ipairs(self.items) do
-        table.insert(tableMenu, {title=item, fn=function() hs.task.new("/usr/local/bin/brew", function(code, stdout, stderr) Homebrew:loadOutdated() end, {"upgrade", item}):start() end})
+        table.insert(tableMenu, {title=item, fn=function() hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'upgrade', item}):start() end})
     end
 
     return tableMenu
 end
 
 function Homebrew:update()
-    print("Updating Homebrew")
-    hs.task.new("/usr/local/bin/brew", function(code, stdout, stderr) Homebrew:loadOutdated() end, {"update"}):start()
+    print('Updating Homebrew')
+    hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'update'}):start()
 end
 
 if Homebrew then
     Homebrew.menubar:removeFromMenuBar()
-    Homebrew.menubar:setTooltip("Homebrew")
-    Homebrew.menubar:setIcon("./assets/cask.pdf")
+    Homebrew.menubar:setTooltip('Homebrew')
+    Homebrew.menubar:setIcon('./assets/cask.pdf')
     Homebrew.menubar:setMenu(function() return Homebrew:getMenu() end)
-    Homebrew:update(); hs.timer.new(3600, function() Homebrew:update() end):start()
+    Homebrew:update(); hs.timer.doEvery(3600, function() Homebrew:update() end)
 end
