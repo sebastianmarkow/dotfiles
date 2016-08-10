@@ -1,12 +1,12 @@
 -- Grid manager
 local Grid = {
-    margin = {0,0},
+    margin     = {0,0},
     resolution = {
 	['2560x1440'] = '8x4',
 	['1920x1080'] = '6x4',
-	['1440x900']  = '4x2'
+	['1440x900']  = '4x2',
     },
-    animationDuration = 0
+    animationDuration = 0,
 }
 
 function Grid:init()

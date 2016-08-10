@@ -1,6 +1,6 @@
 -- Caffeinate replacement menubar
 local Caffeinate = {
-    menubar = hs.menubar.new(),
+    menubar    = hs.menubar.new(),
     batteryCap = 10.0,
 }
 
