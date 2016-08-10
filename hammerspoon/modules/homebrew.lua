@@ -1,7 +1,8 @@
 -- Homebrew menubar
 local Homebrew = {
     menubar = hs.menubar.new(),
-    items = {}
+    items = {},
+    disabled = false
 }
 
 function Homebrew:loadOutdated()
@@ -12,6 +13,8 @@ function Homebrew:loadOutdated()
         outdated = true
     end
     b:close()
+
+    self.disabled = not outdated
 
     if outdated then
         self.items = items
@@ -24,11 +27,11 @@ end
 
 function Homebrew:getMenu()
     local tableMenu = {
-        {title='Upgrade all', fn=function() hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'upgrade', '--all'}):start() end},
+        {title='Upgrade all', fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'upgrade', '--all'}):start() end, disabled=self.disabled},
         {title='-'},
     }
     for i, item in ipairs(self.items) do
-        table.insert(tableMenu, {title=item, fn=function() hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'upgrade', item}):start() end})
+        table.insert(tableMenu, {title=item, fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function(code, stdout, stderr) Homebrew:loadOutdated() end, {'upgrade', item}):start() end, disabled=self.disabled})
     end
 
     return tableMenu
