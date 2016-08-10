@@ -13,7 +13,13 @@ function Caffeinate:setIcon(state)
 end
 
 function Caffeinate:toggle()
-    self:setIcon(hs.caffeinate.toggle('displayIdle'))
+    local state = hs.caffeinate.toggle('displayIdle')
+    self:setIcon(state)
+    if state then
+        hs.alert('Caffeinate on', 1)
+    else
+        hs.alert('Caffeinate off', 1)
+    end
 end
 
 function Caffeinate:batteryCallback()
@@ -30,5 +36,5 @@ if Caffeinate then
     Caffeinate.menubar:setClickCallback(function() Caffeinate:toggle() end)
     Caffeinate:setIcon(hs.caffeinate.get('displayIdle'))
     hs.battery.watcher.new(function() Caffeinate:batteryCallback() end):start()
-    hs.hotkey.bind(hs.settings.get('leader'), 'c', 'Caffeinate toggle', function() Caffeinate:toggle() end)
+    hs.hotkey.bind(hs.settings.get('leader'), 'c', function() Caffeinate:toggle() end)
 end

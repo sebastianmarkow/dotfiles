@@ -2,18 +2,19 @@
 local Redshift = {
     menubar     = hs.menubar.new(),
     active      = false,
-    temperature = 2700,
-    start       = '20:00',
-    stop        = '08:00',
-    fade        = '2h',
-    inverted    = false,
+    temperature = hs.settings.get("Redshift.temperature"),
+    start       = hs.settings.get("Redshift.start"),
+    stop        = hs.settings.get("Redshift.stop"),
+    fade        = hs.settings.get("Redshift.fade"),
+    invert      = hs.settings.get("Redshift.invert"),
 }
 
 function Redshift:on()
     self.active = true
     hs.settings.set('Redshift.active', self.active)
     self.menubar:setIcon('./assets/moon.pdf')
-    hs.redshift.start(self.temperature, self.start, self.stop, self.fade, self.inverted)
+    hs.redshift.start(self.temperature, self.start, self.stop, self.fade, self.invert)
+    hs.alert.show('Redshift on', 1)
 end
 
 function Redshift:off()
@@ -21,6 +22,7 @@ function Redshift:off()
     hs.settings.set('Redshift.active', self.active)
     self.menubar:setIcon('./assets/sun.pdf')
     hs.redshift.stop()
+    hs.alert.show('Redshift off', 1)
 end
 
 function Redshift:toggle()
@@ -30,7 +32,7 @@ end
 if Redshift then
     Redshift.menubar:setTooltip('Redshift')
     Redshift.menubar:setClickCallback(function() Redshift:toggle() end)
-    hs.hotkey.bind(hs.settings.get('leader'), 'r', 'Redshift toggle', function() Redshift:toggle() end)
+    hs.hotkey.bind(hs.settings.get('leader'), 'r', function() Redshift:toggle() end)
 
     if hs.settings.get('Redshift.active') then Redshift:on() else Redshift:off() end
 end
