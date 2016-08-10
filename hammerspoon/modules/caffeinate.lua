@@ -34,7 +34,7 @@ function Caffeinate:batteryCallback()
 end
 
 if Caffeinate then
-    Caffeinate.menubar:setTooltip('Caffeinate')
+    Caffeinate.menubar:setTooltip('Toggle Caffeinate')
     Caffeinate.menubar:setClickCallback(function() Caffeinate:toggle() end)
     Caffeinate:setIcon(hs.caffeinate.get('displayIdle'))
     hs.battery.watcher.new(function() Caffeinate:batteryCallback() end):start()
