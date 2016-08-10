@@ -5,11 +5,12 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
+    ggplot
     jupyter
+    keras
     pandas
     scikit-learn
     seaborn
-    ggplot
 )
 
 FORMULAS=(
