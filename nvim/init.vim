@@ -410,6 +410,7 @@ let g:neomake_serialize=1
 let g:neomake_open_list=0
 let g:neomake_go_enabled_makers=['go', 'govet']
 let g:neomake_c_enabled_makers=['clang']
+let g:neomake_lua_enabled_makers=['luacheck']
 let g:neomake_warning_sign={
     \ 'text': '!',
     \ 'texthl': 'WarningMsg',
@@ -421,7 +422,7 @@ let g:neomake_error_sign={
 
 augroup neomaketrigger
 autocmd!
-autocmd FileType go,vim,python,rust,markdown autocmd BufWritePost * Neomake
+autocmd FileType go,vim,python,rust,lua,markdown autocmd BufWritePost * Neomake
 augroup end
 
 " Plugin: fzf
