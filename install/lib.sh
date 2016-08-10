@@ -26,7 +26,7 @@ function h2() {
 }
 
 function task() {
-    printf " → %-50s" "$1"
+    printf "* %-50s" "$1"
 }
 
 function success() {
@@ -46,7 +46,7 @@ function warn() {
 }
 
 function brew_tap() {
-    INSTALLED_TAPS=${INSTALLED_TAPS:-"$(brew tap)"}
+    INSTALLED_TAPS=${INSTALLED_TAPS:-"$(brew tap | tr A-Z a-z)"}
     task "tap $1"
     echo "$INSTALLED_TAPS" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
@@ -62,7 +62,7 @@ function brew_tap() {
 }
 
 function brew_install() {
-    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew list --full-name)"}
+    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew list --full-name | tr A-Z a-z)"}
     task "install $1"
     echo "$INSTALLED_FORMULAS" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
@@ -78,7 +78,7 @@ function brew_install() {
 }
 
 function pip_install() {
-    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip3 list)"}
+    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip3 list | tr A-Z a-z)"}
     task "install $1"
     unset PIP_REQUIRE_VIRTUALENV
     echo "$INSTALLED_MODULES"| grep "$1" > /dev/null 2>&1 | true
@@ -105,7 +105,7 @@ function go_get() {
 }
 
 function cargo_install() {
-    INSTALLED_CRATES=${INSTALLED_CRATES:-"$(cargo install --list)"}
+    INSTALLED_CRATES=${INSTALLED_CRATES:-"$(cargo install --list | tr A-Z a-z)"}
     task "install $1"
     echo "$INSTALLED_CRATES" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then

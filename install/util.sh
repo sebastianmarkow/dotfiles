@@ -11,7 +11,7 @@ TAPS=(
 )
 
 EGGS=(
-    Sphinx
+    sphinx
     http-prompt
     proselint
     vim-vint
