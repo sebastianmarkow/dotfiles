@@ -1156,7 +1156,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<false/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
 	<integer>13</integer>
 	<key>HotkeyCode</key>
@@ -1245,7 +1245,7 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>-887 895 222 309 -1920 240 1920 1177 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>526 88 759 94 0 0 1440 877 </string>
+	<string>541 292 759 77 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>213 420 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -1253,7 +1253,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 153 796 473 0 0 1440 900 </string>
+	<string>269 131 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -2203,7 +2203,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-24T16:09:35Z</date>
+	<date>2016-08-09T23:30:51Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2260,7 +2260,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.5</string>
+	<string>3.0.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>6</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
