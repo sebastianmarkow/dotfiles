@@ -3,6 +3,7 @@ local Homebrew = {
     menubar  = hs.menubar.new(),
     items    = {},
     disabled = false,
+    notified = false,
 }
 
 function Homebrew:loadOutdated()
@@ -15,10 +16,15 @@ function Homebrew:loadOutdated()
 
     if next(self.items) == nil then
         self.disabled = true
+        self.notified = false
         self.menubar:removeFromMenuBar()
     else
         self.disabled = false
         self.menubar:returnToMenuBar()
+        if not self.notified then
+            hs.notify.show('Homebrew', '', 'Updated formulas available')
+            self.notified = true
+        end
     end
 end
 
