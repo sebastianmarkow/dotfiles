@@ -33,6 +33,6 @@ if Grid then
     hs.hotkey.bind(leader, 'return', function() hs.grid.snap(hs.window.focusedWindow()) end)
 
     local leadermeta = hs.settings.get('leadermeta')
-    hs.hotkey.bind(leadermeta, 'left',  'Move to previous screen', function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():previous()) end)
-    hs.hotkey.bind(leadermeta, 'right', 'Move to next screen',     function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():next()) end)
+    hs.hotkey.bind(leadermeta, 'left',  'Move to previous screen', function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():toEast()) end)
+    hs.hotkey.bind(leadermeta, 'right', 'Move to next screen',     function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():toWest()) end)
 end

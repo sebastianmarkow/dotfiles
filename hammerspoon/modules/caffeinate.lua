@@ -12,13 +12,15 @@ function Caffeinate:setIcon(state)
     end
 end
 
-function Caffeinate:toggle()
+function Caffeinate:toggle(silent)
     local state = hs.caffeinate.toggle('displayIdle')
     self:setIcon(state)
-    if state then
-        hs.alert('Caffeinate on', 1)
-    else
-        hs.alert('Caffeinate off', 1)
+    if not silent then
+        if state then
+            hs.alert('Caffeinate on', 1)
+        else
+            hs.alert('Caffeinate off', 1)
+        end
     end
 end
 
