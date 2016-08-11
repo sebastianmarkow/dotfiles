@@ -66,6 +66,7 @@ alias upper 'tr a-z A-Z'
 alias map 'xargs -n1'
 alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
+alias compare 'diff -rq'
 
 # Fish
 set fish_color_comment blue
