@@ -32,7 +32,7 @@ if Grid then
     hs.hotkey.bind(leader, 'space',  function() hs.grid.maximizeWindow() end)
     hs.hotkey.bind(leader, 'return', function() hs.grid.snap(hs.window.focusedWindow()) end)
 
-    local leadermeta = hs.settings.get('leadermeta')
-    hs.hotkey.bind(leadermeta, 'h',  function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():toWest()) end)
-    hs.hotkey.bind(leadermeta, 'l', function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():toEast()) end)
+    local leadershift = hs.settings.get('leadershift')
+    hs.hotkey.bind(leadershift, 'h',  function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():toWest()) end)
+    hs.hotkey.bind(leadershift, 'l', function() local win = hs.window.focusedWindow(); win:moveToScreen(win:screen():toEast()) end)
 end
