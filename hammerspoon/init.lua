@@ -22,8 +22,6 @@ end
 
 -- module: Redshift
 hs.settings.set('Redshift.temperature', 2700)
-hs.settings.set('Redshift.start',       '20:00')
-hs.settings.set('Redshift.stop',        '07:00')
 hs.settings.set('Redshift.fade',        '1h')
 hs.settings.set('Redshift.invert',      false)
 
