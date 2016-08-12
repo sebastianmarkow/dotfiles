@@ -64,7 +64,6 @@ function Redshift:loadSunrise()
     self.stop = sunrise
 
     if self.active then
-        self:off(true)
         self:on(true)
     end
 end
@@ -75,10 +74,15 @@ function Redshift:update()
 end
 
 if Redshift then
-    Redshift.menubar:setTooltip('Toggle Redshift')
-    Redshift.menubar:setClickCallback(function() Redshift:toggle() end)
-    Redshift:update(); hs.timer.doAt('12:00', '1d', function() Redshift:update() end)
-    hs.hotkey.bind(hs.settings.get('leader'), 'r', function() Redshift:toggle() end)
+    hs.location.start()
+    hs.timer.doAfter(3, function()
+        print("init redshift")
+        Redshift.menubar:setTooltip('Toggle Redshift')
+        Redshift.menubar:setClickCallback(function() Redshift:toggle() end)
+        Redshift:update(); hs.timer.doAt('12:00', '1d', function() Redshift:update() end)
+        hs.hotkey.bind(hs.settings.get('leader'), 'r', function() Redshift:toggle() end)
 
-    if hs.settings.get('Redshift.active') then Redshift:on(true) else Redshift:off(true) end
+        if hs.settings.get('Redshift.active') then Redshift:on(true) else Redshift:off(true) end
+        hs.location.stop()
+    end)
 end
