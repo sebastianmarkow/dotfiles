@@ -22,6 +22,7 @@ TOOLS=(
 
 FORMULAS=(
     go
+    go-delve/delve/delve
 )
 
 h1 "go"
