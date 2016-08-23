@@ -1,4 +1,4 @@
-function update --description "Update system"
+function upgrade --description "Upgrade system"
     set -l MACOS_OUTDATED (softwareupdate --list --no-scan 2>&1 | grep "No new software available.")
     if test -z "$MACOS_OUTDATED"
         softwareupdate --install --all
