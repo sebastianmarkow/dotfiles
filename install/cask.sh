@@ -10,7 +10,7 @@ cask=$(brew tap | grep "caskroom/cask")
 if [ -n "$cask" ]; then
     warn "installed"
 else
-    brew tap "caskroom/cask"
+    brew tap "caskroom/cask" > /dev/null 2>&1
     if [[ $? != 0 ]]; then
         error
         exit 1
