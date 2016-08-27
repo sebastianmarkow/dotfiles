@@ -77,6 +77,22 @@ function brew_install() {
     fi
 }
 
+function cask_install() {
+    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew cask list -1 | tr A-Z a-z)"}
+    task "install $1"
+    echo "$INSTALLED_FORMULAS" | grep "$1" > /dev/null 2>&1 | true
+    if [[ ${PIPESTATUS[1]} != 0 ]]; then
+        brew cask install $1 $2 > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            error
+        else
+            success
+        fi
+    else
+        warn "installed"
+    fi
+}
+
 function pip_install() {
     INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip3 list | tr A-Z a-z)"}
     task "install $1"

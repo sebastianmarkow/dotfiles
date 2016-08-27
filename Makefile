@@ -53,6 +53,10 @@ base: brew ## install base
 brew:
 	@sh ./install/brew.sh
 
+.PHONY: cask
+cask:
+	@sh ./install/cask.sh
+
 .PHONY: cxx
 cxx: brew ## install cxx toolchain
 	@sh ./install/cxx.sh
