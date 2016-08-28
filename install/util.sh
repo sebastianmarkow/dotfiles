@@ -31,6 +31,7 @@ FORMULAS=(
     entr
     fdupes
     ffmpeg
+    gistit
     git-extras
     gnuplot
     graphviz
