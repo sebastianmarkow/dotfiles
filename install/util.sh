@@ -11,9 +11,10 @@ TAPS=(
 )
 
 EGGS=(
-    sphinx
+    awscli
     http-prompt
     proselint
+    sphinx
     vim-vint
 )
 
