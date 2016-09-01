@@ -33,7 +33,7 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     augroup install
     autocmd!
-    autocmd VimEnter * PlugInstall! | qall
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
     augroup END
 endif
 
@@ -237,7 +237,7 @@ set mouse=nvc " enable mouse in:
 try
     colorscheme gotham
 catch
-    echom 'colorscheme not found'
+
 endtry
 
 " Fileglob
