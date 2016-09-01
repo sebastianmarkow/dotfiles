@@ -613,7 +613,7 @@ endfunction
 function! LightLineFugitive()
     if winwidth(0) > g:responsive_width_mid && exists('*fugitive#head')
         let l:head=fugitive#head()
-        return l:head != '' ? ' '.l:head : ''
+        return l:head !=# '' ? ' '.l:head : ''
     endif
     return ''
 endfunction
