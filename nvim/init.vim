@@ -81,7 +81,6 @@ Plug 'dag/vim-fish',                        { 'for': 'fish' }
 Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
 Plug 'fatih/vim-go',                        { 'for': 'go' }
 Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
-Plug 'lervag/vimtex',                       { 'for': 'tex' }
 Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
 Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
 Plug 'sebastianmarkow/deoplete-rust',       { 'for': 'rust' }
