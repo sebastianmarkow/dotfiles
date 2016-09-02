@@ -5,10 +5,12 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
+    bokeh
     ggplot
     jupyter
     keras
     pandas
+    pandasql
     scikit-learn
     seaborn
 )
