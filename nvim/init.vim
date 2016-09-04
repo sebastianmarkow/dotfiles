@@ -322,12 +322,12 @@ vnoremap <silent>* :<c-u>
   \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<cr>
   \ gvy/<c-r><c-r>=substitute(
   \ escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
-  \ gV:call setreg('"', old_reg, old_regtype)<cr>
+  \ gV:call setreg('"', old_reg, old_regtype)<cr>zz
 vnoremap <silent># :<c-u>
   \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<cr>
   \ gvy?<c-r><c-r>=substitute(
   \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
-  \ gV:call setreg('"', old_reg, old_regtype)<cr>
+  \ gV:call setreg('"', old_reg, old_regtype)<cr>zz
 
 " Tmux-like pane switching
 function! s:panebind()
