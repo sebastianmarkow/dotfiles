@@ -21,6 +21,7 @@ EGGS=(
 FORMULAS=(
     calc
     catimg
+    ccat
     cloc
     cloog
     devd
