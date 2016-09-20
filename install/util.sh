@@ -43,7 +43,6 @@ FORMULAS=(
     jo
     jq
     laurent22/massren/massren
-    lftp
     lua
     luajit
     mandoc

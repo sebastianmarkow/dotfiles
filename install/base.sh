@@ -42,6 +42,7 @@ FORMULAS=(
     moreutils
     pam_yubico
     pstree
+    python3
     subversion
     tree
     watch
