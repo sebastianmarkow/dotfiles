@@ -13,6 +13,7 @@ EGGS=(
     pandasql
     scikit-learn
     seaborn
+    sklearn-pandas
 )
 
 FORMULAS=(
