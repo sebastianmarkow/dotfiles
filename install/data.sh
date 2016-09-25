@@ -11,6 +11,7 @@ EGGS=(
     keras
     pandas
     pandasql
+    scikit-image
     scikit-learn
     seaborn
     sklearn-pandas
