@@ -12,7 +12,7 @@
     precomposeunicode = false
 
 [commit]
-    gpgsign = true
+    gpgsign = false
     template = ~/.gitmessage
 
 [push]

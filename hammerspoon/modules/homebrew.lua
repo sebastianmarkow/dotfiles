@@ -46,9 +46,9 @@ function Homebrew:update()
 end
 
 if Homebrew then
-    Homebrew.menubar:removeFromMenuBar()
     Homebrew.menubar:setTooltip('Homebrew')
     Homebrew.menubar:setIcon('./assets/cask.pdf')
     Homebrew.menubar:setMenu(function() return Homebrew:getMenu() end)
+    Homebrew.menubar:removeFromMenuBar()
     Homebrew:update(); hs.timer.doEvery(3600, function() Homebrew:update() end)
 end
