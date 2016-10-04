@@ -7,7 +7,7 @@ function upgrade --description "Upgrade system"
     brew update
     and set -l BREW_OUTDATED (brew outdated)
     if test -n "$BREW_OUTDATED"
-        brew upgrade --all
+        brew upgrade
         fish_update_completions
     end
 

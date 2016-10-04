@@ -30,7 +30,7 @@ end
 
 function Homebrew:getMenu()
     local menu = {
-        {title='Upgrade all', fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'upgrade', '--all'}):start() end, disabled=self.disabled},
+        {title='Upgrade all', fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'upgrade'}):start() end, disabled=self.disabled},
         {title='-'},
     }
     for _, item in ipairs(self.items) do
