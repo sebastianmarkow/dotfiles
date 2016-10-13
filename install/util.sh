@@ -54,6 +54,7 @@ FORMULAS=(
     python3
     ragel
     rename
+    ripgrep
     shellcheck
     since
     tmux
