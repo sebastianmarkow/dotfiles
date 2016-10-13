@@ -5,6 +5,7 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 CRATES=(
+    racer
     rustfmt
 )
 
