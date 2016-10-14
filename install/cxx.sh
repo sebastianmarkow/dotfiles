@@ -14,7 +14,7 @@ FORMULAS=(
     gdb
     llvm
     make
-    valgrind
+#    valgrind
 )
 
 h1 "c/cpp"
