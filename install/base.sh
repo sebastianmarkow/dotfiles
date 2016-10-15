@@ -17,7 +17,6 @@ EGGS=(
 )
 
 FORMULAS=(
-    ag
     bash
     bazaar
     coreutils
@@ -43,6 +42,7 @@ FORMULAS=(
     pam_yubico
     pstree
     python3
+    ripgrep
     subversion
     tree
     watch

@@ -462,7 +462,7 @@ command! FZFMru call fzf#run({
     \ })
 
 " Plugin: ag.vim
-let g:ag_prg='ag --vimgrep --smart-case'
+let g:ag_prg='rg --vimgrep --smart-case'
 let g:ag_mapping_message=0
 
 " Plugin: vim-multiple-cursors
