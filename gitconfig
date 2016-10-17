@@ -152,6 +152,10 @@
     insteadOf = "github:"
     pushInsteadOf = "https://github.com/"
 
+[url "git@gist.github.com:"]
+    insteadOf = "gist:"
+    pushInsteadOf = "https://gist.github.com/"
+
 [github]
     user = sebastianmarkow
 
