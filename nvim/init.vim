@@ -503,7 +503,7 @@ let g:AutoPairsMapCR=0 " no funny stuff on carriage return
 augroup autopairsextend
 autocmd!
 autocmd FileType rust     let b:AutoPairs={'(': ')', '[': ']', '{': '}', "|": "|", '"': '"', '`': '`'}
-autocmd FileType markdown let b:AutoPairs={'(': ')', '[': ']', '{': '}', "'": "'", '"': '"', '`': '`', '$': '$'}
+autocmd FileType markdown let b:AutoPairs={'(': ')', '[': ']', '{': '}', '"': '"', '`': '`', '$': '$'}
 augroup end
 
 " Plugin: vim-easy-align
