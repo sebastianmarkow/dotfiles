@@ -1,4 +1,4 @@
-# 💥🔫 dotdotdotdotdotfiles
+# 💦🔫 dotdotdotdotdotfiles
 
 A heavily opinionated set of dotfiles.
 
