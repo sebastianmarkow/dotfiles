@@ -11,7 +11,7 @@ TAPS=(
 )
 
 HEAD=(
-    neovim/neovim/neovim
+#    neovim/neovim/neovim
 )
 
 EGGS=(
@@ -41,6 +41,7 @@ FORMULAS=(
     jump
     mercurial
     moreutils
+    neovim/neovim/neovim
     pam_yubico
     pstree
     python3
