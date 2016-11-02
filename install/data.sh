@@ -14,7 +14,6 @@ EGGS=(
     scikit-image
     scikit-learn
     seaborn
-    sklearn-pandas
 )
 
 FORMULAS=(
