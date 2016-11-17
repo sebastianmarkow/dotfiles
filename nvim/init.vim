@@ -129,15 +129,15 @@ set lazyredraw " do not redraw during macros
 set linespace=0
 set nolist " don't show invisble character
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
-" set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c " disabled, using LightLine
+" set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c " TODO: disabled, using LightLine
 "                 |  |   | | | |          |                        |       |   |   |  |
-"                 |  |   | | | |          +-- encoding        i    |       |   |   |  +-- column
-"                 |  |   | | | +--------------- preview            |       |   |   +----- line
-"                 |  |   | | +----------------- help               |       |   +-------- total lines
-"                 |  |   | +------------------- readonly           |       +------------ filetype
-"                 |  |   +--------------------- modiied            +-------------------- format
-"                 |  +------------------------- filepath
-"                 +---------------------------- truncate from left
+"                 |  |   | | | |          +-- encoding             |       |   |   |  +-- column
+"                 |  |   | | | +------------- preview              |       |   |   +----- line
+"                 |  |   | | +--------------- help                 |       |   +--------- total lines
+"                 |  |   | +----------------- readonly             |       +------------- filetype
+"                 |  |   +------------------- modiied              +--------------------- format
+"                 |  +----------------------- filepath
+"                 +-------------------------- truncate from left
 set noerrorbells
 set novisualbell
 set shortmess=aIOTF
@@ -199,7 +199,7 @@ set nojoinspaces " do not add additional spaces on join
 set nospell " no spellcheck
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/spellfile.utf-8.add
 set spelllang=en
-" set clipboard=unnamed " use os clipboard
+" set clipboard=unnamed " TODO: use os clipboard
 set formatoptions=qcnrj
 "                 |||||
 "                 |||||
