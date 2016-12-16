@@ -122,11 +122,13 @@
     mt = mergetool
 
     pl = pull
+    plm = pull origin master
     pla = pull --all
     plm = pull --no-rebase
     pull-merge = pull --no-rebase
 
     p = push
+    pm = push origin master
 
     rb = rebase
     rbi = rebase --interactive
