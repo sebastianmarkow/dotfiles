@@ -149,6 +149,8 @@
     t = tag -n
     last-tag = describe --tags --abrev=0
 
+    home = "!open `git remote -v | grep fetch | head -n1 | awk '{print $2}' | sed 's/git@/https:\\/\\//' | sed 's/\\.com:/\\.com\\//'`"
+
 [url "git@github.com:"]
     insteadOf = "gh:"
     insteadOf = "github:"
