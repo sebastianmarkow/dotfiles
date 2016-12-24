@@ -19,9 +19,9 @@ EGGS=(
 
 FORMULAS=(
     python3
-    homebrew/python/numpy
-    homebrew/python/scipy
-    homebrew/python/matplotlib
+    "homebrew/python/numpy --with-python3"
+    "homebrew/python/scipy --with-python3"
+    "homebrew/python/matplotlib --with-python3"
 )
 
 h1 "data science"
