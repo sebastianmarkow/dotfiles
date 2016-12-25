@@ -7,6 +7,7 @@ source "${BASH_SOURCE%/*}/lib.sh"
 EGGS=(
     bokeh
     csvkit
+    cython
     ggplot
     jupyter
     keras
