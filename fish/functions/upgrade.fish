@@ -11,9 +11,9 @@ function upgrade --description "Upgrade system"
         fish_update_completions
     end
 
-    set -l PIP_OUTDATED (pip3 list --outdated --format=legacy)
+    set -l PIP_OUTDATED (pip3 list --outdated --format=legacy | cut -f 1 -d " ")
     if test -n "$PIP_OUTDATED"
-        echo "$PIP_OUTDATED" | cut -f 1 -d " " | xargs pip3 install --upgrade
+        echo "$PIP_OUTDATED" | xargs pip3 install --upgrade
     end
 
     nvim "+let g:plug_window=''" +PlugUpgrade +PlugClean! +PlugUpdate! +UpdateRemotePlugins +qall
