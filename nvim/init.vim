@@ -71,6 +71,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
+Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
 
@@ -527,6 +528,18 @@ function! g:committia_hooks.edit_open(info)
     nmap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
+" Plugin: ale
+let g:ale_linters = {}
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 1
+let g:ale_sign_error = '>'
+let g:ale_sign_warning = '!'
+let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'ok']
+
+nmap <silent> gen <Plug>(ale_next_wrap)
+nmap <silent> gep <Plug>(ale_previous_wrap)
+
 " Plugin: lightline.vim
 let g:responsive_width_mid=70
 let g:responsive_width_small=50
@@ -551,7 +564,7 @@ let g:lightline={
     \     'left': [
     \         ['mode'],
     \         ['fugitive', 'obsession'],
-    \         ['filename', 'readonly', 'modified']
+    \         ['filename', 'readonly', 'modified', 'ale']
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
@@ -566,6 +579,9 @@ let g:lightline={
     \     'right': [
     \         ['windownr']
     \     ]
+    \ },
+    \ 'component': {
+    \     'ale': '%{ALEGetStatusLine()}',
     \ },
     \ 'component_function': {
     \     'fileencoding': 'LightLineFileencoding',
