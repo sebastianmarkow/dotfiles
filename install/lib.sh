@@ -135,3 +135,13 @@ function cargo_install() {
         warn "installed"
     fi
 }
+
+function execute() {
+    task "execute $1"
+    $1 $2 > /dev/null 2>&1
+    if [[ $? != 0 ]]; then
+        error
+    else
+        success
+    fi
+}
