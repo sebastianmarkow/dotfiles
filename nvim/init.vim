@@ -56,7 +56,6 @@ Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/vim-peekaboo'
 Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
-Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
@@ -402,27 +401,6 @@ augroup end
 " Colors: Spelling Errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
-
-" Plugin: neomake
-noremap <leader><space> :Neomake<cr>
-let g:neomake_serialize=1
-let g:neomake_open_list=0
-let g:neomake_go_enabled_makers=['go', 'govet']
-let g:neomake_c_enabled_makers=['clang']
-let g:neomake_lua_enabled_makers=['luacheck']
-let g:neomake_warning_sign={
-    \ 'text': '!',
-    \ 'texthl': 'WarningMsg',
-    \ }
-let g:neomake_error_sign={
-    \ 'text': '>',
-    \ 'texthl': 'ErrorMsg',
-    \ }
-
-augroup neomaketrigger
-autocmd!
-autocmd FileType go,vim,python,rust,lua,markdown,css,scss autocmd BufWritePost * Neomake
-augroup end
 
 " Plugin: fzf
 noremap <c-p>     :FZFopen<cr>
