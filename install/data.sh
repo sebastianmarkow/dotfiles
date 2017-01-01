@@ -10,6 +10,8 @@ EGGS=(
     cython
     ggplot
     jupyter
+    jupyter-contrib-nbextensions
+    jupyter-nbextensions-configurator
     keras
     pandas
     pandasql
@@ -31,3 +33,6 @@ h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
+h2 "jupyter notebook extensions"
+execute "jupyter contrib nbextension install" "--user"
+execute "jupyter nbextensions_configurator enable" "--user"
