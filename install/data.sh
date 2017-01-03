@@ -9,6 +9,7 @@ EGGS=(
     csvkit
     cython
     ggplot
+    joblib
     jupyter
     jupyter-contrib-nbextensions
     jupyter-nbextensions-configurator
