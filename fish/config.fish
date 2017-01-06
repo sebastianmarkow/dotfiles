@@ -47,27 +47,27 @@ command -s jump >/dev/null
 and . (jump shell fish | psub)
 
 # Abbreviations
-abbr rp 'repo'
-abbr mv 'mv -i'
 abbr cp 'cp -i'
+abbr d 'docker'
+abbr dm 'docker-machine'
+abbr g 'git'
+abbr mv 'mv -i'
+abbr rp 'repo'
+abbr t 'tmux'
 abbr v 'nvim'
 abbr vim 'nvim'
-abbr g 'git'
-abbr dm 'docker-machine'
-abbr d 'docker'
-abbr t 'tmux'
 
 # Alias
 alias ag 'rg'
+alias compare 'diff -rq'
 alias ldd 'otool -L'
-alias tig 'nvim +GV +bd1'
-alias near 'grep -C 10'
 alias lower 'tr A-Z a-z'
-alias upper 'tr a-z A-Z'
 alias map 'xargs -n1'
+alias near 'grep -C 10'
+alias tig 'nvim +GV +bd1'
 alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
-alias compare 'diff -rq'
+alias upper 'tr a-z A-Z'
 
 # Fish
 set fish_color_comment blue
