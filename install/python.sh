@@ -10,6 +10,7 @@ EGGS=(
     pip
     pylint
     virtualenv
+    yapf
 )
 
 FORMULAS=(
