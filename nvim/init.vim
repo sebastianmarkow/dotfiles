@@ -50,7 +50,6 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
 Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'junegunn/vim-peekaboo'
-Plug 'mbbill/undotree',                     { 'on': 'UndotreeToggle' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        { 'on': 'Ag' }
@@ -353,7 +352,7 @@ autocmd VimLeave          * let &titlestring=''
 autocmd BufReadPost * if &filetype !~? 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " Trigger: Switch from relative to norelative numbers in insert mode
-let g:omit_numbers='help\|undotree\|GV\|gitcommit\|git\|diff\|vim\-plug\|rustdoc\|godoc'
+let g:omit_numbers='help\|GV\|gitcommit\|git\|diff\|vim\-plug\|rustdoc\|godoc'
 autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? g:omit_numbers | setlocal norelativenumber | endif
 autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? g:omit_numbers | setlocal relativenumber | endif
 
@@ -484,11 +483,6 @@ augroup end
 nmap ga <plug>(EasyAlign)
 xmap ga <plug>(EasyAlign)
 
-" Plugin: undotree
-nnoremap <leader>u :UndotreeToggle<cr>
-let g:undotree_WindowLayout=2
-let g:undotree_SetFocusWhenToggle=1
-
 " Plugin: sideways.vim
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
@@ -617,12 +611,12 @@ endfunction
 
 function! LightLineReadonly()
     return winwidth(0) > g:responsive_width_mid ?
-        \ (&filetype !~? 'help\|undotree' && &readonly ? '' : '') : ''
+        \ (&filetype !~? 'help' && &readonly ? '' : '') : ''
 endfunction
 
 function! LightLineModified()
     return winwidth(0) > g:responsive_width_mid ?
-        \ (&filetype !~? 'help\|undotree' ? '' : &modified ? '+' : &modifiable ? '' : '-') : ''
+        \ (&filetype !~? 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-') : ''
 endfunction
 
 function! LightLineFiletype()
