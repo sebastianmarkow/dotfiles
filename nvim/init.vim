@@ -3,6 +3,9 @@ scriptencoding utf-8
 set shell=/bin/sh
 
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI .= '\<Esc>[5 q' " line
+let &t_SR .= '\<Esc>[4 q' " underline
+let &t_EI .= '\<Esc>[3 q' " block
 
 " Disable buildin plugins
 let g:loaded_2html_plugin=1
