@@ -577,7 +577,7 @@ let g:lightline={
     \     'windownr':     'LightLineWindownr',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '│', 'right': '│' },
     \ }
 
 function! LightLineMode()
