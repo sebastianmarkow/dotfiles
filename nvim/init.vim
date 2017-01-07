@@ -204,6 +204,9 @@ set synmaxcol=256
 syntax sync minlines=256
 syntax sync maxlines=512
 
+" Update
+set updatetime=250
+
 " Timeout
 set ttimeout
 set ttimeoutlen=100
