@@ -48,7 +48,6 @@ FORMULAS=(
     mtr
     multitail
     nmap
-    node
     pv
     python3
     ragel
