@@ -47,13 +47,14 @@ Plug 'ap/vim-buftabline'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf'
-Plug 'junegunn/gv.vim',                     { 'on': 'GV' }
-Plug 'junegunn/vim-easy-align',             { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'junegunn/gv.vim',                     {'on': 'GV'}
+Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-peekaboo'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
-Plug 'rking/ag.vim',                        { 'on': 'Ag' }
-Plug 'shougo/deoplete.nvim',                { 'do': ':UpdateRemotePlugins'}
+Plug 'rking/ag.vim',                        {'on': 'Ag'}
+Plug 'sbdchd/neoformat'
+Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
@@ -69,17 +70,17 @@ Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
 
 " Filetype:
-Plug 'cespare/vim-toml',                    { 'for': 'toml' }
-Plug 'dag/vim-fish',                        { 'for': 'fish' }
-Plug 'ekalinin/Dockerfile.vim',             { 'for': 'dockerfile' }
-Plug 'fatih/vim-go',                        { 'for': 'go' }
-Plug 'ingydotnet/yaml-vim',                 { 'for': 'yaml' }
-Plug 'nlknguyen/c-syntax.vim',              { 'for': 'c' }
-Plug 'rust-lang/rust.vim',                  { 'for': 'rust' }
-Plug 'sebastianmarkow/deoplete-rust',       { 'for': 'rust' }
-Plug 'yosssi/vim-ace',                      { 'for': 'ace' }
-Plug 'zchee/deoplete-clang',                { 'for': ['c', 'cpp'] }
-Plug 'zchee/deoplete-go',                   { 'for': 'go', 'do': 'make' }
+Plug 'cespare/vim-toml',                    {'for': 'toml'}
+Plug 'dag/vim-fish',                        {'for': 'fish'}
+Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
+Plug 'fatih/vim-go',                        {'for': 'go'}
+Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
+Plug 'nlknguyen/c-syntax.vim',              {'for': 'c'}
+Plug 'rust-lang/rust.vim',                  {'for': 'rust'}
+Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
+Plug 'yosssi/vim-ace',                      {'for': 'ace'}
+Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
+Plug 'zchee/deoplete-go',                   {'for': 'go', 'do': 'make'}
 
 call plug#end()
 
