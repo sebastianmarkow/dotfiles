@@ -513,13 +513,13 @@ function! g:committia_hooks.edit_open(info)
 endfunction
 
 " Plugin: ale
-let g:ale_linters = {}
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 1
-let g:ale_sign_error = '>'
-let g:ale_sign_warning = '!'
-let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', 'ok']
+let g:ale_linters={}
+let g:ale_lint_on_save=1
+let g:ale_lint_on_text_changed=0
+let g:ale_lint_on_enter=1
+let g:ale_sign_error='>'
+let g:ale_sign_warning='!'
+let g:ale_statusline_format=['%d error(s)', '%d warning(s)', '']
 
 nmap <silent> gen <Plug>(ale_next_wrap)
 nmap <silent> gep <Plug>(ale_previous_wrap)
