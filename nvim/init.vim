@@ -85,16 +85,11 @@ Plug 'zchee/deoplete-go',                   {'for': 'go', 'do': 'make'}
 
 call plug#end()
 
-" Encoding
-set nobomb
-
 " File
 set fileformats=unix,dos,mac
 set autoread " load changes made from outside
-set nomodeline " seriously modelines?
 
 " State
-set noswapfile
 set backup
 set backupdir=$XDG_DATA_HOME/nvim/backup
 set undofile
@@ -122,7 +117,6 @@ set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
 set linespace=0
-set nolist " don't show invisble character
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 " set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c " TODO: disabled, using LightLine
 "                 |  |   | | | |          |                        |       |   |   |  |
@@ -133,8 +127,6 @@ set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisib
 "                 |  |   +------------------- modiied              +--------------------- format
 "                 |  +----------------------- filepath
 "                 +-------------------------- truncate from left
-set noerrorbells
-set novisualbell
 set shortmess=aIOTF
 "             |||||
 "             ||||+-- hide file read messages
