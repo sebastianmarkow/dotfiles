@@ -35,7 +35,6 @@ FORMULAS=(
     ffmpeg
     gistit
     git-extras
-    gnuplot
     graphviz
     homebrew/dupes/tcpdump
     htop
