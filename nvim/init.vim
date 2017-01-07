@@ -2,10 +2,9 @@ scriptencoding utf-8
 
 set shell=/bin/sh
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let &t_SI .= '\<Esc>[5 q' " line
-let &t_SR .= '\<Esc>[4 q' " underline
-let &t_EI .= '\<Esc>[3 q' " block
+" Setup python3 environment
+let g:python3_host_prog='/usr/local/bin/python3'
+let g:python3_host_skip_check=1
 
 " Disable buildin plugins
 let g:loaded_2html_plugin=1
@@ -24,10 +23,6 @@ let g:loaded_vimball=1
 let g:loaded_vimballPlugin=1
 let g:loaded_zip=1
 let g:loaded_zipPlugin=1
-
-" Setup python3 environment
-let g:python3_host_prog='/usr/local/bin/python3'
-let g:python3_host_skip_check=1
 
 " Install vimplug
 if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
@@ -87,6 +82,11 @@ Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
 Plug 'zchee/deoplete-go',                   {'for': 'go', 'do': 'make'}
 
 call plug#end()
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI .= '\<Esc>[5 q' " line
+let &t_SR .= '\<Esc>[4 q' " underline
+let &t_EI .= '\<Esc>[3 q' " block
 
 " File
 set fileformats=unix,dos,mac
