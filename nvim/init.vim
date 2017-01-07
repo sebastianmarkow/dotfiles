@@ -61,7 +61,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
@@ -552,7 +551,7 @@ let g:lightline={
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['fugitive', 'obsession'],
+    \         ['fugitive'],
     \         ['filename', 'readonly', 'modified', 'ale']
     \     ],
     \     'right': [
@@ -579,7 +578,6 @@ let g:lightline={
     \     'fugitive':     'LightLineFugitive',
     \     'lineno':       'LightLineLineno',
     \     'mode':         'LightLineMode',
-    \     'obsession':    'LightLineObsession',
     \     'percent':      'LightLinePercent',
     \     'readonly':     'LightLineReadonly',
     \     'windownr':     'LightLineWindownr',
@@ -598,11 +596,6 @@ function! LightLineFugitive()
         return l:head !=# '' ? ' '.l:head : ''
     endif
     return ''
-endfunction
-
-function! LightLineObsession()
-    return winwidth(0) > g:responsive_width_mid ?
-        \ (exists('*ObsessionStatus') ? ObsessionStatus('↺ session') : '') : ''
 endfunction
 
 function! LightLineWindownr()
