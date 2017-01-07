@@ -33,7 +33,7 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     augroup install
     autocmd!
     autocmd VimEnter * PlugInstall | source $MYVIMRC
-    augroup END
+    augroup end " install
 endif
 
 " Plugins
@@ -251,8 +251,8 @@ nnoremap <leader>W :write !sudo tee %<cr>
 nnoremap <leader>x :exit<cr>
 
 nnoremap <leader><esc> :setlocal hlsearch!<cr>
-nnoremap <leader>i     :setlocal list!<cr>
-nnoremap <leader>s     :setlocal spell!<cr>
+nnoremap <leader>i :setlocal list!<cr>
+nnoremap <leader>s :setlocal spell!<cr>
 
 " Go to mark
 nnoremap gm `
@@ -279,8 +279,8 @@ nnoremap ; ,
 nnoremap , ;
 
 " Jump over wrapped lines
-nnoremap j  gj
-nnoremap k  gk
+nnoremap j gj
+nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
@@ -353,7 +353,7 @@ autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? g:omit_numbers | set
 autocmd WinEnter,FocusGained * setlocal cursorline
 autocmd WinLeave,FocusLost   * setlocal nocursorline
 
-augroup end
+augroup end " trigger
 
 augroup custom
 autocmd!
@@ -384,7 +384,7 @@ autocmd FileType gitcommit     setlocal colorcolumn=51,+1
 " Custom: Disable decoration
 autocmd FileType qf,diff,git,gitcommit,GV,vim-plug,rustdoc,godoc setlocal nonumber norelativenumber
 
-augroup end
+augroup end " custom
 
 " Colors: Spelling Errors
 hi clear SpellBad
@@ -466,7 +466,7 @@ augroup autopairsextend
 autocmd!
 autocmd FileType rust     let b:AutoPairs={'(': ')', '[': ']', '{': '}', "|": "|", '"': '"', '`': '`'}
 autocmd FileType markdown let b:AutoPairs={'(': ')', '[': ']', '{': '}', '"': '"', '`': '`', '$': '$'}
-augroup end
+augroup end " autopairsextend
 
 " Plugin: vim-easy-align
 nmap ga <plug>(EasyAlign)
