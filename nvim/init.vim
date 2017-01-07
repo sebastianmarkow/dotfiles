@@ -454,9 +454,6 @@ let g:gitgutter_realtime=1
 let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
 
-" Plugin: python-mode
-let g:pymode_rope=0
-
 " Plugin: rust.vim
 let g:rustfmt_autosave=1
 
