@@ -549,8 +549,8 @@ let g:lightline={
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['fugitive'],
-    \         ['filename', 'readonly', 'modified', 'ale']
+    \         ['fugitive', 'ale'],
+    \         ['filename', 'readonly', 'modified']
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
