@@ -1567,9 +1567,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>506 219 918 512 0 0 1440 877 </string>
+	<string>506 112 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>155 93 810 483 0 0 1440 877 </string>
+	<string>176 70 810 483 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_E58F01DA-E897-465D-8B99-3C81C90DDE7C</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1915,13 +1915,6 @@
 					<integer>11</integer>
 					<key>Text</key>
 					<string>0x7f</string>
-				</dict>
-				<key>0x7f-0x0</key>
-				<dict>
-					<key>Action</key>
-					<integer>16</integer>
-					<key>Text</key>
-					<string></string>
 				</dict>
 				<key>0xf700-0x220000</key>
 				<dict>
