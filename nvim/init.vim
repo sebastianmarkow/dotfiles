@@ -547,8 +547,8 @@ let g:lightline={
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['fugitive', 'ale'],
-    \         ['filename', 'readonly', 'modified']
+    \         ['filename'],
+    \         ['readonly', 'modified', 'ale']
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
@@ -564,14 +564,12 @@ let g:lightline={
     \         ['windownr']
     \     ]
     \ },
-    \ 'component': {
-    \     'ale': '%{ALEGetStatusLine()}',
-    \ },
     \ 'component_function': {
     \     'fileencoding': 'LightLineFileencoding',
     \     'fileformat':   'LightLineFileformat',
     \     'filetype':     'LightLineFiletype',
     \     'fugitive':     'LightLineFugitive',
+    \     'ale':          'LightLineAle',
     \     'lineno':       'LightLineLineno',
     \     'mode':         'LightLineMode',
     \     'percent':      'LightLinePercent',
@@ -592,6 +590,10 @@ function! LightLineFugitive()
         return l:head !=# '' ? ' '.l:head : ''
     endif
     return ''
+endfunction
+
+function! LightLineAle()
+    return winwidth(0) > g:responsive_width_mid ? ALEGetStatusLine() : ''
 endfunction
 
 function! LightLineWindownr()
