@@ -376,7 +376,7 @@ autocmd FileType make,go,c,cpp,glsl                           setlocal softtabst
 autocmd FileType yaml,toml,json,ruby,javascript,css,scss,html setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
-autocmd FileType markdown,gitcommit setlocal spell
+autocmd FileType markdown,gitcommit,tex setlocal spell
 
 " Custom: Textwidth
 autocmd FileType gitcommit     setlocal textwidth=72
