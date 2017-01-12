@@ -45,6 +45,7 @@ FORMULAS=(
     lua
     luajit
     mandoc
+    mplayer
     mtr
     multitail
     nmap
