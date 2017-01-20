@@ -5,6 +5,7 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
+    decorator
     mypy-lang
     pep8
     pip
