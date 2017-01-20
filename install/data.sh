@@ -14,6 +14,7 @@ EGGS=(
     jupyter-contrib-nbextensions
     jupyter-nbextensions-configurator
     keras
+    nltk
     pandas
     pandasql
     scikit-image
