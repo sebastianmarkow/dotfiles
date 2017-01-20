@@ -19,6 +19,7 @@ EGGS=(
     scikit-image
     scikit-learn
     seaborn
+    tensorflow
     tqdm
 )
 
