@@ -17,6 +17,7 @@ EGGS=(
     jupyter-nbextensions-configurator
     keras
     more_itertools
+    natsort
     nltk
     pandas
     pandasql
