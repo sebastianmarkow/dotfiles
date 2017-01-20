@@ -16,6 +16,7 @@ EGGS=(
     jupyter-contrib-nbextensions
     jupyter-nbextensions-configurator
     keras
+    more_itertools
     nltk
     pandas
     pandasql
