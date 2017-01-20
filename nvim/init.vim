@@ -462,7 +462,7 @@ let g:go_doc_keywordprg_enabled=1
 
 " Plugin: vim-better-whitespace
 noremap <leader>I :ToggleWhitespace<cr>
-let g:better_whitespace_filetypes_blacklist=['git', 'gitcommit', 'diff']
+let g:better_whitespace_filetypes_blacklist=['git', 'gitcommit', 'diff', 'help']
 
 " Plugin: auto-pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
