@@ -52,12 +52,12 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
 Plug 'sbdchd/neoformat'
+Plug 'scrooloose/nerdcommenter'
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'sbdchd/neoformat',                    {'on': 'NeoFormat'}
 Plug 'tpope/vim-fugitive'
@@ -523,6 +523,10 @@ let g:ale_statusline_format=['%d error(s)', '%d warning(s)', '']
 
 nmap <silent> gen <Plug>(ale_next_wrap)
 nmap <silent> gep <Plug>(ale_previous_wrap)
+
+" Plugin: nerdcommenter
+let g:NERDCreateDefaultMappings=0
+map gc <plug>NERDCommenterToggle('nv', 'Toggle')<cr>
 
 " Plugin: lightline.vim
 let g:responsive_width_mid=70
