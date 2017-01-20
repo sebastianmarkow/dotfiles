@@ -51,7 +51,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
-Plug 'sbdchd/neoformat'
+Plug 'sbdchd/neoformat',                    {'on': 'NeoFormat'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neosnippet.vim'
@@ -59,7 +59,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
-Plug 'sbdchd/neoformat',                    {'on': 'NeoFormat'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
