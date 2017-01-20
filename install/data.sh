@@ -8,6 +8,7 @@ EGGS=(
     bokeh
     csvkit
     cython
+    fastcache
     gensim
     ggplot
     joblib
