@@ -40,6 +40,7 @@ set -x FZF_DEFAULT_OPTS '--color=16,header:13,info:5,pointer:3,marker:9,spinner:
 set -x FZF_DEFAULT_COMMAND 'rg -g "" -l --color never ""'
 set -x XZ_OPT '-T0'
 set -x MPLBACKEND 'module://itermplot'
+set -x ITERMPLOT 'rv'
 
 # Hook
 test -d $XDG_DATA_HOME/fish/generated_completions
