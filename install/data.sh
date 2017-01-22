@@ -11,6 +11,7 @@ EGGS=(
     fastcache
     gensim
     ggplot
+    itermplot
     joblib
     jupyter
     jupyter-contrib-nbextensions
