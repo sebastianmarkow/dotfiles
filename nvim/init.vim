@@ -72,6 +72,7 @@ Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
+Plug 'hdima/python-syntax',                 {'for': 'python'}
 Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
 Plug 'nlknguyen/c-syntax.vim',              {'for': 'c'}
 Plug 'rust-lang/rust.vim',                  {'for': 'rust'}
