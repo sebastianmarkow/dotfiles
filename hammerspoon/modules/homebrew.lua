@@ -22,7 +22,7 @@ function Homebrew:loadOutdated()
         self.disabled = false
         self.menubar:returnToMenuBar()
         if not self.notified then
-            hs.notify.show('Homebrew', '', 'Updated formulas available')
+            hs.notify.show('Homebrew', 'Updated formulas available', table.concat(self.items, ', '))
             self.notified = true
         end
     end
