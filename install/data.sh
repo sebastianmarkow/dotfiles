@@ -22,6 +22,7 @@ EGGS=(
     nltk
     pandas
     pandasql
+    pydot
     scikit-image
     scikit-learn
     seaborn
