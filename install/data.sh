@@ -11,6 +11,7 @@ EGGS=(
     fastcache
     gensim
     ggplot
+    h5py
     itermplot
     joblib
     jupyter
@@ -32,6 +33,7 @@ EGGS=(
 
 FORMULAS=(
     python3
+    "homebrew/science/hdf5"
     "homebrew/python/numpy --with-python3"
     "homebrew/python/scipy --with-python3"
     "homebrew/python/matplotlib --with-python3"
