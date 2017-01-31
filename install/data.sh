@@ -18,12 +18,12 @@ EGGS=(
     jupyter-contrib-nbextensions
     jupyter-nbextensions-configurator
     keras
-    more_itertools
+    more-itertools
     natsort
     nltk
     pandas
     pandasql
-    pydot
+    pydot-ng
     scikit-image
     scikit-learn
     seaborn
