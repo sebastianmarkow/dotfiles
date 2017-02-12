@@ -18,14 +18,17 @@ EGGS=(
     jupyter-contrib-nbextensions
     jupyter-nbextensions-configurator
     keras
+    matplotlib
     more-itertools
     natsort
     nltk
+    numpy
     pandas
     pandasql
     pydot-ng
     scikit-image
     scikit-learn
+    scipy
     seaborn
     tensorflow
     tqdm
@@ -34,9 +37,6 @@ EGGS=(
 FORMULAS=(
     python3
     "homebrew/science/hdf5"
-    "homebrew/python/numpy --with-python3"
-    "homebrew/python/scipy --with-python3"
-    "homebrew/python/matplotlib --with-python3"
 )
 
 h1 "data science"
