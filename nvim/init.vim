@@ -72,6 +72,7 @@ Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
+Plug 'lervag/vimtex',                       {'for': 'tex'}
 Plug 'hdima/python-syntax',                 {'for': 'python'}
 Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
 Plug 'nlknguyen/c-syntax.vim',              {'for': 'c'}
@@ -379,13 +380,16 @@ autocmd FileType yaml,toml,json,ruby,javascript,css,scss,html setlocal softtabst
 autocmd FileType markdown,gitcommit,tex setlocal spell
 
 " Custom: Textwidth
-autocmd FileType gitcommit     setlocal textwidth=72
-autocmd FileType text,markdown setlocal textwidth=80
+autocmd FileType gitcommit         setlocal textwidth=72
+autocmd FileType text,markdown,tex setlocal textwidth=80
 
 " Custom: Colorcolumn
-autocmd FileType python,c,cpp  setlocal colorcolumn=81
-autocmd FileType text,markdown setlocal colorcolumn=+1
-autocmd FileType gitcommit     setlocal colorcolumn=51,+1
+autocmd FileType python,c,cpp      setlocal colorcolumn=81
+autocmd FileType text,markdown,tex setlocal colorcolumn=+1
+autocmd FileType gitcommit         setlocal colorcolumn=51,+1
+
+" Custom: Conceallevel
+autocmd FileType tex setlocal conceallevel=0
 
 " Custom: Disable decoration
 autocmd FileType qf,diff,git,gitcommit,GV,vim-plug,rustdoc,godoc setlocal nonumber norelativenumber
@@ -432,6 +436,9 @@ command! FZFMru call fzf#run({
     \ 'options': '+m',
     \ 'down':    len(v:oldfiles) + 2
     \ })
+
+" Plugin: vimtex
+let g:vimtex_latexmk_enabled=1
 
 " Plugin: ag.vim
 let g:ag_prg='rg --vimgrep --smart-case'
