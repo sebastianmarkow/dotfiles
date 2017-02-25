@@ -3,8 +3,8 @@ local Redshift = {
     menubar     = hs.menubar.new(),
     active      = false,
     temperature = hs.settings.get('Redshift.temperature'),
-    start       = '20:00',
-    stop        = '07:00',
+    start       = '18:00',
+    stop        = '08:00',
     fade        = hs.settings.get('Redshift.fade'),
     invert      = hs.settings.get('Redshift.invert'),
 }

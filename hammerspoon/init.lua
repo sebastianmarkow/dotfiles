@@ -21,7 +21,7 @@ else -- any
 end
 
 -- module: Redshift
-hs.settings.set('Redshift.temperature', 2700)
+hs.settings.set('Redshift.temperature', 2100)
 hs.settings.set('Redshift.fade',        '1h')
 hs.settings.set('Redshift.invert',      false)
 
