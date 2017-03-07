@@ -56,7 +56,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
@@ -97,7 +96,6 @@ set autoread " load changes made from outside
 set backup
 set backupdir=$XDG_DATA_HOME/nvim/backup
 set undofile
-set undolevels=500
 set undodir=$XDG_DATA_HOME/nvim/undo
 set shada='100,<500,/50,:100,@100,s10,h,c,n$XDG_DATA_HOME/nvim/shada
 
@@ -377,16 +375,12 @@ autocmd FileType make,go,c,cpp,glsl                           setlocal softtabst
 autocmd FileType yaml,toml,json,ruby,javascript,css,scss,html setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
-autocmd FileType markdown,gitcommit,tex setlocal spell
+autocmd FileType markdown,text,gitcommit,tex setlocal spell
 
 " Custom: Textwidth
-autocmd FileType gitcommit         setlocal textwidth=72
-autocmd FileType text,markdown,tex setlocal textwidth=80
-
-" Custom: Colorcolumn
+autocmd FileType text,markdown,tex setlocal textwidth=80 colorcolumn=+1
+autocmd FileType gitcommit         setlocal textwidth=72 colorcolumn=+1,51
 autocmd FileType python,c,cpp      setlocal colorcolumn=81
-autocmd FileType text,markdown,tex setlocal colorcolumn=+1
-autocmd FileType gitcommit         setlocal colorcolumn=51,+1
 
 " Custom: Conceallevel
 autocmd FileType tex setlocal conceallevel=0
@@ -437,9 +431,6 @@ command! FZFMru call fzf#run({
     \ 'down':    len(v:oldfiles) + 2
     \ })
 
-" Plugin: vimtex
-let g:vimtex_latexmk_enabled=1
-
 " Plugin: ag.vim
 let g:ag_prg='rg --vimgrep --smart-case'
 let g:ag_mapping_message=0
@@ -457,7 +448,7 @@ nmap gn <plug>GitGutterNextHunk
 nmap gp <plug>GitGutterPrevHunk
 let g:gitgutter_override_sign_column_highlight=0
 let g:gitgutter_sign_column_always=1
-let g:gitgutter_realtime=1
+let g:gitgutter_eager=1
 let g:gitgutter_map_keys=0
 
 " Plugin: rust.vim
