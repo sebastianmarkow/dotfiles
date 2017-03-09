@@ -45,6 +45,7 @@ FORMULAS=(
     lua
     luajit
     mandoc
+    mpg123
     mplayer
     mtr
     multitail
