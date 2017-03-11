@@ -5,6 +5,14 @@ function fish_prompt --description 'Compose fish prompt'
     echo -n -s ' ' (prompt_pwd) ' '
     set last_color $__sk_prompt_pwd_bg
 
+    if set -q VIRTUAL_ENV
+        set_color $last_color -b $__sk_prompt_venv_bg
+        echo -n -s ''
+        set_color $__sk_prompt_venv_fg -b $__sk_prompt_venv_bg
+        echo -n -s " " (basename "$VIRTUAL_ENV") " "
+        set last_color $__sk_prompt_venv_bg
+    end
+
     if test "$USER" = "root"
         set_color $last_color -b $__sk_prompt_root_bg
         echo -n -s ''

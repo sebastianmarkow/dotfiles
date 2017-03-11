@@ -42,11 +42,10 @@ set -x XZ_OPT '-T0'
 set -x MPLBACKEND 'module://itermplot'
 set -x ITERMPLOT 'rv'
 
-# Hook
-test -d $XDG_DATA_HOME/fish/generated_completions
-or fish_update_completions
-command -s jump >/dev/null
-and . (jump shell fish | psub)
+# Hooks
+test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
+command -s jump >/dev/null; and . (jump shell fish | psub)
+
 
 # Abbreviations
 abbr cp 'cp -i'
@@ -72,6 +71,7 @@ alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
 alias upper 'tr a-z A-Z'
 alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
+alias vf 'eval (python3 -m virtualfish compat_aliases)'
 
 # Fish
 set fish_color_comment blue
@@ -98,6 +98,8 @@ set __sk_prompt_pwd_fg brblue
 set __sk_prompt_pwd_bg 95a5a6
 set __sk_prompt_root_fg brblue
 set __sk_prompt_root_bg red
+set __sk_prompt_venv_fg white
+set __sk_prompt_venv_bg brred
 
 set __sk_mode_string_normal 'n'
 set __sk_mode_string_insert 'i'

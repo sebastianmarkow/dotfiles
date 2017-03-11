@@ -11,6 +11,7 @@ EGGS=(
     pip
     pylint
     virtualenv
+    virtualfish
     yapf
 )
 
