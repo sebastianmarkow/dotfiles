@@ -99,7 +99,7 @@ set __sk_prompt_pwd_bg 95a5a6
 set __sk_prompt_root_fg brblue
 set __sk_prompt_root_bg red
 set __sk_prompt_venv_fg white
-set __sk_prompt_venv_bg brred
+set __sk_prompt_venv_bg magenta
 
 set __sk_mode_string_normal 'n'
 set __sk_mode_string_insert 'i'
