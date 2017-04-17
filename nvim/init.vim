@@ -62,7 +62,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
-Plug 'w0rp/ale'
+Plug 'neomake/neomake'
 Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
 
@@ -79,7 +79,6 @@ Plug 'rust-lang/rust.vim',                  {'for': 'rust'}
 Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
 Plug 'yosssi/vim-ace',                      {'for': 'ace'}
 Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
-Plug 'zchee/deoplete-go',                   {'for': 'go', 'do': 'make'}
 
 call plug#end()
 
@@ -458,6 +457,7 @@ let g:rustfmt_autosave=1
 let g:go_fmt_command='goimports'
 let g:go_fmt_fail_silently=1
 let g:go_doc_keywordprg_enabled=1
+let g:go_gocode_autobuild = 0
 
 " Plugin: vim-better-whitespace
 noremap <leader>I :ToggleWhitespace<cr>
@@ -510,21 +510,20 @@ function! g:committia_hooks.edit_open(info)
     nmap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
-" Plugin: ale
-let g:ale_linters={}
-let g:ale_lint_on_save=1
-let g:ale_lint_on_text_changed=0
-let g:ale_lint_on_enter=1
-let g:ale_sign_error='>'
-let g:ale_sign_warning='!'
-let g:ale_statusline_format=['%d error(s)', '%d warning(s)', '']
-
-nmap <silent> gen <Plug>(ale_next_wrap)
-nmap <silent> gep <Plug>(ale_previous_wrap)
-
 " Plugin: nerdcommenter
 let g:NERDCreateDefaultMappings=0
 map gc <plug>NERDCommenterToggle('nv', 'Toggle')<cr>
+
+
+" Plugin: neomake
+let g:neomake_error_sign = {'text': '!'}
+let g:neomake_warning_sign = {'text': '?'}
+call neomake#signs#RedefineErrorSign()
+
+augroup neomaketrigger
+autocmd!
+autocmd BufWritePost * Neomake
+augroup end " neomaketrigger
 
 " Plugin: lightline.vim
 let g:responsive_width_mid=70
@@ -550,7 +549,7 @@ let g:lightline={
     \     'left': [
     \         ['mode'],
     \         ['filename'],
-    \         ['readonly', 'modified', 'ale']
+    \         ['readonly', 'modified']
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
@@ -571,7 +570,6 @@ let g:lightline={
     \     'fileformat':   'LightLineFileformat',
     \     'filetype':     'LightLineFiletype',
     \     'fugitive':     'LightLineFugitive',
-    \     'ale':          'LightLineAle',
     \     'lineno':       'LightLineLineno',
     \     'mode':         'LightLineMode',
     \     'percent':      'LightLinePercent',
@@ -592,10 +590,6 @@ function! LightLineFugitive()
         return l:head !=# '' ? ' '.l:head : ''
     endif
     return ''
-endfunction
-
-function! LightLineAle()
-    return winwidth(0) > g:responsive_width_mid ? ALEGetStatusLine() : ''
 endfunction
 
 function! LightLineWindownr()
@@ -656,7 +650,6 @@ let g:deoplete#enable_camel_case=1
 let g:deoplete#max_list=100
 let g:deoplete#ignore_sources={}
 let g:deoplete#ignore_sources._=['buffer']
-let g:deoplete#sources#go#sort_class=['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
 let g:deoplete#sources#clang#std#c='c11'
