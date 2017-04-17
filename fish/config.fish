@@ -48,7 +48,7 @@ command -s jump >/dev/null; and . (jump shell fish | psub)
 
 
 # Abbreviations
-abbr cp 'cp -i'
+abbr cp 'cp -iR'
 abbr d 'docker'
 abbr dm 'docker-machine'
 abbr g 'git'
