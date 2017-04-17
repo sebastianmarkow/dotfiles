@@ -16,6 +16,7 @@ TOOLS=(
     github.com/tools/godep
     github.com/tpng/gopkgs
     golang.org/x/tools/cmd/...
+    honnef.co/go/staticcheck/cmd/staticcheck
     honnef.co/go/unused/cmd/unused
     sourcegraph.com/sqs/goreturns
 )
