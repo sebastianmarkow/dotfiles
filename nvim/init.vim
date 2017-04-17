@@ -549,7 +549,7 @@ let g:lightline={
     \     'left': [
     \         ['mode'],
     \         ['filename'],
-    \         ['readonly', 'modified']
+    \         ['readonly', 'modified', 'neomake']
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
@@ -570,6 +570,7 @@ let g:lightline={
     \     'fileformat':   'LightLineFileformat',
     \     'filetype':     'LightLineFiletype',
     \     'fugitive':     'LightLineFugitive',
+    \     'neomake':      'LightLineNeomake',
     \     'lineno':       'LightLineLineno',
     \     'mode':         'LightLineMode',
     \     'percent':      'LightLinePercent',
@@ -588,6 +589,14 @@ function! LightLineFugitive()
     if winwidth(0) > g:responsive_width_mid && exists('*fugitive#head')
         let l:head=fugitive#head()
         return l:head !=# '' ? ' '.l:head : ''
+    endif
+    return ''
+endfunction
+
+function! LightLineNeomake()
+    if winwidth(0) > g:responsive_width_mid && exists('*neomake#statusline#LoclistStatus')
+        let l:status=neomake#statusline#LoclistStatus()
+        return l:status
     endif
     return ''
 endfunction
