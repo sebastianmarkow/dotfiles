@@ -42,6 +42,12 @@ set -x XZ_OPT '-T0'
 set -x MPLBACKEND 'module://itermplot'
 set -x ITERMPLOT 'rv'
 
+# xHyve
+set -x XHYVE_CPU_COUNT 4
+set -x XHYVE_MEMORY_SIZE 2048
+set -x XHYVE_DISK_SIZE 20000
+set -x XHYVE_EXPERIMENTAL_NFS_SHARE true
+
 # Hooks
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 command -s jump >/dev/null; and . (jump shell fish | psub)
