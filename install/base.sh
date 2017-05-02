@@ -45,6 +45,7 @@ FORMULAS=(
     pam_yubico
     pstree
     python3
+    reattach-to-user-namespace
     ripgrep
     subversion
     tree

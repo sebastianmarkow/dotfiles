@@ -187,7 +187,7 @@ set nojoinspaces " do not add additional spaces on join
 set nospell " no spellcheck
 set spellfile=$XDG_CONFIG_HOME/nvim/spell/spellfile.utf-8.add
 set spelllang=en
-" set clipboard=unnamed " TODO: use os clipboard
+set clipboard=unnamed
 set formatoptions=qcnrj
 "                 |||||
 "                 |||||
