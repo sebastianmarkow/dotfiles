@@ -83,11 +83,6 @@ Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
 
 call plug#end()
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let &t_SI .= '\<Esc>[5 q' " line
-let &t_SR .= '\<Esc>[4 q' " underline
-let &t_EI .= '\<Esc>[3 q' " block
-
 " File
 set fileformats=unix,dos,mac
 set autoread " load changes made from outside
@@ -98,6 +93,9 @@ set backupdir=$XDG_DATA_HOME/nvim/backup
 set undofile
 set undodir=$XDG_DATA_HOME/nvim/undo
 set shada='100,<500,/50,:100,@100,s10,h,c,n$XDG_DATA_HOME/nvim/shada
+
+" Cursor
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " Interface
 set showmode " current mode (insert, visual, etc)
