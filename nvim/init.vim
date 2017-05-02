@@ -2,11 +2,12 @@ scriptencoding utf-8
 
 set shell=/bin/sh
 
-" Setup python3 environment
+" Setup python environment
 let g:python3_host_prog='/usr/local/bin/python3'
-let g:python3_host_skip_check=1
 
-" Disable buildin plugins
+" Disable built-in plugins
+let g:loaded_python_provider = 1
+let g:loaded_ruby_provider = 1
 let g:loaded_2html_plugin=1
 let g:loaded_getscript=1
 let g:loaded_getscriptPlugin=1
