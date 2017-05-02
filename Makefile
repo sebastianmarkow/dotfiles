@@ -24,7 +24,7 @@ CONFIGS=fish	\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-all: dotfiles base util cxx go python rust data ## all of the below
+complete: dotfiles base util ## complete system (dotfiles, base, util)
 
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
 
