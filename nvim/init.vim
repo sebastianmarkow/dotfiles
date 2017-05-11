@@ -52,6 +52,7 @@ Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAl
 Plug 'junegunn/vim-peekaboo'
 Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'qstrahl/vim-matchmaker',              {'on': 'Matchmaker'}
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
 Plug 'sbdchd/neoformat',                    {'on': 'NeoFormat'}
