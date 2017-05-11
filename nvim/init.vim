@@ -55,7 +55,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'qstrahl/vim-matchmaker',              {'on': 'Matchmaker'}
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
-Plug 'sbdchd/neoformat',                    {'on': 'NeoFormat'}
+Plug 'sbdchd/neoformat',                    {'on': 'Neoformat'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neosnippet.vim'
