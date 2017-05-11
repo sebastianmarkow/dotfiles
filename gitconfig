@@ -16,7 +16,7 @@
     template = ~/.gitmessage
 
 [push]
-    default = nothing
+    default = upstream
 
 [pull]
     rebase = true
