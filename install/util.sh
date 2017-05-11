@@ -58,6 +58,7 @@ FORMULAS=(
     since
     tmux
     trash
+    uncrustify
     upx
     vmtouch
     w3m
