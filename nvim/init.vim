@@ -50,6 +50,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/gv.vim',                     {'on': 'GV'}
 Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-peekaboo'
+Plug 'neomake/neomake'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
@@ -64,7 +65,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
-Plug 'neomake/neomake'
 Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
 
@@ -73,9 +73,9 @@ Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
-Plug 'lervag/vimtex',                       {'for': 'tex'}
 Plug 'hdima/python-syntax',                 {'for': 'python'}
 Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
+Plug 'lervag/vimtex',                       {'for': 'tex'}
 Plug 'nlknguyen/c-syntax.vim',              {'for': 'c'}
 Plug 'rust-lang/rust.vim',                  {'for': 'rust'}
 Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
