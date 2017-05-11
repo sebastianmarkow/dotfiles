@@ -36,7 +36,7 @@
 [diff]
     tool = vimdiff
     renames = copies
-    algorithm = histogram
+    algorithm = patience
     compactionHeuristic = true
 
 [difftool "vimdiff"]
