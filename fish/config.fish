@@ -109,10 +109,10 @@ set __sk_prompt_root_bg red
 set __sk_prompt_venv_fg white
 set __sk_prompt_venv_bg magenta
 
-set __sk_mode_string_normal 'n'
-set __sk_mode_string_insert 'i'
-set __sk_mode_string_replace 'r'
-set __sk_mode_string_visual 'v'
+set __sk_mode_string_normal ''
+set __sk_mode_string_insert ''
+set __sk_mode_string_replace ''
+set __sk_mode_string_visual ''
 set __sk_mode_color_normal blue
 set __sk_mode_color_insert green
 set __sk_mode_color_replace red
