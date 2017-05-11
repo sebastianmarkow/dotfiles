@@ -355,8 +355,8 @@ autocmd InsertEnter,WinLeave,FocusLost   * if &filetype !~? g:omit_numbers | set
 autocmd InsertLeave,WinEnter,FocusGained * if &filetype !~? g:omit_numbers | setlocal relativenumber | endif
 
 " Trigger: Cursorline
-autocmd WinEnter,FocusGained * setlocal cursorline
-autocmd WinLeave,FocusLost   * setlocal nocursorline
+autocmd InsertLeave,WinEnter,FocusGained * setlocal cursorline
+autocmd InsertEnter,WinLeave,FocusLost   * setlocal nocursorline
 
 augroup end " trigger
 
