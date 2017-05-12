@@ -62,6 +62,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
+Plug 'yggdroot/indentLine',                 {'for': 'ace'}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
@@ -462,6 +463,10 @@ let g:go_gocode_autobuild = 0
 " Plugin: vim-better-whitespace
 noremap <leader>I :ToggleWhitespace<cr>
 let g:better_whitespace_filetypes_blacklist=['git', 'gitcommit', 'diff', 'help']
+
+" Plugin: indentLine
+let g:indentLine_color_term = 4
+let g:indentLine_char = '┊'
 
 " Plugin: auto-pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
