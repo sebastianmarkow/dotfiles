@@ -41,8 +41,8 @@ set -x FZF_DEFAULT_COMMAND 'rg -g "" -l --color never ""'
 set -x XZ_OPT '-T0'
 
 # xHyve
-set -x XHYVE_CPU_COUNT 4
-set -x XHYVE_MEMORY_SIZE 12288
+set -x XHYVE_CPU_COUNT 2
+set -x XHYVE_MEMORY_SIZE 4096
 set -x XHYVE_DISK_SIZE 20000
 set -x XHYVE_EXPERIMENTAL_NFS_SHARE true
 
