@@ -11,13 +11,13 @@ function __sk_git_status --description "Display git status"
     set -l branch $repo_info[2]
     set -l files_status (command git status --porcelain ^/dev/null | cut -c 1-2 | sort)
 
-    set -l sign_staged '→'
-    set -l sign_unstaged '↯'
-    set -l sign_unmerged '⇄'
-    set -l sign_untracked '…'
-    set -l sign_stashed '↩'
-    set -l sign_ahead '↑'
-    set -l sign_behind '↓'
+    set -l sign_staged '=='
+    set -l sign_unstaged '~~'
+    set -l sign_unmerged '!='
+    set -l sign_untracked '...'
+    set -l sign_stashed '<>'
+    set -l sign_ahead '->'
+    set -l sign_behind '<-'
 
     set -l staged 0
     set -l unstaged 0

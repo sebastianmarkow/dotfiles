@@ -82,13 +82,13 @@ alias vf 'eval (python3 -m virtualfish compat_aliases)'
 
 # Fish
 set fish_color_comment blue
-set fish_color_command yellow
-set fish_color_param yellow
+set fish_color_command brmagenta
+set fish_color_param white
 set fish_color_quote brred
 set fish_color_error red
-set fish_color_redirection brred
+set fish_color_redirection yellow
 set fish_color_operator brred
-set fish_color_autosuggestion brblue
+set fish_color_autosuggestion brgreen
 set fish_color_selection --background=blue
 set fish_color_end brred
 
@@ -108,10 +108,10 @@ set __sk_prompt_root_bg red
 set __sk_prompt_venv_fg white
 set __sk_prompt_venv_bg magenta
 
-set __sk_mode_string_normal ''
-set __sk_mode_string_insert ''
-set __sk_mode_string_replace ''
-set __sk_mode_string_visual ''
+set __sk_mode_string_normal 'NORMAL'
+set __sk_mode_string_insert 'INSERT'
+set __sk_mode_string_replace 'REPLACE'
+set __sk_mode_string_visual 'VISUAL'
 set __sk_mode_color_normal blue
 set __sk_mode_color_insert green
 set __sk_mode_color_replace red
