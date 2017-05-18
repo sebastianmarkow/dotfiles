@@ -446,9 +446,7 @@ let g:multi_cursor_quit_key='<esc>'
 " Plugin: vim-gitgutter
 nmap gn <plug>GitGutterNextHunk
 nmap gp <plug>GitGutterPrevHunk
-let g:gitgutter_override_sign_column_highlight=0
-let g:gitgutter_sign_column_always=1
-let g:gitgutter_eager=1
+let g:gitgutter_sign_column_always=0
 let g:gitgutter_map_keys=0
 
 " Plugin: rust.vim
