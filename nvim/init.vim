@@ -100,7 +100,7 @@ set shada='100,<500,/50,:100,@100,s10,h,c,n$XDG_DATA_HOME/nvim/shada
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 
 " Interface
-set showmode " current mode (insert, visual, etc)
+set noshowmode " current mode (insert, visual, etc)
 set showcmd
 set title
 set nofoldenable
