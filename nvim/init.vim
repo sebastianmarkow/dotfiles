@@ -110,7 +110,7 @@ set cursorline
 set numberwidth=3
 set cmdheight=1
 set laststatus=2 " always show statusline
-set scrolloff=1
+set scrolloff=5
 set sidescrolloff=5 " number of horizontal columns visible around cursor
 set showmatch
 set matchtime=2 " matching brackets cursor blink time (1/10 * n)
