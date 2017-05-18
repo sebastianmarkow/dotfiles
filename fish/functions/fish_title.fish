@@ -1,7 +1,8 @@
 function fish_title
-    if test "$PWD" = ~
-        echo '~'
-    else
-        echo (basename $PWD)
+    switch $PWD
+        case $HOME
+            echo '~'
+        case '*'
+            echo (basename $PWD)
     end
 end
