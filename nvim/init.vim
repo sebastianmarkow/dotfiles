@@ -540,8 +540,8 @@ let g:lightline={
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['filename'],
-    \         ['readonly', 'modified', 'neomake']
+    \         ['neomake'],
+    \         ['filename', 'readonly', 'modified']
     \     ],
     \     'right': [
     \         ['percent', 'windownr'],
@@ -570,8 +570,9 @@ let g:lightline={
     \     'windownr':     'LightLineWindownr',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '│', 'right': '│' },
+    \ 'subseparator': { 'left': '|', 'right': '|' },
     \ }
+
 
 function! LightLineMode()
     return winwidth(0) > g:responsive_width_small ? lightline#mode() : ''
