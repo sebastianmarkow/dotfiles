@@ -76,6 +76,7 @@ alias tig 'nvim +GV +bd1'
 alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
 alias upper 'tr a-z A-Z'
+alias lower 'tr A-Z a-z'
 alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 alias vf 'eval (python3 -m virtualfish compat_aliases)'
 
