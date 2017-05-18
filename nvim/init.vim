@@ -569,7 +569,7 @@ let g:lightline={
     \     'readonly':     'LightLineReadonly',
     \     'windownr':     'LightLineWindownr',
     \ },
-    \ 'separator': { 'left': '', 'right': '' },
+    \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '│', 'right': '│' },
     \ }
 

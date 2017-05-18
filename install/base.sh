@@ -55,8 +55,7 @@ FORMULAS=(
 )
 
 CASKS=(
-    font-hack
-    iterm2
+    font-fira-code
 )
 
 h1 "base"

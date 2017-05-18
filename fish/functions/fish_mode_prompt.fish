@@ -14,11 +14,8 @@ function fish_mode_prompt --description 'Displays the current mode'
                 set sign_color $__sk_mode_color_visual
                 set sign_char $__sk_mode_string_visual
         end
-        set_color -b $sign_color
-        set_color brwhite
+        set_color white -b $sign_color
         echo -n -s ' ' $sign_char ' '
-        set_color $sign_color -b $__sk_prompt_pwd_bg
-        echo -n -s ''
         set_color normal
     end
 end

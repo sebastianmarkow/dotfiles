@@ -59,13 +59,13 @@ function __sk_git_status --description "Display git status"
     set -l files "$staged$unstaged$unmerged$untracked$stashed"
 
     if test -n "$files"
-        set files "$files  "
+        set files "$files | "
     end
 
     set -l upstream "$ahead$behind"
 
     if test -n "$upstream"
-        set upstream "$upstream  "
+        set upstream "$upstream | "
     end
 
     set -l operation
@@ -83,7 +83,7 @@ function __sk_git_status --description "Display git status"
     end
 
     if test -n "$operation"
-        set operation "$operation  "
+        set operation "$operation | "
     end
 
     echo -n "$files$upstream$operation$branch"

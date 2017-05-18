@@ -12,7 +12,6 @@ EGGS=(
     gensim
     ggplot
     h5py
-    itermplot
     joblib
     jupyter
     jupyter-contrib-nbextensions
