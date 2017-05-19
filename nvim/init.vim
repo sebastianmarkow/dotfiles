@@ -240,7 +240,7 @@ set wildignore+=.git,.hg,.svn,.bzr
 set wildignore+=*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib
 set wildignore+=*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso
 set wildignore+=*.pdf,*.doc*,*.aux,*.out,*.toc
-set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.bmp,*.psd,*.ai,*.ico
+set wildignore+=*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch
 set wildignore+=*.db,*.sqlite
 
 " Leader
