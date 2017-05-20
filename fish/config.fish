@@ -101,8 +101,8 @@ set __sk_right_prompt_status_bg red
 set __sk_right_prompt_timing_fg white
 set __sk_right_prompt_timing_bg magenta
 
-set __sk_prompt_pwd_fg brblue
-set __sk_prompt_pwd_bg 95a5a6
+set __sk_prompt_pwd_fg blue
+set __sk_prompt_pwd_bg brblack
 set __sk_prompt_root_fg brblue
 set __sk_prompt_root_bg red
 set __sk_prompt_venv_fg white
