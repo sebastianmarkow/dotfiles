@@ -53,6 +53,7 @@ FORMULAS=(
     pv
     python3
     ragel
+    rclone
     rename
     shellcheck
     since
