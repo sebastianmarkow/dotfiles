@@ -62,7 +62,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'yggdroot/indentLine',                 {'for': 'ace'}
+Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
@@ -434,6 +434,9 @@ command! FZFMru call fzf#run({
 " Plugin: ag.vim
 let g:ag_prg='rg --vimgrep --smart-case'
 let g:ag_mapping_message=0
+
+" Plugin: indentline
+let g:indentLine_enabled = 0
 
 " Plugin: vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
