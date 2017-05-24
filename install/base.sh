@@ -19,10 +19,12 @@ EGGS=(
 )
 
 FORMULAS=(
+    awk
     bash
     bazaar
     coreutils
     curl
+    diffutils
     findutils
     fish
     fzf
@@ -30,23 +32,21 @@ FORMULAS=(
     git
     gnu-sed
     gnu-tar
-    homebrew/dupes/awk
-    homebrew/dupes/diffutils
-    homebrew/dupes/grep
-    homebrew/dupes/less
-    homebrew/dupes/make
-    homebrew/dupes/openssh
-    homebrew/dupes/rsync
+    grep
     iftop
     jump
+    less
+    make
     mercurial
     moreutils
     neovim/neovim/neovim
+    openssh
     pam_yubico
     pstree
     python3
     reattach-to-user-namespace
     ripgrep
+    rsync
     subversion
     tree
     watch

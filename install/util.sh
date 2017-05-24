@@ -5,6 +5,7 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
+    homebrew/core
     homebrew/dupes
     homebrew/science
     homebrew/services
@@ -36,7 +37,6 @@ FORMULAS=(
     gistit
     git-extras
     graphviz
-    homebrew/dupes/tcpdump
     htop
     imagemagick
     jo
@@ -57,6 +57,7 @@ FORMULAS=(
     rename
     shellcheck
     since
+    tcpdump
     tmux
     trash
     uncrustify
