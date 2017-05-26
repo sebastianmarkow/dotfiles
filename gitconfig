@@ -98,6 +98,7 @@
     new = checkout -b
     switch = checkout
     discard = checkout --
+    praise = blame
 
     cp = cherry-pick -x
 
