@@ -99,7 +99,7 @@ function pip_install() {
     unset PIP_REQUIRE_VIRTUALENV
     echo "$INSTALLED_MODULES"| grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
-        pip3 install --quiet "$1" > /dev/null 2>&1
+        pip3 install -qqq "$1" > /dev/null 2>&1
         if [[ $? != 0 ]]; then
             error
         else
