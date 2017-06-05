@@ -1,7 +1,7 @@
 # No, no, no!
 status --is-interactive
 or exit 1
-set -e fish_greeting
+set fish_greeting ''
 
 # Path
 set -x PATH $PATH /usr/local/sbin
