@@ -24,7 +24,7 @@ CONFIGS=fish	\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-complete: dotfiles base util ## complete system (dotfiles, base, util)
+complete: base util ## complete system
 
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
 
@@ -46,11 +46,11 @@ $(CONFIGS):
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
 .PHONY: base
-base: brew ## install base
+base: brew dotfiles ## install base
 	@sh ./install/base.sh
 
 .PHONY: brew
-brew:
+brew: ## install Homebrew
 	@sh ./install/brew.sh
 
 .PHONY: cxx
