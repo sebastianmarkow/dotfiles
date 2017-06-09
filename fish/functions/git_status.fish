@@ -16,8 +16,8 @@ function git_status --description "Display git status"
     set -l sign_unmerged '!='
     set -l sign_untracked '...'
     set -l sign_stashed '<>'
-    set -l sign_ahead '->'
-    set -l sign_behind '<-'
+    set -l sign_ahead 'ahead '
+    set -l sign_behind 'behind '
 
     set -l staged 0
     set -l unstaged 0
@@ -56,7 +56,7 @@ function git_status --description "Display git status"
         end
     end
 
-    set -l files "$staged$unstaged$unmerged$untracked$stashed"
+    set -l files $staged $unstaged $unmerged $untracked $stashed
 
     if test -n "$files"
         set files "$files | "
