@@ -80,6 +80,8 @@ alias lower 'tr A-Z a-z'
 alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 alias vf 'eval (python3 -m virtualfish compat_aliases)'
 
+set cmd_timing_limit 5
+
 # Fish
 set fish_color_comment blue
 set fish_color_command brmagenta
@@ -92,30 +94,28 @@ set fish_color_autosuggestion brgreen
 set fish_color_selection --background=blue
 set fish_color_end brred
 
-set __sk_cmd_timing_limit 5
+set fish_color_prompt_git_fg white
+set fish_color_prompt_git_bg brred
+set fish_color_prompt_status_fg white
+set fish_color_prompt_status_bg red
+set fish_color_prompt_timing_fg white
+set fish_color_prompt_timing_bg magenta
 
-set __sk_right_prompt_git_fg white
-set __sk_right_prompt_git_bg brred
-set __sk_right_prompt_status_fg white
-set __sk_right_prompt_status_bg red
-set __sk_right_prompt_timing_fg white
-set __sk_right_prompt_timing_bg magenta
+set fish_color_prompt_pwd_fg blue
+set fish_color_prompt_pwd_bg brblack
+set fish_color_prompt_root_fg brblue
+set fish_color_prompt_root_bg red
+set fish_color_prompt_venv_fg white
+set fish_color_prompt_venv_bg magenta
 
-set __sk_prompt_pwd_fg blue
-set __sk_prompt_pwd_bg brblack
-set __sk_prompt_root_fg brblue
-set __sk_prompt_root_bg red
-set __sk_prompt_venv_fg white
-set __sk_prompt_venv_bg magenta
-
-set __sk_mode_string_normal 'NORMAL'
-set __sk_mode_string_insert 'INSERT'
-set __sk_mode_string_replace 'REPLACE'
-set __sk_mode_string_visual 'VISUAL'
-set __sk_mode_color_normal blue
-set __sk_mode_color_insert green
-set __sk_mode_color_replace red
-set __sk_mode_color_visual magenta
+set fish_color_mode_string_normal 'NORMAL'
+set fish_color_mode_string_insert 'INSERT'
+set fish_color_mode_string_replace 'REPLACE'
+set fish_color_mode_string_visual 'VISUAL'
+set fish_color_mode_color_normal blue
+set fish_color_mode_color_insert green
+set fish_color_mode_color_replace red
+set fish_color_mode_color_visual magenta
 
 # Vi mode
 set fish_key_bindings 'fish_vi_key_bindings'

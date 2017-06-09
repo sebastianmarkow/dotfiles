@@ -1,4 +1,4 @@
-function __sk_git_status --description "Display git status"
+function git_status --description "Display git status"
     if not command -s git >/dev/null
         return 1
     end
