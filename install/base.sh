@@ -43,6 +43,7 @@ FORMULAS=(
     openssh
     pam_yubico
     pstree
+    python
     python3
     reattach-to-user-namespace
     ripgrep
