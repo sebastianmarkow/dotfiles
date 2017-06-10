@@ -18,11 +18,14 @@ function Homebrew:loadOutdated()
         self.disabled = true
         self.notified = false
         self.menubar:removeFromMenuBar()
+        self.menubar:setTooltip("Homebrew")
     else
+        local msg = string.format("%d updated formula%s available", #self.items, plural(self.items))
         self.disabled = false
         self.menubar:returnToMenuBar()
+        self.menubar:setTooltip(msg)
         if not self.notified then
-            hs.notify.show('Homebrew', 'Updated formulas available', table.concat(self.items, ', '))
+            hs.notify.show('Homebrew', msg, table.concat(self.items, ', '))
             self.notified = true
         end
     end
@@ -30,7 +33,7 @@ end
 
 function Homebrew:getMenu()
     local menu = {
-        {title='Upgrade all', fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'upgrade'}):start() end, disabled=self.disabled},
+        {title=string.format("Update %s formula%s", #self.items, plural(self.items)), fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'upgrade', table.concat(self.items, ' ')}):start() end, disabled=self.disabled},
         {title='-'},
     }
     for _, item in ipairs(self.items) do
@@ -43,6 +46,14 @@ end
 function Homebrew:update()
     print('Updating Homebrew')
     hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'update'}):start()
+end
+
+function plural(a)
+    local suffix = ''
+    if #a > 1 then
+        suffix = 's'
+    end
+    return suffix
 end
 
 if Homebrew then
