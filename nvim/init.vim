@@ -524,7 +524,9 @@ map gc <plug>NERDCommenterToggle('nv', 'Toggle')<cr>
 " Plugin: neomake
 let g:neomake_error_sign = {'text': '!'}
 let g:neomake_warning_sign = {'text': '?'}
-call neomake#signs#RedefineErrorSign()
+if exists(':Neomake')
+    call neomake#signs#RedefineErrorSign()
+endif
 
 augroup neomaketrigger
 autocmd!
