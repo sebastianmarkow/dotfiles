@@ -32,9 +32,8 @@ function Homebrew:loadOutdated()
 end
 
 function Homebrew:getMenu()
-    local params = table.merge({'upgrade'}, self.items)
     local menu = {
-        {title=string.format("Update %s formula%s", #self.items, plural(self.items)), fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, params):start() end, disabled=self.disabled},
+        {title=string.format("Update %s formula%s", #self.items, plural(self.items)), fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, table.merge({'upgrade'}, self.items)):start() end, disabled=self.disabled},
         {title='-'},
     }
     for _, item in ipairs(self.items) do
