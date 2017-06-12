@@ -32,8 +32,9 @@ function Homebrew:loadOutdated()
 end
 
 function Homebrew:getMenu()
+    local params = table.merge({'upgrade'}, self.items)
     local menu = {
-        {title=string.format("Update %s formula%s", #self.items, plural(self.items)), fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'upgrade', table.concat(self.items, ' ')}):start() end, disabled=self.disabled},
+        {title=string.format("Update %s formula%s", #self.items, plural(self.items)), fn=function() self.disabled = true; hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, params):start() end, disabled=self.disabled},
         {title='-'},
     }
     for _, item in ipairs(self.items) do
@@ -46,6 +47,14 @@ end
 function Homebrew:update()
     print('Updating Homebrew')
     hs.task.new('/usr/local/bin/brew', function() Homebrew:loadOutdated() end, {'update'}):start()
+end
+
+function table.merge(t1, t2)
+   for k,v in ipairs(t2) do
+      table.insert(t1, v)
+   end
+
+   return t1
 end
 
 function plural(a)
