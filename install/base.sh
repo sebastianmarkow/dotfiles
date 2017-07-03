@@ -39,7 +39,7 @@ FORMULAS=(
     make
     mercurial
     moreutils
-    neovim/neovim/neovim
+    neovim
     openssh
     pam_yubico
     pstree
