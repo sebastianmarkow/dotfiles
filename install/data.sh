@@ -27,6 +27,7 @@ EGGS=(
     pydot-ng
     scikit-image
     scikit-learn
+    scikit-plot
     scipy
     seaborn
     tensorflow
