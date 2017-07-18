@@ -661,3 +661,4 @@ let g:deoplete#sources#clang#std#c='c11'
 let g:deoplete#sources#clang#std#cpp='c++11'
 let g:deoplete#sources#rust#racer_binary='/Users/sebastian/Developer/cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='/Users/sebastian/Developer/repos/github.com/rust-lang/rust/src'
+let g:deoplete#sources#rust#duplication=0
