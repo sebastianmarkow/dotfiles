@@ -82,6 +82,7 @@ Plug 'rust-lang/rust.vim',                  {'for': 'rust'}
 Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
 Plug 'yosssi/vim-ace',                      {'for': 'ace'}
 Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
+Plug 'zchee/deoplete-go',                   {'for': 'go'}
 
 call plug#end()
 
@@ -518,8 +519,7 @@ endfunction
 
 " Plugin: nerdcommenter
 let g:NERDCreateDefaultMappings=0
-map gc <plug>NERDCommenterToggle('nv', 'Toggle')<cr>
-
+map gc <plug>NERDCommenterToggle
 
 " Plugin: neomake
 let g:neomake_error_sign = {'text': '!'}
