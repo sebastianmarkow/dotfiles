@@ -21,6 +21,7 @@ EGGS=(
     more-itertools
     natsort
     nltk
+    numba
     numpy
     pandas
     pandasql
