@@ -45,7 +45,6 @@ FORMULAS=(
     pstree
     python
     python3
-    reattach-to-user-namespace
     ripgrep
     rsync
     subversion
