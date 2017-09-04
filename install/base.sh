@@ -42,6 +42,7 @@ FORMULAS=(
     neovim
     openssh
     pam_yubico
+    pidof
     pstree
     python
     python3
