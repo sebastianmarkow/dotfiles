@@ -38,8 +38,8 @@ EGGS=(
 )
 
 FORMULAS=(
+    hdf5
     python3
-    "homebrew/science/hdf5"
 )
 
 h1 "data science"
