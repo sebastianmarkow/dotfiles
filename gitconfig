@@ -65,6 +65,7 @@
     enabled = 1
 
 [alias]
+    git = !exec git
     edit = config --global -e
 
     contributers = authors --list
