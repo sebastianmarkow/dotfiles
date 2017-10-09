@@ -25,6 +25,7 @@ FORMULAS=(
     coreutils
     curl
     diffutils
+    fd
     findutils
     fish
     fzf
