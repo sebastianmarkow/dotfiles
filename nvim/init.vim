@@ -447,6 +447,14 @@ let g:multi_cursor_prev_key='<c-p>'
 let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
 
+function g:Multiple_cursors_before()
+    let g:deoplete#disable_auto_complete = 1
+endfunction
+
+function g:Multiple_cursors_after()
+    let g:deoplete#disable_auto_complete = 0
+endfunction
+
 " Plugin: vim-gitgutter
 nmap gn <plug>GitGutterNextHunk
 nmap gp <plug>GitGutterPrevHunk
@@ -527,11 +535,7 @@ let g:neomake_warning_sign = {'text': '?'}
 if exists(':Neomake')
     call neomake#signs#RedefineErrorSign()
 endif
-
-augroup neomaketrigger
-autocmd!
-autocmd BufWritePost * Neomake
-augroup end " neomaketrigger
+call neomake#configure#automake('w', 750)
 
 " Plugin: lightline.vim
 let g:responsive_width_mid=70
