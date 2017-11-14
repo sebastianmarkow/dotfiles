@@ -63,12 +63,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
 Plug 'wellle/targets.vim'
 Plug 'whatyouhide/vim-gotham'
+Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 
 " Filetype:
 Plug 'cespare/vim-toml',                    {'for': 'toml'}
