@@ -42,6 +42,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/splitjoin.vim'
+Plug 'andymass/matchup.vim'
 Plug 'ap/vim-buftabline'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
