@@ -447,11 +447,11 @@ let g:multi_cursor_skip_key='<c-x>'
 let g:multi_cursor_quit_key='<esc>'
 
 function g:Multiple_cursors_before()
-    let g:deoplete#disable_auto_complete = 1
+    let g:deoplete#disable_auto_complete=1
 endfunction
 
 function g:Multiple_cursors_after()
-    let g:deoplete#disable_auto_complete = 0
+    let g:deoplete#disable_auto_complete=0
 endfunction
 
 " Plugin: vim-gitgutter
@@ -467,15 +467,15 @@ let g:rustfmt_autosave=1
 let g:go_fmt_command='goimports'
 let g:go_fmt_fail_silently=1
 let g:go_doc_keywordprg_enabled=1
-let g:go_gocode_autobuild = 0
+let g:go_gocode_autobuild=0
 
 " Plugin: vim-better-whitespace
 noremap <leader>I :ToggleWhitespace<cr>
 let g:better_whitespace_filetypes_blacklist=['git', 'gitcommit', 'diff', 'help']
 
 " Plugin: indentLine
-let g:indentLine_color_term = 4
-let g:indentLine_char = '┊'
+let g:indentLine_color_term=4
+let g:indentLine_char='┊'
 
 " Plugin: auto-pairs
 let g:AutoPairsMapCR=0 " no funny stuff on carriage return
