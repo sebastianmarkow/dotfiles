@@ -8,7 +8,7 @@ EGGS=(
     decorator
     mypy-lang
     pep8
-    pip
+    pyannotate
     pylint
     virtualenv
     virtualfish
