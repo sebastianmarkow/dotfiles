@@ -31,6 +31,7 @@ EGGS=(
     scikit-plot
     scipy
     seaborn
+    spacy
     tensorflow
     tqdm
     "http://download.pytorch.org/whl/torch-0.2.0.post1-cp36-cp36m-macosx_10_7_x86_64.whl"
