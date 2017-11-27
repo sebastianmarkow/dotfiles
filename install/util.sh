@@ -41,10 +41,10 @@ FORMULAS=(
     imagemagick
     jo
     jq
-    laurent22/massren/massren
     lua
     luajit
     mandoc
+    massren
     mpg123
     mplayer
     mtr
