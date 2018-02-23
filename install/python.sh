@@ -17,6 +17,8 @@ EGGS=(
 
 FORMULAS=(
     python3
+    pyenv
+    pipenv
 )
 
 h1 "python"
