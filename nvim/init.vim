@@ -535,8 +535,8 @@ let g:neomake_error_sign = {'text': '!'}
 let g:neomake_warning_sign = {'text': '?'}
 if exists(':Neomake')
     call neomake#signs#RedefineErrorSign()
+    call neomake#configure#automake('w')
 endif
-call neomake#configure#automake('w')
 
 " Plugin: lightline.vim
 let g:responsive_width_mid=70
