@@ -1,7 +1,5 @@
 # No, no, no!
-status --is-interactive
-or exit 1
-set fish_greeting ''
+status --is-interactive; or exit 1
 
 # Path
 set -x PATH $PATH /usr/local/sbin
@@ -12,13 +10,8 @@ set -x CARGO_BIN $CARGO_HOME/bin
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
-
-if test -d $GOBIN
-    set -x PATH $PATH $GOBIN
-end
-if test -d $CARGO_BIN
-    set -x PATH $PATH $CARGO_BIN
-end
+test -d $GOBIN; and set -x PATH $PATH $GOBIN
+test -d $CARGO_BIN; and set -x PATH $PATH $CARGO_BIN
 
 # Base
 set -x EDITOR 'nvim'
@@ -64,12 +57,12 @@ abbr v 'nvim'
 abbr vim 'nvim'
 abbr yt 'youtube-dl'
 
-# Alias
+# Aliases
 alias ag 'rg'
 alias compare 'diff -rq'
 alias ldd 'otool -L'
 alias lower 'tr A-Z a-z'
-alias git-root 'cd (git rev-parse --show-cdup)'
+alias groot 'cd (git rev-parse --show-cdup)'
 alias map 'xargs -n1'
 alias near 'grep -C 10'
 alias tig 'nvim +GV +bd1'
@@ -80,9 +73,8 @@ alias lower 'tr A-Z a-z'
 alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 alias vf 'eval (python3 -m virtualfish compat_aliases); and vf'
 
-set cmd_timing_limit 5
-
 # Fish
+set fish_greeting ''
 set fish_color_comment blue
 set fish_color_command brmagenta
 set fish_color_param white
@@ -116,6 +108,8 @@ set fish_color_mode_color_normal blue
 set fish_color_mode_color_insert green
 set fish_color_mode_color_replace red
 set fish_color_mode_color_visual magenta
+
+set cmd_timing_limit 5
 
 # Vi mode
 set fish_key_bindings 'fish_vi_key_bindings'
