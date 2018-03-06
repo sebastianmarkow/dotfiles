@@ -41,6 +41,7 @@ EGGS=(
 FORMULAS=(
     hdf5
     python3
+    saulpw/vd/visidata
 )
 
 h1 "data science"
