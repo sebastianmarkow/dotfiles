@@ -200,6 +200,9 @@ set formatoptions=qcnrj
 set nrformats-=octal
 "               |
 "               +-- interpret numbers with leading zeros as octal
+set iskeyword-=_
+"              |
+"              +-- treat `_` as a word boundary
 
 " Sync
 set synmaxcol=256
