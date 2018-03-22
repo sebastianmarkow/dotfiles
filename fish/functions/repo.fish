@@ -13,7 +13,7 @@ function repo --description 'Go to repository'
                 cd (ghq list -e -p $fzf_last_select)
             end
         case 1
-            cd (ghq list -p $argv[1])
+            cd (ghq list -e -p $argv[1])
         case 2
             switch $argv[1]
                 case 'del'
