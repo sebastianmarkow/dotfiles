@@ -139,7 +139,7 @@ set shortmess=aIOTF
 "             +------ use abbreviations
 set display+=lastline
 set conceallevel=2
-set concealcursor=v
+set concealcursor=nc
 
 " Diff
 set diffopt=filler,vertical
