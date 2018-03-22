@@ -38,14 +38,12 @@ FORMULAS=(
     jump
     less
     make
-    mercurial
     moreutils
     neovim
     openssh
     pam_yubico
     pidof
     pstree
-    python
     python3
     ripgrep
     rsync
