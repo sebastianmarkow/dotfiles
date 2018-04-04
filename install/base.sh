@@ -45,6 +45,7 @@ FORMULAS=(
     pidof
     pstree
     python3
+    reattach-to-user-namespace
     ripgrep
     rsync
     subversion
