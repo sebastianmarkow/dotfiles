@@ -94,7 +94,7 @@ function cask_install() {
 }
 
 function pip_install() {
-    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip3 list --format=legacy | tr A-Z a-z)"}
+    INSTALLED_MODULES=${INSTALLED_MODULES:-"$(pip3 list | cut -f 1 -d " " | tr A-Z a-z)"}
     task "install $1"
     unset PIP_REQUIRE_VIRTUALENV
     echo "$INSTALLED_MODULES"| grep "$1" > /dev/null 2>&1 | true
