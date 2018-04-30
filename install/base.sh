@@ -31,6 +31,7 @@ FORMULAS=(
     fzf
     ghq
     git
+    git-lfs
     gnu-sed
     gnu-tar
     grep
