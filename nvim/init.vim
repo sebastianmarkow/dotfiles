@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 set shell=/bin/sh
+set rtp+=/usr/local/opt/fzf
 
 " Setup python environment
 let g:python3_host_prog='/usr/local/bin/python3'
@@ -46,7 +47,8 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim',                     {'on': 'GV'}
 Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-peekaboo'
