@@ -24,9 +24,9 @@ CONFIGS=fish	\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-complete: base util ## complete system
-
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
+
+base: minimal util ## install base setup
 
 .PHONY: $(DIRS)
 $(DIRS):
@@ -46,15 +46,15 @@ $(CONFIGS):
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
 .PHONY: base
-base: brew dotfiles ## install base
-	@sh ./install/base.sh
+minimal: brew dotfiles ## install minimal setup
+	@sh ./install/minimal.sh
 
 .PHONY: brew
 brew: ## install Homebrew
 	@sh ./install/brew.sh
 
 .PHONY: cxx
-cxx: brew ## install cxx toolchain
+cxx: brew ## install C/C++ toolchain
 	@sh ./install/cxx.sh
 
 .PHONY: data
@@ -62,15 +62,15 @@ data: brew python ## install data science toolchain
 	@sh ./install/data.sh
 
 .PHONY: go
-go: brew ## install Go
+go: brew ## install Go toolchain
 	@sh ./install/go.sh
 
 .PHONY: python
-python: brew ## install Python3
+python: brew ## install Python3 toolchain
 	@sh ./install/python.sh
 
 .PHONY: rust
-rust: brew ## install Rust
+rust: brew ## install Rust toolchain
 	@sh ./install/rust.sh
 
 .PHONY: util

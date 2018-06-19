@@ -60,7 +60,7 @@ CASKS=(
     font-fira-code
 )
 
-h1 "base"
+h1 "minimal"
 h2 "brew taps"
 for t in "${TAPS[@]}"; do brew_tap "$t"; done
 h2 "brew formulas (HEAD)"
