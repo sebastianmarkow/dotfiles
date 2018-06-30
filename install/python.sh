@@ -7,6 +7,7 @@ source "${BASH_SOURCE%/*}/lib.sh"
 EGGS=(
     decorator
     mypy-lang
+    neovim
     pep8
     pyannotate
     pylint
@@ -17,8 +18,6 @@ EGGS=(
 
 FORMULAS=(
     python3
-    pyenv
-    pipenv
 )
 
 h1 "python"
