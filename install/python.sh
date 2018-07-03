@@ -7,7 +7,7 @@ source "${BASH_SOURCE%/*}/lib.sh"
 EGGS=(
     decorator
     mypy-lang
-    neovim
+    #neovim
     pep8
     pyannotate
     pylint

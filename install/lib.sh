@@ -110,6 +110,22 @@ function pip_install() {
     fi
 }
 
+function gem_install() {
+    INSTALLED_GEMS=${INSTALLED_GEMS:-"$(gem list -q | cut -f 1 -d " " | tr A-Z a-z)"}
+    task "install $1"
+    echo "$INSTALLED_GEMS"| grep "$1" > /dev/null 2>&1 | true
+    if [[ ${PIPESTATUS[1]} != 0 ]]; then
+        gem install -q --silent "$1" > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            error
+        else
+            success
+        fi
+    else
+        warn "installed"
+    fi
+}
+
 function go_get() {
     task "install $1"
     go get "$1" > /dev/null 2>&1

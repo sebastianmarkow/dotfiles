@@ -54,6 +54,7 @@ FORMULAS=(
     python3
     ragel
     rclone
+    ruby
     rename
     shellcheck
     since
@@ -66,6 +67,10 @@ FORMULAS=(
     w3m
     wrk
     yank
+)
+
+GEMS=(
+    travis
 )
 
 CASKS=(
@@ -81,3 +86,5 @@ h2 "brew casks"
 for f in "${CASKS[@]}"; do cask_install "$f"; done
 h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
+h2 "ruby gems"
+for f in "${GEMS[@]}"; do gem_install "$f"; done
