@@ -58,11 +58,11 @@ Plug 'qstrahl/vim-matchmaker',              {'on': 'Matchmaker'}
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
 Plug 'sbdchd/neoformat',                    {'on': 'Neoformat'}
-Plug 'scrooloose/nerdcommenter'
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -531,10 +531,6 @@ function! g:committia_hooks.edit_open(info)
     nmap <buffer><c-n> <Plug>(committia-scroll-diff-down-half)
     nmap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
-
-" Plugin: nerdcommenter
-let g:NERDCreateDefaultMappings=0
-map gc <plug>NERDCommenterToggle
 
 " Plugin: neomake
 let g:neomake_error_sign = {'text': '!'}
