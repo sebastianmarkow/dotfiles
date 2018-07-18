@@ -13,9 +13,7 @@ EGGS=(
     ggplot
     h5py
     joblib
-    jupyter
-    jupyter-contrib-nbextensions
-    jupyter-nbextensions-configurator
+    jupyterlab
     keras
     matplotlib
     more-itertools
@@ -36,6 +34,7 @@ EGGS=(
     torch
     torchvision
     tqdm
+    umap
 )
 
 FORMULAS=(
