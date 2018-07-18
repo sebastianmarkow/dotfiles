@@ -29,7 +29,6 @@ FORMULAS=(
     docker
     docker-compose
     docker-machine
-    docker-machine-driver-xhyve
     docker-swarm
     entr
     fdupes
@@ -75,6 +74,8 @@ GEMS=(
 
 CASKS=(
     hammerspoon
+    virtualbox
+    virtualbox-extension-pack
 )
 
 h1 "utilities"
