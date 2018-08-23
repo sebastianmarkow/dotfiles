@@ -33,16 +33,9 @@ set -x FZF_DEFAULT_OPTS '--color=16,header:13,info:5,pointer:3,marker:9,spinner:
 set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x XZ_OPT '-T0'
 
-# xHyve
-set -x XHYVE_CPU_COUNT 2
-set -x XHYVE_MEMORY_SIZE 4096
-set -x XHYVE_DISK_SIZE 20000
-set -x XHYVE_EXPERIMENTAL_NFS_SHARE true
-
 # Hooks
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 command -s jump >/dev/null; and . (jump shell fish | psub)
-
 
 # Abbreviations
 abbr cp 'cp -iR'
