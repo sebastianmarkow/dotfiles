@@ -390,7 +390,7 @@ autocmd FileType gitcommit         setlocal textwidth=72 colorcolumn=+1,51
 autocmd FileType python,c,cpp      setlocal colorcolumn=81
 
 " Custom: Conceallevel
-autocmd FileType tex setlocal conceallevel=0
+autocmd FileType markdown,tex setlocal conceallevel=0
 
 " Custom: Disable decoration
 autocmd FileType qf,diff,git,gitcommit,GV,vim-plug,rustdoc,godoc setlocal nonumber norelativenumber
