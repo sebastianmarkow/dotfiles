@@ -11,10 +11,5 @@ function upgrade --description "Upgrade system"
         fish_update_completions
     end
 
-    set -l PIP_OUTDATED (pip3 list --outdated --format freeze | cut -f 1 -d "=")
-    if test -n "$PIP_OUTDATED"
-        echo "$PIP_OUTDATED" | xargs pip3 install --upgrade
-    end
-
     nvim "+let g:plug_window=''" +PlugUpgrade +PlugClean! +PlugUpdate! +UpdateRemotePlugins +qall
 end
