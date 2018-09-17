@@ -34,7 +34,7 @@ EGGS=(
     torch
     torchvision
     tqdm
-    umap
+    umap-learn
 )
 
 FORMULAS=(
