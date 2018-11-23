@@ -122,6 +122,7 @@ set splitbelow
 set splitright
 set lazyredraw " do not redraw during macros
 set linespace=0
+set list
 set listchars=tab:▸\ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:« " invisible character
 " set statusline=%<\%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%y\ %L\|%l:%c " TODO: disabled, using LightLine
 "                 |  |   | | | |          |                        |       |   |   |  |
