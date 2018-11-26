@@ -6,8 +6,6 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
     homebrew/core
-    homebrew/dupes
-    homebrew/science
     homebrew/services
     caskroom/cask
 )

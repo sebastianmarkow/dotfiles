@@ -5,7 +5,6 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
-    homebrew/dupes
     caskroom/cask
     caskroom/fonts
 )
