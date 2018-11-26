@@ -11,7 +11,6 @@
     precomposeunicode = false
 
 [commit]
-    gpgsign = true
     template = ~/.gitmessage
 
 [push]
