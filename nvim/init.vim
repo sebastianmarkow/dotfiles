@@ -85,6 +85,7 @@ Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
 Plug 'yosssi/vim-ace',                      {'for': 'ace'}
 Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
 Plug 'zchee/deoplete-go',                   {'for': 'go'}
+Plug 'autowitch/hive.vim',                  {'for': 'hive'}
 
 call plug#end()
 
@@ -373,6 +374,7 @@ autocmd!
 " Custom: Filetype
 autocmd BufNewFile,BufRead *.cls,*.sty                   setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
+autocmd BufNewFile,BufRead *.hql                         setlocal filetype=hive
 autocmd BufNewFile,BufRead gitcommit                     setlocal filetype=gitcommit
 autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitconfig
 
