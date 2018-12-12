@@ -36,6 +36,7 @@ set -x XZ_OPT '-T0'
 # Hooks
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 command -s jump >/dev/null; and source (jump shell fish | psub)
+command -s pyenv >/dev/null; and source (pyenv init - | psub)
 
 # Abbreviations
 abbr cp 'cp -iR'
