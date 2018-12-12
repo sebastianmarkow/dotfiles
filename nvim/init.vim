@@ -553,7 +553,7 @@ let g:lightline={
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['neomake'],
+    \         ['neomake', 'gitbranch'],
     \         ['filename', 'readonly', 'modified']
     \     ],
     \     'right': [
@@ -581,6 +581,7 @@ let g:lightline={
     \     'percent':      'LightLinePercent',
     \     'readonly':     'LightLineReadonly',
     \     'windownr':     'LightLineWindownr',
+    \     'gitbranch':    'fugitive#head',
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '|', 'right': '|' },
