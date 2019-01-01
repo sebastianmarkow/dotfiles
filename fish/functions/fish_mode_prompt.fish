@@ -13,6 +13,9 @@ function fish_mode_prompt --description 'Displays the current mode'
             case visual
                 set sign_color $fish_color_mode_color_visual
                 set sign_char $fish_color_mode_string_visual
+            case '*'
+                set sign_color $fish_color_mode_color_normal
+                set sign_char $fish_color_mode_string_normal
         end
         set_color white -b $sign_color
         echo -n -s ' ' $sign_char ' '
