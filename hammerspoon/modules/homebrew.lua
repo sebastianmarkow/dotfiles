@@ -8,7 +8,7 @@ local Homebrew = {
 
 function Homebrew:loadOutdated()
     self.items = {}
-    local pipe = io.popen('/usr/local/bin/brew outdated -1 -v | grep -v pinned | cut -f 1 -d " "', 'r')
+    local pipe = io.popen('/usr/local/bin/brew outdated -v | grep -v pinned | cut -f 1 -d " "', 'r')
     for item in pipe:lines() do
         table.insert(self.items, item)
     end
