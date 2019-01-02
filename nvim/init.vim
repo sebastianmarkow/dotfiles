@@ -46,6 +46,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim'
 Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
@@ -73,6 +74,7 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 
 " Filetype:
+Plug 'autowitch/hive.vim',                  {'for': 'hive'}
 Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
@@ -85,7 +87,6 @@ Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
 Plug 'yosssi/vim-ace',                      {'for': 'ace'}
 Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
 Plug 'zchee/deoplete-go',                   {'for': 'go'}
-Plug 'autowitch/hive.vim',                  {'for': 'hive'}
 
 call plug#end()
 
@@ -403,6 +404,26 @@ augroup end " custom
 " Colors: Spelling Errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
+
+" Plugin: neoformat
+let g:neoformat_xml_tidy = {
+        \ 'exe': 'tidy',
+        \ 'args': ['-quiet',
+        \          '-xml',
+        \          '--indent auto',
+        \          '--indent-attributes yes',
+        \          '--indent-spaces ' . shiftwidth(),
+        \          '--tidy-mark no',
+        \          '--vertical-space yes',
+        \          '--wrap 0',
+        \         ],
+        \ 'stdin': 1,
+        \ }
+
+let g:neoformat_enabled_xml = ['tidy']
+
+" Plugin: editorconfig
+let g:EditorConfig_exclude_patterns=['fugitive://.*']
 
 " Plugin: fzf
 noremap <c-p>     :FZFopen<cr>
