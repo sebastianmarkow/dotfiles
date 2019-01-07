@@ -48,7 +48,6 @@ Plug 'andrewradev/splitjoin.vim'
 Plug 'ap/vim-buftabline'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim',                     {'on': 'GV'}
 Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
@@ -206,9 +205,6 @@ set formatoptions=qcnrj
 set nrformats-=octal
 "               |
 "               +-- interpret numbers with leading zeros as octal
-set iskeyword-=_
-"              |
-"              +-- treat `_` as a word boundary
 
 " Sync
 set synmaxcol=256
@@ -509,15 +505,6 @@ let g:better_whitespace_filetypes_blacklist=['git', 'gitcommit', 'diff', 'help']
 let g:indentLine_color_term=4
 let g:indentLine_char='┊'
 
-" Plugin: auto-pairs
-let g:AutoPairsMapCR=0 " no funny stuff on carriage return
-
-augroup autopairsextend
-autocmd!
-autocmd FileType rust let b:AutoPairs={'(': ')', '[': ']', '{': '}', "|": "|", '"': '"', '`': '`'}
-autocmd FileType tex,markdown let b:AutoPairs={'(': ')', '[': ']', '{': '}', '"': '"', '`': '`', '$': '$'}
-augroup end " autopairsextend
-
 " Plugin: vim-easy-align
 nmap ga <plug>(EasyAlign)
 xmap ga <plug>(EasyAlign)
@@ -678,7 +665,7 @@ let g:neosnippet#enable_snipmate_compatibility=1
 " Plugin: deocomplete.nvim
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
 imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
-imap <silent><expr><cr>  !pumvisible()         ? "\<cr>\<plug>AutoPairsReturn"   : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
+imap <silent><expr><cr>  !pumvisible()         ? "\<cr>"                         : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
 imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
 imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
