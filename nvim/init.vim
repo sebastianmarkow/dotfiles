@@ -185,7 +185,7 @@ set smarttab " handle spaces like tabs while deleting them
 set shiftround " round to a multiple of shiftwidth while indenting
 set nowrap " don't wrap lines
 set linebreak " don't break words at line end
-set autoindent " auto indent next line
+set noautoindent " auto indent next line
 set copyindent " use the same indentation for autoindent
 set smartindent " do smart autoindenting when starting a new line
 set nostartofline " cursor stays at same column while moving horizontal
@@ -209,7 +209,7 @@ set nrformats-=octal
 " Sync
 set synmaxcol=256
 syntax sync minlines=256
-syntax sync maxlines=512
+syntax sync maxlines=1024
 
 " Update
 set updatetime=250
@@ -377,8 +377,8 @@ autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitco
 
 " Custom: Indent
 autocmd FileType c,cpp                        setlocal cindent
-autocmd FileType make,go,c,cpp,glsl,xml,html  setlocal softtabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType javascript,hive              setlocal softtabstop=4 shiftwidth=4
+autocmd FileType make,go,c,cpp,glsl,xml,html  setlocal softtabstop=9 shiftwidth=8 noexpandtab
+autocmd FileType python,javascript,hive       setlocal softtabstop=4 shiftwidth=4
 autocmd FileType yaml,toml,ruby,css,scss,html setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
