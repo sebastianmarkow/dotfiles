@@ -93,6 +93,7 @@
     co = checkout
     list = branch -a -vv
     delete = branch -d
+    delete-remote = push --delete
     rename = branch -m
     new = checkout -b
     switch = checkout
