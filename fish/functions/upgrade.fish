@@ -7,7 +7,7 @@ function upgrade --description "Upgrade system"
     brew update
     and set -l BREW_OUTDATED (brew outdated -v | grep -v pinned)
     if test -n "$BREW_OUTDATED"
-        brew upgrade --cleanup --ignore-pinned
+        brew upgrade --ignore-pinned --display-times
         fish_update_completions
     end
 
