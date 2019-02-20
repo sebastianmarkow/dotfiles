@@ -24,10 +24,6 @@ FORMULAS=(
     cloc
     cloog
     devd
-    docker
-    docker-compose
-    docker-machine
-    docker-swarm
     entr
     fdupes
     ffmpeg
