@@ -20,7 +20,6 @@ EGGS=(
 FORMULAS=(
     awk
     bash
-    bazaar
     coreutils
     curl
     diffutils
@@ -40,15 +39,13 @@ FORMULAS=(
     make
     moreutils
     neovim
-    openssh
-    pam_yubico
     pidof
     pstree
     python3
     reattach-to-user-namespace
     ripgrep
     rsync
-    subversion
+    tmux
     tree
     watch
     wget

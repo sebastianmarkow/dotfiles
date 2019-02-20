@@ -27,7 +27,6 @@ FORMULAS=(
     entr
     fdupes
     ffmpeg
-    gistit
     git-extras
     graphviz
     htop
@@ -38,13 +37,11 @@ FORMULAS=(
     luajit
     mandoc
     massren
-    mpg123
     mplayer
     mtr
     multitail
     nmap
     pv
-    python3
     ragel
     rclone
     ruby
@@ -52,7 +49,6 @@ FORMULAS=(
     shellcheck
     since
     tcpdump
-    tmux
     trash
     uncrustify
     upx
