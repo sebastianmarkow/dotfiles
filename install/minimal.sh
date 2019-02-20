@@ -14,7 +14,7 @@ HEAD=(
 )
 
 EGGS=(
-    neovim
+    pynvim
 )
 
 FORMULAS=(
