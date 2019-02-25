@@ -4,11 +4,6 @@ PATH=/usr/local/bin:$PATH
 
 source "${BASH_SOURCE%/*}/lib.sh"
 
-TAPS=(
-    caskroom/cask
-    caskroom/fonts
-)
-
 HEAD=(
 #    neovim/neovim/neovim
 )
@@ -53,7 +48,7 @@ FORMULAS=(
 )
 
 CASKS=(
-    caskroom/fonts/font-fira-code
+    font-fira-code
 )
 
 h1 "minimal"

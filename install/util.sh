@@ -7,7 +7,6 @@ source "${BASH_SOURCE%/*}/lib.sh"
 TAPS=(
     homebrew/core
     homebrew/services
-    caskroom/cask
 )
 
 EGGS=(
