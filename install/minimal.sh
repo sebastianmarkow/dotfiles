@@ -53,7 +53,7 @@ FORMULAS=(
 )
 
 CASKS=(
-    font-fira-code
+    caskroom/fonts/font-fira-code
 )
 
 h1 "minimal"
