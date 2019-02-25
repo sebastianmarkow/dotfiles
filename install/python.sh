@@ -17,7 +17,7 @@ EGGS=(
 )
 
 FORMULAS=(
-    python3
+    python
 )
 
 h1 "python"

@@ -41,7 +41,7 @@ FORMULAS=(
     neovim
     pidof
     pstree
-    python3
+    python
     reattach-to-user-namespace
     ripgrep
     rsync
