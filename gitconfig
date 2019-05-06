@@ -16,9 +16,6 @@
 [push]
     default = upstream
 
-[pull]
-    rebase = false
-
 [rebase]
     autosquash = true
 
