@@ -665,9 +665,9 @@ let g:neosnippet#enable_snipmate_compatibility=1
 " Plugin: deocomplete.nvim
 smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
 imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
-imap <silent><expr><cr>  !pumvisible()         ? "\<cr>"                         : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#mappings#close_popup())
-imap <silent><expr><esc> pumvisible()          ? deoplete#mappings#close_popup() : "\<esc>"
-imap <silent><expr><bs>  deoplete#mappings#smart_close_popup()."\<bs>"
+imap <silent><expr><cr>  !pumvisible()         ? "\<cr>"                         : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#close_popup())
+imap <silent><expr><esc> pumvisible()          ? deoplete#close_popup() : "\<esc>"
+imap <silent><expr><bs>  deoplete#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
 let g:deoplete#auto_completion_start_length=1
 let g:deoplete#enable_camel_case=1
