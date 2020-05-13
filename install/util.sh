@@ -64,7 +64,6 @@ CASKS=(
     kaleidscope
     slack
     virtualbox
-    virtualbox-extension-pack
 )
 
 h1 "utilities"
