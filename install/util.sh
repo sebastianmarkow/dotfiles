@@ -61,6 +61,7 @@ FORMULAS=(
 CASKS=(
     docker
     hammerspoon
+    kaleidscope
     slack
     virtualbox
     virtualbox-extension-pack
