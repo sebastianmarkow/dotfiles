@@ -8,6 +8,7 @@ EGGS=(
     bokeh
     csvkit
     cython
+    dvc
     fastcache
     gensim
     ggplot
@@ -39,7 +40,6 @@ EGGS=(
 
 FORMULAS=(
     hdf5
-    node
     python
 )
 
@@ -48,5 +48,3 @@ h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
-h2 "jupyter lab extensions"
-execute "jupyter labextension install jupyterlab_vim"
