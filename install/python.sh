@@ -5,15 +5,14 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
+    black
     decorator
     mypy-lang
-    #neovim
     pep8
     pyannotate
     pylint
     virtualenv
     virtualfish
-    yapf
 )
 
 FORMULAS=(
