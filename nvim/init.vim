@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 set shell=/bin/sh
-set rtp+=/usr/local/opt/fzf
+set runtimepath+=/usr/local/opt/fzf
 
 " Setup python environment
 let g:python3_host_prog='/usr/local/bin/python3'
@@ -43,32 +43,33 @@ call plug#begin()
 " Utility:
 Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
-Plug 'andrewradev/sideways.vim'
+Plug 'andrewradev/sideways.vim',            {'on': ['SidewaysLeft', 'SidewaysRight']}
 Plug 'andrewradev/splitjoin.vim'
-Plug 'ap/vim-buftabline'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim',                     {'on': 'GV'}
 Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-peekaboo'
-Plug 'neomake/neomake'
+Plug 'junegunn/vim-slash'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'qstrahl/vim-matchmaker',              {'on': 'Matchmaker'}
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
-Plug 'sbdchd/neoformat',                    {'on': 'Neoformat'}
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
-Plug 'shougo/neosnippet.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-abolish'
+Plug 'tmsvg/pear-tree'
+Plug 'tpope/vim-abolish',                   {'on': ['Abolish', 'Subvert']}
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod',                    {'on': 'DB'}
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-utils/vim-troll-stopper'
 Plug 'wellle/targets.vim'
+Plug 'wellle/tmux-complete.vim'
 Plug 'whatyouhide/vim-gotham'
 Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 
@@ -76,16 +77,13 @@ Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 Plug 'autowitch/hive.vim',                  {'for': 'hive'}
 Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
+Plug 'deoplete-plugins/deoplete-go',        {'for': 'go'}
+Plug 'deoplete-plugins/deoplete-jedi',      {'for': 'python'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
 Plug 'hdima/python-syntax',                 {'for': 'python'}
 Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
 Plug 'nlknguyen/c-syntax.vim',              {'for': 'c'}
-Plug 'rust-lang/rust.vim',                  {'for': 'rust'}
-Plug 'sebastianmarkow/deoplete-rust',       {'for': 'rust'}
-Plug 'yosssi/vim-ace',                      {'for': 'ace'}
-Plug 'zchee/deoplete-clang',                {'for': ['c', 'cpp']}
-Plug 'zchee/deoplete-go',                   {'for': 'go'}
 
 call plug#end()
 
@@ -294,12 +292,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" Center screen when jumping between search matches
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
-
 " Do not lose visual selection while indenting
 nnoremap < <<
 nnoremap > >>
@@ -313,18 +305,6 @@ nnoremap - <c-x>
 " Walk history with j/k
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
-
-" Search for visual selected
-vnoremap <silent>* :<c-u>
-  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<cr>
-  \ gvy/<c-r><c-r>=substitute(
-  \ escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
-  \ gV:call setreg('"', old_reg, old_regtype)<cr>zz
-vnoremap <silent># :<c-u>
-  \ let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<cr>
-  \ gvy?<c-r><c-r>=substitute(
-  \ escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
-  \ gV:call setreg('"', old_reg, old_regtype)<cr>zz
 
 " Tmux-like pane switching
 function! s:panebind()
@@ -376,10 +356,10 @@ autocmd BufNewFile,BufRead gitcommit                     setlocal filetype=gitco
 autocmd BufNewFile,BufRead gitconfig                     setlocal filetype=gitconfig
 
 " Custom: Indent
-autocmd FileType c,cpp                           setlocal cindent
-autocmd FileType make,go,c,cpp,glsl              setlocal softtabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType xml,html,python,javascript,hive setlocal softtabstop=4 shiftwidth=4
-autocmd FileType yaml,toml,ruby,css,scss,html    setlocal softtabstop=2 shiftwidth=2
+autocmd FileType c,cpp setlocal cindent
+autocmd FileType make,go,c,cpp,glsl setlocal softtabstop=8 shiftwidth=8 noexpandtab
+autocmd FileType python,hive setlocal softtabstop=4 shiftwidth=4
+autocmd FileType javascript,json,yaml,toml,ruby,css,scss,html setlocal softtabstop=2 shiftwidth=2
 
 " Custom: Spelling
 autocmd FileType markdown,text,gitcommit,tex setlocal spell
@@ -401,31 +381,30 @@ augroup end " custom
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
 
-" Plugin: neoformat
-let g:neoformat_xml_tidy = {
-        \ 'exe': 'tidy',
-        \ 'args': ['-quiet',
-        \          '-xml',
-        \          '--indent auto',
-        \          '--indent-attributes yes',
-        \          '--indent-spaces ' . shiftwidth(),
-        \          '--tidy-mark no',
-        \          '--vertical-space yes',
-        \          '--wrap 0',
-        \         ],
-        \ 'stdin': 1,
-        \ }
+" Plugin: context.vim
+let g:context_enabled=1
 
-let g:neoformat_enabled_xml = ['tidy']
+" Plugin: ale
+let g:ale_fix_on_save=1
+let g:ale_sign_error='!'
+let g:ale_sign_warning='?'
+let g:ale_echo_msg_format='[%linter%] %severity%: %s'
+highlight ALEWarning cterm=underline ctermfg=1
+nmap <silent><leader>p <Plug>(ale_previous_wrap)
+nmap <silent><leader>n <Plug>(ale_next_wrap)
+
+" Plugin: pear-tree
+let g:pear_tree_smart_openers=1
+let g:pear_tree_smart_closers=1
+let g:pear_tree_smart_backspace=1
 
 " Plugin: editorconfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
 
 " Plugin: fzf
-noremap <c-p>     :FZFopen<cr>
+noremap <c-p> :FZFopen<cr>
 noremap <leader>b :FZFBuffer<cr>
 noremap <leader>o :FZFMru<cr>
-let g:fzf_launcher='xterm -e fish -ic %s'
 
 function! s:buflist()
     redir => l:ls
@@ -458,12 +437,12 @@ command! FZFMru call fzf#run({
     \ 'down':    len(v:oldfiles) + 2
     \ })
 
+" Plugin: vim-slash
+noremap <plug>(slash-after) zz
+
 " Plugin: ag.vim
 let g:ag_prg='rg --vimgrep --smart-case'
 let g:ag_mapping_message=0
-
-" Plugin: indentline
-let g:indentLine_enabled = 0
 
 " Plugin: vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
@@ -484,12 +463,7 @@ endfunction
 " Plugin: vim-gitgutter
 nmap gn <plug>GitGutterNextHunk
 nmap gp <plug>GitGutterPrevHunk
-let g:gitgutter_realtime=0
-let g:gitgutter_sign_column_always=0
 let g:gitgutter_map_keys=0
-
-" Plugin: rust.vim
-let g:rustfmt_autosave=1
 
 " Plugin: vim-go
 let g:go_fmt_command='goimports'
@@ -502,6 +476,7 @@ noremap <leader>I :ToggleWhitespace<cr>
 let g:better_whitespace_filetypes_blacklist=['git', 'gitcommit', 'diff', 'help']
 
 " Plugin: indentLine
+let g:indentLine_enabled = 0
 let g:indentLine_color_term=4
 let g:indentLine_char='┊'
 
@@ -512,10 +487,6 @@ xmap ga <plug>(EasyAlign)
 " Plugin: sideways.vim
 nnoremap gh :SidewaysLeft<cr>
 nnoremap gl :SidewaysRight<cr>
-
-" Plugin: vim-buftabline
-let g:buftabline_show=1
-let g:buftabline_indicators=1
 
 " Plugin: comittia.vim
 let g:committia_open_only_vim_starting=0
@@ -543,25 +514,19 @@ function! g:committia_hooks.edit_open(info)
     nmap <buffer><c-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
-" Plugin: neomake
-let g:neomake_error_sign = {'text': '!'}
-let g:neomake_warning_sign = {'text': '?'}
-if exists(':Neomake')
-    call neomake#signs#RedefineErrorSign()
-    call neomake#configure#automake('w')
-endif
-
 " Plugin: lightline.vim
+set showtabline=2
 let g:responsive_width_mid=70
 let g:responsive_width_small=50
 let g:omit_fileencoding='utf-8'
 let g:omit_fileformat='unix'
+let g:lightline#bufferline#min_buffer_count=2
 let g:lightline={
     \ 'colorscheme': 'gotham',
     \ 'active': {
     \     'left': [
     \         ['mode'],
-    \         ['neomake', 'gitbranch'],
+    \         ['gitbranch', 'githunks', 'linter'],
     \         ['filename', 'readonly', 'modified']
     \     ],
     \     'right': [
@@ -571,47 +536,72 @@ let g:lightline={
     \     ]
     \ },
     \ 'inactive': {
-    \     'left': [
+        \     'left': [
     \         ['filename']
     \     ],
     \     'right': [
     \         ['windownr']
     \     ]
     \ },
+    \ 'tabline': {
+    \   'left': [ ['buffers'] ]
+    \ },
     \ 'component_function': {
     \     'fileencoding': 'LightLineFileencoding',
     \     'fileformat':   'LightLineFileformat',
     \     'filetype':     'LightLineFiletype',
-    \     'fugitive':     'LightLineFugitive',
-    \     'neomake':      'LightLineNeomake',
+    \     'linter':       'LightLineAle',
+    \     'gitbranch':    'LightLineFugitive',
+    \     'githunks':     'LightLineGitGutter',
     \     'lineno':       'LightLineLineno',
     \     'mode':         'LightLineMode',
     \     'percent':      'LightLinePercent',
     \     'readonly':     'LightLineReadonly',
     \     'windownr':     'LightLineWindownr',
-    \     'gitbranch':    'fugitive#head',
+    \ },
+    \ 'component_expand': {
+    \   'buffers': 'lightline#bufferline#buffers'
+    \ },
+    \ 'component_type': {
+    \   'buffers': 'tabsel'
     \ },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '|', 'right': '|' },
     \ }
 
-
 function! LightLineMode()
     return winwidth(0) > g:responsive_width_small ? lightline#mode() : ''
 endfunction
 
+function! LightLineAle()
+    if winwidth(0) > g:responsive_width_mid
+	return ''
+        let l:counts = ale#statusline#Count(bufnr(''))
+
+        let l:all_errors = l:counts.error + l:counts.style_error
+        let l:all_non_errors = l:counts.total - l:all_errors
+
+        return l:counts.total == 0 ? '' : printf(
+            \ 'W:%d E:%d',
+            \ all_non_errors,
+            \ all_errors
+            \)
+    endif
+    return ''
+endfunction
+
 function! LightLineFugitive()
-    if winwidth(0) > g:responsive_width_mid && exists('*fugitive#head')
-        let l:head=fugitive#head()
+    if winwidth(0) > g:responsive_width_mid && exists('*FugitiveHead')
+        let l:head = FugitiveHead()
         return l:head !=# '' ? ' '.l:head : ''
     endif
     return ''
 endfunction
 
-function! LightLineNeomake()
-    if winwidth(0) > g:responsive_width_mid && exists('*neomake#statusline#LoclistStatus')
-        let l:status=neomake#statusline#LoclistStatus()
-        return l:status
+function! LightLineGitGutter()
+    if winwidth(0) > g:responsive_width_mid && exists('*GitGutterGetHunkSummary')
+        let [a,m,r] = GitGutterGetHunkSummary()
+        return printf('+%d ~%d -%d', a, m, r)
     endif
     return ''
 endfunction
@@ -657,27 +647,13 @@ function! LightLineFileencoding()
                 \ (&encoding !=# g:omit_fileencoding ? &encoding : '')) : ''
 endfunction
 
-" Plugin: neosnippet.vim
-let g:neosnippet#disable_runtime_snippets={ '_' : 1 }
-let g:neosnippet#snippets_directory=$XDG_CONFIG_HOME.'/nvim/snippets'
-let g:neosnippet#enable_snipmate_compatibility=1
+" Plugin: tmux-complete.vim
+let g:tmuxcomplete#trigger=''
 
 " Plugin: deocomplete.nvim
-smap <silent><expr><tab> neosnippet#jumpable() ? "\<plug>(neosnippet_jump)"      : "\<tab>"
-imap <silent><expr><tab> pumvisible()          ? "\<c-n>"                        : (neosnippet#jumpable()   ? "\<plug>(neosnippet_jump)"   : "\<tab>")
-imap <silent><expr><cr>  !pumvisible()         ? "\<cr>"                         : (neosnippet#expandable() ? "\<plug>(neosnippet_expand)" : deoplete#close_popup())
-imap <silent><expr><esc> pumvisible()          ? deoplete#close_popup() : "\<esc>"
-imap <silent><expr><bs>  deoplete#smart_close_popup()."\<bs>"
 let g:deoplete#enable_at_startup=1
-let g:deoplete#auto_completion_start_length=1
-let g:deoplete#enable_camel_case=1
-let g:deoplete#max_list=100
-let g:deoplete#ignore_sources={}
-let g:deoplete#ignore_sources._=['buffer']
-let g:deoplete#sources#clang#libclang_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang'
-let g:deoplete#sources#clang#std#c='c11'
-let g:deoplete#sources#clang#std#cpp='c++11'
-let g:deoplete#sources#rust#racer_binary='/Users/sebastian/Developer/cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/Users/sebastian/Developer/repos/github.com/rust-lang/rust/src'
-let g:deoplete#sources#rust#duplication=0
+imap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+imap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+imap <silent><expr><cr> !pumvisible() ? "\<cr>" : deoplete#close_popup()
+imap <silent><expr><esc> pumvisible() ? deoplete#close_popup() : "\<esc>"
+imap <silent><expr><bs> deoplete#smart_close_popup()."\<bs>"
