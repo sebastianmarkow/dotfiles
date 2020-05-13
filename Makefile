@@ -57,6 +57,10 @@ brew: ## install Homebrew
 cxx: brew ## install C/C++ toolchain
 	@sh ./install/cxx.sh
 
+.PHONY: devops
+devops: brew ## install devops toolchain
+	@sh ./install/devops.sh
+
 .PHONY: data
 data: brew python ## install data science toolchain
 	@sh ./install/data.sh
