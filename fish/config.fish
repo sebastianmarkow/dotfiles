@@ -41,11 +41,10 @@ command -s pyenv >/dev/null; and source (pyenv init - | psub)
 # Abbreviations
 abbr cp 'cp -iR'
 abbr d 'docker'
-abbr dm 'docker-machine'
 abbr g 'git'
 abbr gr 'gitroot'
 abbr mv 'mv -i'
-abbr nb 'jupyter notebook'
+abbr nb 'jupyter lab'
 abbr rp 'repo'
 abbr t 'tmux'
 abbr v 'nvim'
