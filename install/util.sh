@@ -5,12 +5,12 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
+    homebrew/cask
     homebrew/core
     homebrew/services
 )
 
 EGGS=(
-    awscli
     http-prompt
     proselint
     sphinx
@@ -18,6 +18,7 @@ EGGS=(
 )
 
 FORMULAS=(
+    caddy
     calc
     ccat
     cloc
@@ -36,19 +37,18 @@ FORMULAS=(
     luajit
     mandoc
     massren
-    mplayer
     mtr
     multitail
     nmap
     pv
     ragel
     rclone
-    ruby
     rename
     shellcheck
     since
     tcpdump
     trash
+    travis
     uncrustify
     upx
     vmtouch
@@ -57,12 +57,10 @@ FORMULAS=(
     yank
 )
 
-GEMS=(
-    travis
-)
-
 CASKS=(
+    docker
     hammerspoon
+    slack
     virtualbox
     virtualbox-extension-pack
 )
@@ -70,11 +68,9 @@ CASKS=(
 h1 "utilities"
 h2 "brew taps"
 for t in "${TAPS[@]}"; do brew_tap "$t"; done
-h2 "brew formulas"
-for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "brew casks"
 for f in "${CASKS[@]}"; do cask_install "$f"; done
+h2 "brew formulas"
+for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
-h2 "ruby gems"
-for f in "${GEMS[@]}"; do gem_install "$f"; done
