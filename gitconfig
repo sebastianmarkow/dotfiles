@@ -1,6 +1,6 @@
 [user]
     name = Sebastian Klatt
-    email = sebastian.klatt@trivago.com
+    email = sebastian@markow.io
 
 [core]
     editor = nvim
@@ -157,10 +157,6 @@
 [url "git@gist.github.com:"]
     insteadOf = "gist:"
     pushInsteadOf = "https://gist.github.com/"
-
-[url "git@git.trivago.trv:"]
-    insteadOf = "trv:"
-    pushInsteadOf = "https://git.trivago.trv/"
 
 [github]
     user = sebastianmarkow
