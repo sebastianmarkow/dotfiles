@@ -1,16 +1,24 @@
 # Vim
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
 Session.vim
+Sessionx.vim
+
 .netrwhist
 *~
 tags
+[._]*.un~
 
 # Darwin
-*.DS_Store
+.DS_Store
 .AppleDouble
 .LSOverride
+Icon
 ._*
 .DocumentRevisions-V100
 .fseventsd
@@ -30,6 +38,7 @@ Temporary Items
 .fuse_hidden*
 .directory
 .Trash-*
+.nfs*
 
 # SVN
 .svn/
