@@ -20,23 +20,26 @@
     autosquash = true
 
 [merge]
-    ff = true
     conflictstyle = diff3
+    ff = true
     tool = fugitive
 
-[mergetool "fugitive"]
+[mergetool "nvim"]
     prompt = false
     cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
 
 [diff]
-    tool = vimdiff
-    renames = copies
     algorithm = patience
     compactionHeuristic = true
+    renames = copies
+    tool = vimdiff
 
-[difftool "vimdiff"]
+[difftool "nvim"]
     prompt = false
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[difftool "ksdiff"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [log]
     abbrevCommit = true
