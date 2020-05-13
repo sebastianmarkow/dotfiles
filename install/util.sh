@@ -42,6 +42,7 @@ FORMULAS=(
     nmap
     pv
     ragel
+    ranger
     rclone
     rename
     shellcheck
