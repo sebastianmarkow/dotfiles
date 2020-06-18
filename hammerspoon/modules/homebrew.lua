@@ -18,11 +18,11 @@ function Homebrew:loadOutdated()
         self.disabled = true
         self.notified = false
         self.menubar:removeFromMenuBar()
-        self.menubar:setTooltip("Homebrew")
     else
         local msg = string.format("%d updated formula%s available", #self.items, plural(self.items))
         self.disabled = false
         self.menubar:returnToMenuBar()
+        self.menubar:setIcon('./assets/cask.pdf')
         self.menubar:setTooltip(msg)
         if not self.notified then
             hs.notify.show('Homebrew', msg, table.concat(self.items, ', '))
@@ -65,9 +65,9 @@ function plural(a)
 end
 
 if Homebrew then
-    Homebrew.menubar:setTooltip('Homebrew')
     Homebrew.menubar:setIcon('./assets/cask.pdf')
-    Homebrew.menubar:setMenu(function() return Homebrew:getMenu() end)
+    Homebrew.menubar:setTooltip('Homebrew')
     Homebrew.menubar:removeFromMenuBar()
+    Homebrew.menubar:setMenu(function() return Homebrew:getMenu() end)
     Homebrew:update(); hs.timer.doEvery(3600, function() Homebrew:update() end)
 end
