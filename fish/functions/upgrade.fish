@@ -12,4 +12,8 @@ function upgrade --description "Upgrade system"
     end
 
     nvim "+let g:plug_window=''" +PlugUpgrade +PlugClean! +PlugUpdate! +UpdateRemotePlugins +qall
+
+    fisher
+
+    exec fish
 end
