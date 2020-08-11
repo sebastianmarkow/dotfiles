@@ -10,6 +10,9 @@
     trustctime = false
     precomposeunicode = false
 
+[init]
+    defaultBranch = main
+
 [commit]
     template = ~/.gitmessage
 
@@ -143,8 +146,9 @@
     r = revert
     forgive = revert -n HEAD --
 
-    s = status -s -u
+    s = status --short --branch --show --untracked-files
 
+    save = stash --all --include-untracked
     stashes = stash list
 
     t = tag -n
