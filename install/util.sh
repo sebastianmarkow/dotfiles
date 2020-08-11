@@ -33,6 +33,7 @@ FORMULAS=(
     imagemagick
     jo
     jq
+    lftp
     lua
     luajit
     mandoc
@@ -48,6 +49,7 @@ FORMULAS=(
     shellcheck
     since
     tcpdump
+    terminal-notifier
     trash
     travis
     uncrustify
@@ -57,13 +59,11 @@ FORMULAS=(
     wrk
     yank
 )
-
 CASKS=(
-    docker
     hammerspoon
     kaleidscope
+    monitorcontrol
     slack
-    virtualbox
 )
 
 h1 "utilities"

@@ -12,11 +12,15 @@ FORMULAS=(
     awscli
     circleci
     derailed/k9s/k9s
+    dive
     helm
     k3d
     kind
+    krew
     kubectx
     kubernetes-cli
+    skaffold
+    stern
     terraform
     vault
 )
@@ -24,7 +28,7 @@ FORMULAS=(
 CASKS=(
     docker
     google-cloud-sdk
-    vagrant
+    lens
 )
 
 h1 "devops"

@@ -6,7 +6,7 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 TOOLS=(
     github.com/alecthomas/gometalinter
-    github.com/golang/lint/golint
+    github.com/golang/tools/gopls
     github.com/lukehoban/go-outline
     github.com/mailgun/godebug
     github.com/motemen/gore
@@ -15,15 +15,13 @@ TOOLS=(
     github.com/rogpeppe/godef
     github.com/tools/godep
     github.com/tpng/gopkgs
-    golang.org/x/tools/cmd/...
-    honnef.co/go/staticcheck/cmd/staticcheck
-    honnef.co/go/unused/cmd/unused
+    golang.org/x/lint/golint
+    golang.org/x/tools/gopls
     sourcegraph.com/sqs/goreturns
 )
 
 FORMULAS=(
     go
-    go-delve/delve/delve
 )
 
 h1 "go"

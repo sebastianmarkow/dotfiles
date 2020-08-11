@@ -54,6 +54,7 @@ FORMULAS=(
 )
 
 CASKS=(
+    docker
     font-fira-code
 )
 

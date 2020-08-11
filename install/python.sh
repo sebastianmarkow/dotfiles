@@ -10,7 +10,10 @@ EGGS=(
     mypy-lang
     pep8
     pyannotate
+    pyflake
     pylint
+    pyls-black
+    python-language-server
     virtualenv
     virtualfish
 )
