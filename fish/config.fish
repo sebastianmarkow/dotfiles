@@ -10,8 +10,9 @@ set -x CARGO_BIN $CARGO_HOME/bin
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
-test -d $GOBIN; and set -x PATH $PATH $GOBIN
-test -d $CARGO_BIN; and set -x PATH $PATH $CARGO_BIN
+set -x fisher_path $XDG_CACHE_HOME/fisher_path
+test -d $GOBIN; and set -x PATH $GOBIN $PATH
+test -d $CARGO_BIN; and set -x PATH $CARGO_BIN $PATH
 
 # Base
 set -x EDITOR 'nvim'
@@ -50,6 +51,9 @@ abbr t 'tmux'
 abbr v 'nvim'
 abbr vim 'nvim'
 abbr yt 'youtube-dl'
+abbr kctx 'kubectx'
+abbr kns 'kubens'
+abbr k 'kubectl'
 
 # Aliases
 alias ag 'rg'
@@ -63,7 +67,6 @@ alias tig 'nvim +GV +bd1'
 alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
 alias upper 'tr a-z A-Z'
-alias vf 'eval (python3 -m virtualfish compat_aliases); and vf'
 alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
 
 # Fish
@@ -109,3 +112,6 @@ set fish_key_bindings 'fish_vi_key_bindings'
 
 # Custom bindings
 fish_user_key_bindings
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/.gcloud/google-cloud-sdk/path.fish.inc' ]; . '$HOME/.gcloud/google-cloud-sdk/path.fish.inc'; end
