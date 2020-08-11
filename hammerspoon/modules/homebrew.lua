@@ -6,6 +6,16 @@ local Homebrew = {
     notified = false,
 }
 
+function Homebrew:showMenu()
+    self.menubar:returnToMenuBar()
+    self.menubar:setIcon('./assets/cask.pdf')
+    self.menubar:setTooltip(string.format("%d updated formula%s available", #self.items, plural(self.items)))
+end
+
+function Homebrew:hideMenu()
+    self.menubar:removeFromMenuBar()
+end
+
 function Homebrew:loadOutdated()
     self.items = {}
     local pipe = io.popen('/usr/local/bin/brew outdated -v | grep -v pinned | cut -f 1 -d " "', 'r')
@@ -17,13 +27,10 @@ function Homebrew:loadOutdated()
     if next(self.items) == nil then
         self.disabled = true
         self.notified = false
-        self.menubar:removeFromMenuBar()
+        self:hideMenu()
     else
-        local msg = string.format("%d updated formula%s available", #self.items, plural(self.items))
         self.disabled = false
-        self.menubar:returnToMenuBar()
-        self.menubar:setIcon('./assets/cask.pdf')
-        self.menubar:setTooltip(msg)
+        self:showMenu()
         if not self.notified then
             hs.notify.show('Homebrew', msg, table.concat(self.items, ', '))
             self.notified = true
@@ -65,9 +72,7 @@ function plural(a)
 end
 
 if Homebrew then
-    Homebrew.menubar:setIcon('./assets/cask.pdf')
-    Homebrew.menubar:setTooltip('Homebrew')
-    Homebrew.menubar:removeFromMenuBar()
+    Homebrew:hideMenu()
     Homebrew.menubar:setMenu(function() return Homebrew:getMenu() end)
     Homebrew:update(); hs.timer.doEvery(3600, function() Homebrew:update() end)
 end
