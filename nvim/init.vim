@@ -1,10 +1,6 @@
 scriptencoding utf-8
 
-set shell=/bin/sh
 set runtimepath+=/usr/local/opt/fzf
-
-" Setup python environment
-let g:python3_host_prog='/usr/local/bin/python3'
 
 " Disable built-in plugins
 let g:loaded_python_provider = 1
