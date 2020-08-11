@@ -8,6 +8,7 @@ TAPS=(
     homebrew/cask
     homebrew/core
     homebrew/services
+    xo/xo
 )
 
 EGGS=(
@@ -54,6 +55,7 @@ FORMULAS=(
     travis
     uncrustify
     upx
+    usql
     vmtouch
     w3m
     wrk
