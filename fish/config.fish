@@ -10,7 +10,6 @@ set -x CARGO_BIN $CARGO_HOME/bin
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
-set -x fisher_path $XDG_CACHE_HOME/fisher_path
 test -d $GOBIN; and set -x PATH $GOBIN $PATH
 test -d $CARGO_BIN; and set -x PATH $CARGO_BIN $PATH
 
@@ -112,6 +111,15 @@ set fish_key_bindings 'fish_vi_key_bindings'
 
 # Custom bindings
 fish_user_key_bindings
+
+set -g fisher_path $XDG_DATA_HOME/fisher_plugins
+
+set -p fish_function_path fish_function_path[1] $fisher_path/functions
+set -p fish_complete_path fish_complete_path[1] $fisher_path/completions
+
+for file in $fisher_path/conf.d/*.fish
+    builtin source $file 2>/dev/null
+end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/.gcloud/google-cloud-sdk/path.fish.inc' ]; . '$HOME/.gcloud/google-cloud-sdk/path.fish.inc'; end
