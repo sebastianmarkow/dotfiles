@@ -50,12 +50,13 @@ Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAl
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'neovim/nvim-lsp'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
+Plug 'shougo/deoplete-lsp'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tmsvg/pear-tree'
 Plug 'tpope/vim-abolish',                   {'on': ['Abolish', 'Subvert']}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dadbod',                    {'on': 'DB'}
@@ -70,18 +71,19 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 
 " Filetype:
-Plug 'autowitch/hive.vim',                  {'for': 'hive'}
 Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
-Plug 'deoplete-plugins/deoplete-go',        {'for': 'go'}
-Plug 'deoplete-plugins/deoplete-jedi',      {'for': 'python'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
 Plug 'hdima/python-syntax',                 {'for': 'python'}
 Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
-Plug 'nlknguyen/c-syntax.vim',              {'for': 'c'}
 
 call plug#end()
+
+:lua << END
+    require'nvim_lsp'.gopls.setup{}
+    require'nvim_lsp'.pyls.setup{}
+END
 
 " File
 set fileformats=unix,dos,mac
@@ -388,11 +390,6 @@ let g:ale_echo_msg_format='[%linter%] %severity%: %s'
 highlight ALEWarning cterm=underline ctermfg=1
 nmap <silent><leader>p <Plug>(ale_previous_wrap)
 nmap <silent><leader>n <Plug>(ale_next_wrap)
-
-" Plugin: pear-tree
-let g:pear_tree_smart_openers=1
-let g:pear_tree_smart_closers=1
-let g:pear_tree_smart_backspace=1
 
 " Plugin: editorconfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
