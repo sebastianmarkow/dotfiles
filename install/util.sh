@@ -53,6 +53,7 @@ FORMULAS=(
     terminal-notifier
     trash
     travis
+    ugrep
     uncrustify
     upx
     usql
