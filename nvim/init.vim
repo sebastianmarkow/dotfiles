@@ -72,6 +72,8 @@ Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 
 " Filetype:
 Plug 'cespare/vim-toml',                    {'for': 'toml'}
+Plug 'mattn/emmet-vim',                     {'for': 'html'}
+Plug 'cakebaker/scss-syntax.vim',           {'for': 'scss'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
