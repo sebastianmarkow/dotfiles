@@ -154,7 +154,8 @@ function cargo_install() {
 
 function execute() {
     task "execute $1"
-    $1 $2 > /dev/null 2>&1
+    echo "$0 $@"
+    $1 > /dev/null 2>&1
     if [[ $? != 0 ]]; then
         error
     else
