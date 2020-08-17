@@ -22,6 +22,9 @@
 [rebase]
     autosquash = true
 
+[pull]
+    rebase = false
+
 [merge]
     conflictstyle = diff3
     ff = true
