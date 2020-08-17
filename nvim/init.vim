@@ -454,8 +454,8 @@ function g:Multiple_cursors_after()
 endfunction
 
 " Plugin: vim-gitgutter
-nmap gn <plug>GitGutterNextHunk
-nmap gp <plug>GitGutterPrevHunk
+nmap gn <plug>(GitGutterNextHunk)
+nmap gp <plug>(GitGutterPrevHunk)
 let g:gitgutter_map_keys=0
 
 " Plugin: vim-go
