@@ -41,6 +41,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim',            {'on': ['SidewaysLeft', 'SidewaysRight']}
 Plug 'andrewradev/splitjoin.vim'
+Plug 'antoinemadec/FixCursorHold.nvim'      " Neovim CursorHold autcmd performance fix
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
@@ -49,13 +50,14 @@ Plug 'junegunn/gv.vim',                     {'on': 'GV'}
 Plug 'junegunn/vim-easy-align',             {'on': ['<Plug>(EasyAlign)', 'EasyAlign']}
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/vim-slash'
+Plug 'lambdalisue/fern.vim',                {'on': 'Fern'}
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'neovim/nvim-lsp'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
-Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'shougo/deoplete-lsp'
+Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish',                   {'on': ['Abolish', 'Subvert']}
 Plug 'tpope/vim-commentary'
@@ -75,6 +77,7 @@ Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'mattn/emmet-vim',                     {'for': 'html'}
 Plug 'cakebaker/scss-syntax.vim',           {'for': 'scss'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
+Plug 'hashivim/vim-terraform',              {'for': 'terraform'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
 Plug 'fatih/vim-go',                        {'for': 'go'}
 Plug 'hdima/python-syntax',                 {'for': 'python'}
@@ -396,10 +399,13 @@ nmap <silent><leader>n <Plug>(ale_next_wrap)
 " Plugin: editorconfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
 
+" Plugin: fern
+noremap <leader><leader> :Fern .<cr>
+
 " Plugin: fzf
 noremap <c-p> :FZFopen<cr>
 noremap <leader>b :FZFBuffer<cr>
-noremap <leader>o :FZFMru<cr>
+noremap <leader>h :FZFMru<cr>
 
 function! s:buflist()
     redir => l:ls
