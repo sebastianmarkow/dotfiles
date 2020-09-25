@@ -39,6 +39,7 @@ command -s jump >/dev/null; and source (jump shell fish | psub)
 command -s pyenv >/dev/null; and source (pyenv init - | psub)
 
 # Abbreviations
+abbr c 'pbcopy'
 abbr cp 'cp -iR'
 abbr d 'docker'
 abbr g 'git'
@@ -46,11 +47,15 @@ abbr gr 'gitroot'
 abbr k 'kubectl'
 abbr kctx 'kubectx'
 abbr kns 'kubens'
+abbr gcp 'gcloud'
+abbr m 'make'
 abbr mv 'mv -i'
 abbr nb 'jupyter lab'
+abbr p 'pbpaste'
 abbr rp 'repo'
 abbr t 'tmux'
 abbr tf 'terraform'
+abbr up 'upgrade'
 abbr v 'nvim'
 abbr vim 'nvim'
 abbr yt 'youtube-dl'
@@ -68,6 +73,9 @@ alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
 alias upper 'tr a-z A-Z'
 alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
+
+alias ktc 'kubectl top pods -A | sort --reverse --key 3 --numeric | head -25'
+alias ktm 'kubectl top pods -A | sort --reverse --key 4 --numeric | head -25'
 
 # Fish
 set fish_greeting ''
