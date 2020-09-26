@@ -78,7 +78,7 @@ function brew_install() {
 }
 
 function cask_install() {
-    INSTALLED_CASKS=${INSTALLED_CASKS:-"$(brew cask list | tr A-Z a-z)"}
+    INSTALLED_CASKS=${INSTALLED_CASKS:-"$(brew list --cask -1 | tr A-Z a-z)"}
     task "install $1"
     echo "$INSTALLED_CASKS" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then
