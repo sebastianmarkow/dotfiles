@@ -28,6 +28,7 @@ FORMULAS=(
     entr
     fdupes
     ffmpeg
+    gh
     git-extras
     graphviz
     htop
@@ -63,6 +64,7 @@ FORMULAS=(
     yank
 )
 CASKS=(
+    github
     hammerspoon
     kaleidscope
     monitorcontrol
