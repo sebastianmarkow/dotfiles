@@ -66,7 +66,7 @@ FORMULAS=(
 CASKS=(
     github
     hammerspoon
-    kaleidscope
+    kaleidoscope
     monitorcontrol
     slack
 )
