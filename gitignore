@@ -98,3 +98,6 @@ cscope.po.out
 *.msi
 *.msm
 *.msp
+
+.direnv
+.envrc
