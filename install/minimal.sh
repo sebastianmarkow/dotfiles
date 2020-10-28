@@ -10,7 +10,7 @@ TAPS=(
 )
 
 HEAD=(
-#    neovim/neovim/neovim
+    neovim/neovim/neovim
 )
 
 EGGS=(
@@ -23,6 +23,7 @@ FORMULAS=(
     coreutils
     curl
     diffutils
+    direnv
     fd
     findutils
     fish
@@ -38,7 +39,6 @@ FORMULAS=(
     less
     make
     moreutils
-    neovim
     pidof
     pstree
     python
