@@ -28,6 +28,7 @@ FORMULAS=(
     entr
     fdupes
     ffmpeg
+    fx
     gh
     git-extras
     graphviz
