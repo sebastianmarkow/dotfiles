@@ -22,6 +22,7 @@ FORMULAS=(
     skaffold
     stern
     terraform
+    tflint
     vault
 )
 
