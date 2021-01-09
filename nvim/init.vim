@@ -56,6 +56,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
+Plug 'sbdchd/neoformat',                    {'on': 'Neoformat'}
 Plug 'shougo/deoplete-lsp'
 Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
 Plug 'terryma/vim-multiple-cursors'
@@ -86,8 +87,8 @@ Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
 call plug#end()
 
 :lua << END
-    require'nvim_lsp'.gopls.setup{}
-    require'nvim_lsp'.pyls.setup{}
+    require'lspconfig'.gopls.setup{}
+    require'lspconfig'.pyls.setup{}
 END
 
 " File

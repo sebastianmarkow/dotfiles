@@ -1,4 +1,4 @@
-function cdf --description "Interactive cd"
+function fzf_cd --description "Interactive cd"
     if not type 'fzf' >/dev/null 2>&1
         echo 'cdf: error fzf not installed'
         exit 1

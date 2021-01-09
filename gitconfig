@@ -159,6 +159,8 @@
 
     home = "!open `git remote -v | grep fetch | head -n1 | awk '{print $2}' | sed 's/git@/https:\\/\\//' | sed 's/\\.com:/\\.com\\//'`"
 
+    bf = "!git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)"
+
 [url "git@github.com:"]
     insteadOf = "gh:"
     insteadOf = "github:"
@@ -172,8 +174,8 @@
     user = sebastianmarkow
 
 [ghq]
-    root = ~/Developer/repos
     root = ~/Developer/go/src
+    root = ~/Developer/repos
 
 [filter "lfs"]
     clean = git-lfs clean -- %f

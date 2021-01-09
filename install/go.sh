@@ -6,7 +6,6 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 TOOLS=(
     github.com/alecthomas/gometalinter
-    github.com/golang/tools/gopls
     github.com/lukehoban/go-outline
     github.com/mailgun/godebug
     github.com/motemen/gore

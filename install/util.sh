@@ -19,6 +19,7 @@ EGGS=(
 )
 
 FORMULAS=(
+    bat
     caddy
     calc
     ccat
@@ -41,6 +42,7 @@ FORMULAS=(
     luajit
     mandoc
     massren
+    mdcat
     mtr
     multitail
     nmap
@@ -64,7 +66,9 @@ FORMULAS=(
     wrk
     yank
 )
+
 CASKS=(
+    aerial
     github
     hammerspoon
     kaleidoscope

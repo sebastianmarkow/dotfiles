@@ -1,4 +1,4 @@
-function repo --description 'Go to repository'
+function fzf_repo --description 'Go to repository'
     if not type 'ghq' >/dev/null 2>&1
         echo 'repo: error ghq not installed'
         exit 1

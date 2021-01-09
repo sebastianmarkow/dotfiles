@@ -6,15 +6,17 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
     derailed/k9s
+    derailed/popeye
 )
 
 FORMULAS=(
     awscli
     circleci
     derailed/k9s/k9s
+    derailed/popeye/popeye
     dive
+    hadolint
     helm
-    k3d
     kind
     krew
     kubectx

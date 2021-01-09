@@ -10,12 +10,9 @@ EGGS=(
     cython
     dvc
     fastcache
-    gensim
-    ggplot
     h5py
     joblib
     jupyterlab
-    keras
     matplotlib
     more-itertools
     natsort
@@ -32,15 +29,13 @@ EGGS=(
     seaborn
     spacy
     tensorflow
-    torch
-    torchvision
     tqdm
     umap-learn
 )
 
 FORMULAS=(
     hdf5
-    python
+    python@3.8
 )
 
 h1 "data science"

@@ -1,4 +1,4 @@
-function historyf --description 'Filter history interactively'
+function fzf_history --description 'Filter history interactively'
     if not command -s fzf >/dev/null
         echo 'historyf: fzf not found'
         exit 1

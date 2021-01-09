@@ -62,7 +62,7 @@ function brew_tap() {
 }
 
 function brew_install() {
-    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew list --full-name | tr A-Z a-z)"}
+    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew list --full-name --formula | tr A-Z a-z)"}
     task "install $1"
     echo "$INSTALLED_FORMULAS" | grep "$1" > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[1]} != 0 ]]; then

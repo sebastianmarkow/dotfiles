@@ -10,7 +10,7 @@ EGGS=(
     mypy-lang
     pep8
     pyannotate
-    pyflake
+    pyflakes
     pylint
     pyls-black
     python-language-server
@@ -19,7 +19,7 @@ EGGS=(
 )
 
 FORMULAS=(
-    python
+    python@3.8
 )
 
 h1 "python"

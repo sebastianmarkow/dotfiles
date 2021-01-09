@@ -32,7 +32,7 @@ function Homebrew:loadOutdated()
         self.disabled = false
         self:showMenu()
         if not self.notified then
-            hs.notify.show('Homebrew', msg, table.concat(self.items, ', '))
+            hs.notify.show('Homebrew', 'Formulas updated', table.concat(self.items, ', '))
             self.notified = true
         end
     end
@@ -74,5 +74,5 @@ end
 if Homebrew then
     Homebrew:hideMenu()
     Homebrew.menubar:setMenu(function() return Homebrew:getMenu() end)
-    Homebrew:update(); hs.timer.doEvery(3600, function() Homebrew:update() end)
+    Homebrew:update(); hs.timer.doEvery(3 * 3600, function() Homebrew:update() end)
 end
