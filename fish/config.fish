@@ -35,33 +35,33 @@ set -x XZ_OPT '-T0'
 
 # Hooks
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
-command -s jump >/dev/null; and source (jump shell fish | psub)
-command -s direnv >/dev/null; and source (direnv hook fish | psub)
-command -s pyenv >/dev/null; and source (pyenv init - | psub)
+command -s jump > /dev/null; and source (jump shell fish | psub)
+command -s direnv > /dev/null; and source (direnv hook fish | psub)
+command -s pyenv > /dev/null; and source (pyenv init - | psub)
+command -s flux > /dev/null; and source (flux completion fish | psub)
 test -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 # Abbreviations
-abbr c 'pbcopy'
-abbr cp 'cp -iR'
-abbr d 'docker'
-abbr g 'git'
-abbr gcp 'gcloud'
-abbr gr 'gitroot'
-abbr k 'kubectl'
-abbr kctx 'kubectx'
-abbr kns 'kubens'
-abbr m 'make'
-abbr la 'ls -a'
-abbr mv 'mv -i'
-abbr nb 'jupyter lab'
-abbr p 'pbpaste'
-abbr rp 'repo'
-abbr t 'tmux'
-abbr tf 'terraform'
-abbr up 'upgrade'
-abbr v 'nvim'
-abbr vim 'nvim'
-abbr yt 'youtube-dl'
+abbr --add cp 'cp -iR'
+abbr --add d 'docker'
+abbr --add g 'git'
+abbr --add gcp 'gcloud'
+abbr --add gr 'gitroot'
+abbr --add k 'kubectl'
+abbr --add kctx 'kubectx'
+abbr --add kns 'kubens'
+abbr --add la 'ls -a'
+abbr --add m 'make'
+abbr --add mv 'mv -i'
+abbr --add p 'pbpaste'
+abbr --add rp 'repo'
+abbr --add sl 'ls'
+abbr --add t 'tmux'
+abbr --add tf 'terraform'
+abbr --add up 'upgrade'
+abbr --add v 'nvim'
+abbr --add vim 'nvim'
+abbr --add yt 'youtube-dl'
 
 # Aliases
 alias ag 'rg'

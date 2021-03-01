@@ -12,6 +12,8 @@ function upgrade --description "Upgrade system"
         fish_update_completions
     end
 
+    command -s gcloud > /dev/null; and gcloud components update --quiet
+
     fisher update
 
     nvim "+let g:plug_window=''" +PlugClean! +PlugUpgrade +PlugUpdate! +UpdateRemotePlugins +qall
