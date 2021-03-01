@@ -19,6 +19,7 @@ FORMULAS=(
     fluxcd/tap/flux
     hadolint
     helm
+    istioctl
     kind
     krew
     kubectx
