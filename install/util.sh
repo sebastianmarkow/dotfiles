@@ -5,6 +5,7 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
+    go-task/tap
     homebrew/cask
     homebrew/core
     homebrew/services
@@ -32,6 +33,7 @@ FORMULAS=(
     fx
     gh
     git-extras
+    go-task/tap/go-task
     graphviz
     htop
     imagemagick
@@ -65,6 +67,7 @@ FORMULAS=(
     w3m
     wrk
     yank
+    yq
 )
 
 CASKS=(

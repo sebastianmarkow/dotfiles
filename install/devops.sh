@@ -7,31 +7,36 @@ source "${BASH_SOURCE%/*}/lib.sh"
 TAPS=(
     derailed/k9s
     derailed/popeye
+    fluxcd/tap
 )
 
 FORMULAS=(
+    act
     awscli
     circleci
     derailed/k9s/k9s
     derailed/popeye/popeye
-    dive
+    fluxcd/tap/flux
     hadolint
     helm
     kind
     krew
     kubectx
-    kubernetes-cli
+    kubeseal
+    kustomize
     skaffold
     stern
     terraform
+    terraform-docs
     tflint
+    tfsec
     vault
 )
 
 CASKS=(
-    docker
-    google-cloud-sdk
-    lens
+    homebrew/cask/docker
+    homebrew/cask/google-cloud-sdk
+    homebrew/cask/lens
 )
 
 HELM_PLUGINS=(

@@ -18,7 +18,6 @@ EGGS=(
 )
 
 FORMULAS=(
-    awk
     bash
     coreutils
     curl
@@ -28,11 +27,14 @@ FORMULAS=(
     findutils
     fish
     fzf
+    gawk
     ghq
     git
+    git-crypt
     git-lfs
     gnu-sed
     gnu-tar
+    gpg2
     grep
     iftop
     jump
@@ -40,8 +42,9 @@ FORMULAS=(
     make
     moreutils
     pidof
+    pre-commit
     pstree
-    python@3.8
+    python@3.9
     reattach-to-user-namespace
     ripgrep
     rsync
@@ -54,8 +57,8 @@ FORMULAS=(
 )
 
 CASKS=(
-    docker
-    font-fira-code
+    homebrew/cask/docker
+    homebrew/cask-fonts/font-fira-code
 )
 
 h1 "minimal"
