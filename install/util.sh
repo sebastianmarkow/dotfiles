@@ -75,6 +75,7 @@ CASKS=(
     github
     hammerspoon
     kaleidoscope
+    michaelvillar-timer
     monitorcontrol
     slack
 )
