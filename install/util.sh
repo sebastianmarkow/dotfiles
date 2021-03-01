@@ -39,6 +39,7 @@ FORMULAS=(
     imagemagick
     jo
     jq
+    lf
     lftp
     lua
     luajit
@@ -50,7 +51,6 @@ FORMULAS=(
     nmap
     pv
     ragel
-    ranger
     rclone
     rename
     shellcheck
