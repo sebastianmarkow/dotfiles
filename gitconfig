@@ -84,7 +84,7 @@
     ds = diff --staged
     dsw = diff --staged --word-diff=color
     staged = diff --staged
-    compare = diff master..HEAD
+    compare = diff main..HEAD
     last = diff -R HEAD..HEAD^
     changed = diff --stat
     conflicts = diff --name-only --diff-filter=U
@@ -182,3 +182,11 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
+[lfs "extension.git-crypt"]
+    clean = git-crypt clean
+    smudge = git-crypt smudge
+    priority = 0
+
+[lfs "extension.git-crypt.diff"]
+    textconv = git-crypt diff
