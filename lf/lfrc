@@ -1,0 +1,14 @@
+set shell sh
+
+set shellopts '-eu'
+
+set ifs "\n"
+
+set scrolloff 5
+
+map <tab> shell
+map <enter> $$EDITOR $f
+
+map o &open $f
+map e $$EDITOR $f
+map x $$f

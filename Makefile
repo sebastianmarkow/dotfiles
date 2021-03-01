@@ -16,7 +16,8 @@ DIRS=$(XDG_CONFIG_HOME) \
 	$(XDG_DATA_HOME)/nvim/backup
 
 CONFIGS=fish	\
-	nvim
+	nvim \
+	lf
 
 
 .DEFAULT_GOAL: help
