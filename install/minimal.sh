@@ -15,6 +15,7 @@ HEAD=(
 
 EGGS=(
     pynvim
+    virtualfish
 )
 
 FORMULAS=(
