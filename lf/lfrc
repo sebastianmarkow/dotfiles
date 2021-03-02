@@ -7,8 +7,9 @@ set ifs "\n"
 set scrolloff 5
 
 map <tab> shell
-map <enter> $$EDITOR $f
+map <enter> $$EDITOR "$f"
 
-map o &open $f
-map e $$EDITOR $f
+map o &open "$f"
+map e $$EDITOR "$f"
+map i $$PAGER "$f"
 map x $$f
