@@ -59,7 +59,7 @@ FORMULAS=(
     ugrep
     uncrustify
     upx
-    usql
+    xo/xo/usql
     vmtouch
     w3m
     wrk
