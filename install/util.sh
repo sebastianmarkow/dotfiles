@@ -8,8 +8,6 @@ TAPS=(
     go-task/tap
     homebrew/cask
     homebrew/core
-    homebrew/services
-    xo/xo
 )
 
 EGGS=(
