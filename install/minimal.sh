@@ -39,6 +39,7 @@ FORMULAS=(
     iftop
     jump
     less
+    lf
     make
     moreutils
     pidof

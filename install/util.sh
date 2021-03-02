@@ -39,7 +39,6 @@ FORMULAS=(
     imagemagick
     jo
     jq
-    lf
     lftp
     lua
     luajit
