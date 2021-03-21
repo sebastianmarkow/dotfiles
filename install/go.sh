@@ -5,7 +5,6 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TOOLS=(
-    github.com/alecthomas/gometalinter
     github.com/lukehoban/go-outline
     github.com/mailgun/godebug
     github.com/motemen/gore
@@ -21,6 +20,7 @@ TOOLS=(
 
 FORMULAS=(
     go
+    kubebuilder
 )
 
 h1 "go"

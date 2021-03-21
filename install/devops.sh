@@ -13,6 +13,7 @@ FORMULAS=(
     fluxcd/tap/flux
     hadolint
     helm
+    instrumenta/instrumenta/kubeval
     istioctl
     kind
     krew

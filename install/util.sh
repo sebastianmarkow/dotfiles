@@ -74,6 +74,7 @@ CASKS=(
     kaleidoscope
     michaelvillar-timer
     monitorcontrol
+    refined-github-safari
     slack
 )
 
