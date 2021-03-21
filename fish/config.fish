@@ -66,7 +66,7 @@ abbr --add yt 'youtube-dl'
 # Aliases
 alias ag 'rg'
 alias compare 'diff -rq'
-alias gitroot 'cd (git rev-parse --show-cdup)'
+alias gitroot 'test -n (git rev-parse --show-cdup); and cd (git rev-parse --show-cdup)'
 alias ldd 'otool -L'
 alias lower 'tr A-Z a-z'
 alias map 'xargs -n1'
