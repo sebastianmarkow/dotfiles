@@ -6,7 +6,7 @@ local Grid = {
 	['1920x1200'] = '6x4',
 	['1440x900']  = '4x2',
     },
-    animationDuration = 0.1,
+    animationDuration = 0,
 }
 
 function Grid:init()
