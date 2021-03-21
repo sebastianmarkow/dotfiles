@@ -6,7 +6,7 @@ local Grid = {
 	['1920x1200'] = '6x4',
 	['1440x900']  = '4x2',
     },
-    animationDuration = 0,
+    animationDuration = 0.1,
 }
 
 function Grid:init()
@@ -19,6 +19,10 @@ end
 
 if Grid then
     Grid:init()
+
+    local leadercmd = hs.settings.get('leadercmd')
+    hs.hotkey.bind(leadercmd, 'h', function() hs.layout.apply({{nil, hs.window.focusedWindow(), nil, hs.layout.left50,  nil, nil}}) end)
+    hs.hotkey.bind(leadercmd, 'l', function() hs.layout.apply({{nil, hs.window.focusedWindow(), nil, hs.layout.right50, nil, nil}}) end)
 
     local leader = hs.settings.get('leader')
     hs.hotkey.bind(leader, 'h',      function() hs.grid.pushWindowLeft() end)
