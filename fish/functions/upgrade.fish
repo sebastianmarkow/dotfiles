@@ -8,7 +8,6 @@ function upgrade --description "Upgrade system"
     and set -l BREW_OUTDATED (brew outdated -v | grep -v pinned)
     if test -n "$BREW_OUTDATED"
         brew upgrade --ignore-pinned --display-times
-        brew cleanup -s
         fish_update_completions
     end
 
@@ -16,7 +15,7 @@ function upgrade --description "Upgrade system"
 
     fisher update
 
-    nvim "+let g:plug_window=''" +PlugClean! +PlugUpgrade +PlugUpdate! +UpdateRemotePlugins +qall
+    nvim "+let g:plug_window=''" +PlugUpgrade +PlugUpdate +PlugClean! +qall
 
     exec fish
 end
