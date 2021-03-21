@@ -58,7 +58,7 @@ Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
 Plug 'sbdchd/neoformat',                    {'on': 'Neoformat'}
 Plug 'shougo/deoplete-lsp'
-Plug 'shougo/deoplete.nvim',                {'do': ':UpdateRemotePlugins'}
+Plug 'shougo/deoplete.nvim',                {'do': ':silent UpdateRemotePlugins'}
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish',                   {'on': ['Abolish', 'Subvert']}
 Plug 'tpope/vim-commentary'
@@ -74,15 +74,17 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'yggdroot/indentLine',                 {'on': 'IndentLinesToggle'}
 
 " Filetype:
-Plug 'cespare/vim-toml',                    {'for': 'toml'}
-Plug 'mattn/emmet-vim',                     {'for': 'html'}
 Plug 'cakebaker/scss-syntax.vim',           {'for': 'scss'}
+Plug 'cespare/vim-toml',                    {'for': 'toml'}
 Plug 'dag/vim-fish',                        {'for': 'fish'}
-Plug 'hashivim/vim-terraform',              {'for': 'terraform'}
+Plug 'tpope/vim-markdown',                  {'for': 'markdown'}
 Plug 'ekalinin/Dockerfile.vim',             {'for': 'dockerfile'}
-Plug 'fatih/vim-go',                        {'for': 'go'}
+Plug 'fatih/vim-go',                        {'for': 'go', 'do': ':silent GoUpdateBinaries' }
+Plug 'hashivim/vim-terraform',              {'for': 'terraform'}
 Plug 'hdima/python-syntax',                 {'for': 'python'}
 Plug 'ingydotnet/yaml-vim',                 {'for': 'yaml'}
+Plug 'mattn/emmet-vim',                     {'for': 'html'}
+Plug 'pearofducks/ansible-vim',             {'for': 'ansible'}
 
 call plug#end()
 
