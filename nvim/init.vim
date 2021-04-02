@@ -41,7 +41,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'airblade/vim-gitgutter'
 Plug 'andrewradev/sideways.vim',            {'on': ['SidewaysLeft', 'SidewaysRight']}
 Plug 'andrewradev/splitjoin.vim'
-Plug 'antoinemadec/FixCursorHold.nvim'      " Neovim CursorHold autcmd performance fix
+Plug 'antoinemadec/FixCursorHold.nvim'      " Neovim CursorHold autcmd performance fix: https://github.com/neovim/neovim/issues/12587
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'itchyny/lightline.vim'
