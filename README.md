@@ -8,8 +8,11 @@ A heavily opinionated set of dotfiles.
 Requirements
 ------------
 
+### To bootstrap
+
 * `make`
 * `bash`
+* `brew`
 
 Usage
 -----
