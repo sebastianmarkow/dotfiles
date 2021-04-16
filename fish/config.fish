@@ -83,6 +83,7 @@ alias ktm 'kubectl top pods -A | sort --reverse --key 4 --numeric | head -25'
 
 # Fish
 set fish_greeting ''
+
 set fish_color_comment blue
 set fish_color_command brmagenta
 set fish_color_param white
