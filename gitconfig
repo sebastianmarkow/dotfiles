@@ -1,6 +1,6 @@
 [user]
     name = Sebastian Klatt
-    email = sebastian@markow.io
+    email = sebastian.klatt@metro.digital
 
 [core]
     editor = nvim
