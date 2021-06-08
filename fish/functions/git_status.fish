@@ -7,9 +7,15 @@ function git_status --description "Display git status"
     test -n "$repo_info"
     or return 0
 
-    set -l git_dir $repo_info[1]
-    set -l branch $repo_info[2]
+
     set -l files_status (command git status --porcelain ^/dev/null | cut -c 1-2 | sort)
+    set -l git_dir $repo_info[1]
+    set branch $repo_info[2]
+
+    if test (string length $branch) -gt 16
+        set branch (string sub --length 16 $branch)
+        set branch "$branch…"
+    end
 
     set -l sign_staged '='
     set -l sign_unstaged '~'
