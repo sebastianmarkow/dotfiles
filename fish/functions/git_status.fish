@@ -1,14 +1,14 @@
 function git_status --description "Display git status"
-    if not command -s git >/dev/null
+    if not command -s git > /dev/null
         return 1
     end
 
-    set -l repo_info (command git rev-parse --git-dir --abbrev-ref HEAD ^/dev/null)
+    set -l repo_info (command git rev-parse --git-dir --abbrev-ref HEAD 2> /dev/null)
     test -n "$repo_info"
     or return 0
 
 
-    set -l files_status (command git status --porcelain ^/dev/null | cut -c 1-2 | sort)
+    set -l files_status (command git status --porcelain 2> /dev/null | cut -c 1-2 | sort)
     set -l git_dir $repo_info[1]
     set branch $repo_info[2]
 
@@ -32,7 +32,7 @@ function git_status --description "Display git status"
     set -l stashed 0
 
     if test -r $git_dir/refs/stash
-        set stashed (count (command git stash list ^ /dev/null))
+        set stashed (count (command git stash list 2> /dev/null))
     end
 
     for f in $files_status
@@ -51,7 +51,7 @@ function git_status --description "Display git status"
         end
     end
 
-    echo (command git rev-list --count --left-right '@{upstream}'...HEAD ^/dev/null) | read -l behind ahead
+    echo (command git rev-list --count --left-right '@{upstream}'...HEAD 2> /dev/null) | read -l behind ahead
 
     for t in staged unstaged untracked unmerged stashed ahead behind
         if test "$$t" != "" -a "$$t" != "0"

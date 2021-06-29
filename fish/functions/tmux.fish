@@ -1,7 +1,7 @@
 function tmux --description 'Attach to tmux session'
     switch (count $argv)
         case 0
-            set -l sessions (command tmux ls -F "#S [#{session_windows} windows] #{?session_attached,(#{session_attached} attached),}" ^ /dev/null | string split "\n")
+            set -l sessions (command tmux ls -F "#S [#{session_windows} windows] #{?session_attached,(#{session_attached} attached),}" 2> /dev/null | string split "\n")
             switch (count $sessions)
                 case 0
                     command tmux new-session -A -s $USER
