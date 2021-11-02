@@ -23,7 +23,7 @@
     autosquash = true
 
 [pull]
-    rebase = false
+    rebase = true
 
 [merge]
     conflictstyle = diff3
