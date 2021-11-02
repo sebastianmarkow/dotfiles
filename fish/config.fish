@@ -133,6 +133,4 @@ for file in $fisher_path/conf.d/*.fish
     builtin source $file 2>/dev/null
 end
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/.gcloud/google-cloud-sdk/path.fish.inc' ]; . '$HOME/.gcloud/google-cloud-sdk/path.fish.inc'; end
 set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
