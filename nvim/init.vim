@@ -88,10 +88,10 @@ Plug 'pearofducks/ansible-vim',             {'for': 'ansible'}
 
 call plug#end()
 
-:lua << END
-    require'lspconfig'.gopls.setup{}
-    require'lspconfig'.pyls.setup{}
-END
+" :lua << END
+"     require'lspconfig'.gopls.setup{}
+"     " require'lspconfig'.pyls.setup{}
+" END
 
 " File
 set fileformats=unix,dos,mac
@@ -355,6 +355,7 @@ augroup custom
 autocmd!
 
 " Custom: Filetype
+autocmd BufNewFile,BufRead *.hcl                         setlocal filetype=terraform
 autocmd BufNewFile,BufRead *.cls,*.sty                   setlocal filetype=tex
 autocmd BufNewFile,BufRead *.frag,*.vert,*.shader,*.glsl setlocal filetype=glsl
 autocmd BufNewFile,BufRead *.hql                         setlocal filetype=hive
