@@ -20,6 +20,7 @@ EGGS=(
 
 FORMULAS=(
     bash
+    colima
     coreutils
     curl
     diffutils
@@ -41,6 +42,7 @@ FORMULAS=(
     jump
     less
     lf
+    lima
     make
     moreutils
     pidof
@@ -59,7 +61,6 @@ FORMULAS=(
 )
 
 CASKS=(
-    homebrew/cask/docker
     homebrew/cask-fonts/font-fira-code
 )
 
