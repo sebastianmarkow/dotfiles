@@ -74,10 +74,6 @@ go: brew ## install Go toolchain
 python: brew ## install Python3 toolchain
 	@sh ./install/python.sh
 
-.PHONY: rust
-rust: brew ## install Rust toolchain
-	@sh ./install/rust.sh
-
 .PHONY: util
 util: brew ## install utilities
 	@sh ./install/util.sh

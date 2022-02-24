@@ -6,8 +6,9 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 FORMULAS=(
     act
-    awscli
-    circleci
+    argo
+    argocd
+    datawire/blackbird/telepresence
     derailed/k9s/k9s
     derailed/popeye/popeye
     fluxcd/tap/flux
@@ -24,13 +25,12 @@ FORMULAS=(
     stern
     terraform
     terraform-docs
+    terragrunt
     tflint
     tfsec
-    vault
 )
 
 CASKS=(
-    homebrew/cask/docker
     homebrew/cask/google-cloud-sdk
     homebrew/cask/lens
 )

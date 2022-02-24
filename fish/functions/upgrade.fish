@@ -1,7 +1,7 @@
 function upgrade --description "Upgrade system"
     set -l MACOS_OUTDATED (softwareupdate --list --no-scan 2>&1 | grep "No new software available.")
     if test -z "$MACOS_OUTDATED"
-        softwareupdate --install --all
+        softwareupdate --install --all --agree-to-license
     end
 
     brew update

@@ -13,7 +13,6 @@ TAPS=(
 EGGS=(
     http-prompt
     proselint
-    sphinx
     vim-vint
 )
 
@@ -55,7 +54,6 @@ FORMULAS=(
     tcpdump
     terminal-notifier
     trash
-    travis
     ugrep
     uncrustify
     upx
@@ -68,14 +66,12 @@ FORMULAS=(
 )
 
 CASKS=(
+    arq
+    alfred
     aerial
-    github
     hammerspoon
-    kaleidoscope
-    michaelvillar-timer
+    hazel
     monitorcontrol
-    refined-github-safari
-    slack
 )
 
 h1 "utilities"

@@ -7,15 +7,13 @@ source "${BASH_SOURCE%/*}/lib.sh"
 TAPS=(
     homebrew/cask
     homebrew/cask-fonts
+    buo/cask-upgrade
 )
 
-HEAD=(
-    neovim/neovim/neovim
-)
+HEAD=()
 
 EGGS=(
     pynvim
-    virtualfish
 )
 
 FORMULAS=(
@@ -25,7 +23,6 @@ FORMULAS=(
     curl
     diffutils
     direnv
-    docker
     fd
     findutils
     fish
@@ -43,11 +40,10 @@ FORMULAS=(
     jump
     less
     lf
-    lima
     make
     moreutils
+    pass
     pidof
-    pre-commit
     pstree
     python@3.9
     reattach-to-user-namespace

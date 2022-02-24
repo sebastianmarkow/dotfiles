@@ -6,20 +6,18 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 EGGS=(
     black
-    decorator
     mypy-lang
     pep8
+    poetry
     pyannotate
     pyflakes
     pylint
     pyls-black
     python-language-server
-    virtualenv
-    virtualfish
 )
 
 FORMULAS=(
-    python@3.8
+    pyenv
 )
 
 h1 "python"

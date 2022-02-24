@@ -5,13 +5,10 @@ status --is-interactive; or exit 1
 set -x PATH $PATH /usr/local/sbin
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
-set -x CARGO_HOME $HOME/Developer/cargo
-set -x CARGO_BIN $CARGO_HOME/bin
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
 test -d $GOBIN; and set -x PATH $GOBIN $PATH
-test -d $CARGO_BIN; and set -x PATH $CARGO_BIN $PATH
 
 # Base
 set -x EDITOR 'nvim'
