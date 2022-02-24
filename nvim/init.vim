@@ -90,7 +90,7 @@ call plug#end()
 
 " :lua << END
 "     require'lspconfig'.gopls.setup{}
-"     " require'lspconfig'.pyls.setup{}
+"     require'lspconfig'.pyls.setup{}
 " END
 
 " File
