@@ -43,7 +43,6 @@ FORMULAS=(
     massren
     mdcat
     mtr
-    multitail
     nmap
     pv
     ragel

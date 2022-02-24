@@ -8,8 +8,11 @@ function upgrade --description "Upgrade system"
     and set -l BREW_OUTDATED (brew outdated -v | grep -v pinned)
     if test -n "$BREW_OUTDATED"
         brew upgrade --ignore-pinned --display-times
+        brew cleanup --prune=30
         fish_update_completions
     end
+
+    brew cu --all --yes --cleanup --no-brew-update
 
     command -s gcloud > /dev/null; and gcloud components update --quiet
 
