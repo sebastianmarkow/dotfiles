@@ -30,7 +30,7 @@ if empty(glob('$XDG_CONFIG_HOME/nvim/autoload/plug.vim'))
     augroup install
     autocmd!
     autocmd VimEnter * PlugInstall | source $MYVIMRC
-    augroup end " install
+    augroup end
 endif
 
 " Plugins
