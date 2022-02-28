@@ -23,6 +23,7 @@ FORMULAS=(
     curl
     diffutils
     direnv
+    docker
     fd
     findutils
     fish
