@@ -44,6 +44,8 @@ FORMULAS=(
     make
     moreutils
     pass
+    pass-otp
+    simplydanny/pass-extensions/pass-update
     pidof
     pstree
     python@3.9
