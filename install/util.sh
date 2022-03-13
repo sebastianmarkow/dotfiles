@@ -17,6 +17,7 @@ EGGS=(
 )
 
 FORMULAS=(
+    ankitpokhrel/jira-cli/jira-cli
     bat
     caddy
     calc
@@ -56,10 +57,10 @@ FORMULAS=(
     ugrep
     uncrustify
     upx
-    xo/xo/usql
     vmtouch
     w3m
     wrk
+    xo/xo/usql
     yank
     yq
 )
