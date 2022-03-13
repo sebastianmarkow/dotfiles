@@ -1,6 +1,9 @@
 # No, no, no!
 status --is-interactive; or exit 1
 
+# Fish features
+set -Ua fish_features qmark-noglob
+
 # Path
 set -x PATH $PATH /usr/local/sbin
 set -x GOPATH $HOME/Developer/go
