@@ -176,17 +176,3 @@
 [ghq]
     root = ~/Developer/go/src
     root = ~/Developer/repos
-
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-
-[lfs "extension.git-crypt"]
-    clean = git-crypt clean
-    smudge = git-crypt smudge
-    priority = 0
-
-[lfs "extension.git-crypt.diff"]
-    textconv = git-crypt diff
