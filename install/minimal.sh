@@ -37,6 +37,7 @@ FORMULAS=(
     gnu-tar
     gpg2
     grep
+    grpcurl
     iftop
     jump
     less
