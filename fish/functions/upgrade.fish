@@ -12,7 +12,7 @@ function upgrade --description "Upgrade system"
         fish_update_completions
     end
 
-    brew cu --all --yes --cleanup --no-brew-update
+    brew cu --yes --cleanup --no-brew-update
 
     command -s gcloud > /dev/null; and gcloud components update --quiet
 
