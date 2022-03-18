@@ -36,11 +36,6 @@ set -x XZ_OPT '-T0'
 
 # Hooks
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
-command -s jump > /dev/null; and source (jump shell fish | psub)
-command -s direnv > /dev/null; and source (direnv hook fish | psub)
-command -s pyenv > /dev/null; and source (pyenv init --path | psub)
-command -s colima > /dev/null; and source (colima completion fish | psub)
-command -s flux > /dev/null; and source (flux completion fish | psub)
 test -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 # Abbreviations
