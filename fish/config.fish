@@ -35,6 +35,7 @@ set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x XZ_OPT '-T0'
 
 # Hooks
+command -s pyenv > /dev/null; and source (pyenv init --path | psub)
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 test -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
