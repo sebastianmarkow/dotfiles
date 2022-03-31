@@ -20,7 +20,6 @@ function upgrade --description "Upgrade system"
 
     nvim "+let g:plug_window=''" +PlugUpgrade +PlugUpdate +PlugClean! +qall
 
-    command -s jump > /dev/null; and jump shell fish > ~/.config/fish/completions/jump.gen.fish
     command -s flux > /dev/null; and flux completion fish > ~/.config/fish/completions/flux.gen.fish
     command -s kind > /dev/null; and kind completion fish > ~/.config/fish/completions/kind.gen.fish
     command -s colima > /dev/null; and colima completion fish > ~/.config/fish/completions/colima.gen.fish
