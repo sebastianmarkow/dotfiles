@@ -54,6 +54,7 @@ Plug 'lambdalisue/fern.vim',                {'on': 'Fern'}
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'puremourning/vimspector'
 Plug 'rhysd/committia.vim'
 Plug 'rking/ag.vim',                        {'on': 'Ag'}
 Plug 'sbdchd/neoformat',                    {'on': 'Neoformat'}
@@ -387,6 +388,9 @@ augroup end " custom
 " Colors: Spelling Errors
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=1
+
+" Plugin: vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 
 " Plugin: context.vim
 let g:context_enabled=1
