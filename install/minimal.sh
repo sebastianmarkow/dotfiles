@@ -29,6 +29,7 @@ FORMULAS=(
     fish
     fzf
     gawk
+    gh
     ghq
     git
     git-crypt
