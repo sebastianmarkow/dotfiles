@@ -1,5 +1,5 @@
 # No, no, no!
-status --is-interactive; or exit 1
+status is-interactive; or exit 1
 
 # Fish features
 set -Ua fish_features qmark-noglob
@@ -8,6 +8,7 @@ set -Ua fish_features qmark-noglob
 set -x PATH $PATH /usr/local/sbin
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
+set -x PYENV_ROOT $HOME/.pyenv
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
 set -x XDG_CACHE_HOME $HOME/.cache
@@ -30,13 +31,15 @@ set -x LC_COLLATE 'C'
 set -x HOMEBREW_NO_ANALYTICS 1
 set -x HOMEBREW_NO_EMOJI 1
 set -x HOMEBREW_NO_ENV_HINTS 1
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x FZF_DEFAULT_OPTS '--color=16,header:13,info:5,pointer:3,marker:9,spinner:1,prompt:5,fg:7,hl:14,fg+:3,hl+:9 --inline-info --tiebreak=end,length --bind=shift-tab:toggle-down,tab:toggle-up'
 set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x XZ_OPT '-T0'
 
 # Hooks
 command -s jump > /dev/null; and source (jump shell fish | psub)
-command -s pyenv > /dev/null; and source (pyenv init --path | psub)
+command -s pyenv > /dev/null; and pyenv init --path | source
+command -s pyenv > /dev/null; and pyenv init - | source
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 test -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
@@ -134,3 +137,4 @@ for file in $fisher_path/conf.d/*.fish
 end
 
 set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
+set -g fish_user_paths "$PYENV_ROOT/bin" $fish_user_paths
