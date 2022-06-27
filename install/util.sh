@@ -13,6 +13,7 @@ TAPS=(
 EGGS=(
     http-prompt
     proselint
+    yamllint
     vim-vint
 )
 
