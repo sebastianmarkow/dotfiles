@@ -3,8 +3,6 @@ dotfiles
 
 A heavily opinionated set of dotfiles.
 
-> These are my dotfiles. There are many like them, but these ones are mine. […]
-
 Requirements
 ------------
 
