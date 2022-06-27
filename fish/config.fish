@@ -138,3 +138,5 @@ end
 
 set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 set -g fish_user_paths "$PYENV_ROOT/bin" $fish_user_paths
+
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
