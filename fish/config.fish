@@ -77,7 +77,7 @@ alias tig 'nvim +GV +bd1'
 alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'
 alias upper 'tr a-z A-Z'
-alias yt2audio 'youtube-dl --extract-audio --audio-format mp3 --audio-quality 0'
+alias yt2audio 'yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 
 alias ktc 'kubectl top pods -A | sort --reverse --key 3 --numeric | head -25'
 alias ktm 'kubectl top pods -A | sort --reverse --key 4 --numeric | head -25'
