@@ -50,7 +50,6 @@ FORMULAS=(
     simplydanny/pass-extensions/pass-update
     pidof
     pstree
-    python@3.9
     reattach-to-user-namespace
     ripgrep
     rsync
