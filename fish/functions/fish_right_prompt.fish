@@ -1,7 +1,6 @@
 function fish_right_prompt
     set -l last_status $status
     set -l timing (cmd_timing)
-    set -l git_status (git_status)
     set -l last_color normal
 
     # status code
@@ -15,13 +14,6 @@ function fish_right_prompt
     if test -n "$timing"
         set_color $fish_color_prompt_timing_fg -b $fish_color_prompt_timing_bg
         echo -n -s ' ' $timing ' '
-        set_color normal
-    end
-
-    # git status
-    if test -n "$git_status"
-        set_color $fish_color_prompt_git_fg -b $fish_color_prompt_git_bg
-        echo -n -s ' ' $git_status ' '
         set_color normal
     end
 

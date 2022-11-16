@@ -1,5 +1,13 @@
 function fish_prompt --description 'Compose fish prompt'
     set -l last_color normal
+    set -l git_status (git_status)
+
+    # git status
+    if test -n "$git_status"
+        set_color $fish_color_prompt_git_fg -b $fish_color_prompt_git_bg
+        echo -n -s ' ' $git_status ' '
+        set_color normal
+    end
 
     set_color $fish_color_prompt_pwd_fg -b $fish_color_prompt_pwd_bg
     echo -n -s ' ' (prompt_pwd) ' '
