@@ -9,7 +9,7 @@ task "install"
 if [ -x "/usr/local/bin/brew" ]; then
     warn "installed"
 else
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [[ $? != 0 ]]; then
         error
         exit 1
