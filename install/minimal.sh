@@ -5,15 +5,18 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
+    buo/cask-upgrade
     homebrew/cask
     homebrew/cask-fonts
-    buo/cask-upgrade
 )
 
 HEAD=()
 
 EGGS=(
+    proselint
     pynvim
+    vim-vint
+    yamllint
 )
 
 FORMULAS=(
@@ -24,44 +27,55 @@ FORMULAS=(
     diffutils
     direnv
     docker
-    fd
+    fd # find replacement
     findutils
     fish
     fzf
     gawk
     gh
+    gh
     ghq
     git
     git-crypt
+    git-extras
     git-lfs
     gnu-sed
     gnu-tar
     gpg2
     grep
     grpcurl
+    htop
     iftop
+    jq
     jump
     less
     lf
     make
+    massren
     moreutils
-    pass
-    pass-otp
-    simplydanny/pass-extensions/pass-update
+    mtr
+    nmap
     pidof
     pstree
     reattach-to-user-namespace
+    rename
     ripgrep
     rsync
+    since
     ssh-copy-id
+    tcpdump
     tmux
     tree
     watch
     wget
+    wrk
+    xo/xo/usql
     xz
+    yq
 )
 
 CASKS=(
+    hammerspoon
     homebrew/cask-fonts/font-fira-code
 )
 

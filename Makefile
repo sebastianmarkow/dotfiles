@@ -30,7 +30,7 @@ help:
 
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
 
-base: minimal util python devops ## install base setup
+base: minimal util devops ## install base setup
 
 
 .PHONY: $(FILES)
@@ -55,7 +55,7 @@ brew: ## install Homebrew
 	@sh ./install/brew.sh
 
 .PHONY: base
-minimal: brew dotfiles ## install minimal setup
+minimal: brew dotfiles python ## install minimal setup
 	@sh ./install/minimal.sh
 
 .PHONY: util

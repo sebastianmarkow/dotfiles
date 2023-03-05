@@ -12,65 +12,40 @@ TAPS=(
 
 EGGS=(
     http-prompt
-    proselint
-    yamllint
-    vim-vint
 )
 
 FORMULAS=(
-    ankitpokhrel/jira-cli/jira-cli
-    bat
-    caddy
+    bat # cat replacment with line numbers and syntax highlighting
     calc
-    ccat
+    ccat # cat replacement with syntax highlighting
     cloc
     cloog
-    devd
     entr
     fdupes
-    ffmpeg
-    fx
-    gh
-    git-extras
+    fx # json terminal viewer
     go-task/tap/go-task
     graphviz
-    htop
-    imagemagick
     jo
-    jq
-    lftp
     lua
     luajit
     mandoc
-    massren
     mdcat
-    mtr
-    nmap
     pv
     ragel
     rclone
-    rename
     shellcheck
-    since
-    tcpdump
     terminal-notifier
     trash
-    ugrep
-    uncrustify
     upx
     vmtouch
     w3m
-    wrk
-    xo/xo/usql
     yank
-    yq
 )
 
 CASKS=(
     arq
     alfred
     aerial
-    hammerspoon
     hazel
     monitorcontrol
 )

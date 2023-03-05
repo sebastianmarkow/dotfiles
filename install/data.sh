@@ -35,7 +35,6 @@ EGGS=(
 
 FORMULAS=(
     hdf5
-    python@3.8
 )
 
 h1 "data science"
