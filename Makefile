@@ -3,21 +3,24 @@ PWD:=$(shell pwd)
 XDG_CONFIG_HOME?=$(HOME)/.config
 XDG_DATA_HOME?=$(HOME)/.local/share
 
-FILES=tmux.conf	\
+FILES=\
 	gitconfig	\
 	gitignore	\
 	gitmessage	\
-	wgetrc		\
+	hammerspoon	\
 	hushlogin	\
-	hammerspoon
+	tmux.conf	\
+	wgetrc
 
-DIRS=$(XDG_CONFIG_HOME) \
-	$(XDG_DATA_HOME)/nvim/undo	\
-	$(XDG_DATA_HOME)/nvim/backup
+DIRS=\
+	$(XDG_CONFIG_HOME)		\
+	$(XDG_DATA_HOME)/nvim/backup	\
+	$(XDG_DATA_HOME)/nvim/undo
 
-CONFIGS=fish	\
-	nvim \
-	lf
+CONFIGS=\
+	fish	\
+	lf	\
+	nvim
 
 
 .DEFAULT_GOAL: help
@@ -27,12 +30,8 @@ help:
 
 dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
 
-base: minimal util ## install base setup
+base: minimal util python devops ## install base setup
 
-.PHONY: $(DIRS)
-$(DIRS):
-	$(info Make directory $@)
-	@mkdir -p $@
 
 .PHONY: $(FILES)
 $(FILES):
@@ -40,23 +39,36 @@ $(FILES):
 	@rm -rf $(HOME)/.$@
 	@ln -s $(PWD)/$@ $(HOME)/.$@
 
+.PHONY: $(DIRS)
+$(DIRS):
+	$(info Make directory $@)
+	@mkdir -p $@
+
 .PHONY: $(CONFIGS)
 $(CONFIGS):
 	$(info Symlink $@ → $(XDG_CONFIG_HOME)/$@)
 	@rm -rf $(XDG_CONFIG_HOME)/$@
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
-.PHONY: base
-minimal: brew dotfiles ## install minimal setup
-	@sh ./install/minimal.sh
-
 .PHONY: brew
 brew: ## install Homebrew
 	@sh ./install/brew.sh
 
-.PHONY: cxx
-cxx: brew ## install C/C++ toolchain
-	@sh ./install/cxx.sh
+.PHONY: base
+minimal: brew dotfiles ## install minimal setup
+	@sh ./install/minimal.sh
+
+.PHONY: util
+util: brew ## install utilities
+	@sh ./install/util.sh
+
+.PHONY: python
+python: brew ## install Python3 toolchain
+	@sh ./install/python.sh
+
+.PHONY: go
+go: brew ## install Go toolchain
+	@sh ./install/go.sh
 
 .PHONY: devops
 devops: brew ## install devops toolchain
@@ -65,15 +77,3 @@ devops: brew ## install devops toolchain
 .PHONY: data
 data: brew python ## install data science toolchain
 	@sh ./install/data.sh
-
-.PHONY: go
-go: brew ## install Go toolchain
-	@sh ./install/go.sh
-
-.PHONY: python
-python: brew ## install Python3 toolchain
-	@sh ./install/python.sh
-
-.PHONY: util
-util: brew ## install utilities
-	@sh ./install/util.sh
