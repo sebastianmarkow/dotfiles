@@ -19,6 +19,7 @@ DIRS=\
 
 CONFIGS=\
 	fish	\
+	hack	\
 	lf	\
 	nvim
 
