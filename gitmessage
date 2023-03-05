@@ -1,23 +1,35 @@
 
 
-# Summarize changes in one sentence:
-# Limit to 50 characters
-# Capitalize, use imperative, no period
-#
-#     If applied, this commit will __________.
+# <type>(optional scope)<optional "!">: <description>
+# |
+# | Summarize changes in one sentence
+# | Limit to 50 characters
+# | Capitalize, use imperative, no period
+# |
+# | types
+# |   - fix
+# |   - feat
+# |   - chore
+# |   - ci
+# |   - test
+# |   - style
+# |   - docs
+# |   - revert
+# |
+# | "!" signals breaking changes
 
 
-# Discuss what it does and why it changes:
-# Limit to 72 characters
-# Split into paragraphs, separate \w blank line
-#
-#     Focus on why this change is necessary.
-#     Point out side effects.
+# [optional body]
+# |
+# | Discuss what the change does and why it changes
+# | Limit to 72 characters
+# | Split into paragraphs, separate \w blank line
+# |
+# | types
+# |   - BREAKING CHANGES
 
 
-# Point to references:
-# Limit to 72 characters
-#
-#     Resolves: #ticket
-#     See also: citation, link, #ticket
-#     Discussed with @person
+# [optional footer]
+# |
+# | Point to references
+# | Limit to 72 characters
