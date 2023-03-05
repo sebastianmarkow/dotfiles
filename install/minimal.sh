@@ -57,7 +57,6 @@ FORMULAS=(
     nmap
     pidof
     pstree
-    reattach-to-user-namespace
     rename
     ripgrep
     rsync
