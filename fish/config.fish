@@ -38,8 +38,8 @@ set -x XZ_OPT '-T0'
 
 # Hooks
 command -s jump > /dev/null; and source (jump shell fish | psub)
-command -s pyenv > /dev/null; and pyenv init --path | source
 command -s pyenv > /dev/null; and pyenv init - | source
+command -s octosql > /dev/null; and source (octosql completion fish | psub)
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 test -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
