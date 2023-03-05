@@ -18,6 +18,7 @@
 
 [push]
     default = upstream
+    autoSetupRemote = true
 
 [rebase]
     autosquash = true
@@ -179,6 +180,7 @@
 [ghq]
     root = ~/Developer/go/src
     root = ~/Developer/repos
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
