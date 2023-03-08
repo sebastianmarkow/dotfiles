@@ -22,8 +22,8 @@ if Grid then
     Grid:init()
 
     local leadercmd = hs.settings.get('leadercmd')
-    hs.hotkey.bind(leadercmd, 'h', function() hs.layout.apply({{nil, hs.window.focusedWindow(), nil, hs.layout.left50,  nil, nil}}) end)
-    hs.hotkey.bind(leadercmd, 'l', function() hs.layout.apply({{nil, hs.window.focusedWindow(), nil, hs.layout.right50, nil, nil}}) end)
+    hs.hotkey.bind(leadercmd, 'h', function() local win = hs.window.focusedWindow(); hs.layout.apply({{nil, win, win:screen(), hs.layout.left50,  nil, nil}}) end)
+    hs.hotkey.bind(leadercmd, 'l', function() local win = hs.window.focusedWindow(); hs.layout.apply({{nil, win, win:screen(), hs.layout.right50, nil, nil}}) end)
 
     local leader = hs.settings.get('leader')
     hs.hotkey.bind(leader, 'h',      function() hs.grid.pushWindowLeft() end)
