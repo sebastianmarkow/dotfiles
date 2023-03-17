@@ -2,6 +2,19 @@
 local Caffeinate = {
     menubar    = hs.menubar.new(),
     batteryCap = 10.0,
+    style      = {
+      strokeWidth  = 0,
+      strokeColor = { white = 1, alpha = 0 },
+      fillColor   = { white = 0, alpha = 0.25 },
+      textColor = { white = 1, alpha = 1 },
+      textFont  = ".AppleSystemUIFont",
+      textSize  = 27,
+      radius = 15,
+      atScreenEdge = 0,
+      fadeInDuration = 0.15,
+      fadeOutDuration = 0.15,
+      padding = nil,
+    }
 }
 
 function Caffeinate:setIcon(state)
@@ -17,9 +30,9 @@ function Caffeinate:toggle(silent)
     self:setIcon(state)
     if not silent then
         if state then
-            hs.alert('Caffeinate on', 1)
+            hs.alert.show('Caffeinate on', self.style, nil, 1)
         else
-            hs.alert('Caffeinate off', 1)
+            hs.alert.show('Caffeinate off', self.style, nil, 1)
         end
     end
 end
