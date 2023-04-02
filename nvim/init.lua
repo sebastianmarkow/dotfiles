@@ -29,15 +29,9 @@ require("lazy").setup({
       "lewis6991/impatient.nvim",
       lazy = false,
     },
-    { 
-      name = "fzf",
-      dir = "/usr/local/opt/fzf",
-    },
-    {
-      "junegunn/fzf.vim",
-    },
     {
       "ibhagwan/fzf-lua",
+      lazy = false,
       config = function()
         local fzf_lua = require("fzf-lua")
         require("fzf-lua").setup {}
