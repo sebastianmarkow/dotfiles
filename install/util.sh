@@ -23,7 +23,7 @@ FORMULAS=(
     entr
     fdupes
     fx # json terminal viewer
-    go-task/tap/go-task
+    go-task
     graphviz
     jo
     lua

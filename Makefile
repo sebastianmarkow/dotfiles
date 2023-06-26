@@ -9,10 +9,12 @@ FILES=\
 	gitmessage	\
 	hammerspoon	\
 	hushlogin	\
+	mackup		\
+	mackup.cfg	\
 	tmux.conf	\
 	wgetrc
 
-DIRS=\
+MAKEDIRS=\
 	$(XDG_CONFIG_HOME)		\
 	$(XDG_DATA_HOME)/nvim/backup	\
 	$(XDG_DATA_HOME)/nvim/undo
@@ -29,7 +31,7 @@ CONFIGS=\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-dotfiles: $(DIRS) $(FILES) $(CONFIGS) ## symlink dotfiles
+dotfiles: $(MAKEDIRS) $(FILES) $(DIRS) $(CONFIGS) ## symlink dotfiles
 
 base: minimal util devops ## install base setup
 
@@ -40,8 +42,8 @@ $(FILES):
 	@rm -rf $(HOME)/.$@
 	@ln -s $(PWD)/$@ $(HOME)/.$@
 
-.PHONY: $(DIRS)
-$(DIRS):
+.PHONY: $(MAKEDIRS)
+$(MAKEDIRS):
 	$(info Make directory $@)
 	@mkdir -p $@
 

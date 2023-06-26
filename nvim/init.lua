@@ -16,11 +16,23 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- Disable providers
+-- Python
 vim.g.loaded_python3_provider = 1
-vim.g.loaded_ruby_provider = 1
-vim.g.loaded_perl_provider = 1
-vim.g.loaded_node_provider = 1
+vim.g.python3_host_prod = vim.fn.expand('$HOME/.pyenv/versions/3.8.16/bin/python')
+
+-- Disable providers
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
+
+
+vim.g.coq_settings = {
+  keymap = { recommended = false },
+  auto_start = 'shut-up',
+  clients = {
+    tmux = { enabled = true },
+  },
+}
 
 -- Configure package manager
 require("lazy").setup({
@@ -32,10 +44,7 @@ require("lazy").setup({
     {
       "ibhagwan/fzf-lua",
       lazy = false,
-      config = function()
-        local fzf_lua = require("fzf-lua")
-        require("fzf-lua").setup {}
-      end,
+      config = true
     },
     {
       "whatyouhide/vim-gotham",
@@ -45,29 +54,25 @@ require("lazy").setup({
     {
       "ethanholz/nvim-lastplace",
       lazy = false,
-      config = function()
-        require("nvim-lastplace").setup({
-          lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
-          lastplace_ignore_filetype = {"gitcommit", "gitrebase"},
-          lastplace_open_folds = false
-        })
-      end,
+      opts = {
+        lastplace_ignore_buftype = {"quickfix", "nofile", "help"},
+        lastplace_ignore_filetype = {"gitcommit", "gitrebase"},
+        lastplace_open_folds = false
+      }
     },
     {
       "rhysd/committia.vim",
       lazy = false,
-      init = function()
+      config = function()
         vim.g.committia_open_only_vim_starting = 0
         vim.g.committia_min_window_width = 160
         vim.g.committia_hooks = vim.empty_dict()
-      end,
+      end
     },
     {
       "lewis6991/gitsigns.nvim",
       lazy = false,
-      config = function()
-        require("gitsigns").setup({})
-      end,
+      config = true
     },
     {
       "editorconfig/editorconfig-vim",
@@ -76,17 +81,134 @@ require("lazy").setup({
     {
       "lukas-reineke/indent-blankline.nvim",
       lazy = false,
-      config = function()
-        require("indent_blankline").setup({
-          char = "┊"
-        })
-      end,
+      opts = {
+        char = "┊"
+      }
     },
     {
       "numToStr/Comment.nvim",
       lazy = false,
       config = true,
     },
+    {
+      "nvim-lualine/lualine.nvim",
+      lazy = false,
+      config = function()
+        local colors = {
+          base03 = 0,
+          base02 = 8,
+          base01 = 10,
+          base00 = 12,
+          base0 = 11,
+          base1 = 14,
+          base2 = 7,
+          base3 = 15,
+          red = 1,
+          orange = 9,
+          yellow = 3,
+          magenta = 13,
+          violet = 5,
+          blue = 4,
+          cyan = 6,
+          green = 2,
+        }
+        gotham_lualine = {
+          normal = {
+            a = { bg = colors.blue, fg = colors.base3 },
+            b = { bg = colors.base01, fg = colors.base1 },
+            c = { bg = colors.base02, fg = colors.base1 },
+            z = { bg = colors.blue, fg = colors.base3 },
+          },
+          insert = {
+            a = { bg = colors.green, fg = colors.base3 },
+            b = { bg = colors.base01, fg = colors.base1 },
+            c = { bg = colors.base02, fg = colors.base1 },
+            z = { bg = colors.blue, fg = colors.base3 },
+          },
+          visual = {
+            a = { bg = colors.violet, fg = colors.base3 },
+            b = { bg = colors.base01, fg = colors.base1 },
+            c = { bg = colors.base02, fg = colors.base1 },
+            z = { bg = colors.blue, fg = colors.base3 },
+          },
+          replace = {
+            a = { bg = colors.red, fg = colors.base3 },
+            b = { bg = colors.base01, fg = colors.base1 },
+            c = { bg = colors.base02, fg = colors.base1 },
+            z = { bg = colors.blue, fg = colors.base3 },
+          },
+          command = {
+            a = { bg = colors.violet, fg = colors.base3 },
+            b = { bg = colors.base01, fg = colors.base1 },
+            c = { bg = colors.base02, fg = colors.base1 },
+            z = { bg = colors.blue, fg = colors.base3 },
+          },
+          inactive = {
+            a = { bg = colors.base02, fg = colors.blue },
+            b = { bg = colors.base01, fg = colors.base1 },
+            c = { bg = colors.base02, fg = colors.base1 },
+            z = { bg = colors.blue, fg = colors.base3 },
+          },
+        }
+        local function window_number()
+          return string.format("⧉ %d", vim.api.nvim_win_get_number(vim.api.nvim_get_current_win()))
+        end
+        require("lualine").setup({
+          options = {
+            theme = gotham_lualine,
+            always_divide_middle = true,
+            icons_enabled = false,
+            section_separators = "",
+            component_separators = "|",
+          },
+          extensions = {},
+          sections = {
+            lualine_a = { 'mode' },
+            lualine_b = { 'branch', { 'diff', colored = false }, 'diagnostics' },
+            lualine_c = { 'filename' },
+            lualine_x = {},
+            lualine_y = { 'filetype' },
+            lualine_z = { 'location', window_number },
+          },
+          inactive_sections = {
+            lualine_a = {},
+            lualine_b = {},
+            lualine_c = { 'filename' },
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = { window_number },
+          },
+          winbar = {
+            lualine_a = {{ 'buffers', mode = 4 }},
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {},
+          },
+          inactive_winbar = {
+            lualine_a = {{ 'buffers', mode = 4 }},
+            lualine_b = {},
+            lualine_c = {},
+            lualine_x = {},
+            lualine_y = {},
+            lualine_z = {},
+          },
+        })
+      end
+    },
+    {
+      "ms-jpq/coq_nvim",
+      branch = 'coq',
+      lazy = false,
+      event = "InsertEnter",
+      run = ':COQdeps',
+    },
+    {
+      "ms-jpq/coq.artifacts",
+      branch = 'artifacts',
+      lazy = false,
+    }
   }, {
   -- opts
   defaults = { lazy = true },
@@ -114,6 +236,9 @@ require("lazy").setup({
     },
   },
 })
+
+-- Title
+vim.o.titlestring = [[%t]]
 
 -- File
 vim.o.encoding = "utf-8"
@@ -232,15 +357,6 @@ vim.o.wildignore = vim.o.wildignore .. ",*.pdf,*.doc*,*.aux,*.out,*.toc"
 vim.o.wildignore = vim.o.wildignore .. ",*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch"
 vim.o.wildignore = vim.o.wildignore .. ",*.db,*.sqlite"
 
--- Trigger: Set title
-vim.api.nvim_create_autocmd("BufEnter,VimEnter", {
-    pattern = {"*"},
-    command = "let &titlestring=expand('%:t')"
-})
-vim.api.nvim_create_autocmd("VimLeave", {
-    pattern = {"*"},
-    command = "let &titlestring="
-})
 
 -- Trigger: Filetype indent
 vim.api.nvim_create_autocmd("Filetype", {
@@ -248,11 +364,26 @@ vim.api.nvim_create_autocmd("Filetype", {
     command = "setlocal shiftwidth=2 softtabstop=2"
 })
 
-vim.api.nvim_set_keymap("n", "<Leader>q", ":quitall<cr>", {noremap = true})
+-- Keymap: Process & io
+vim.api.nvim_set_keymap("n", "<leader>q", ":quitall<cr>", {noremap = true})
+  vim.api.nvim_set_keymap("n", "<leader><s-q>", ":quitall!<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>w", ":write<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader><s-w>", ":write<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>c", ":lclose|cclose|helpclose<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>d", ":bd<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>f", ":echo expand('%:p')<cr>", {noremap = true})
+
+-- Keymap: Move to next/prev buffer
+vim.api.nvim_set_keymap("n", "<c-h>", ":bprev<cr>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<c-l>", ":bnext<cr>", {noremap = true})
 
 -- Keymap: Remove search highlight
 vim.api.nvim_set_keymap("n", "<leader><esc>", ":setlocal nohlsearch<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "/", ":setlocal hlsearch<cr>/", {noremap = true})
+
+-- Keymap: Reverse jump direction
+vim.api.nvim_set_keymap("n", ";", ",", {noremap = true})
+vim.api.nvim_set_keymap("n", ",", ";", {noremap = true})
 
 -- Keymap: ove line/visual selection vertically
 vim.api.nvim_set_keymap("n", "<c-j>", ":move .+1<cr>", {noremap = true, silent = true})
@@ -278,4 +409,16 @@ vim.api.nvim_set_keymap("v", ">", ">gv", {noremap = true})
 -- Keymap: Walk history with j/k
 vim.api.nvim_set_keymap("c", "<c-j>", "<down>", {noremap = true})
 vim.api.nvim_set_keymap("c", "<c-k>", "<up>", {noremap = true})
+
+-- Colors: barbar.nvim
+vim.api.nvim_set_hl(0, "BufferCurrent", {ctermbg=2, ctermfg=0})
+vim.api.nvim_set_hl(0, "BufferCurrentIndex", {ctermbg=2, ctermfg=12})
+vim.api.nvim_set_hl(0, "BufferCurrentMod", {ctermbg=2, ctermfg=12})
+vim.api.nvim_set_hl(0, "BufferCurrentSign", {ctermbg=2, ctermfg=12})
+vim.api.nvim_set_hl(0, "BufferInactive", {ctermbg=10, ctermfg=14})
+vim.api.nvim_set_hl(0, "BufferInactiveIndex", {ctermbg=10, ctermfg=14})
+vim.api.nvim_set_hl(0, "BufferInactiveMod", {ctermbg=10, ctermfg=14})
+vim.api.nvim_set_hl(0, "BufferInactiveSign", {ctermbg=10, ctermfg=14})
+vim.api.nvim_set_hl(0, "BufferTabpageFill", {ctermbg=8, ctermfg=6})
+vim.api.nvim_set_hl(0, "BufferOffset", {ctermbg=1, ctermfg=1})
 

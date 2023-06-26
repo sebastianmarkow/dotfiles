@@ -23,3 +23,4 @@ end
 -- loading modules
 require('./modules/caffeinate')
 require('./modules/grid')
+require('./modules/ms-teams')
