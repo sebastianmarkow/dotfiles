@@ -3,17 +3,16 @@ vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
 -- Init package manager
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    'git',
-    'clone',
-    '--filter=blob:none',
-    '--single-branch',
-    '--branch=stable',
-    'https://github.com/folke/lazy.nvim.git',
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
     lazypath,
-  }
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -260,7 +259,6 @@ vim.o.backup = true
 vim.o.backupdir = vim.fn.stdpath('state') .. '/backup'
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath('state') .. '/undo'
-vim.o.shada = "'100,<500,/50,:100,@100,s10,h,c,n" .. vim.fn.stdpath('state') .. '/shada'
 
 -- Cursor
 vim.o.guicursor = 'n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor'
