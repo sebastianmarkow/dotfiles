@@ -17,17 +17,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- -- Fast experimental lua loader
--- vim.loader.enable()
+-- Fast experimental lua loader
+vim.loader.enable()
 
--- -- Python
--- vim.g.loaded_python3_provider = 1
--- vim.g.python3_host_prod = vim.fn.expand('$HOME/.pyenv/versions/3.9.17/bin/python')
+-- Python
+vim.g.loaded_python3_provider = 1
+vim.g.python3_host_prod = vim.fn.expand('$HOME/.pyenv/versions/3.9.17/bin/python')
 
--- -- Disable providers
--- vim.g.loaded_ruby_provider = 0
--- vim.g.loaded_perl_provider = 0
--- vim.g.loaded_node_provider = 0
+-- Disable providers
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
 
 -- Configure package manager
 require('lazy').setup({
@@ -51,33 +51,19 @@ require('lazy').setup({
         'j-hui/fidget.nvim',
         tag = 'legacy',
         opts = {}
-      },
-      {
-        'folke/neodev.nvim',
-        opts = {}
       }
     }
   },
   {
     'hrsh7th/nvim-cmp',
+    lazy = false,
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lsp',
     }
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
-    dependencies = {
-      'nvim-lua/plenary.nvim'
-    }
-  },
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
   },
   {
     'ethanholz/nvim-lastplace',
@@ -113,7 +99,7 @@ require('lazy').setup({
     }
   },
   {
-    'editorconfig/editorconfig-vim',
+    'gpanders/editorconfig.nvim',
     lazy = false,
   },
   {
@@ -378,6 +364,7 @@ vim.o.mouse = 'nvc'
 --             +---- normal mode
 vim.o.mousehide = true
 
+vim.o.signcolumn = 'auto:4'
 -- Filetype glob
 vim.o.wildmenu = true -- enable filepath completion in the command bar
 vim.o.wildmode = 'longest,full'
@@ -455,21 +442,6 @@ vim.api.nvim_set_hl(0, 'BufferInactiveSign', { ctermbg = 10, ctermfg = 14 })
 vim.api.nvim_set_hl(0, 'BufferTabpageFill', { ctermbg = 8, ctermfg = 6 })
 vim.api.nvim_set_hl(0, 'BufferOffset', { ctermbg = 1, ctermfg = 1 })
 
--- Plugin: Telescope
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
-
--- Enable FZF
-pcall(require('telescope').load_extension, 'fzf')
-
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -522,7 +494,6 @@ end
 local servers = {
   gopls = {},
   pyright = {},
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -530,9 +501,6 @@ local servers = {
     },
   },
 }
-
--- Setup neovim lua configuration
-require('neodev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -556,12 +524,18 @@ mason_lspconfig.setup_handlers {
   end
 }
 
-
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
+local luasnip = require 'luasnip'
+luasnip.config.setup {}
 
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -575,6 +549,8 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -582,6 +558,8 @@ cmp.setup {
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -590,5 +568,6 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
+    { name = 'luasnip' },
   },
 }
