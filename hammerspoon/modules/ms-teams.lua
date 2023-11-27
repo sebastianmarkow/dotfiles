@@ -11,7 +11,7 @@ end
 
 -- Video Button
 function toggleVideo() 
-  local teams = hs.application.find("com.microsoft.teams")
+  local teams = hs.application.find("com.microsoft.teams2")
   if not (teams == null) then
     log.i("mute teams")
     hs.eventtap.keyStroke({"cmd","shift"}, "o", 0, teams)

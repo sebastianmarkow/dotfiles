@@ -20,7 +20,7 @@ function upgrade --description "Upgrade system"
 
     fisher update
 
-    nvim --headless +":Lazy! sync" +qa
+    nvim --headless +":Lazy! update" +qa
 
     command -s flux > /dev/null; and flux completion fish > ~/.config/fish/completions/flux.gen.fish
     command -s kind > /dev/null; and kind completion fish > ~/.config/fish/completions/kind.gen.fish
