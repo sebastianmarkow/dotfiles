@@ -2,7 +2,7 @@ local log = hs.logger.new('teams', 'debug')
 
 -- Mute Button
 function toggleMute() 
-  local teams = hs.application.find("com.microsoft.teams")
+  local teams = hs.application.find("com.microsoft.teams2")
   if not (teams == null) then
     log.i("mute teams")
     hs.eventtap.keyStroke({"cmd","shift"}, "m", 0, teams)
