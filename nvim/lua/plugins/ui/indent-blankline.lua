@@ -1,6 +1,9 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufRead" },
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+    },
     main = "ibl",
     opts = {
         indent = {
