@@ -14,14 +14,13 @@ FORMULAS=(
     fluxcd/tap/flux
     hadolint
     helm
-    instrumenta/instrumenta/kubeval
     istioctl
     kind
     krew
+    kubeconform
     kubectx
     kubeseal
     kustomize
-    skaffold
     stern
     terraform
     terraform-docs
@@ -32,7 +31,20 @@ FORMULAS=(
 
 CASKS=(
     homebrew/cask/google-cloud-sdk
-    homebrew/cask/lens
+)
+
+KREW=(
+    access-matrix
+    deprecations
+    get-all
+    kubesec-scan
+    lineage
+    neat
+    sniff
+    sort-manifests
+    trace
+    tree
+    who-can
 )
 
 h1 "devops"
@@ -40,3 +52,14 @@ h2 "brew casks"
 for f in "${CASKS[@]}"; do cask_install "$f"; done
 h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
+h1 "kubectl krew"
+task "update"
+kubectl krew update > /dev/null 2>&1
+if [[ $? != 0 ]]; then
+    error
+    exit 1
+else
+    success
+fi
+h2 "kubectl krew plugins"
+for f in "${KREW[@]}"; do krew_install "$f"; done

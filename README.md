@@ -1,12 +1,10 @@
 dotfiles
 ========
 
-A heavily opinionated set of dotfiles.
+A heavily opinionated set of dotfiles (for macOS/darwin).
 
 Requirements
 ------------
-
-### To bootstrap
 
 * `make`
 * `bash`
@@ -21,6 +19,5 @@ $ cd dotfiles
 $ make help
 ~~~
 
-__Warning:__ `make dotfiles` (as well as `base`, `complete`) target will
-overwrite existing files in the `$HOME` directory of the current user. Be sure
-to backup any files you'd like to keep.
+__Warning:__ `make dotfiles` target will overwrite existing files in the `$HOME`
+directory of the current user. Be sure to backup any files you'd like to keep.

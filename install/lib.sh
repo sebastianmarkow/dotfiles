@@ -128,7 +128,7 @@ function gem_install() {
 
 function go_get() {
     task "install $1"
-    go get "$1" > /dev/null 2>&1
+    go install "$1" > /dev/null 2>&1
     if [[ $? != 0 ]]; then
         error
     else
@@ -149,6 +149,32 @@ function cargo_install() {
         fi
     else
         warn "installed"
+    fi
+}
+
+function pyenv_install() {
+    INSTALLED_ENVS=${INSTALLED_ENVS:-"$(pyenv versions --bare)"}
+    task "install $1"
+    echo "$INSTALLED_ENVS" | grep "$1" > /dev/null 2>&1 | true
+    if [[ ${PIPESTATUS[1]} != 0 ]]; then
+        pyenv install --skip-existing "$1" > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            error
+        else
+            success
+        fi
+    else
+        warn "installed"
+    fi
+}
+
+function krew_install() {
+    task "install $1"
+    kubectl krew install "$1" > /dev/null 2>&1
+    if [[ $? != 0 ]]; then
+        error
+    else
+        success
     fi
 }
 

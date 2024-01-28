@@ -5,22 +5,21 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TOOLS=(
-    github.com/lukehoban/go-outline
-    github.com/mailgun/godebug
-    github.com/motemen/gore
-    github.com/newhook/go-symbols
-    github.com/nsf/gocode
-    github.com/rogpeppe/godef
-    github.com/tools/godep
-    github.com/tpng/gopkgs
-    golang.org/x/lint/golint
-    golang.org/x/tools/gopls
-    sourcegraph.com/sqs/goreturns
+    github.com/lukehoban/go-outline@latest
+    github.com/mailgun/godebug@latest
+    github.com/x-motemen/gore/cmd/gore@latest
+    github.com/newhook/go-symbols@latest
+    github.com/nsf/gocode@latest
+    github.com/rogpeppe/godef@latest
+    github.com/tools/godep@latest
+    github.com/tpng/gopkgs@latest
+    golang.org/x/lint/golint@latest
+    golang.org/x/tools/gopls@latest
+    sourcegraph.com/sqs/goreturns@latest
 )
 
 FORMULAS=(
     go
-    kubebuilder
 )
 
 h1 "go"
