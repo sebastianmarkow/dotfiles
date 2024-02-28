@@ -21,7 +21,6 @@ set -x PAGER 'less -R'
 set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x GREP_OPTIONS '--color=auto'
-set -x LSCOLORS 'ExGxBxDxCxEgEdxbxgxcxd'
 set -x LANG 'en_US.UTF-8'
 set -x LC_CTYPE 'en_US.UTF-8'
 set -x LC_MESSAGES 'en_US.UTF-8'
@@ -31,8 +30,19 @@ set -x LC_COLLATE 'C'
 set -x HOMEBREW_NO_ANALYTICS 1
 set -x HOMEBREW_NO_EMOJI 1
 set -x HOMEBREW_NO_ENV_HINTS 1
+set -x STARSHIP_CONFIG $HOME/.starship.toml
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-set -x FZF_DEFAULT_OPTS '--color=16,header:13,info:5,pointer:3,marker:9,spinner:1,prompt:5,fg:7,hl:14,fg+:3,hl+:9 --inline-info --tiebreak=end,length --bind=shift-tab:toggle-down,tab:toggle-up'
+set -x FZF_DEFAULT_OPTS '
+    --color=fg:#908caa,bg:#232136,hl:#ea9a97
+    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+    --color=border:#44415a,header:#3e8fb0,gutter:#232136
+    --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
+    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+    --inline-info
+    --tiebreak=end,length
+    --bind=shift-tab:toggle-down,tab:toggle-up
+'
+
 set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x XZ_OPT '-T0'
 
@@ -41,7 +51,7 @@ command -s jump > /dev/null; and source (jump shell fish | psub)
 command -s pyenv > /dev/null; and pyenv init - | source
 command -s octosql > /dev/null; and source (octosql completion fish | psub)
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
-test -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
+test -f "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 # Abbreviations
 abbr --add cp 'cp -iR'
@@ -85,42 +95,6 @@ alias ktm 'kubectl top pods -A | sort --reverse --key 4 --numeric | head -25'
 # Fish
 set fish_greeting ''
 
-set fish_color_comment blue
-set fish_color_command brmagenta
-set fish_color_param white
-set fish_color_quote brred
-set fish_color_error red
-set fish_color_redirection yellow
-set fish_color_operator brred
-set fish_color_autosuggestion brgreen
-set fish_color_selection --background=blue
-set fish_color_end brred
-
-set fish_color_prompt_git_fg white
-set fish_color_prompt_git_bg brred
-set fish_color_prompt_status_fg white
-set fish_color_prompt_status_bg red
-set fish_color_prompt_timing_fg white
-set fish_color_prompt_timing_bg magenta
-
-set fish_color_prompt_pwd_fg blue
-set fish_color_prompt_pwd_bg brblack
-set fish_color_prompt_root_fg brblue
-set fish_color_prompt_root_bg red
-set fish_color_prompt_venv_fg white
-set fish_color_prompt_venv_bg magenta
-
-set fish_color_mode_string_normal 'NORMAL'
-set fish_color_mode_string_insert 'INSERT'
-set fish_color_mode_string_replace 'REPLACE'
-set fish_color_mode_string_visual 'VISUAL'
-set fish_color_mode_color_normal blue
-set fish_color_mode_color_insert green
-set fish_color_mode_color_replace red
-set fish_color_mode_color_visual magenta
-
-set cmd_timing_limit 5
-
 # Vi mode
 set fish_key_bindings 'fish_vi_key_bindings'
 
@@ -140,3 +114,7 @@ set -g fish_user_paths "/usr/local/opt/curl/bin" $fish_user_paths
 set -g fish_user_paths "$PYENV_ROOT/bin" $fish_user_paths
 
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
+
+fish_config theme choose "Rosé Pine Moon"
+command -s starship > /dev/null; and source (starship init fish | psub); and enable_transience
+

@@ -11,6 +11,7 @@ FILES=\
 	hushlogin	\
 	mackup		\
 	mackup.cfg	\
+	starship.toml	\
 	tmux.conf	\
 	wgetrc
 
@@ -23,6 +24,8 @@ CONFIGS=\
 	fish	\
 	hack	\
 	lf	\
+	k9s 	\
+	wezterm	\
 	nvim
 
 
@@ -31,7 +34,7 @@ CONFIGS=\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-dotfiles: $(MAKEDIRS) $(FILES) $(DIRS) $(CONFIGS) ## symlink dotfiles
+dotfiles: $(MAKEDIRS) $(FILES) $(DIRS) $(CONFIGS) terminfo ## symlink dotfiles
 
 base: minimal util devops ## install base setup
 
@@ -52,6 +55,10 @@ $(CONFIGS):
 	$(info Symlink $@ → $(XDG_CONFIG_HOME)/$@)
 	@rm -rf $(XDG_CONFIG_HOME)/$@
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
+
+.PHONY: terminfo
+terminfo: ## install terminfo
+	@tic -x -o ~/.terminfo ./terminfo
 
 .PHONY: brew
 brew: ## install Homebrew

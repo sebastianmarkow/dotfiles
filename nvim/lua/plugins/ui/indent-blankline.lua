@@ -9,6 +9,7 @@ return {
         indent = {
             char = "┊",
         },
+
         scope = {
             show_start = false,
             show_end = false,
@@ -16,6 +17,7 @@ return {
         exclude = {
             filetypes = {
                 "",
+                "neo-tree",
                 "checkhealth",
                 "gitcommit",
                 "help",

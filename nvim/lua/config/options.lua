@@ -44,6 +44,7 @@ local options = {
     linespace = 0,
     list = true,
     listchars = "tab:▸ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:«", -- invisible character
+    fillchars = "eob: ",
     shortmess = "aIOTF",
     --           |||||
     --           ||||+-- hide file read messages
