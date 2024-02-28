@@ -65,7 +65,7 @@ disabled = false
 format = '([ $symbol$branch(:$remote_branch) ]($style))'
 style = 'fg:iris bg:overlay bold'
 symbol = ' '
-truncation_length = 8
+truncation_length = 16
 truncation_symbol = '…'
 disabled = false
 

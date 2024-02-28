@@ -13,6 +13,8 @@ return {
             },
             highlight_groups = {
                 Comment = { italic = true },
+                Keyword = { italic = true },
+                Statement = { italic = true },
             }
         })
 

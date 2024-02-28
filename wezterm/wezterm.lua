@@ -44,7 +44,7 @@ config.underline_position = -6
 
 config.enable_tab_bar = false
 
-config.initial_rows = 32
+config.initial_rows = 48
 config.initial_cols = 120
 
 config.scrollback_lines = 10000

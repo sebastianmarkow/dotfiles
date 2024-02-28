@@ -36,7 +36,7 @@ return {
                 lualine_a = { { "mode", icon = "" } },
                 lualine_b = { { "branch", icon = "" }, { "diff", colored = false }, "diagnostics" },
                 lualine_c = { "filename" },
-                lualine_x = { "filetype" },
+                lualine_x = { { "filetype", icon_only = true } },
                 lualine_y = { "location" },
                 lualine_z = { window_number },
             },

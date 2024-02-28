@@ -13,14 +13,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
--- Protect bootstrapping lazy.nvim
-local status_ok, lazy = pcall(require, "lazy")
-if not status_ok then
-    print("warn: lazy installing, please restart neovim")
-    return
-end
-
-lazy.setup({
+require("lazy").setup({
     spec = {
         { import = "plugins.ui" },
         { import = "plugins.edit" },
@@ -30,40 +23,38 @@ lazy.setup({
         { import = "plugins.treesitter" },
         { import = "plugins.filetype" },
     },
+    install = {
+        missing = true,
+        colorscheme = { "rose-pine" },
+    },
+    checker = {
+        enabled = true,
+        notify = false,
+        frequency = 86400, -- check daily
+    },
+    change_detection = {
+        enabled = true,
+        notify = false,
+    },
     lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
     ui = {
-        size = {
-            width = 0.8,
-            height = 0.8,
-        },
-        wrap = true,
         border = "rounded",
     },
     performance = {
-        cache = {
-            enabled = true,
-        },
-        reset_packpath = true,
         rtp = {
             disabled_plugins = {
-                "getscript",
-                "getscriptPlugin",
-                "gzip",
-                "matchit",
-                "matchparen",
-                "netrw",
-                "netrwFileHandlers",
-                "netrwPlugin",
-                "rrhelper",
-                "tar",
-                "tarPlugin",
-                "tohtml",
-                "tutor",
-                "vimball",
-                "vimballPlugin",
-                "zip",
-                "zipPlugin",
+                    "gzip",
+                    "matchit",
+                    "matchparen",
+                    "netrwPlugin",
+                    "tarPlugin",
+                    "tohtml",
+                    "tutor",
+                    "zipPlugin",
             },
         },
     },
+    readme = {
+        enabled = false,
+    }
 })
