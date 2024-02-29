@@ -1,3 +1,5 @@
+local icons = require("config.icons")
+
 return {
     "nvim-lualine/lualine.nvim",
     event = { "BufReadPost", "BufNewFile", "VeryLazy" },
@@ -31,19 +33,34 @@ return {
                     },           -- only ignores the ft for winbar.
                 },
             },
-            extensions = { "lazy", "mason", "fugitive", "neo-tree" },
+            extensions = { "lazy", "mason", "fugitive", "neo-tree", "nvim-dap-ui" },
             sections = {
                 lualine_a = { { "mode", icon = "" } },
-                lualine_b = { { "branch", icon = "" }, { "diff", colored = false }, "diagnostics" },
-                lualine_c = { "filename" },
+                lualine_b = {
+                    { "branch", icon = "" },
+                    { "diff", colored = true },
+                },
+                lualine_c = { { "filename", file_status = false} },
                 lualine_x = { { "filetype", icon_only = true } },
-                lualine_y = { "location" },
+                lualine_y = {
+                    {
+                        "diagnostics" ,
+                        colored = true,
+                        symbols = {
+                            error = icons.diagnostics.Error .. " ",
+                            warn = icons.diagnostics.Warn .. " ",
+                            info = icons.diagnostics.Info .. " ",
+                            hint = icons.diagnostics.Hint .. " ",
+                        }
+                    },
+                    "location",
+                },
                 lualine_z = { window_number },
             },
             inactive_sections = {
                 lualine_a = {},
                 lualine_b = {},
-                lualine_c = { "filename" },
+                lualine_c = { { "filename", file_status = false} },
                 lualine_x = { window_number },
                 lualine_y = {},
                 lualine_z = {},

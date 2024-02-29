@@ -13,6 +13,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.runtimepath:prepend(lazypath)
 
+local icons = require("config.icons")
+
 require("lazy").setup({
     spec = {
         { import = "plugins.ui" },
@@ -23,6 +25,7 @@ require("lazy").setup({
         { import = "plugins.treesitter" },
         { import = "plugins.filetype" },
     },
+    defaults = { lazy = true },
     install = {
         missing = true,
         colorscheme = { "rose-pine" },
@@ -39,6 +42,10 @@ require("lazy").setup({
     lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json",
     ui = {
         border = "rounded",
+        icons = {
+            loaded = icons.plugins.Installed,
+            not_loaded = icons.plugins.Uninstalled,
+        }
     },
     performance = {
         rtp = {

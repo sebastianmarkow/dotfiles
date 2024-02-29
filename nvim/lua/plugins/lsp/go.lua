@@ -1,12 +1,12 @@
 return {
     "ray-x/go.nvim",
-    event = {
-        "BufRead *.go,*.mod,*.sum",
-        "BufNewFile *.go,*.mod,*.sum",
-    },
     dependencies = {
         "neovim/nvim-lspconfig",
-        "mason-lspconfig.nvim",
+        "leoluz/nvim-dap-go",
+        "hrsh7th/cmp-nvim-lsp",
+        "nvim-treesitter/nvim-treesitter",
     },
     opts = {},
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()',
 }

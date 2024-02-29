@@ -47,14 +47,14 @@ disable = false
 [character]
 success_symbol = '[ ](bold fg:iris)'
 error_symbol = '[ ](bold fg:love)'
-vimcmd_symbol = '[ ](bold fg:gold)'
-vimcmd_replace_one_symbol = '[ ](bold fg:gold)'
-vimcmd_replace_symbol = '[ ](bold fg:gold)'
-vimcmd_visual_symbol = '[ ](bold fg:gold)'
+vimcmd_symbol = '[ NORMAL ](bold fg:base bg:iris)[](inverted fg:base bg:iris)'
+vimcmd_replace_one_symbol = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
+vimcmd_replace_symbol = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
+vimcmd_visual_symbol = '[ VISUAL ](bold fg:base bg:rose)[](inverted fg:base bg:rose)'
 disabled = false
 
 [directory]
-format = '([ $path ]($style)([ $read_only ]($read_only_style)))'
+format = '([ $path ]($style))'
 style = 'fg:base bg:iris bold'
 truncation_symbol = '…'
 truncation_length = 3
@@ -62,7 +62,7 @@ truncate_to_repo = true
 disabled = false
 
 [git_branch]
-format = '([ $symbol$branch(:$remote_branch) ]($style))'
+format = '([ $symbol$branch(:$remote_branch)]($style))'
 style = 'fg:iris bg:overlay bold'
 symbol = ' '
 truncation_length = 16
@@ -75,19 +75,19 @@ style = 'fg:iris bg:overlay bold'
 disabled = false
 
 [git_status]
-format = '([$ahead_behind$all_status]($style))'
+format = '([$ahead_behind ($conflicted$stashed$modified$renamed$deleted$staged$untracked )]($style))'
 style = 'fg:iris bg:overlay bold'
-conflicted = ' ${count} '
-up_to_date = ' '
-untracked = '󰋗 ${count} '
-ahead = ' ${count}'
-diverged = ' ${ahead_count}  ${behind_count}'
-behind = ' ${count}'
-stashed = ' ${count} '
-modified = '󰛿 ${count} '
-staged = '󰐗 ${count} '
-renamed = '󱍸 ${count} '
-deleted = '󰍶 ${count} '
+up_to_date = ' '
+ahead = '  ${count}'
+diverged = '  ${ahead_count}  ${behind_count}'
+behind = '  ${count}'
+conflicted = '  ${count}'
+untracked = ' 󰋗 ${count}'
+stashed = '  ${count}'
+modified = ' 󰛿 ${count}'
+staged = ' 󰐗 ${count}'
+renamed = ' 󱍸 ${count}'
+deleted = ' 󰍶 ${count}'
 disabled = false
 
 [golang]
