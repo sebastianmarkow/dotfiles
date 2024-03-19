@@ -10,7 +10,9 @@ TAPS=(
     homebrew/cask-fonts
 )
 
-HEAD=()
+HEAD=(
+    neovim
+)
 
 EGGS=(
     proselint

@@ -1,5 +1,6 @@
 local globals = {
-    mapleader = ",",
+    mapleader = " ",
+    maplocalleader = " ",
 
     -- Unload providers
     loaded_node_provider = 0,
@@ -71,13 +72,13 @@ local options = {
     expandtab = true, -- use spaces rather than tabs
     smarttab = true, -- handle spaces like tabs while deleting them
     shiftround = true, -- round to a multiple of shiftwidth while indenting
-    wrap = true, -- don"t wrap lines
+    wrap = false, -- don"t wrap lines
     linebreak = true, -- don"t break words at line end
     autoindent = true, -- auto indent next line
     copyindent = true, -- use the same indentation for autoindent
     smartindent = true, -- do smart autoindenting when starting a new line
     startofline = false, -- cursor stays at same column while moving horizontal
-    joinspaces = false, -- do not add additional spaces on join
+    joinspaces = true, -- do not add additional spaces on join
     clipboard = "unnamed",
     formatoptions = "qcnrj",
     --               |||||
@@ -96,13 +97,14 @@ local options = {
     --             +---- normal mode
     mousehide = true,
 
+    timeoutlen = 2500,
+
     -- Sign Column
     signcolumn = "auto:4",
 
     -- Filetype glob
     wildmenu = true, -- enable filepath completion in the command bar
     wildmode = "longest,full",
-    wildchar = "<tab>",
     wildignore = "*~,*sw[op],*.pid,.DS_Store",
     wildignore = vim.o.wildignore .. ",.git,.hg,.svn,.bzr",
     wildignore = vim.o.wildignore .. ",*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib",

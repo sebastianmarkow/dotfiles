@@ -1,41 +1,41 @@
-local wezterm = require('wezterm')
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-local colors = require('themes/rose-pine-moon').colors()
-local window_frame = require('themes/rose-pine-moon').window_frame()
+local colors = require("themes/rose-pine-moon").colors()
+local window_frame = require("themes/rose-pine-moon").window_frame()
 
-wezterm.log_info('reloading')
+wezterm.log_info("reloading")
 
-config.default_prog = { '/opt/homebrew/bin/tmux', 'new-session', '-A', '-s', 'main' }
-config.term = 'wezterm'
+config.default_prog = { "/opt/homebrew/bin/tmux", "new-session", "-A", "-s", "main" }
+config.term = "wezterm"
 
-config.front_end = 'WebGpu'
-config.webgpu_power_preference = 'HighPerformance'
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
 
 config.colors = colors
 config.window_frame = window_frame
 
-config.font = wezterm.font('JetBrainsMono Nerd Font')
-config.font_size = 18
+config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font_size = 16
 config.font_rules = {
-  {
-    intensity = 'Bold',
-    italic = false,
-    font = wezterm.font({ family = 'JetBrainsMono Nerd Font', weight = 'Bold', style = 'Normal' }),
-  },
-  {
-    intensity = 'Normal',
-    italic = true,
-    font = wezterm.font({ family = 'JetBrainsMono Nerd Font', style = 'Italic' }),
-  },
-  {
-    intensity = 'Bold',
-    italic = true,
-    font = wezterm.font({ family = 'JetBrainsMono Nerd Font', weight = 'Bold', style = 'Italic' }),
-  },
+    {
+        intensity = "Bold",
+        italic = false,
+        font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Bold", style = "Normal" }),
+    },
+    {
+        intensity = "Normal",
+        italic = true,
+        font = wezterm.font({ family = "JetBrainsMono Nerd Font", style = "Italic" }),
+    },
+    {
+        intensity = "Bold",
+        italic = true,
+        font = wezterm.font({ family = "JetBrainsMono Nerd Font", weight = "Bold", style = "Italic" }),
+    },
 }
 
-config.cursor_blink_ease_in = 'Constant'
-config.cursor_blink_ease_out = 'Constant'
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
 config.force_reverse_video_cursor = false
 
 config.underline_thickness = 3

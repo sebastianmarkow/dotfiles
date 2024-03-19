@@ -16,19 +16,11 @@ vim.opt.runtimepath:prepend(lazypath)
 local icons = require("config.icons")
 
 require("lazy").setup({
-    spec = {
-        { import = "plugins.ui" },
-        { import = "plugins.edit" },
-        { import = "plugins.git" },
-        { import = "plugins.lsp" },
-        { import = "plugins.dap" },
-        { import = "plugins.treesitter" },
-        { import = "plugins.filetype" },
-    },
+    spec = { { import = "plugins" } },
     defaults = { lazy = true },
     install = {
         missing = true,
-        colorscheme = { "rose-pine" },
+        colorscheme = { "rose-pine-moon" },
     },
     checker = {
         enabled = true,
@@ -45,23 +37,23 @@ require("lazy").setup({
         icons = {
             loaded = icons.plugins.Installed,
             not_loaded = icons.plugins.Uninstalled,
-        }
+        },
     },
     performance = {
         rtp = {
             disabled_plugins = {
-                    "gzip",
-                    "matchit",
-                    "matchparen",
-                    "netrwPlugin",
-                    "tarPlugin",
-                    "tohtml",
-                    "tutor",
-                    "zipPlugin",
+                "gzip",
+                "matchit",
+                "matchparen",
+                "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                "zipPlugin",
             },
         },
     },
     readme = {
         enabled = false,
-    }
+    },
 })

@@ -7,16 +7,16 @@
 local M = {}
 
 local palette = {
-    base = '#faf4ed',
-    overlay = '#f2e9e1',
-    muted = '#9893a5',
-    text = '#575279',
-    love = '#b4637a',
-    gold = '#ea9d34',
-    rose = '#d7827e',
-    pine = '#286983',
-    foam = '#56949f',
-    iris = '#907aa9',
+    base = "#faf4ed",
+    overlay = "#f2e9e1",
+    muted = "#9893a5",
+    text = "#575279",
+    love = "#b4637a",
+    gold = "#ea9d34",
+    rose = "#d7827e",
+    pine = "#286983",
+    foam = "#56949f",
+    iris = "#907aa9",
     -- highlight_high = '#cecacd',
 }
 
@@ -41,7 +41,7 @@ function M.colors()
         selection_fg = palette.text,
 
         ansi = {
-            '#f2e9de',
+            "#f2e9de",
             palette.love,
             palette.pine,
             palette.gold,
@@ -52,7 +52,7 @@ function M.colors()
         },
 
         brights = {
-            '#6e6a86', -- muted from rose-pine palette
+            "#6e6a86", -- muted from rose-pine palette
             palette.love,
             palette.pine,
             palette.gold,
