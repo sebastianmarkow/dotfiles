@@ -109,7 +109,7 @@ disabled = false
 
 [cmd_duration]
 format = '[](inverted $style)[󱎫 $duration]($style)[](inverted $style)'
-style = 'fg:base bg:iris bold italic'
+style = 'fg:base bg:rose bold italic'
 min_time = 5000
 disabled = false
 
