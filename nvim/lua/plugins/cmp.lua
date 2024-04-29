@@ -13,40 +13,40 @@ return {
             "rafamadriz/friendly-snippets",
             "saadparwaiz1/cmp_luasnip",
             "windwp/nvim-autopairs",
-            "zbirenbaum/copilot-cmp",
-            { "zbirenbaum/copilot.lua", build = ":Copilot auth" },
+            -- "zbirenbaum/copilot-cmp",
+            -- { "zbirenbaum/copilot.lua", build = ":Copilot auth" },
         },
         config = function()
             local cmp = require("cmp")
             local luasnip = require("luasnip")
             local lspkind = require("lspkind")
-            local copilot = require("copilot")
-            local copilot_cmp = require("copilot_cmp")
-            local copilot_cmp_comparators = require("copilot_cmp.comparators")
+            -- local copilot = require("copilot")
+            -- local copilot_cmp = require("copilot_cmp")
+            -- local copilot_cmp_comparators = require("copilot_cmp.comparators")
 
-            copilot.setup({
-                panel = {
-                    enabled = false,
-                },
-                suggestion = {
-                    enabled = false,
-                },
-                filetypes = {
-                    yaml = true,
-                    markdown = false,
-                    help = false,
-                    gitcommit = false,
-                    gitrebase = false,
-                    hgcommit = false,
-                    svn = false,
-                    cvs = false,
-                    ["."] = false,
-                },
-                copilot_node_command = "node",
-                server_opts_overrides = {},
-            })
+            -- copilot.setup({
+            --     panel = {
+            --         enabled = false,
+            --     },
+            --     suggestion = {
+            --         enabled = false,
+            --     },
+            --     filetypes = {
+            --         yaml = true,
+            --         markdown = false,
+            --         help = false,
+            --         gitcommit = false,
+            --         gitrebase = false,
+            --         hgcommit = false,
+            --         svn = false,
+            --         cvs = false,
+            --         ["."] = false,
+            --     },
+            --     copilot_node_command = "node",
+            --     server_opts_overrides = {},
+            -- })
 
-            copilot_cmp.setup()
+            -- copilot_cmp.setup()
 
             luasnip.config.setup({})
 
@@ -91,7 +91,7 @@ return {
                 sorting = {
                     priority_weight = 2,
                     comparators = {
-                        copilot_cmp_comparators.prioritize,
+                        -- copilot_cmp_comparators.prioritize,
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
                         cmp.config.compare.score,
@@ -103,7 +103,7 @@ return {
                     },
                 },
                 sources = {
-                    { name = "copilot", priority = 100 },
+                    -- { name = "copilot", priority = 100 },
                     { name = "nvim_lsp", priority = 100 },
                     { name = "nvim_lua", priority = 100 },
                     { name = "nvim_lsp_signature_help", priority = 100 },
@@ -123,7 +123,7 @@ return {
                         maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                         -- can also be a function to dynamically calculate max width such as
                         -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
-                        symbol_map = { Copilot = "" },
+                        -- symbol_map = { Copilot = "" },
                         ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                         show_labelDetails = true, -- show labelDetails in menu. Disabled by default
                         before = function(entry, vim_item)
