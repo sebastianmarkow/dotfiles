@@ -5,7 +5,7 @@ status is-interactive; or exit 1
 set -Ua fish_features qmark-noglob
 
 # Path
-set -x PATH /opt/homebrew/bin /usr/local/sbin $HOME/Applications/bin $PATH $HOME/.krew/bin $HOME/.config/hack/bin
+set -x PATH /opt/homebrew/bin /usr/local/bin /usr/local/sbin $HOME/Applications/bin $PATH $HOME/.krew/bin $HOME/.config/hack/bin
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
 set -x PYENV_ROOT $HOME/.pyenv
