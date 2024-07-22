@@ -7,12 +7,11 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
+            local palette = require("rose-pine.palette")
+
             require("rose-pine").setup({
                 variant = "moon",
                 dim_inactive_windows = true,
-                enable = {
-                    legacy_highlights = false,
-                },
                 styles = {
                     italic = false,
                     bold = true,
@@ -22,6 +21,9 @@ return {
                     Comment = { italic = true },
                     Keyword = { italic = true },
                     Statement = { italic = true },
+                    IlluminatedWordText = { bg = palette.highlight_high },
+                    IlluminatedWordRead = { bg = palette.highlight_high },
+                    IlluminatedWordWrite = { bg = palette.highlight_high },
                 },
             })
 
