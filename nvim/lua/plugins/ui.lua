@@ -21,9 +21,10 @@ return {
                     Comment = { italic = true },
                     Keyword = { italic = true },
                     Statement = { italic = true },
-                    IlluminatedWordText = { bg = palette.highlight_high },
-                    IlluminatedWordRead = { bg = palette.highlight_high },
-                    IlluminatedWordWrite = { bg = palette.highlight_high },
+                    Visual = { bg = palette.highlight_high },
+                    IlluminatedWordText = { bg = palette.highlight_mid },
+                    IlluminatedWordRead = { bg = palette.highlight_mid },
+                    IlluminatedWordWrite = { bg = palette.highlight_mid },
                 },
             })
 
