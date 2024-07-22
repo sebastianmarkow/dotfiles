@@ -5,7 +5,7 @@ local window_frame = require("themes/rose-pine-moon").window_frame()
 
 wezterm.log_info("reloading")
 
-config.default_prog = { "/opt/homebrew/bin/tmux", "new-session", "-A", "-s", "main" }
+config.default_prog = { "/usr/local/bin/tmux", "new-session", "-A", "-s", "main" }
 config.term = "wezterm"
 
 config.front_end = "WebGpu"
@@ -15,7 +15,7 @@ config.colors = colors
 config.window_frame = window_frame
 
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 16
+config.font_size = 15
 config.font_rules = {
     {
         intensity = "Bold",
