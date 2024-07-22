@@ -1,4 +1,42 @@
 local icons = require("config.icons")
+local utils = require("config.utils")
+
+local py_path = nil
+
+if utils.executable("pylsp") then
+    local venv_path = os.getenv('VIRTUAL_ENV')
+    -- decide which python executable to use for mypy
+    if venv_path ~= nil then
+        py_path = venv_path .. "/bin/python3"
+    else
+        py_path = vim.g.python3_host_prog
+    end
+else
+    vim.notify("pylsp not found", vim.log.levels.WARN, { title = "dotfiles" })
+end
+
+local function on_attach(client, bufnr)
+    local opts = { noremap = true, silent = true}
+    local keymap = vim.api.nvim_buf_set_keymap
+    -- Example key mappings
+    keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+    keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+end
 
 return {
     {
@@ -26,7 +64,7 @@ return {
                 automatic_installation = true,
                 ensure_installed = {
                     "gopls",
-                    "pyright",
+                    "pylsp",
                     "lua_ls",
                 },
             },
@@ -84,7 +122,32 @@ return {
                         },
                     },
                 },
-                pyright = {},
+                pylsp = {
+                    pylsp = {
+                        plugins = {
+                            -- formatter options
+                            black = { enabled = true },
+                            autopep8 = { enabled = false },
+                            yapf = { enabled = false },
+                            -- linter options
+                            pylint = { enabled = true, executable = "pylint" },
+                            ruff = { enabled = false },
+                            pyflakes = { enabled = false },
+                            pycodestyle = { enabled = false },
+                            -- type checker
+                            pylsp_mypy = {
+                                enabled = true,
+                                overrides = { "--python-executable", py_path, true },
+                                report_progress = true,
+                                live_mode = false
+                            },
+                            -- auto-completion options
+                            jedi_completion = { fuzzy = true },
+                            -- import sorting
+                            isort = { enabled = true },
+                        },
+                    },
+                },
             },
         },
         config = function(_, opts)
@@ -108,6 +171,7 @@ return {
                 function(server_name)
                     require("lspconfig")[server_name].setup({
                         capabilities = capabilities,
+                        on_attach = on_attach,
                         settings = opts.servers[server_name],
                         filetypes = (opts.servers[server_name] or {}).filetypes,
                     })
@@ -129,12 +193,8 @@ return {
             "jay-babu/mason-null-ls.nvim",
             "nvim-lua/plenary.nvim",
             "nvimtools/none-ls-extras.nvim",
-            "gbprod/none-ls-shellcheck.nvim",
         },
         config = function()
-            require("null-ls").register(require("none-ls-shellcheck.diagnostics"))
-            require("null-ls").register(require("none-ls-shellcheck.code_actions"))
-
             local mason_null_ls = require("mason-null-ls")
             local null_ls = require("null-ls")
 
@@ -142,10 +202,8 @@ return {
 
             mason_null_ls.setup({
                 ensure_installed = {
-                    "black", -- python formatter
                     "buf", -- buf formatter
                     "eslint_d", -- js linter
-                    "golangci_lint", -- go linter
                     "prettier", -- prettier formatter
                     "shellcheck", -- shell linter
                     "shfmt", -- shell formatter
@@ -166,11 +224,8 @@ return {
                 root_dir = null_ls_utils.root_pattern(".null-ls-root", "Makefile", ".git", "package.json"),
 
                 sources = {
-                    diagnostics.golangci_lint,
-                    diagnostics.shellcheck,
                     diagnostics.terraform_validate,
                     diagnostics.yamllint,
-                    formatting.black,
                     formatting.buf,
                     formatting.prettier,
                     formatting.shfmt,

@@ -271,6 +271,8 @@ return {
                             "help",
                             "neo-tree",
                             "neotest-summary",
+                            "quickfix",
+                            "qf"
                         }, -- only ignores the ft for winbar.
                         statusline = {
                             "Lazy",
