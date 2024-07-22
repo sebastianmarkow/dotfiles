@@ -55,9 +55,12 @@ return {
         },
         event = { "BufReadPost", "BufNewFile" },
         opts = {
-            delay = 200,
+            delay = 100,
             filetypes_denylist = {
                 "help",
+                "markdown",
+                "gitcommit",
+                "text",
             },
         },
         config = function(_, opts)
