@@ -9,6 +9,7 @@ $directory\
 [](fg:overlay bg:hl_low)\
 (\
     $golang\
+    $python\
 )\
 [](fg:hl_low bg:base)\
 $line_break\
@@ -94,6 +95,12 @@ disabled = false
 format = '([ $symbol($version)(\[$mod_version\]) ]($style))'
 style = 'fg:muted bg:hl_low bold'
 symbol = '󰟓 '
+
+[python]
+format = '([ $symbol($version)( \[$virtualenv\]) ]($style))'
+style = 'fg:muted bg:hl_low bold'
+symbol = ' '
+python_binary = 'python3'
 
 [status]
 format = '[](inverted $style)[$symbol $common_meaning$signal_name$maybe_int]($style)[](inverted $style)'
