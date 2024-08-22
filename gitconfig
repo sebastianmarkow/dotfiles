@@ -89,6 +89,7 @@
     last = diff -R HEAD..HEAD^
     changed = diff --stat
     conflicts = diff --name-only --diff-filter=U
+    diffstash = diff stash@{0}
 
     dt = difftool
     dts = difftool --staged
