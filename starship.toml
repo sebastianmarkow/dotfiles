@@ -17,6 +17,9 @@ $character\
 """
 
 right_format = """
+
+( $kubernetes)\
+( $gcloud)\
 ( $cmd_duration)\
 ( $status)\
 """
@@ -66,7 +69,7 @@ disabled = false
 format = '([ $symbol$branch(:$remote_branch)]($style))'
 style = 'fg:iris bg:overlay bold'
 symbol = ' '
-truncation_length = 16
+truncation_length = 24
 truncation_symbol = '…'
 disabled = false
 
@@ -91,6 +94,7 @@ renamed = ' 󱍸 ${count}'
 deleted = ' 󰍶 ${count}'
 disabled = false
 
+
 [golang]
 format = '([ $symbol($version)(\[$mod_version\]) ]($style))'
 style = 'fg:muted bg:hl_low bold'
@@ -100,7 +104,31 @@ symbol = '󰟓 '
 format = '([ $symbol($version)( \[$virtualenv\]) ]($style))'
 style = 'fg:muted bg:hl_low bold'
 symbol = ' '
-python_binary = 'python3'
+python_binary = ['python3']
+
+[gcloud]
+format = '[](inverted $style)[$symbol($account\[$project\])]($style)[](inverted $style)'
+style = 'fg:base bg:muted bold'
+symbol = '󱇶 '
+disabled = true
+
+[kubernetes]
+format = '[](inverted $style)[$symbol($context)]($style)[](inverted $style)'
+style = 'fg:base bg:muted bold italic'
+symbol = '󱃾 '
+disabled = false
+
+[[kubernetes.contexts]]
+context_pattern = ".*-prod"
+style = 'fg:base bg:muted bold italic'
+
+[[kubernetes.contexts]]
+context_pattern = ".*-pp"
+style = 'fg:base bg:muted bold italic'
+
+[[kubernetes.contexts]]
+context_pattern = ".*-dev"
+style = 'fg:base bg:muted bold italic'
 
 [status]
 format = '[](inverted $style)[$symbol $common_meaning$signal_name$maybe_int]($style)[](inverted $style)'
