@@ -69,7 +69,7 @@ disabled = false
 format = '([ $symbol$branch(:$remote_branch)]($style))'
 style = 'fg:iris bg:overlay bold'
 symbol = ' '
-truncation_length = 24
+truncation_length = 32
 truncation_symbol = '…'
 disabled = false
 
@@ -93,7 +93,6 @@ staged = ' 󰐗 ${count}'
 renamed = ' 󱍸 ${count}'
 deleted = ' 󰍶 ${count}'
 disabled = false
-
 
 [golang]
 format = '([ $symbol($version)(\[$mod_version\]) ]($style))'
