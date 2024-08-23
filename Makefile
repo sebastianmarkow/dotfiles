@@ -21,13 +21,12 @@ MAKEDIRS=\
 	$(XDG_DATA_HOME)/nvim/undo
 
 CONFIGS=\
+	alacritty \
 	fish	\
 	hack	\
-	lf	\
 	k9s 	\
-	wezterm	\
+	lf	\
 	nvim
-
 
 .DEFAULT_GOAL: help
 .PHONY: help

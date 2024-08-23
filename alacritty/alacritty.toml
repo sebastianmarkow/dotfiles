@@ -10,14 +10,11 @@ program = "/usr/local/bin/tmux"
 args = ["new-session", "-A", "-s", "main"]
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
-italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
-bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-size = 16.0
-
-[window]
-dimensions = { columns = 120, lines = 48 }
+normal = { family = "JetBrainsMono Nerd Font", style = "Light" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Light Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Regular Italic" }
+size = 15.0
 
 [scrolling]
 history = 0
@@ -25,6 +22,10 @@ history = 0
 [cursor]
 style = "Block"
 unfocused_hollow = true
+
+[window]
+dimensions = { columns = 124, lines = 48 }
+decorations = "none"
 
 [window.padding]
 x = 0
