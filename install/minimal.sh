@@ -77,6 +77,7 @@ FORMULAS=(
 )
 
 CASKS=(
+    1password-cli
     hammerspoon
     homebrew/cask-fonts/font-jetbrains-mono-nerd-font
     homebrew/cask-fonts/font-maple
