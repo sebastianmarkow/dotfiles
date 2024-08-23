@@ -1,8 +1,8 @@
 # No, no, no!
 status is-interactive; or exit 1
-
 # Fish features
 set -Ua fish_features qmark-noglob
+
 
 # Path
 set -x PATH /opt/homebrew/bin /usr/local/bin /usr/local/sbin $HOME/Applications/bin $PATH $HOME/.krew/bin $HOME/.config/hack/bin
@@ -47,9 +47,9 @@ set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x XZ_OPT '-T0'
 
 # Hooks
-command -s jump > /dev/null; and source (jump shell fish | psub)
-command -s pyenv > /dev/null; and pyenv init - | source
-command -s octosql > /dev/null; and source (octosql completion fish | psub)
+command -s starship > /dev/null; and starship init fish | source; and enable_transience
+command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+command -s octosql > /dev/null; and octosql completion fish | source
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 test -f "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
@@ -118,5 +118,5 @@ set -g fish_user_paths "$PYENV_ROOT/bin" $fish_user_paths
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 fish_config theme choose "Rosé Pine Moon"
-command -s starship > /dev/null; and source (starship init fish | psub); and enable_transience
 
+fish_add_path "/Users/sklatt/.local/share/../bin"
