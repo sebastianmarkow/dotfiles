@@ -12,6 +12,11 @@ return {
             require("rose-pine").setup({
                 variant = "moon",
                 dim_inactive_windows = true,
+                 enable = {
+                    terminal = true,
+                    legacy_highlights = false,
+                    migrations = true,
+                },
                 styles = {
                     italic = false,
                     bold = true,

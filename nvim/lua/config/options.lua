@@ -34,8 +34,8 @@ local options = {
     numberwidth = 3,
     cmdheight = 1,
     laststatus = 2, -- always show statusline
-    scrolloff = 5,
-    sidescrolloff = 5, -- number of horizontal columns visible around cursor
+    scrolloff = 10,
+    sidescrolloff = 10, -- number of horizontal columns visible around cursor
     showmatch = true,
     matchtime = 2, -- matching brackets cursor blink time (1/10 * n)
     hidden = true, -- hide unsaved buffer
@@ -100,7 +100,7 @@ local options = {
     timeoutlen = 2500,
 
     -- Sign Column
-    signcolumn = "auto:4",
+    signcolumn = "yes",
 
     -- Filetype glob
     wildmenu = true, -- enable filepath completion in the command bar
