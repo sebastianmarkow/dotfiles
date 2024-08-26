@@ -6,7 +6,7 @@ import = [
 TERM = "alacritty"
 
 [shell]
-program = "/usr/local/bin/tmux"
+program = "/opt/homebrew/bin/tmux"
 args = ["new-session", "-A", "-s", "main"]
 
 [font]
