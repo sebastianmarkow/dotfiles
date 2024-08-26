@@ -10,7 +10,9 @@ TAPS=(
     homebrew/cask-fonts
 )
 
-HEAD=()
+HEAD=(
+    neovim
+)
 
 EGGS=(
     proselint
@@ -62,6 +64,7 @@ FORMULAS=(
     rsync
     since
     ssh-copy-id
+    starship
     tcpdump
     tmux
     tree
@@ -74,8 +77,11 @@ FORMULAS=(
 )
 
 CASKS=(
+    1password-cli
     hammerspoon
-    homebrew/cask-fonts/font-fira-code
+    homebrew/cask-fonts/font-jetbrains-mono-nerd-font
+    homebrew/cask-fonts/font-maple
+    wezterm
 )
 
 h1 "minimal"
@@ -89,3 +95,7 @@ h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
 h2 "brew formulas (HEAD)"
 for h in "${HEAD[@]}"; do brew_install "$h" "--HEAD"; done
+h2 "replace icons"
+task "Replacing wezterm icon"
+cp $HOME/.config/wezterm/icons/wezterm.icns /Applications/WezTerm.app/Contents/Resources/terminal.icns
+killall Dock

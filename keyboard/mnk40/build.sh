@@ -7,10 +7,11 @@ if [ ! -d "$QMK_DIR" ]; then
     exit 1
 fi
 
+rm -r "${QMK_DIR}/keyboards/mnk40"
 cp -r ./ "${QMK_DIR}/keyboards/mnk40"
 
 pushd "${QMK_DIR}" || exit
 
-./util/docker_build.sh mnk40:default
+./util/docker_build.sh mnk40:sebastianmarkow
 
 popd || exit
