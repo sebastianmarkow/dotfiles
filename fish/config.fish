@@ -50,6 +50,7 @@ set -x XZ_OPT '-T0'
 command -s starship > /dev/null; and starship init fish | source; and enable_transience
 command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
 command -s octosql > /dev/null; and octosql completion fish | source
+command -s uv > /dev/null; and uv generate-shell-completion fish | source
 test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
 test -f "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
