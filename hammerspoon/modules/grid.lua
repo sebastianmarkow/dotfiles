@@ -1,12 +1,7 @@
 -- Grid manager
 local Grid = {
   margin = {0, 0},
-  resolution = {
-    ['3008x1692'] = '6x4',
-    ['2560x1440'] = '6x4',
-    ['1920x1200'] = '6x4',
-    ['1440x900'] = '4x2'
-  },
+  resolution = {['3008x1692'] = '6x4', ['2560x1440'] = '6x4', ['1920x1200'] = '6x4', ['1440x900'] = '4x2'},
   animationDuration = 0
 }
 

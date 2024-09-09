@@ -62,21 +62,12 @@ function Caffeinate:mouseWiggler()
     local endTime = hs.timer.absoluteTime() + 100000000 -- 100ms in nanoseconds
     while hs.timer.absoluteTime() < endTime do
       -- Generate random wiggle within a small range
-      local wiggleDistanceX = math.random(
-                                -self.activityMouseMoveRangePixel,
-                                self.activityMouseMoveRangePixel
-                              )
-      local wiggleDistanceY = math.random(
-                                -self.activityMouseMoveRangePixel,
-                                self.activityMouseMoveRangePixel
-                              )
+      local wiggleDistanceX = math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel)
+      local wiggleDistanceY = math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel)
 
       -- Move the mouse to the new random position
       hs.mouse.setRelativePosition(
-        {
-          x = currentMousePosition.x + wiggleDistanceX,
-          y = currentMousePosition.y + wiggleDistanceY
-        }
+        {x = currentMousePosition.x + wiggleDistanceX, y = currentMousePosition.y + wiggleDistanceY}
       )
 
       -- Small delay to allow the wiggle effect to take place
@@ -90,13 +81,9 @@ end
 
 function Caffeinate:batteryCallback()
   if hs.battery.powerSource() == 'Battery Power' then
-    if hs.battery.percentage() <= self.batteryCap and
-      hs.caffeinate.get('displayIdle') then
+    if hs.battery.percentage() <= self.batteryCap and hs.caffeinate.get('displayIdle') then
       self:toggle()
-      hs.notify.show(
-        'Caffeinate disabled', '',
-        'Battery power below ' .. self.batteryCap .. '%'
-      )
+      hs.notify.show('Caffeinate disabled', '', 'Battery power below ' .. self.batteryCap .. '%')
     end
   end
 end

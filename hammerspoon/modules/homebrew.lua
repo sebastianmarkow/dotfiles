@@ -1,19 +1,10 @@
 -- Homebrew menubar
-local Homebrew = {
-  menubar = hs.menubar.new(),
-  items = {},
-  disabled = false,
-  notified = false
-}
+local Homebrew = {menubar = hs.menubar.new(), items = {}, disabled = false, notified = false}
 
 function Homebrew:showMenu()
   self.menubar:returnToMenuBar()
   self.menubar:setIcon('./assets/cask.pdf')
-  self.menubar:setTooltip(
-    string.format(
-      '%d updated formula%s available', #self.items, plural(self.items)
-    )
-  )
+  self.menubar:setTooltip(string.format('%d updated formula%s available', #self.items, plural(self.items)))
 end
 
 function Homebrew:hideMenu()
@@ -22,10 +13,7 @@ end
 
 function Homebrew:loadOutdated()
   self.items = {}
-  local pipe = io.popen(
-                 '/usr/local/bin/brew outdated -v | grep -v pinned | cut -f 1 -d " "',
-                 'r'
-               )
+  local pipe = io.popen('/usr/local/bin/brew outdated -v | grep -v pinned | cut -f 1 -d " "', 'r')
   for item in pipe:lines() do
     table.insert(self.items, item)
   end
@@ -39,9 +27,7 @@ function Homebrew:loadOutdated()
     self.disabled = false
     self:showMenu()
     if not self.notified then
-      hs.notify.show(
-        'Homebrew', 'Formulas updated', table.concat(self.items, ', ')
-      )
+      hs.notify.show('Homebrew', 'Formulas updated', table.concat(self.items, ', '))
       self.notified = true
     end
   end
@@ -50,9 +36,7 @@ end
 function Homebrew:getMenu()
   local menu = {
     {
-      title = string.format(
-        'Update %s formula%s', #self.items, plural(self.items)
-      ),
+      title = string.format('Update %s formula%s', #self.items, plural(self.items)),
       fn = function()
         self.disabled = true
         hs.task.new(
