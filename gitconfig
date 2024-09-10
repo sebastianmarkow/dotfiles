@@ -144,7 +144,7 @@
 
     re = reset
     unstage = reset -q HEAD --
-    uncommit = reset --mixed HEAD~
+    uncommit = reset --soft HEAD~1
 
     untrack = rm --cached
 
