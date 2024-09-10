@@ -4,9 +4,6 @@ vim.api.nvim_create_autocmd(
     pattern = 'markdown',
     callback = function()
       vim.bo.textwidth = 80
-      vim.bo.wrap = true
-      vim.bo.spell = true
-      vim.bo.spelllang = 'en_us'
     end
   }
 )

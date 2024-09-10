@@ -1,13 +1,12 @@
 return {
-  plugins = {Installed = '', Pending = '󱑤', Uninstalled = ''},
-  diagnostics = {Error = '', Warn = '', Hint = '󰠠', Info = ''},
+  diagnostics = {error = '', warn = '', hint = '󰠠', info = ''},
   git = {
-    added = '󰐕',
-    modified = '',
-    deleted = '󰅖',
-    renamed = '󰑕',
-    untracked = '',
-    ignored = '',
+    added = '',
+    modified = '',
+    deleted = '',
+    renamed = '',
+    untracked = '',
+    ignored = '',
     unstaged = '󰄱',
     staged = '',
     conflict = ''
@@ -32,5 +31,6 @@ return {
       '⠓',
       '⠋'
     }
-  }
+  },
+  neotree = {default = '󰈔', folder_closed = '󰉋', folder_open = '󰝰', folder_empty = '󰉖'}
 }

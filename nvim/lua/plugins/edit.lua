@@ -1,11 +1,13 @@
 return {
+  {'numToStr/Comment.nvim', lazy = false},
   {
-    'ethanholz/nvim-lastplace',
-    event = {'BufReadPre'},
-    opts = {
-      lastplace_ignore_buftype = {'quickfix', 'nofile', 'help'},
-      lastplace_ignore_filetype = {'gitcommit', 'gitrebase'},
-      lastplace_open_folds = false
-    }
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = function()
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp = require('cmp')
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+      require('nvim-autopairs').setup()
+    end
   }
 }

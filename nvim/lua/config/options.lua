@@ -6,11 +6,11 @@ local globals = {
   loaded_node_provider = 0,
   loaded_ruby_provider = 0,
   loaded_perl_provider = 0,
-  loaded_python_provider = 0
+  loaded_python_provider = 0,
+  loaded_python3_provider = 0
 }
 
 local options = {
-  -- Security
   modelines = 0,
 
   -- Title
@@ -24,27 +24,23 @@ local options = {
   undodir = vim.fn.stdpath('state') .. '/undo',
 
   -- Interface
-  showmode = false, -- current mode (insert, visual, etc),
-  showcmd = true,
   title = true,
-  foldenable = false,
   number = true,
-  relativenumber = false,
   cursorline = true,
   numberwidth = 3,
   cmdheight = 1,
   laststatus = 2, -- always show statusline
-  scrolloff = 10,
-  sidescrolloff = 10, -- number of horizontal columns visible around cursor
+  scrolloff = 8,
+  sidescrolloff = 8, -- number of horizontal columns visible around cursor
   showmatch = true,
   matchtime = 2, -- matching brackets cursor blink time (1/10 * n)
   hidden = true, -- hide unsaved buffer
   splitbelow = true,
   splitright = true,
-  lazyredraw = true, -- do not redraw during macros
-  ttyfast = true,
+  synmaxcol = 200,
   redrawtime = 1000,
-  updatetime = 300,
+  updatetime = 200,
+  timeoutlen = 500,
   linespace = 0,
   list = true,
   listchars = 'tab:▸ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:«', -- invisible character
@@ -75,6 +71,7 @@ local options = {
   expandtab = true, -- use spaces rather than tabs
   smarttab = true, -- handle spaces like tabs while deleting them
   shiftround = true, -- round to a multiple of shiftwidth while indenting
+  foldlevel = 99,
   wrap = false, -- don"t wrap lines
   linebreak = true, -- don"t break words at line end
   autoindent = true, -- auto indent next line
@@ -93,17 +90,15 @@ local options = {
   --               +------ allow formatting comments
 
   -- Mouse
-  mouse = 'nvc',
-  --             |||
-  --             ||+-- commandline mode
-  --             |+--- visual mode
-  --             +---- normal mode
   mousehide = true,
-
-  timeoutlen = 2500,
+  mouse = 'nvc',
+  --       |||
+  --       ||+-- commandline mode
+  --       |+--- visual mode
+  --       +---- normal mode
 
   -- Sign Column
-  signcolumn = 'yes',
+  signcolumn = 'yes:1',
 
   -- Filetype glob
   wildmenu = true, -- enable filepath completion in the command bar
@@ -113,8 +108,7 @@ local options = {
   wildignore = vim.o.wildignore .. ',*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib',
   wildignore = vim.o.wildignore .. ',*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso',
   wildignore = vim.o.wildignore .. ',*.pdf,*.doc*,*.aux,*.out,*.toc',
-  wildignore = vim.o.wildignore ..
-    ',*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch',
+  wildignore = vim.o.wildignore .. ',*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch',
   wildignore = vim.o.wildignore .. ',*.db,*.sqlite'
 }
 
