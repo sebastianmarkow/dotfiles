@@ -28,10 +28,11 @@ local options = {
   number = true,
   cursorline = true,
   numberwidth = 3,
-  cmdheight = 1,
-  laststatus = 2, -- always show statusline
+  laststatus = 0, -- always show statusline
   scrolloff = 8,
   sidescrolloff = 8, -- number of horizontal columns visible around cursor
+  showcmd = false,
+  cmdheight = 0,
   showmatch = true,
   matchtime = 2, -- matching brackets cursor blink time (1/10 * n)
   hidden = true, -- hide unsaved buffer
@@ -45,13 +46,7 @@ local options = {
   list = true,
   listchars = 'tab:▸ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:«', -- invisible character
   fillchars = 'eob: ',
-  shortmess = 'aIOTF',
-  --           |||||
-  --           ||||+-- hide file read messages
-  --           |||+--- truncate message in the middle
-  --           ||+---- no message on file changes (autoread)
-  --           |+----- no startup message
-  --           +------ use abbreviations
+  shortmess = 'filnxtToOc',
 
   -- Search
   ignorecase = true,

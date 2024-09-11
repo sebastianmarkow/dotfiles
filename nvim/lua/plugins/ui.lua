@@ -38,11 +38,10 @@ return {
     end
   },
   {
-    'stevearc/aerial.nvim',
-    opts = {},
-    dependencies = {'nvim-treesitter/nvim-treesitter'},
-    cmd = 'AerialToggle',
-    keys = {{'<leader>o', '<CMD>AerialToggle!<cr>', mode = 'n', desc = 'Open Aerial explorer'}}
+    'hedyhli/outline.nvim',
+    cmd = {'Outline', 'OutlineOpen'},
+    keys = {{'<leader>o', '<cmd>Outline<CR>', desc = 'Toggle outline'}},
+    config = true
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -157,10 +156,10 @@ return {
           component_separators = {right = '', left = ''},
           globalstatus = true,
           disabled_filetypes = { -- Filetypes to disable lualine for.
-            winbar = {'aerial', 'Lazy', 'help', 'neo-tree', 'neotest-summary', 'quickfix', 'git', 'gitcommit'}
+            winbar = {'Lazy', 'help', 'neo-tree', 'neotest-summary', 'quickfix', 'git', 'gitcommit', 'Outline'}
           }
         },
-        extensions = {'aerial', 'lazy', 'mason', 'fugitive', 'neo-tree', 'nvim-dap-ui', 'toggleterm', 'quickfix'},
+        extensions = {'lazy', 'mason', 'fugitive', 'neo-tree', 'nvim-dap-ui', 'toggleterm', 'quickfix'},
         sections = {
           lualine_a = {{'mode', icon = ''}},
           lualine_b = {{'branch', icon = ''}, {'diff', colored = true}},
@@ -202,7 +201,17 @@ return {
           current_only = true,
           winblend = 0,
           zindex = 40,
-          excluded_filetypes = {'Lazy', 'help', 'neo-tree', 'neotest-summary', 'quickfix', 'qf'},
+          excluded_filetypes = {
+            'Lazy',
+            'help',
+            'neo-tree',
+            'neotest-summary',
+            'quickfix',
+            'qf',
+            'Outline',
+            'gitcommit',
+            'git'
+          },
           width = 2,
           handlers = {
             cursor = {enable = true, symbols = {'⎺', '⎻', '⎼', '⎽'}},

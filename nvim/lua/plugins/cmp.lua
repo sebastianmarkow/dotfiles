@@ -3,6 +3,7 @@ return {
     'hrsh7th/nvim-cmp',
     dependencies = {
       'L3MON4D3/LuaSnip',
+      'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-path',
@@ -99,6 +100,28 @@ return {
                     path = '[Path]',
                     treesitter = '[Tresitter]'
                   })[entry.source.name]
+                  return vim_item
+                end
+              }
+            )
+          }
+        }
+      )
+
+      cmp.setup.cmdline(
+        ':', {
+          mapping = cmp.mapping.preset.cmdline(),
+          sources = cmp.config.sources({{name = 'cmdline'}}),
+          formatting = {
+            fields = {'abbr', 'kind', 'menu'},
+            format = lspkind.cmp_format(
+              {
+                mode = 'symbol_text',
+                maxwidth = 80,
+                ellipsis_char = '...',
+                show_labelDetails = true,
+                before = function(entry, vim_item)
+                  vim_item.menu = ({cmdline = '[CMD]'})[entry.source.name]
                   return vim_item
                 end
               }
