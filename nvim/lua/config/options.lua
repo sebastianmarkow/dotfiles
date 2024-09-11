@@ -43,10 +43,10 @@ local options = {
   updatetime = 200,
   timeoutlen = 500,
   linespace = 0,
-  list = true,
   listchars = 'tab:▸ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:«', -- invisible character
+  list = true,
   fillchars = 'eob: ',
-  shortmess = 'filnxtToOc',
+  shortmess = 'fiIlnxtToOc',
 
   -- Search
   ignorecase = true,
