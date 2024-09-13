@@ -3,11 +3,15 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    config = function()
+    opts = {
+      enable_check_bracket_line = false,
+      check_ts = true,
+    },
+    config = function(opts)
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       local cmp = require('cmp')
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-      require('nvim-autopairs').setup()
+      require('nvim-autopairs').setup(opts)
     end,
   },
   {
