@@ -1,5 +1,5 @@
 return {
-  diagnostics = {error = '', warn = '', hint = '󰠠', info = ''},
+  diagnostics = { error = '', warn = '', hint = '󰠠', info = '' },
   git = {
     added = '',
     modified = '',
@@ -9,7 +9,7 @@ return {
     ignored = '',
     unstaged = '󰄱',
     staged = '',
-    conflict = ''
+    conflict = '',
   },
   animated = {
     spinner = {
@@ -29,8 +29,8 @@ return {
       '⠐',
       '⠒',
       '⠓',
-      '⠋'
-    }
+      '⠋',
+    },
   },
-  neotree = {default = '󰈔', folder_closed = '󰉋', folder_open = '󰝰', folder_empty = '󰉖'}
+  neotree = { default = '󰈔', folder_closed = '󰉋', folder_open = '󰝰', folder_empty = '󰉖' },
 }

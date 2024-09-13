@@ -4,21 +4,21 @@ local Caffeinate = {
   batteryCap = 10.0,
   style = {
     strokeWidth = 0,
-    strokeColor = {white = 1, alpha = 0},
-    fillColor = {white = 0, alpha = 0.25},
-    textColor = {white = 1, alpha = 1},
+    strokeColor = { white = 1, alpha = 0 },
+    fillColor = { white = 0, alpha = 0.25 },
+    textColor = { white = 1, alpha = 1 },
     textFont = '.AppleSystemUIFont',
     textSize = 27,
     radius = 15,
     atScreenEdge = 0,
     fadeInDuration = 0.15,
     fadeOutDuration = 0.15,
-    padding = nil
+    padding = nil,
   },
   activityIntervalSeconds = 60, -- 1 minutes in seconds
   activityTimer = nil, -- Timer to be controlled based on state
   activityDurationMS = 100,
-  activityMouseMoveRangePixel = 20
+  activityMouseMoveRangePixel = 20,
 }
 
 function Caffeinate:setIcon(state)
@@ -35,11 +35,9 @@ function Caffeinate:toggle(silent)
 
   if state then
     if not self.activityTimer then
-      self.activityTimer = hs.timer.doEvery(
-                             self.activityIntervalSeconds, function()
-          self:mouseWiggler()
-        end
-                           )
+      self.activityTimer = hs.timer.doEvery(self.activityIntervalSeconds, function()
+        self:mouseWiggler()
+      end)
     end
   end
   if not silent then
@@ -66,9 +64,10 @@ function Caffeinate:mouseWiggler()
       local wiggleDistanceY = math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel)
 
       -- Move the mouse to the new random position
-      hs.mouse.setRelativePosition(
-        {x = currentMousePosition.x + wiggleDistanceX, y = currentMousePosition.y + wiggleDistanceY}
-      )
+      hs.mouse.setRelativePosition({
+        x = currentMousePosition.x + wiggleDistanceX,
+        y = currentMousePosition.y + wiggleDistanceY,
+      })
 
       -- Small delay to allow the wiggle effect to take place
       hs.timer.usleep(10000) -- 10ms delay
@@ -90,20 +89,16 @@ end
 
 if Caffeinate then
   Caffeinate.menubar:setTooltip('Toggle Caffeinate')
-  Caffeinate.menubar:setClickCallback(
-    function()
-      Caffeinate:toggle()
-    end
-  )
+  Caffeinate.menubar:setClickCallback(function()
+    Caffeinate:toggle()
+  end)
   Caffeinate:setIcon(hs.caffeinate.get('displayIdle'))
-  hs.battery.watcher.new(
-    function()
+  hs.battery.watcher
+    .new(function()
       Caffeinate:batteryCallback()
-    end
-  ):start()
-  hs.hotkey.bind(
-    hs.settings.get('leader'), 'c', function()
-      Caffeinate:toggle()
-    end
-  )
+    end)
+    :start()
+  hs.hotkey.bind(hs.settings.get('leader'), 'c', function()
+    Caffeinate:toggle()
+  end)
 end

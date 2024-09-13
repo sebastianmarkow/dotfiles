@@ -4,9 +4,9 @@ if not hs.ipc.cliStatus() then
 end
 
 -- leader
-hs.settings.set('leader', {'ctrl', 'alt'})
-hs.settings.set('leadercmd', {'ctrl', 'alt', 'cmd'})
-hs.settings.set('leadershift', {'shift', 'ctrl', 'alt'})
+hs.settings.set('leader', { 'ctrl', 'alt' })
+hs.settings.set('leadercmd', { 'ctrl', 'alt', 'cmd' })
+hs.settings.set('leadershift', { 'shift', 'ctrl', 'alt' })
 
 -- hostname
 local hostname = hs.host.localizedName()

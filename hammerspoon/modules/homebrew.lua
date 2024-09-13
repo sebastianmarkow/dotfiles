@@ -1,5 +1,5 @@
 -- Homebrew menubar
-local Homebrew = {menubar = hs.menubar.new(), items = {}, disabled = false, notified = false}
+local Homebrew = { menubar = hs.menubar.new(), items = {}, disabled = false, notified = false }
 
 function Homebrew:showMenu()
   self.menubar:returnToMenuBar()
@@ -39,31 +39,29 @@ function Homebrew:getMenu()
       title = string.format('Update %s formula%s', #self.items, plural(self.items)),
       fn = function()
         self.disabled = true
-        hs.task.new(
-          '/usr/local/bin/brew', function()
+        hs.task
+          .new('/usr/local/bin/brew', function()
             Homebrew:loadOutdated()
-          end, table.merge({'upgrade'}, self.items)
-        ):start()
+          end, table.merge({ 'upgrade' }, self.items))
+          :start()
       end,
-      disabled = self.disabled
+      disabled = self.disabled,
     },
-    {title = '-'}
+    { title = '-' },
   }
   for _, item in ipairs(self.items) do
-    table.insert(
-      menu, {
-        title = item,
-        fn = function()
-          self.disabled = true
-          hs.task.new(
-            '/usr/local/bin/brew', function()
-              Homebrew:loadOutdated()
-            end, {'upgrade', item}
-          ):start()
-        end,
-        disabled = self.disabled
-      }
-    )
+    table.insert(menu, {
+      title = item,
+      fn = function()
+        self.disabled = true
+        hs.task
+          .new('/usr/local/bin/brew', function()
+            Homebrew:loadOutdated()
+          end, { 'upgrade', item })
+          :start()
+      end,
+      disabled = self.disabled,
+    })
   end
 
   return menu
@@ -71,11 +69,11 @@ end
 
 function Homebrew:update()
   print('Updating Homebrew')
-  hs.task.new(
-    '/usr/local/bin/brew', function()
+  hs.task
+    .new('/usr/local/bin/brew', function()
       Homebrew:loadOutdated()
-    end, {'update'}
-  ):start()
+    end, { 'update' })
+    :start()
 end
 
 function table.merge(t1, t2)
@@ -96,15 +94,11 @@ end
 
 if Homebrew then
   Homebrew:hideMenu()
-  Homebrew.menubar:setMenu(
-    function()
-      return Homebrew:getMenu()
-    end
-  )
+  Homebrew.menubar:setMenu(function()
+    return Homebrew:getMenu()
+  end)
   Homebrew:update()
-  hs.timer.doEvery(
-    3 * 3600, function()
-      Homebrew:update()
-    end
-  )
+  hs.timer.doEvery(3 * 3600, function()
+    Homebrew:update()
+  end)
 end
