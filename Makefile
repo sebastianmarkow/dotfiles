@@ -23,7 +23,6 @@ MAKEDIRS=\
 CONFIGS=\
 	alacritty \
 	fish	\
-	hack	\
 	lf	\
 	nvim
 

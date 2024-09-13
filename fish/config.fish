@@ -1,15 +1,17 @@
 # No, no, no!
 status is-interactive; or exit 1
 
+set -Ua fish_features qmark-noglob
+set fish_greeting ''
+
 # Path
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
-set -x PATH /opt/homebrew/bin /usr/local/bin /usr/local/sbin $HOME/Applications/bin $PATH $HOME/.krew/bin $HOME/.config/hack/bin
-set -x PATH $GOBIN $PATH
 set -x PYENV_ROOT $HOME/.pyenv
+set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
-set -x XDG_CACHE_HOME $HOME/.cache
+set -x PATH /opt/homebrew/bin /usr/local/bin /usr/local/sbin $HOME/Applications/bin $GOBIN $PATH
 
 # Base
 set -x EDITOR 'nvim'
@@ -44,8 +46,8 @@ set -x TERRAGRUNT_FORWARD_TF_STDOUT 1
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 # Hooks
-#command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
-#command -s starship > /dev/null; and starship init fish | source; and enable_transience
+command -s starship > /dev/null; and starship init fish | source; and enable_transience
+command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
 
 # Abbreviations
 abbr --add cp 'cp -iR'
@@ -96,9 +98,5 @@ for file in $fisher_path/conf.d/*.fish
 end
 
 # Fish
-set fish_greeting ''
-set -Ua fish_features qmark-noglob
 fish_config theme choose "Rosé Pine Moon"
-fish_add_path "/Users/sklatt/.local/share/../bin"
 fish_user_key_bindings
-
