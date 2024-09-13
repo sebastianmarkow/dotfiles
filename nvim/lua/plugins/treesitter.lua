@@ -52,6 +52,6 @@ return {
       vim.o.foldmethod = 'expr'
       vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     end,
-    build = ':TSUpdate'
+    build = {':TSUpdate'}
   }
 }

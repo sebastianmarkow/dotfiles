@@ -20,6 +20,7 @@ return {
       'j-hui/fidget.nvim'
     },
     event = {'BufReadPre', 'BufNewFile'},
+    cmd = 'Mason',
     opts = {
       diagnostics = {
         underline = true,
@@ -75,7 +76,8 @@ return {
               }
             }
           }
-        }
+        },
+        rust_analzyer = {filetypes = {'rust'}, settings = {}}
       }
     },
     config = function(_, opts)

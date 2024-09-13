@@ -149,7 +149,7 @@ min_time = 5000
 disabled = false
 
 [time]
-format = '[](inverted $style)[󱑂 $time UTC ]($style)'
+format = '[](inverted $style)[󱑂 $time UTC ]($style)[](inverted $style)'
 style = 'fg:base bg:hl_high italic'
 time_format = '%T'
 utc_time_offset = '0'

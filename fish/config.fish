@@ -42,12 +42,6 @@ set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x XZ_OPT '-T0'
 set -x TERRAGRUNT_FORWARD_TF_STDOUT 1
 
-# Hooks
-command -s starship > /dev/null; and starship init fish | source; and enable_transience
-command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
-command -s uv > /dev/null; and uv generate-shell-completion fish | source
-test -d $XDG_DATA_HOME/fish/generated_completions; or fish_update_completions
-test -f "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"; and source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"
 
 # Abbreviations
 abbr --add cp 'cp -iR'
@@ -106,3 +100,7 @@ set -Ua fish_features qmark-noglob
 fish_config theme choose "Rosé Pine Moon"
 fish_add_path "/Users/sklatt/.local/share/../bin"
 fish_user_key_bindings
+
+# Hooks
+command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+command -s starship > /dev/null; and starship init fish | source; and enable_transience
