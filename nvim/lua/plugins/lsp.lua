@@ -39,13 +39,54 @@ return {
             },
             fidget = { notification = { window = { border = "rounded" } } },
             servers = {
-                gopls = { filetypes = { "go" }, settings = {} },
+                yaml = {
+                    filetype = { "yaml" },
+                    settings = {},
+                },
+                gopls = {
+                    filetypes = { "go" },
+                    settings = {
+                        gofumpt = true,
+                        codelenses = {
+                            gc_details = false,
+                            generate = true,
+                            regenerate_cgo = true,
+                            run_govulncheck = true,
+                            test = true,
+                            tidy = true,
+                            upgrade_dependency = true,
+                            vendor = true,
+                        },
+                        hints = {
+                            assignVariableTypes = true,
+                            compositeLiteralFields = true,
+                            compositeLiteralTypes = true,
+                            constantValues = true,
+                            functionTypeParameters = true,
+                            parameterNames = true,
+                            rangeVariableTypes = true,
+                        },
+                        analyses = {
+                            fieldalignment = true,
+                            nilness = true,
+                            unusedparams = true,
+                            unusedwrite = true,
+                            useany = true,
+                        },
+                        usePlaceholders = true,
+                        completeUnimported = true,
+                        staticcheck = true,
+                        directoryFilters = { "-.git" },
+                        semanticTokens = true,
+                    },
+                },
                 lua_ls = {
                     filetypes = { "lua" },
                     settings = {
                         Lua = {
                             telemetry = { enable = false },
                             diagnostics = { globals = { "vim" } },
+                            hint = { enable = true },
                             workspace = {
                                 -- make language server aware of runtime files
                                 library = {
