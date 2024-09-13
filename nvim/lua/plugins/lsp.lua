@@ -14,8 +14,33 @@ return {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      {
+        'williamboman/mason.nvim',
+        dependencies = {
+          'williamboman/mason-lspconfig.nvim',
+        },
+        build = function()
+          local lsp_servers =
+            { 'gopls', 'rust_analyzer', 'yamlls', 'pylsp', 'lua_ls', 'helm_ls', 'jsonls', 'jq_lsp', 'terraformls' }
+          local tools =
+            { 'delve', 'gitlint', 'hadolint', 'markdownlint', 'ruff', 'shellcheck', 'tflint', 'tfsec', 'yamllint' }
+
+          local mason_registry = require('mason-registry')
+          local function install_ensured()
+            for _, tool in ipairs(tools) do
+              local p = mason_registry.get_package(tool)
+              if not p:is_installed() then
+                p:install()
+              end
+            end
+          end
+          mason_registry.refresh()
+          install_ensured()
+          require('mason-lspconfig').setup({
+            ensure_installed = lsp_servers,
+          })
+        end,
+      },
       'hrsh7th/cmp-nvim-lsp',
       'j-hui/fidget.nvim',
     },

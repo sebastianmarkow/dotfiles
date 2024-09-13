@@ -49,3 +49,11 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.bo.softtabstop = 2
   end,
 })
+
+-- Git Config
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = { 'gitconfig' },
+  callback = function()
+    vim.opt.filetype = 'gitconfig'
+  end,
+})
