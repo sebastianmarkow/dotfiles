@@ -17,7 +17,6 @@ return {
           Keyword = { italic = true },
           Statement = { italic = true },
           Visual = { bg = 'highlight_high' },
-          StatusLine = { fg = 'muted' },
 
           IndentLine = { fg = 'overlay', nocombine = true },
           IndentLineCurrent = { fg = 'subtle', nocombine = true },
@@ -145,6 +144,13 @@ return {
       theme.normal.b.fg = palette.iris
       theme.visual.a.bg = palette.rose
       theme.visual.b.fg = palette.rose
+
+      theme.normal.c.fg = palette.subtle
+      theme.insert.c.fg = palette.subtle
+      theme.visual.c.fg = palette.subtle
+      theme.replace.c.fg = palette.subtle
+      theme.command.c.fg = palette.subtle
+      theme.inactive.c.fg = palette.subtle
 
       local config = {
         options = {
