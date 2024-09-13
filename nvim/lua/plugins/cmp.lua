@@ -54,23 +54,16 @@ return {
               fallback()
             end
           end, { 'i', 's' }),
+          ['<Esc>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.close()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
         }),
-        sorting = {
-          priority_weight = 2,
-          comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.score,
-            cmp.config.compare.recently_used,
-            cmp.config.compare.locality,
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
-          },
-        },
         sources = cmp.config.sources({
-          { name = 'nvim_lsp', prioity = 100 },
+          { name = 'nvim_lsp', priority = 100 },
           { name = 'nvim_lsp_signature_help', priority = 100 },
           { name = 'luasnip', priority = 80 },
           { name = 'treesitter', priority = 50, keyword_length = 3 },

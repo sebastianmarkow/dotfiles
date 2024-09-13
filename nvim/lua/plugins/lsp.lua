@@ -65,8 +65,32 @@ return {
       fidget = { notification = { window = { border = 'rounded' } } },
       servers = {
         yaml = {
-          filetype = { 'yaml' },
-          settings = {},
+          filetypes = { 'yaml' },
+          settings = {
+            schemaStore = {
+              enable = true,
+              url = 'https://www.schemastore.org/api/json/catalog.json',
+            },
+            schemas = {
+              kubernetes = '*.yaml',
+              ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
+              ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
+              ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
+              ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
+              ['http://json.schemastore.org/chart'] = 'Chart.{yml,yaml}',
+              ['https://json.schemastore.org/dependabot-v2'] = '.github/dependabot.{yml,yaml}',
+              ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = '*docker-compose*.{yml,yaml}',
+              ['https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json'] = '*flow*.{yml,yaml}',
+            },
+            format = { enabled = false },
+            -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
+            -- see utils.custom_lsp_attach() for the workaround
+            -- how can I detect Kubernetes ONLY yaml files? (no CRDs, Helmreleases, etc.)
+            validate = false,
+            completion = true,
+            hover = true,
+          },
         },
         gopls = {
           filetypes = { 'go' },
@@ -127,20 +151,15 @@ return {
           settings = {
             pylsp = {
               plugins = {
-                -- formatter options
                 black = { enabled = true },
                 autopep8 = { enabled = false },
                 yapf = { enabled = false },
-                -- linter options
                 pylint = { enabled = true },
                 ruff = { enabled = false },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
-                -- type checker
                 pylsp_mypy = { enabled = true, report_progress = true, live_mode = false },
-                -- auto-completion options
                 jedi_completion = { fuzzy = true },
-                -- import sorting
                 isort = { enabled = true },
               },
             },
