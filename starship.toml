@@ -17,11 +17,11 @@ $character\
 """
 
 right_format = """
-
-( $kubernetes)\
-( $gcloud)\
-( $cmd_duration)\
-( $status)\
+[](bg:base)\
+($kubernetes)\
+($gcloud)\
+($cmd_duration)\
+($status)\
 """
 
 add_newline = true
@@ -78,7 +78,6 @@ format = '([ $state($progress_current/$progress_total) ]($style))'
 style = 'fg:iris bg:overlay'
 disabled = false
 
-
 [git_status]
 format = '([$ahead_behind ($conflicted$stashed$modified$renamed$deleted$staged$untracked )]($style))'
 style = 'fg:iris bg:overlay'
@@ -107,13 +106,13 @@ symbol = ' '
 python_binary = ['python3']
 
 [gcloud]
-format = '[](inverted $style)[$symbol($account\[$project\])]($style)[](inverted $style)'
+format = '[](fg:prev_bg $style inverted)[$symbol($account\[$project\]) ]'
 style = 'fg:base bg:muted'
 symbol = '󱇶 '
 disabled = true
 
 [kubernetes]
-format = '[](inverted $style)[$symbol($context)]($style)[](inverted $style)'
+format = '[](fg:prev_bg $style inverted)[$symbol($context) ]($style)'
 style = 'fg:base bg:muted italic'
 symbol = '󱃾 '
 disabled = false
@@ -131,7 +130,7 @@ context_pattern = ".*(dev|00).*"
 style = 'fg:base bg:pine italic'
 
 [status]
-format = '[](inverted $style)[$symbol $common_meaning$signal_name$maybe_int]($style)[](inverted $style)'
+format = '[](fg:prev_bg $style inverted)[$symbol $common_meaning$signal_name$maybe_int ]($style)'
 style = 'fg:base bg:love italic'
 map_symbol = true
 symbol = '󱇎'
@@ -143,14 +142,14 @@ signal_symbol = '󱐋'
 disabled = false
 
 [cmd_duration]
-format = '[](inverted $style)[󱎫 $duration]($style)[](inverted $style)'
+format = '[](fg:prev_bg $style inverted)[󱎫 $duration ]($style)'
 style = 'fg:base bg:rose italic'
 min_time = 5000
 disabled = false
 
 [time]
-format = '[](inverted $style)[󱑂 $time UTC ]($style)[](inverted $style)'
-style = 'fg:base bg:hl_high italic'
+format = '[ ](inverted $style)[󱑂 $time UTC ]($style)'
+style = 'fg:base bg:hl_med italic'
 time_format = '%T'
 utc_time_offset = '0'
 disabled = false
