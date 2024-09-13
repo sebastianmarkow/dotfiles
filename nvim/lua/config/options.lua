@@ -7,7 +7,7 @@ local globals = {
   loaded_ruby_provider = 0,
   loaded_perl_provider = 0,
   loaded_python_provider = 0,
-  loaded_python3_provider = 0
+  loaded_python3_provider = 0,
 }
 
 local options = {
@@ -32,7 +32,7 @@ local options = {
   scrolloff = 8,
   sidescrolloff = 8, -- number of horizontal columns visible around cursor
   showcmd = false,
-  cmdheight = 0,
+  cmdheight = 1,
   showmatch = true,
   matchtime = 2, -- matching brackets cursor blink time (1/10 * n)
   hidden = true, -- hide unsaved buffer
@@ -104,7 +104,7 @@ local options = {
   wildignore = vim.o.wildignore .. ',*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso',
   wildignore = vim.o.wildignore .. ',*.pdf,*.doc*,*.aux,*.out,*.toc',
   wildignore = vim.o.wildignore .. ',*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch',
-  wildignore = vim.o.wildignore .. ',*.db,*.sqlite'
+  wildignore = vim.o.wildignore .. ',*.db,*.sqlite',
 }
 
 for k, v in pairs(globals) do
