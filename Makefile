@@ -24,7 +24,6 @@ CONFIGS=\
 	alacritty \
 	fish	\
 	hack	\
-	k9s 	\
 	lf	\
 	nvim
 

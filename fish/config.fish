@@ -4,7 +4,7 @@ status is-interactive; or exit 1
 # Path
 set -x GOPATH $HOME/Developer/go
 set -x GOBIN $GOPATH/bin
-set -x PATH /usr/local/bin /usr/local/sbin $HOME/Applications/bin $PATH $HOME/.krew/bin $HOME/.config/hack/bin
+set -x PATH /opt/homebrew/bin /usr/local/bin /usr/local/sbin $HOME/Applications/bin $PATH $HOME/.krew/bin $HOME/.config/hack/bin
 set -x PATH $GOBIN $PATH
 set -x PYENV_ROOT $HOME/.pyenv
 set -x XDG_CONFIG_HOME $HOME/.config
@@ -41,7 +41,11 @@ set -x STARSHIP_CONFIG $HOME/.starship.toml
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x XZ_OPT '-T0'
 set -x TERRAGRUNT_FORWARD_TF_STDOUT 1
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
+# Hooks
+#command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+#command -s starship > /dev/null; and starship init fish | source; and enable_transience
 
 # Abbreviations
 abbr --add cp 'cp -iR'
@@ -91,9 +95,6 @@ for file in $fisher_path/conf.d/*.fish
     builtin source $file 2>/dev/null
 end
 
-# Google Cloud
-set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
-
 # Fish
 set fish_greeting ''
 set -Ua fish_features qmark-noglob
@@ -101,6 +102,3 @@ fish_config theme choose "Rosé Pine Moon"
 fish_add_path "/Users/sklatt/.local/share/../bin"
 fish_user_key_bindings
 
-# Hooks
-command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
-command -s starship > /dev/null; and starship init fish | source; and enable_transience
