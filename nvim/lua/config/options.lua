@@ -28,11 +28,10 @@ local options = {
   number = true,
   cursorline = true,
   numberwidth = 3,
-  laststatus = 0, -- always show statusline
   scrolloff = 8,
   sidescrolloff = 8, -- number of horizontal columns visible around cursor
+  cmdheight = 0,
   showcmd = false,
-  cmdheight = 1,
   showmatch = true,
   matchtime = 2, -- matching brackets cursor blink time (1/10 * n)
   hidden = true, -- hide unsaved buffer
@@ -46,7 +45,7 @@ local options = {
   listchars = 'tab:▸ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:«', -- invisible character
   list = true,
   fillchars = 'eob: ',
-  shortmess = 'fiIlnxtToOc',
+  shortmess = 'CcFIoOsTtW',
 
   -- Search
   ignorecase = true,
@@ -98,13 +97,13 @@ local options = {
   -- Filetype glob
   wildmenu = true, -- enable filepath completion in the command bar
   wildmode = 'longest,full',
-  wildignore = '*~,*sw[op],*.pid,.DS_Store',
-  wildignore = vim.o.wildignore .. ',.git,.hg,.svn,.bzr',
-  wildignore = vim.o.wildignore .. ',*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib',
-  wildignore = vim.o.wildignore .. ',*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso',
-  wildignore = vim.o.wildignore .. ',*.pdf,*.doc*,*.aux,*.out,*.toc',
-  wildignore = vim.o.wildignore .. ',*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch',
-  wildignore = vim.o.wildignore .. ',*.db,*.sqlite',
+  wildignore = '*~,*sw[op],*.pid,.DS_Store'
+    .. ',.git,.hg,.svn,.bzr'
+    .. ',*.o,*.so,*.d,*.a,*.pyc,*.obj,*.lib'
+    .. ',*.zip,*.tar,*.bz2,*.gz,*.xz,*.rar,*.iso'
+    .. ',*.pdf,*.doc*,*.aux,*.out,*.toc'
+    .. ',*.jpg,*.jpeg,*.png,*.gif,*.tiff,*.eps,*.bmp,*.psd,*.ai,*.ico,*.sketch'
+    .. ',*.db,*.sqlite',
 }
 
 for k, v in pairs(globals) do
