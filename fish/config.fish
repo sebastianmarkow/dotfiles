@@ -88,6 +88,7 @@ alias treed 'command tree -C -d | less -FRX'
 alias upper 'tr a-z A-Z'
 alias yt2m4a 'yt-dlp --extract-audio --audio-format m4a --audio-quality 0'
 alias yt2mp3 'yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
+alias y 'yazi'
 
 # Fisher
 set -g fisher_path $XDG_DATA_HOME/fisher_plugins

@@ -132,6 +132,9 @@ return {
   },
   {
     'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+    },
     event = 'VeryLazy',
     opts = function()
       local function window_number()
@@ -173,10 +176,17 @@ return {
         },
         extensions = { 'lazy', 'mason', 'fugitive', 'neo-tree', 'nvim-dap-ui', 'toggleterm', 'quickfix' },
         sections = {
-          lualine_a = { { 'mode', icon = '' } },
-          lualine_b = { { 'branch', icon = '' }, { 'diff', colored = true } },
-          lualine_c = { { 'filename', file_status = false } },
-          lualine_x = { { 'filetype', icon_only = true } },
+          lualine_a = {
+            { 'mode', icon = '' },
+          },
+          lualine_b = {
+            { 'branch', icon = '' },
+            { 'diff', colored = true },
+          },
+          lualine_c = {},
+          lualine_x = {
+            { 'filetype', icon_only = true },
+          },
           lualine_y = {
             {
               'diagnostics',
@@ -188,18 +198,32 @@ return {
                 hint = icons.diagnostics.hint .. ' ',
               },
             },
-            'searchcount',
-            'location',
+            { 'searchcount' },
           },
-          lualine_z = { window_number },
+          lualine_z = {
+            {
+              'location',
+            },
+          },
         },
         inactive_sections = {
           lualine_a = {},
-          lualine_c = { { 'filename', file_status = false } },
-          lualine_x = { window_number },
+          lualine_c = { { 'filename', file_status = true } },
+          lualine_x = { { window_number } },
         },
-        winbar = { lualine_a = { { 'buffers', mode = 2 } }, lualine_c = {}, lualine_x = {} },
-        inactive_winbar = { lualine_a = {}, lualine_c = { { 'buffers', mode = 2 } }, lualine_x = {} },
+        winbar = {
+          lualine_a = { { 'filename', file_status = true } },
+          lualine_b = { { 'navic' } },
+          lualine_x = {},
+          lualine_z = { { window_number } },
+        },
+        inactive_winbar = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { { 'filename', file_status = true } },
+          lualine_x = { { window_number } },
+          lualine_z = {},
+        },
         tabline = {},
       }
       return config

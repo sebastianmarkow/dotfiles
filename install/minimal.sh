@@ -10,17 +10,6 @@ TAPS=(
     homebrew/cask-fonts
 )
 
-HEAD=(
-    neovim
-)
-
-EGGS=(
-    proselint
-    pynvim
-    vim-vint
-    yamllint
-)
-
 FORMULAS=(
     bash
     colima
@@ -35,7 +24,6 @@ FORMULAS=(
     fzf
     gawk
     gh
-    gh
     ghq
     git
     git-crypt
@@ -46,16 +34,15 @@ FORMULAS=(
     gpg2
     grep
     grpcurl
-    htop
+    btop
     iftop
     jq
-    jump
     less
-    lf
     make
     massren
     moreutils
     mtr
+    neovim
     nmap
     pidof
     pstree
@@ -73,15 +60,16 @@ FORMULAS=(
     wrk
     xo/xo/usql
     xz
+    yazi
     yq
 )
 
 CASKS=(
     1password-cli
+    alacritty
     hammerspoon
     homebrew/cask-fonts/font-jetbrains-mono-nerd-font
     homebrew/cask-fonts/font-maple
-    wezterm
 )
 
 h1 "minimal"
@@ -95,7 +83,3 @@ h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
 h2 "brew formulas (HEAD)"
 for h in "${HEAD[@]}"; do brew_install "$h" "--HEAD"; done
-h2 "replace icons"
-task "Replacing wezterm icon"
-cp $HOME/.config/wezterm/icons/wezterm.icns /Applications/WezTerm.app/Contents/Resources/terminal.icns
-killall Dock

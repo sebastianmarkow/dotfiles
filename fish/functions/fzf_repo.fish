@@ -1,8 +1,8 @@
 function fzf_repo --description 'Go to repository'
-    if not type 'ghq' >/dev/null 2>&1
+    if not type ghq >/dev/null 2>&1
         echo 'repo: error ghq not installed'
         exit 1
-    else if not type 'fzf' >/dev/null 2>&1
+    else if not type fzf >/dev/null 2>&1
         echo 'repo: error fzf not installed'
         exit 1
     end
@@ -16,9 +16,9 @@ function fzf_repo --description 'Go to repository'
             cd (ghq list -e -p $argv[1])
         case 2
             switch $argv[1]
-                case 'del'
+                case del
                     ghq list -p -e $argv[2] | xargs rm -rf
-                case 'get'
+                case get
                     ghq get $argv[2]
                 case '*'
                     echo 'repo: error unknown command'
@@ -29,7 +29,7 @@ function fzf_repo --description 'Go to repository'
 end
 
 function __repo_completion -d 'Repository completion'
-    if type 'ghq' >/dev/null 2>&1
+    if type ghq >/dev/null 2>&1
         ghq list --unique
     end
 end

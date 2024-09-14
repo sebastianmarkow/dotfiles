@@ -1,15 +1,5 @@
 local icons = require('config.icons')
 
-local function on_attach(_, bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  -- Example key mappings
-  keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-end
-
 return {
   {
     'neovim/nvim-lspconfig',
@@ -43,6 +33,7 @@ return {
       },
       'hrsh7th/cmp-nvim-lsp',
       'j-hui/fidget.nvim',
+      'SmiteshP/nvim-navic',
     },
     event = { 'BufReadPre', 'BufNewFile' },
     cmd = 'Mason',
@@ -169,6 +160,20 @@ return {
       },
     },
     config = function(_, opts)
+      local navic = require('nvim-navic')
+
+      local function on_attach(client, bufnr)
+        local args = { noremap = true, silent = true }
+        local keymap = vim.api.nvim_buf_set_keymap
+        -- Example key mappings
+        keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', args)
+        keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', args)
+        keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', args)
+        keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', args)
+
+        navic.attach(client, bufnr)
+      end
+
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       require('mason').setup()
@@ -187,5 +192,9 @@ return {
       require('fidget').setup(opts.fidget)
       vim.diagnostic.config(opts.diagnostics)
     end,
+  },
+  {
+    'SmiteshP/nvim-navic',
+    config = true,
   },
 }

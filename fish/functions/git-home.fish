@@ -5,6 +5,6 @@ function git-home
         echo $giturl
         command open $giturl
     else
-        echo "error"
+        echo error
     end
 end
