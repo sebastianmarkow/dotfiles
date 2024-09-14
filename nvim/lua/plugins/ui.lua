@@ -182,12 +182,6 @@ return {
           lualine_b = {
             { 'branch', icon = '' },
             { 'diff', colored = true },
-          },
-          lualine_c = {},
-          lualine_x = {
-            { 'filetype', icon_only = true },
-          },
-          lualine_y = {
             {
               'diagnostics',
               colored = true,
@@ -198,6 +192,12 @@ return {
                 hint = icons.diagnostics.hint .. ' ',
               },
             },
+          },
+          lualine_c = {},
+          lualine_x = {
+            { 'filetype', icon_only = true },
+          },
+          lualine_y = {
             { 'searchcount' },
           },
           lualine_z = {
