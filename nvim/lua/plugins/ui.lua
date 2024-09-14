@@ -11,7 +11,7 @@ return {
         variant = 'moon',
         dim_inactive_windows = true,
         enable = { terminal = true, legacy_highlights = false, migrations = true },
-        styles = { italic = false, bold = true, transparency = false },
+        styles = { italic = false, bold = false, transparency = false },
         highlight_groups = {
           Comment = { italic = true },
           Keyword = { italic = true },
@@ -199,12 +199,9 @@ return {
           },
           lualine_y = {
             { 'searchcount' },
+            { 'location' },
           },
-          lualine_z = {
-            {
-              'location',
-            },
-          },
+          lualine_z = {},
         },
         inactive_sections = {
           lualine_a = {},
@@ -215,14 +212,14 @@ return {
           lualine_a = { { 'filename', file_status = true } },
           lualine_b = { { 'navic' } },
           lualine_x = {},
-          lualine_z = { { window_number } },
+          lualine_y = { { window_number } },
         },
         inactive_winbar = {
           lualine_a = {},
           lualine_b = {},
           lualine_c = { { 'filename', file_status = true } },
           lualine_x = { { window_number } },
-          lualine_z = {},
+          lualine_y = {},
         },
         tabline = {},
       }

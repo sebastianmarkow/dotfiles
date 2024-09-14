@@ -10,10 +10,29 @@ return {
           'williamboman/mason-lspconfig.nvim',
         },
         build = function()
-          local lsp_servers =
-            { 'gopls', 'rust_analyzer', 'yamlls', 'pylsp', 'lua_ls', 'helm_ls', 'jsonls', 'jq_lsp', 'terraformls' }
-          local tools =
-            { 'delve', 'gitlint', 'hadolint', 'markdownlint', 'ruff', 'shellcheck', 'tflint', 'tfsec', 'yamllint' }
+          local lsp_servers = {
+            'gopls',
+            'rust_analyzer',
+            'yamlls',
+            'pylsp',
+            'lua_ls',
+            'helm_ls',
+            'jsonls',
+            'jq_lsp',
+            'terraformls',
+          }
+          local tools = {
+            'delve',
+            'debugpy',
+            'gitlint',
+            'hadolint',
+            'markdownlint',
+            'ruff',
+            'shellcheck',
+            'tflint',
+            'tfsec',
+            'yamllint',
+          }
 
           local mason_registry = require('mason-registry')
           local function install_ensured()
@@ -51,9 +70,21 @@ return {
           },
         },
         severity_sort = true,
-        float = { style = 'minimal', border = 'rounded', source = 'always', header = '', prefix = '' },
+        float = {
+          style = 'minimal',
+          border = 'rounded',
+          source = 'always',
+          header = '',
+          prefix = '',
+        },
       },
-      fidget = { notification = { window = { border = 'rounded' } } },
+      fidget = {
+        notification = {
+          window = {
+            border = 'rounded',
+          },
+        },
+      },
       servers = {
         yaml = {
           filetypes = { 'yaml' },
