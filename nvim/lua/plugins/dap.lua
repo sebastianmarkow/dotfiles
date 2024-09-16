@@ -10,11 +10,7 @@ return {
         },
         keys = {},
       },
-      'leoluz/nvim-dap-go',
-      'mfussenegger/nvim-dap-python',
-      'williamboman/mason.nvim',
     },
-    event = 'BufRead',
     ft = { 'go', 'python' },
     keys = {},
     opts = {
@@ -39,8 +35,20 @@ return {
       end
 
       require('nvim-dap-virtual-text').setup(opts.nvim_dap_virtual_text)
-      require('dap-go').setup()
-
+    end,
+  },
+  {
+    'leoluz/nvim-dap-go',
+    ft = { 'go' },
+    config = true,
+  },
+  {
+    'mfussenegger/nvim-dap-python',
+    dependencies = {
+      'williamboman/mason.nvim',
+    },
+    ft = { 'python' },
+    config = function()
       local debugpy_path = require('mason-registry').get_package('debugpy'):get_install_path()
       require('dap-python').setup(debugpy_path .. '/venv/bin/python')
     end,

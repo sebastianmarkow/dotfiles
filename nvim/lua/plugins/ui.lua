@@ -227,6 +227,25 @@ return {
     end,
   },
   {
+
+    'SmiteshP/nvim-navic',
+    event = 'LspAttach',
+    config = true,
+  },
+  {
+
+    'j-hui/fidget.nvim',
+    event = 'LspAttach',
+    opts = {
+      notification = {
+        window = {
+          border = 'rounded',
+        },
+      },
+    },
+    config = true,
+  },
+  {
     'lewis6991/satellite.nvim',
     event = 'VeryLazy',
     config = function()
@@ -263,15 +282,19 @@ return {
   },
   {
     'nvimdev/indentmini.nvim',
-    event = { 'BufRead' },
+    event = 'VeryLazy',
     config = function()
       require('indentmini').setup({ char = '┊' })
     end,
   },
   {
     'nvim-telescope/telescope.nvim',
+    event = 'VeryLazy',
     branch = '0.1.x',
-    dependencies = { 'burntsushi/ripgrep', 'nvim-lua/plenary.nvim' },
+    dependencies = {
+      'burntsushi/ripgrep',
+      'nvim-lua/plenary.nvim',
+    },
   },
   {
     'folke/which-key.nvim',

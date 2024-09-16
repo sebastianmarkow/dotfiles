@@ -51,8 +51,6 @@ return {
         end,
       },
       'hrsh7th/cmp-nvim-lsp',
-      'j-hui/fidget.nvim',
-      'SmiteshP/nvim-navic',
     },
     event = { 'BufReadPre', 'BufNewFile' },
     cmd = 'Mason',
@@ -78,13 +76,6 @@ return {
           prefix = '',
         },
       },
-      fidget = {
-        notification = {
-          window = {
-            border = 'rounded',
-          },
-        },
-      },
       servers = {
         yaml = {
           filetypes = { 'yaml' },
@@ -107,8 +98,6 @@ return {
             },
             format = { enabled = false },
             -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
-            -- see utils.custom_lsp_attach() for the workaround
-            -- how can I detect Kubernetes ONLY yaml files? (no CRDs, Helmreleases, etc.)
             validate = false,
             completion = true,
             hover = true,
@@ -159,7 +148,6 @@ return {
               diagnostics = { globals = { 'vim' } },
               hint = { enable = true },
               workspace = {
-                -- make language server aware of runtime files
                 library = {
                   [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                   [vim.fn.stdpath('config') .. '/lua'] = true,
@@ -191,18 +179,16 @@ return {
       },
     },
     config = function(_, opts)
-      local navic = require('nvim-navic')
-
       local function on_attach(client, bufnr)
-        local args = { noremap = true, silent = true }
         local keymap = vim.api.nvim_buf_set_keymap
-        -- Example key mappings
+        local args = { noremap = true, silent = true }
+
         keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', args)
         keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', args)
         keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', args)
         keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', args)
 
-        navic.attach(client, bufnr)
+        require('nvim-navic').attach(client, bufnr)
       end
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -220,12 +206,7 @@ return {
           end,
         },
       })
-      require('fidget').setup(opts.fidget)
       vim.diagnostic.config(opts.diagnostics)
     end,
-  },
-  {
-    'SmiteshP/nvim-navic',
-    config = true,
   },
 }
