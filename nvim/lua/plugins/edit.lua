@@ -4,8 +4,9 @@ return {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {
-      enable_check_bracket_line = false,
       check_ts = true,
+      enable_check_bracket_line = false,
+      ignored_next_char = '[%w%.]',
     },
     config = function(opts)
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
