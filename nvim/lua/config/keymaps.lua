@@ -1,6 +1,9 @@
 local keymap = vim.api.nvim_set_keymap
 
+local args = { noremap = true, silent = true }
+
 -- Keymap: Process & io
+keymap('n', 'q', ':quit<cr>', args)
 keymap('n', '<leader>q', ':quitall<cr>', { noremap = true })
 keymap('n', '<leader><s-q>', ':quitall!<cr>', { noremap = true })
 keymap('n', '<leader>w', ':write<cr>', { noremap = true })
