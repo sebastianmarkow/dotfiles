@@ -21,15 +21,9 @@ return {
           IndentLine = { fg = 'overlay', nocombine = true },
           IndentLineCurrent = { fg = 'subtle', nocombine = true },
 
-          IlluminatedWordText = { bg = 'highlight_mid' },
-          IlluminatedWordRead = { bg = 'highlight_mid' },
-          IlluminatedWordWrite = { bg = 'highlight_mid' },
-
-          NeoTreeFileIcon = { fg = 'iris' },
-          NeoTreeModified = { fg = 'gold' },
-          NeoTreeTabActive = { fg = 'base', bg = 'iris' },
+          NeoTreeTabActive = { fg = 'base', bg = 'foam' },
           NeoTreeTabSeparatorInactive = { fg = 'base', bg = 'base' },
-          NeoTreeTabSeparatorActive = { fg = 'iris', bg = 'base' },
+          NeoTreeTabSeparatorActive = { fg = 'foam', bg = 'base' },
         },
       })
       vim.cmd('colorscheme rose-pine-moon')
@@ -78,7 +72,7 @@ return {
           show_scrolled_off_parent_node = true,
           content_layout = 'center',
           tabs_layout = 'equal',
-          separator = { right = '', left = '' },
+          separator = { right = '', left = '' },
         },
         sources = { 'filesystem', 'git_status', 'buffers' },
         filesystem = {
