@@ -34,7 +34,7 @@ return {
   },
   {
     'rhysd/committia.vim',
-    lazy = false,
+    event = 'BufReadPre',
     config = function()
       vim.g.committia_open_only_vim_starting = 0
       vim.g.committia_hooks = vim.empty_dict()
