@@ -35,7 +35,7 @@ hide_when_typing = true
 
 [window]
 decorations       = "none"
-dynamic_padding   = true
+dynamic_padding   = false
 resize_increments = true
 
 [window.dimensions]
