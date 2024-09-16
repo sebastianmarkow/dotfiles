@@ -57,3 +57,17 @@ vim.api.nvim_create_autocmd('BufRead', {
     vim.opt.filetype = 'gitconfig'
   end,
 })
+
+-- Cursorline only in active window
+local cursor_group = vim.api.nvim_create_augroup('CursorLine', { clear = true })
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter' }, {
+  pattern = '*',
+  command = 'set cursorline',
+  group = cursor_group,
+  desc = 'show cursor line only in active window',
+})
+vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
+  pattern = '*',
+  command = 'set nocursorline',
+  group = cursor_group,
+})
