@@ -1,4 +1,7 @@
-import = ["~/.config/alacritty/colors/rose-pine-moon.toml"]
+import = [
+    "~/.config/alacritty/colors/rose-pine-moon.toml",
+    "~/.config/alacritty/keybindings.toml",
+]
 
 live_config_reload = true
 
