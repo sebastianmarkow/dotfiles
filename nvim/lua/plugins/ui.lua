@@ -164,9 +164,8 @@ return {
           disabled_filetypes = { -- Filetypes to disable lualine for.
             winbar = {
               'Lazy',
-              'help',
               'neo-tree',
-              'neotest-summary',
+              'help',
               'quickfix',
               'git',
               'gitcommit',
@@ -283,9 +282,7 @@ return {
   {
     'nvimdev/indentmini.nvim',
     event = 'VeryLazy',
-    config = function()
-      require('indentmini').setup({ char = '┊' })
-    end,
+    config = function() require('indentmini').setup({ char = '┊' }) end,
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -308,9 +305,7 @@ return {
     keys = {
       {
         '<leader>?',
-        function()
-          require('which-key').show({ global = false })
-        end,
+        function() require('which-key').show({ global = false }) end,
         desc = 'Buffer Local Keymaps (which-key)',
       },
     },
