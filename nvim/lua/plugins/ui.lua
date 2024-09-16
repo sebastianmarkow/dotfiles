@@ -170,10 +170,23 @@ return {
               'git',
               'gitcommit',
               'Outline',
+              'dap-repl',
+              'dapui_breakpoints',
+              'dapui_stacks',
+              'dapui_scopes',
+              'dapui_watches',
+              'dapui_console',
             },
           },
         },
-        extensions = { 'lazy', 'mason', 'fugitive', 'neo-tree', 'nvim-dap-ui', 'toggleterm', 'quickfix' },
+        extensions = {
+          'lazy',
+          'mason',
+          'neo-tree',
+          'nvim-dap-ui',
+          'quickfix',
+          'toggleterm',
+        },
         sections = {
           lualine_a = {
             { 'mode', icon = '' },
@@ -309,5 +322,11 @@ return {
         desc = 'Buffer Local Keymaps (which-key)',
       },
     },
+  },
+  {
+    'stevearc/dressing.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    config = true,
   },
 }
