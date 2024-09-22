@@ -8,8 +8,8 @@ $directory\
 )\
 [](fg:overlay bg:hl_low)\
 (\
-    $golang\
     $python\
+    $golang\
 )\
 [](fg:hl_low bg:base)\
 $line_break\
@@ -46,7 +46,7 @@ surface = '#2a273f'
 text    = '#e0def4'
 
 [line_break]
-disable = false
+disabled = false
 
 [character]
 disabled                  = false
@@ -149,7 +149,7 @@ style    = 'fg:base bg:rose italic'
 
 [time]
 disabled        = false
-format          = '[ ](inverted $style)[󱑂 $time UTC ]($style)'
+format          = '[](inverted $style)[󱑂 $time UTC ]($style)'
 style           = 'fg:base bg:hl_med italic'
 time_format     = '%T'
 utc_time_offset = '0'

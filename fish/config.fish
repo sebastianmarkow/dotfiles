@@ -27,14 +27,14 @@ set -x LC_COLLATE 'C'
 
 # Env
 set -x FZF_DEFAULT_OPTS '
-    --color=fg:#908caa,bg:#232136,hl:#ea9a97
-    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-    --color=border:#44415a,header:#3e8fb0,gutter:#232136
-    --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
-    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
-    --inline-info
-    --tiebreak=end,length
-    --bind=shift-tab:toggle-down,tab:toggle-up'
+  --color=fg:#908caa,bg:#232136,hl:#ea9a97
+  --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+  --color=border:#44415a,header:#3e8fb0,gutter:#232136
+  --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
+  --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+  --inline-info
+  --tiebreak=end,length
+  --bind=shift-tab:toggle-down,tab:toggle-up'
 set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x HOMEBREW_NO_ANALYTICS 1
 set -x HOMEBREW_NO_EMOJI 1
@@ -96,7 +96,7 @@ set -g fisher_path $XDG_DATA_HOME/fisher_plugins
 set -p fish_function_path fish_function_path[1] $fisher_path/functions
 set -p fish_complete_path fish_complete_path[1] $fisher_path/completions
 for file in $fisher_path/conf.d/*.fish
-    builtin source $file 2>/dev/null
+  builtin source $file 2>/dev/null
 end
 
 # Fish

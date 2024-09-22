@@ -21,10 +21,11 @@ MAKEDIRS=\
 	$(XDG_DATA_HOME)/nvim/undo
 
 CONFIGS=\
-	alacritty \
-	fish	\
-	yazi	\
-	nvim
+	alacritty	\
+	fish		\
+	nvim		\
+	tmux		\
+	yazi
 
 .DEFAULT_GOAL: help
 .PHONY: help

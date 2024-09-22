@@ -20,12 +20,12 @@ function upgrade --description "Upgrade system"
 
     fisher update
 
-    command -s flux >/dev/null; and flux completion fish >~/.config/fish/completions/flux.gen.fish
-    command -s kind >/dev/null; and kind completion fish >~/.config/fish/completions/kind.gen.fish
-    command -s colima >/dev/null; and colima completion fish >~/.config/fish/completions/colima.gen.fish
-    command -s direnv >/dev/null; and direnv hook fish >~/.config/fish/completions/direnv.gen.fish
-    command -s starship >/dev/null; and starship completions fish >~/.config/fish/completions/starship.gen.fish
-    command -s uv >/dev/null; and uv generate-shell-completion fish >~/.config/fish/completions/uv.gen.fish
+    command -s flux >/dev/null; and flux completion fish > ~/.config/fish/completions/flux.gen.fish
+    command -s kind >/dev/null; and kind completion fish > ~/.config/fish/completions/kind.gen.fish
+    command -s colima >/dev/null; and colima completion fish > ~/.config/fish/completions/colima.gen.fish
+    command -s direnv >/dev/null; and direnv hook fish > ~/.config/fish/completions/direnv.gen.fish
+    command -s starship >/dev/null; and starship completions fish > ~/.config/fish/completions/starship.gen.fish
+    command -s uv >/dev/null; and uv generate-shell-completion fish > ~/.config/fish/completions/uv.gen.fish
 
     exec fish
 end
