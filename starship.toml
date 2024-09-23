@@ -24,7 +24,7 @@ right_format = """
 ($status)\
 """
 
-add_newline = true
+add_newline = false
 
 palette = 'rose-pine-moon'
 
