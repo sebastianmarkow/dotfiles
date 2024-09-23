@@ -1,16 +1,12 @@
 local keymap = vim.api.nvim_set_keymap
 
-local args = { noremap = true, silent = true }
-
 -- Keymap: Process & io
-keymap('n', 'q', ':quit<cr>', args)
-keymap('n', '<leader>q', ':quitall<cr>', { noremap = true })
-keymap('n', '<leader><s-q>', ':quitall!<cr>', { noremap = true })
-keymap('n', '<leader>w', ':write<cr>', { noremap = true })
-keymap('n', '<leader><s-w>', ':write<cr>', { noremap = true })
-keymap('n', '<leader>c', ':lclose|cclose|helpclose<cr>', { noremap = true })
-keymap('n', '<leader>d', ':bd<cr>', { noremap = true })
-keymap('n', '<leader>f', ':echo expand("%:p")<cr>', { noremap = true })
+keymap('n', 'q', ':quitall<cr>', { desc = 'Exit current window' })
+keymap('n', '<leader>q', ':quitall<cr>', { desc = 'Exit neovim' })
+keymap('n', '<leader><s-q>', ':quitall!<cr>', { desc = 'Exit neovim without saving' })
+keymap('n', '<leader>w', ':write<cr>', { desc = 'Write current buffer' })
+keymap('n', '<leader>c', ':lclose|cclose|helpclose<cr>', { desc = 'Close all panels' })
+keymap('n', '<leader>d', ':bd<cr>', { desc = 'Delete current buffer' })
 
 -- Keymap: Move to next/prev buffer
 keymap('n', '<c-h>', ':bprev<cr>', { noremap = true })

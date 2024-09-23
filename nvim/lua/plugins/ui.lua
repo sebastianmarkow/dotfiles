@@ -1,5 +1,23 @@
 local icons = require('config.icons')
 
+-- NeoTree: Open NeoTree on VimEnter with empty buffer
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function()
+    if vim.fn.argc() == 0 then
+      local git_root = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n', '')
+      local dir_to_open
+
+      if vim.v.shell_error == 0 then
+        dir_to_open = git_root
+      else
+        dir_to_open = vim.fn.getcwd()
+      end
+      require('lazy').load({ plugins = { 'neo-tree.nvim' } })
+      require('neo-tree.command').execute({ toggle = true, dir = dir_to_open, reveal = true })
+    end
+  end,
+})
+
 return {
   {
     'rose-pine/neovim',
