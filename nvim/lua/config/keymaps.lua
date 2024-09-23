@@ -44,3 +44,5 @@ keymap('v', '>', '>gv', { noremap = true })
 -- Keymap: Walk history with j/k
 keymap('c', '<c-j>', '<down>', { noremap = true })
 keymap('c', '<c-k>', '<up>', { noremap = true })
+
+keymap('n', '<leader>p', '', { desc = '+Plugin' })

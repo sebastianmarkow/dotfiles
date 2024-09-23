@@ -1,19 +1,24 @@
 local icons = require('config.icons')
 
+local open_neotree_in_git_root = function()
+  local git_root = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n', '')
+  local dir_to_open
+
+  if vim.v.shell_error == 0 then
+    dir_to_open = git_root
+  else
+    dir_to_open = vim.fn.getcwd()
+  end
+  require('neo-tree.command').execute({ toggle = true, dir = dir_to_open, reveal = true })
+end
+
 -- NeoTree: Open NeoTree on VimEnter with empty buffer
-vim.api.nvim_create_autocmd('VimEnter', {
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+  nested = true,
   callback = function()
     if vim.fn.argc() == 0 then
-      local git_root = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n', '')
-      local dir_to_open
-
-      if vim.v.shell_error == 0 then
-        dir_to_open = git_root
-      else
-        dir_to_open = vim.fn.getcwd()
-      end
       require('lazy').load({ plugins = { 'neo-tree.nvim' } })
-      require('neo-tree.command').execute({ toggle = true, dir = dir_to_open, reveal = true })
+      open_neotree_in_git_root()
     end
   end,
 })
@@ -62,18 +67,7 @@ return {
       {
         '<leader>e',
         mode = 'n',
-        function()
-          local git_root = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n', '')
-          local dir_to_open
-
-          if vim.v.shell_error == 0 then
-            dir_to_open = git_root
-          else
-            dir_to_open = vim.fn.getcwd()
-          end
-
-          require('neo-tree.command').execute({ toggle = true, dir = dir_to_open, reveal = true })
-        end,
+        open_neotree_in_git_root,
         desc = 'Open NeoTree explorer in git root dir',
       },
     },

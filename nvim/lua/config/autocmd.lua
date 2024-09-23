@@ -1,9 +1,7 @@
 -- Markdown
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
-  callback = function()
-    vim.bo.textwidth = 80
-  end,
+  callback = function() vim.bo.textwidth = 80 end,
 })
 
 -- Golang
@@ -53,9 +51,7 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Git Config
 vim.api.nvim_create_autocmd('BufRead', {
   pattern = { 'gitconfig' },
-  callback = function()
-    vim.opt.filetype = 'gitconfig'
-  end,
+  callback = function() vim.opt.filetype = 'gitconfig' end,
 })
 
 -- Cursorline only in active window
