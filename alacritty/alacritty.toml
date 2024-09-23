@@ -37,6 +37,7 @@ hide_when_typing = true
 decorations       = "none"
 dynamic_padding   = false
 resize_increments = true
+option_as_alt     = "Onlyleft"
 
 [window.dimensions]
 columns = 0
