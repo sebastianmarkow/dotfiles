@@ -325,8 +325,13 @@ return {
       {
         '<leader>?',
         function() require('which-key').show({ global = false }) end,
-        desc = 'Buffer Local Keymaps (which-key)',
+        desc = 'Show keymaps',
       },
+      -- Groups
+      -- +Plugin
+      { '<leader>p', '', desc = '+Plugin' },
+      { '<leader>pl', ':Lazy<cr>', desc = 'Open Lazy' },
+      { '<leader>pm', ':Mason<cr>', desc = 'Open Mason' },
     },
   },
   {
