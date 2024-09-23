@@ -44,6 +44,7 @@ FORMULAS=(
     mtr
     neovim
     nmap
+    nvtop
     pidof
     pstree
     rename

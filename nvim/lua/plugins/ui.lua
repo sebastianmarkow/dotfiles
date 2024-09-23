@@ -229,6 +229,7 @@ return {
         winbar = {
           lualine_a = { { 'filename', file_status = true, path = 1 } },
           lualine_b = { { 'navic' } },
+          lualine_c = {},
           lualine_x = {},
           lualine_y = { { window_number } },
         },
