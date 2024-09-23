@@ -40,8 +40,8 @@ resize_increments = true
 option_as_alt     = "Onlyleft"
 
 [window.dimensions]
-columns = 0
-lines   = 0
+columns = 120
+lines   = 40
 
 [window.padding]
 x = 0

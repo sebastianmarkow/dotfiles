@@ -25,6 +25,7 @@ CONFIGS=\
 	fish		\
 	nvim		\
 	tmux		\
+	wtf		\
 	yazi
 
 .DEFAULT_GOAL: help

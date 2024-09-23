@@ -1,0 +1,71 @@
+wtf:
+  colors:
+    background: "#232136"
+    border:
+      focusable: "#c4a7e7"
+      focused: "#eb6f92"
+      normal: "#6e6a86"
+    rows:
+      even: "#e0def4"
+      odd: "#908caa"
+    checked: "#3e8fb0"
+    text: "#e0def4"
+    title: "#c4a7e7"
+    subheading: "#f6c177"
+    label: "#eb6f92"
+  grid:
+    columns: [30,30,30,30,30]
+    rows:    [12,12,12,12]
+  exitMessage:
+    display: false
+  mods:
+    github:
+      title: Github
+      enabled: true
+      enableStatus: true
+      showStats: false
+      position:
+        top: 0
+        left: 0
+        height: 2
+        width: 3
+      refreshInterval: 5m
+      repositories:
+        - "metro-digital-inner-source/dasc-infra"
+      username: "sebastianmarkow"
+      customQueries:
+        othersPRs:
+          title: "Assigned Pull Requests"
+          filter: "is:open is:pr assignee:sebastianmarkow -author:*renovate* archived:false"
+    feed_hackernews:
+      title: Hackernews
+      enabled: true
+      showSource: false
+      showPublishDate: false
+      feeds:
+      - "http://hnapp.com/rss?q=score%3E75%20-type%3Ajob%20comments%3E10%20-host%3Agithub.com"
+      feedLimit: 10
+      position:
+        top: 0
+        left: 3
+        height: 1
+        width: 3
+      refreshInterval: 1h
+      type: feedreader
+    feed_finanzen:
+      title: Reddit
+      enabled: true
+      showSource: false
+      showPublishDate: false
+      feeds:
+      - https://www.reddit.com/r/magictcg/top.rss?=day
+      - https://www.reddit.com/r/de/top.rss?t=day
+      feedLimit: 5
+      position:
+        top: 1
+        left: 3
+        height: 1
+        width: 3
+      refreshInterval: 1h
+      type: feedreader
+

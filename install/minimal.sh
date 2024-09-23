@@ -29,6 +29,7 @@ FORMULAS=(
     git-crypt
     git-extras
     git-lfs
+    gitui
     gnu-sed
     gnu-tar
     gpg2
