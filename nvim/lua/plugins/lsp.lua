@@ -38,9 +38,7 @@ return {
           local function install_ensured()
             for _, tool in ipairs(tools) do
               local p = mason_registry.get_package(tool)
-              if not p:is_installed() then
-                p:install()
-              end
+              if not p:is_installed() then p:install() end
             end
           end
           mason_registry.refresh()
