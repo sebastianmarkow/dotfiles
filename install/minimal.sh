@@ -16,6 +16,7 @@ FORMULAS=(
     colima
     coreutils
     curl
+    delta
     diffutils
     direnv
     docker
