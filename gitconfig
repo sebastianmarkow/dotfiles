@@ -1,10 +1,10 @@
 [user]
     name = Sebastian Klatt
-    email = sebastian.klatt@metro.digital
+    email = sebastian@markow.io
 
 [core]
     editor = nvim
-    pager = less -R -F -X
+    pager = delta
     excludesfile = ~/.gitignore
     whitespace = trailing-space,space-before-tab,blank-at-eof
     trustctime = false
@@ -29,24 +29,13 @@
 [merge]
     conflictstyle = diff3
     ff = true
-    tool = fugitive
-
-[mergetool "nvim"]
-    prompt = false
-    cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
 
 [diff]
-    algorithm = patience
-    compactionHeuristic = true
+    colorMoved = default
     renames = copies
-    tool = vimdiff
 
-[difftool "nvim"]
-    prompt = false
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
-[difftool "ksdiff"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[interactive]
+    diffFilter = delta --color-only --features=interactive
 
 [log]
     abbrevCommit = true
@@ -181,6 +170,105 @@
 [ghq]
     root = ~/Developer/go/src
     root = ~/Developer/repos
+
+[delta]
+    features = arctic-fox
+
+[delta "arctic-fox"]
+    # author: https://github.com/anthony-halim
+    dark = false
+    syntax-theme = Nord
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    file-style = omit
+    hunk-header-decoration-style = "#5E81AC" ul
+    hunk-header-file-style = blue ul bold
+    hunk-header-line-number-style = yellow box bold
+    hunk-header-style = file line-number syntax bold italic
+    plus-style = brightgreen
+    plus-emph-style = black green
+    minus-style = brightred
+    minus-emph-style = black red
+    line-numbers = true
+    line-numbers-minus-style = brightred
+    line-numbers-plus-style = brightgreen
+    line-numbers-left-style = "#5E81AC"
+    line-numbers-right-style = "#5E81AC"
+    line-numbers-zero-style = "#4C566A"
+    zero-style = syntax
+    whitespace-error-style = black bold
+    blame-code-style = syntax
+    blame-format = "{author:<18} {commit:<6} {timestamp:<15}"
+    blame-palette = "#2E3440" "#3B4252" "#434C5E"
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-ours-diff-header-decoration-style = "#5E81AC" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#5E81AC" box
+
+[delta "rose-pine-moon"]
+    dark = true
+    syntax-theme = none  # Disable default syntax themes to use Rose Pine colors
+
+    # Commit Decorations
+    commit-decoration-style = "#f6c177" box
+    commit-style = "#f6c177" bold italic
+
+    # File Decorations
+    file-added-label = [+]
+    file-copied-label = [C]
+    file-modified-label = [M]
+    file-removed-label = [-]
+    file-renamed-label = [R]
+    file-decoration-style = "#c4a7e7" ul
+    file-style = "#e0def4" bold
+
+    # Hunk Headers
+    hunk-header-decoration-style = "#56526e" box ul
+    hunk-header-file-style = "#c4a7e7" ul
+    hunk-header-line-number-style = "#f6c177" bold
+    hunk-header-style = file line-number bold italic
+
+    # Line Numbers
+    line-numbers = true
+    line-numbers-left-format = "{nm:>3} │"
+    line-numbers-left-style = "#6e6a86"
+    line-numbers-right-format = "{np:>3} │"
+    line-numbers-right-style = "#6e6a86"
+    line-numbers-zero-style = "#908caa" italic
+    line-numbers-minus-style = "#eb6f92" bold
+    line-numbers-plus-style = "#3e8fb0" bold
+
+    # Diff Content Styles
+    minus-style = "#eb6f92"
+    minus-emph-style = bold "#eb6f92" "#393552"
+    plus-style = "#3e8fb0"
+    plus-emph-style = bold "#3e8fb0" "#393552"
+    zero-style = "#e0def4"
+
+    # Whitespace Errors
+    whitespace-error-style = "#eb6f92" reverse
+
+    # Blame Format
+    blame-format = "{author:<18} ({commit:>7}) ┊{timestamp:^16}┊ "
+
+    # Optional Features
+    line-numbers = true
+    line-numbers-left-format = "{nm:>3} │"
+    line-numbers-right-format = "{np:>3} │"
+
+    # Merge Conflicts (Optional)
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-style = "#f6c177" bold
+    merge-conflict-ours-diff-header-decoration-style = "#56526e" box
+    merge-conflict-theirs-diff-header-style = "#f6c177" bold
+    merge-conflict-theirs-diff-header-decoration-style = "#56526e" box
+
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

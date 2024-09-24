@@ -5,7 +5,7 @@ keymap('n', 'q', ':quitall<cr>', { desc = 'Exit current window' })
 keymap('n', '<leader>q', ':quitall<cr>', { desc = 'Exit neovim' })
 keymap('n', '<leader><s-q>', ':quitall!<cr>', { desc = 'Exit neovim without saving' })
 keymap('n', '<leader>w', ':write<cr>', { desc = 'Write current buffer' })
-keymap('n', '<leader>c', ':lclose|cclose|helpclose<cr>', { desc = 'Close all panels' })
+keymap('n', '<leader>c', ':close<cr>', { desc = 'Close panel' })
 keymap('n', '<leader>d', ':bd<cr>', { desc = 'Delete current buffer' })
 
 -- Move to next/prev buffer

@@ -22,7 +22,9 @@ MAKEDIRS=\
 
 CONFIGS=\
 	alacritty	\
+	bat		\
 	fish		\
+	lazygit		\
 	nvim		\
 	tmux		\
 	wtf		\
