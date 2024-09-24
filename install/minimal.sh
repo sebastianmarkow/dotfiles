@@ -12,6 +12,7 @@ TAPS=(
 
 FORMULAS=(
     bash
+    btop
     colima
     coreutils
     curl
@@ -29,15 +30,14 @@ FORMULAS=(
     git-crypt
     git-extras
     git-lfs
-    gitui
     gnu-sed
     gnu-tar
     gpg2
     grep
     grpcurl
-    btop
     iftop
     jq
+    lazygit
     less
     make
     massren
