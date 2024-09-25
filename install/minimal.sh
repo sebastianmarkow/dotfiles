@@ -72,7 +72,6 @@ CASKS=(
     alacritty
     hammerspoon
     homebrew/cask-fonts/font-jetbrains-mono-nerd-font
-    homebrew/cask-fonts/font-maple
 )
 
 h1 "minimal"
