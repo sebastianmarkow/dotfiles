@@ -50,3 +50,17 @@ y = 0
 [selection]
 save_to_clipboard     = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>[]\t"
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+regex = "(mailto:|https:|http:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
