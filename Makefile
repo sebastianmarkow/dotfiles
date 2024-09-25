@@ -11,6 +11,7 @@ FILES=\
 	hushlogin	\
 	mackup		\
 	mackup.cfg	\
+	rpignore	\
 	starship.toml	\
 	tmux.conf	\
 	wgetrc
