@@ -148,7 +148,6 @@
     t = tag -n
     last-tag = describe --tags --abrev=0
 
-    pr = "!git push -u origin; gh pr create --web"
     home = "!gh repo view --web"
 
     bf = "!git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)"
