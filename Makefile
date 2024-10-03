@@ -70,6 +70,10 @@ minimal: brew dotfiles python ## install minimal setup
 util: brew ## install utilities
 	@sh ./install/util.sh
 
+.PHONY: qmk
+qmk: brew ## install qmk dev chain
+	@sh ./install/qmk.sh
+
 .PHONY: python
 python: brew ## install Python3 toolchain
 	@sh ./install/python.sh

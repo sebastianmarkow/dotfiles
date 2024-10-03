@@ -12,6 +12,6 @@ cp -r ./ "${QMK_DIR}/keyboards/mnk40"
 
 pushd "${QMK_DIR}" || exit
 
-./util/docker_build.sh mnk40:sebastianmarkow
+qmk compile --keyboard mnk40 --keymap sebastianmarkow
 
 popd || exit
