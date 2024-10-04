@@ -30,19 +30,19 @@ enum custom_keycodes {
 };
 
 enum combos {
-    GESC_Q__GRV,
-    BSPC_RBRC__BSLS,
-    NUM_BSPC_SYM_SPC__ESC,
+    GESC_AND_Q__GRV,
+    BSPC_AND_RBRC__BSLS,
+    SPC_AND_SYM_BSPC__ESC,
 };
 
-const uint16_t PROGMEM gesc_q_combo[] = {QK_GESC, KC_Q, COMBO_END};
-const uint16_t PROGMEM bspc_rbcrc_combo[] = {KC_BSPC, KC_RBRC, COMBO_END};
-const uint16_t PROGMEM num_bspc_sym_spc_combo[] = {KC_SPC, SYM_BSPC, COMBO_END};
+const uint16_t PROGMEM gesc_and_q_combo[] = {QK_GESC, KC_Q, COMBO_END};
+const uint16_t PROGMEM bspc_and_rbcrc_combo[] = {KC_BSPC, KC_RBRC, COMBO_END};
+const uint16_t PROGMEM spc_and_sym_bspc_combo[] = {KC_SPC, SYM_BSPC, COMBO_END};
 
 combo_t key_combos[] = {
-    [GESC_Q__GRV] = COMBO(gesc_q_combo, KC_GRV),
-    [BSPC_RBRC__BSLS] = COMBO(bspc_rbcrc_combo, KC_BSLS),
-    [NUM_BSPC_SYM_SPC__ESC] = COMBO(num_bspc_sym_spc_combo, KC_ESC),
+    [GESC_AND_Q__GRV] = COMBO(gesc_and_q_combo, KC_GRV),
+    [BSPC_AND_RBRC__BSLS] = COMBO(bspc_and_rbcrc_combo, KC_BSLS),
+    [SPC_AND_SYM_BSPC__ESC] = COMBO(spc_and_sym_bspc_combo, KC_ESC),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
