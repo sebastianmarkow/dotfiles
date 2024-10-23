@@ -150,7 +150,7 @@
 
     home = "!gh repo view --web"
 
-    bf = "!git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)"
+    bf = "!git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | sk)"
 
 [url "git@github.com:"]
     insteadOf = "gh:"

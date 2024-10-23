@@ -12,9 +12,9 @@ function tmux --description 'Attach to tmux session'
                     end
                     return 0
                 case '*'
-                    echo -e (string join "\n" $sessions) | fzf --header="Choose tmux session" | read -l fzf_last_select
-                    if [ $fzf_last_select ]
-                        set -l session (echo $fzf_last_select | cut -f 1 -d " ")
+                    echo -e (string join "\n" $sessions) | sk --print0 --tac --no-sort --header="Choose tmux session" | read -z last_select
+                    if [ $last_select ]
+                        set -l session (echo $last_select | cut -f 1 -d " ")
                         if [ $TMUX ]
                             tmux switch-client -t $session
                         else

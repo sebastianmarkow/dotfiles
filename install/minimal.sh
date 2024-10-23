@@ -23,7 +23,6 @@ FORMULAS=(
     fd # find replacement
     findutils
     fish
-    fzf
     gawk
     gh
     ghq
@@ -53,6 +52,7 @@ FORMULAS=(
     ripgrep
     rsync
     since
+    sk
     ssh-copy-id
     starship
     tcpdump

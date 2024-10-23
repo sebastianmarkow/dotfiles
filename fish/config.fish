@@ -26,16 +26,12 @@ set -x LC_MESSAGES 'en_US.UTF-8'
 set -x LC_COLLATE 'C'
 
 # Env
-set -x FZF_DEFAULT_OPTS '
-  --color=fg:#908caa,bg:#232136,hl:#ea9a97
-  --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-  --color=border:#44415a,header:#3e8fb0,gutter:#232136
-  --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
-  --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+set -x SKIM_DEFAULT_OPTIONS '
+  --color=fg:#908caa,bg:#232136,hl:#ea9a97,fg+:#e0def4,bg+:#393552,hl+:#ea9a97,border:#44415a,header:#3e8fb0,gutter:#232136,spinner:#f6c177,info:#9ccfd8,separator:#44415a,pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
   --inline-info
   --tiebreak=end,length
   --bind=shift-tab:toggle-down,tab:toggle-up'
-set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
+set -x SKIM_DEFAULT_COMMAND 'rg --files --color never'
 set -x HOMEBREW_NO_ANALYTICS 1
 set -x HOMEBREW_NO_EMOJI 1
 set -x HOMEBREW_NO_ENV_HINTS 1
@@ -74,6 +70,7 @@ abbr --add yt 'yt-dlp'
 # Aliases
 alias ag 'rg'
 alias compare 'diff -rq'
+alias fzf 'sk'
 alias gitroot 'test -n (git rev-parse --show-cdup); and cd (git rev-parse --show-cdup)'
 alias ktc 'kubectl top pods -A | sort --reverse --key 3 --numeric | head -25'
 alias ktm 'kubectl top pods -A | sort --reverse --key 4 --numeric | head -25'
@@ -82,7 +79,7 @@ alias lower 'tr A-Z a-z'
 alias map 'xargs -n1'
 alias near 'rg -C 10'
 alias neogit 'nvim +Neogit +bd1'
-alias repo 'fzf_repo'
+alias repo 'sk_repo'
 alias ssh 'TERM=xterm-color command ssh'
 alias tree 'command tree -C --dirsfirst | less -FRX'
 alias treed 'command tree -C -d | less -FRX'

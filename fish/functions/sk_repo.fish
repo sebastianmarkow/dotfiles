@@ -1,16 +1,16 @@
-function fzf_repo --description 'Go to repository'
+function sk_repo --description 'Go to repository'
     if not type ghq >/dev/null 2>&1
         echo 'repo: error ghq not installed'
         exit 1
-    else if not type fzf >/dev/null 2>&1
-        echo 'repo: error fzf not installed'
+    else if not type sk >/dev/null 2>&1
+        echo 'repo: error sk not installed'
         exit 1
     end
     switch (count $argv)
         case 0
-            ghq list | fzf --header="Go to repository" --tiebreak=end,length | read -l fzf_last_select
-            if [ $fzf_last_select ]
-                cd (ghq list -e -p $fzf_last_select)
+            ghq list | sk --print0 --no-sort --tac --header="Go to repository" --tiebreak=end,length | read -z last_select
+            if [ $last_select ]
+                cd (ghq list -e -p $last_select)
             end
         case 1
             cd (ghq list -e -p $argv[1])

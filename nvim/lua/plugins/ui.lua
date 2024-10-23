@@ -97,6 +97,9 @@ return {
           follow_current_file = { enabled = true, leave_dirs_open = true },
           group_empty_dirs = true,
         },
+        buffers = {
+          show_unloaded = true,
+        },
         default_component_configs = {
           indent = {
             indent_size = 2,
