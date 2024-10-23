@@ -68,6 +68,7 @@ abbr --add vim 'nvim'
 abbr --add yt 'yt-dlp'
 
 # Aliases
+alias h 'sk_history'
 alias ag 'rg'
 alias compare 'diff -rq'
 alias fzf 'sk'
