@@ -1,14 +1,15 @@
+
+[general]
 import = [
     "~/.config/alacritty/colors/rose-pine-moon.toml",
     "~/.config/alacritty/keybindings.toml",
 ]
-
 live_config_reload = true
 
 [env]
 TERM = "alacritty"
 
-[shell]
+[terminal.shell]
 args    = ["new-session", "-A", "-s", "main"]
 program = "/opt/homebrew/bin/tmux"
 
@@ -36,8 +37,8 @@ hide_when_typing = true
 [window]
 decorations       = "none"
 dynamic_padding   = false
-resize_increments = true
 option_as_alt     = "Onlyleft"
+resize_increments = true
 
 [window.dimensions]
 columns = 160
@@ -52,15 +53,15 @@ save_to_clipboard     = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>[]\t"
 
 [[hints.enabled]]
-command = "open"
-hyperlinks = true
+command         = "open"
+hyperlinks      = true
 post_processing = true
-regex = "(mailto:|https:|http:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+regex           = "(mailto:|https:|http:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
 
 [hints.enabled.binding]
-key = "U"
+key  = "U"
 mods = "Control|Shift"
 
 [hints.enabled.mouse]
 enabled = true
-mods = "None"
+mods    = "None"
