@@ -3,7 +3,7 @@ function sk_history --description 'Filter history interactively'
         echo 'error: sk not found'
         exit 1
     end
-    history -z | sk --read0 --tac --no-sort --tiebreak=index --header="Select history" -q (commandline -b) | read -z last_select
+    history -z | sk --read0 --tac --no-sort --exact --tiebreak=index,begin --header="Select history" -q (commandline -b) | read -z last_select
     if [ $last_select ]
         commandline -rb $last_select
     end

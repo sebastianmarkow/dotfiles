@@ -8,7 +8,7 @@ function sk_repo --description 'Go to repository'
     end
     switch (count $argv)
         case 0
-            ghq list | sk --print0 --no-sort --tac --header="Go to repository" --tiebreak=end,length | read -z last_select
+            ghq list | sk --print0 --header="Go to repository" --exact --tiebreak=end,length | read -z last_select
             if [ $last_select ]
                 cd (ghq list -e -p $last_select)
             end
