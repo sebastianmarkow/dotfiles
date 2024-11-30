@@ -13,7 +13,7 @@ return {
       'saadparwaiz1/cmp_luasnip',
     },
     version = 'v2.*',
-    event = { 'InsertEnter', 'LspAttach', 'CmdlineEnter' },
+    event = { 'VeryLazy', 'LspAttach' },
     config = function()
       local cmp = require('cmp')
       local luasnip = require('luasnip')

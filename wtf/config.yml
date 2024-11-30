@@ -25,10 +25,10 @@ wtf:
       cmd: "brew"
       enabled: true
       position:
-        top: 4
+        top: 3
         left: 0
         width: 1
-        height: 2
+        height: 3
       type: cmdrunner
     digitalclock:
       title: "Time"
@@ -44,19 +44,6 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 1s
-    prettyweather:
-      title: Weather
-      enabled: true
-      city: "Bochum"
-      position:
-          top: 3
-          left: 0
-          height: 1
-          width: 1
-      refreshInterval: 5m
-      unit: "m"
-      view: 0
-      language: "en"
     github:
       title: Github
       enabled: true
@@ -105,13 +92,13 @@ wtf:
         width: 3
       refreshInterval: 1h
       type: feedreader
-    feed_reddit_mtg:
-      title: r/magictcg
+    feed_reddit_finanzen:
+      title: r/finanzen
       enabled: true
       showSource: false
       showPublishDate: false
       feeds:
-      - https://www.reddit.com/r/magictcg/top.rss?=day
+      - https://www.reddit.com/r/finanzen/top.rss?=day
       feedLimit: 10
       position:
         top: 4
