@@ -6,8 +6,6 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
     buo/cask-upgrade
-    homebrew/cask
-    homebrew/cask-fonts
 )
 
 FORMULAS=(
@@ -70,8 +68,8 @@ FORMULAS=(
 CASKS=(
     1password-cli
     alacritty
+    font-jetbrains-mono-nerd-font
     hammerspoon
-    homebrew/cask-fonts/font-jetbrains-mono-nerd-font
 )
 
 h1 "minimal"

@@ -11,7 +11,7 @@ set -x PYENV_ROOT $HOME/.pyenv
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
-set -x PATH /opt/homebrew/bin /usr/local/bin /usr/local/sbin $HOME/Applications/bin $GOBIN $PATH
+set -x PATH /opt/homebrew/bin $GOBIN $PATH
 
 # Base
 set -x EDITOR 'nvim'
@@ -93,13 +93,17 @@ alias yt2m4a 'yt-dlp --extract-audio --audio-format m4a --audio-quality 0'
 alias yt2mp3 'yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 
 # Fisher
-set -g fisher_path $XDG_DATA_HOME/fisher_plugins
-set -p fish_function_path fish_function_path[1] $fisher_path/functions
-set -p fish_complete_path fish_complete_path[1] $fisher_path/completions
-for file in $fisher_path/conf.d/*.fish
-  builtin source $file 2>/dev/null
-end
+#set -g fisher_path $XDG_DATA_HOME/fisher_plugins
+#set -p fish_function_path fish_function_path[1] $fisher_path/functions
+#set -p fish_complete_path fish_complete_path[1] $fisher_path/completions
+#for file in $fisher_path/conf.d/*.fish
+#  builtin source $file 2>/dev/null
+#end
 
 # Fish
-fish_config theme choose "Rosé Pine Moon"
+#fish_config theme choose "Rosé Pine Moon"
 fish_user_key_bindings
+fish_vi_key_bindings
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/sklatt/.cache/lm-studio/bin

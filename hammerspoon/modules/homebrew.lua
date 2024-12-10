@@ -13,7 +13,7 @@ end
 
 function Homebrew:loadOutdated()
   self.items = {}
-  local pipe = io.popen('/usr/local/bin/brew outdated -v | grep -v pinned | cut -f 1 -d " "', 'r')
+  local pipe = io.popen('/opt/homebrew/bin/brew outdated -v | grep -v pinned | cut -f 1 -d " "', 'r')
   for item in pipe:lines() do
     table.insert(self.items, item)
   end
@@ -40,7 +40,7 @@ function Homebrew:getMenu()
       fn = function()
         self.disabled = true
         hs.task
-          .new('/usr/local/bin/brew', function()
+          .new('/opt/homebrew/bin/brew', function()
             Homebrew:loadOutdated()
           end, table.merge({ 'upgrade' }, self.items))
           :start()
@@ -55,7 +55,7 @@ function Homebrew:getMenu()
       fn = function()
         self.disabled = true
         hs.task
-          .new('/usr/local/bin/brew', function()
+          .new('/opt/homebrew/bin/brew', function()
             Homebrew:loadOutdated()
           end, { 'upgrade', item })
           :start()
@@ -70,7 +70,7 @@ end
 function Homebrew:update()
   print('Updating Homebrew')
   hs.task
-    .new('/usr/local/bin/brew', function()
+    .new('/opt/homebrew/bin/brew', function()
       Homebrew:loadOutdated()
     end, { 'update' })
     :start()

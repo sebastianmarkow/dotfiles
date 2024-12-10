@@ -14,8 +14,6 @@ function upgrade --description "Upgrade system"
 
     brew cu --yes --cleanup --no-brew-update
 
-    pip-review --auto
-
     command -s gcloud >/dev/null; and gcloud components update --quiet
 
     fisher update

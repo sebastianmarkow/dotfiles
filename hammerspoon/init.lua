@@ -21,3 +21,4 @@ end
 require('./modules/caffeinate')
 require('./modules/grid')
 require('./modules/ms-teams')
+require('./modules/homebrew')
