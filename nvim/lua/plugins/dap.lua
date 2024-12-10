@@ -1,28 +1,62 @@
 return {
-    {
-        "mfussenegger/nvim-dap",
-        event = "BufRead",
+  {
+    'mfussenegger/nvim-dap',
+    dependencies = {
+      {
+        'rcarriga/nvim-dap-ui',
         dependencies = {
-            "rcarriga/nvim-dap-ui",
-            "nvim-neotest/nvim-nio",
-            "theHamsta/nvim-dap-virtual-text",
-            "leoluz/nvim-dap-go",
-            "mfussenegger/nvim-dap-python",
-            "folke/neodev.nvim",
-            "nvim-treesitter/nvim-treesitter",
+          'nvim-neotest/nvim-nio',
+          'theHamsta/nvim-dap-virtual-text',
         },
-        config = function()
-            local dap_ui = require("dapui")
-            dap_ui.setup()
-
-            local dap_vt = require("nvim-dap-virtual-text")
-            dap_vt.setup({})
-
-            local dap_go = require("dap-go")
-            dap_go.setup()
-
-            local dap_python = require("dap-python")
-            dap_python.setup()
-        end,
+        keys = {
+          { '<leader>du', function() require('dapui').toggle({}) end, desc = 'Dap UI' },
+        },
+      },
     },
+    priority = 500,
+    ft = { 'go', 'python' },
+    keys = {
+      { '<leader>d', '', desc = '+Debug' },
+      { '<leader>ds', function() require('dap').continue() end, desc = 'Run' },
+      { '<leader>dK', function() require('dap.ui.widgets').hover() end, desc = 'Widgets' },
+      { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'Toggle Breakpoint' },
+      { '<leader>dc', function() require('dap').run_to_cursor() end, desc = 'Continue' },
+      { '<leader>dt', function() require('dap').terminate() end, desc = 'Terminate' },
+    },
+    opts = {
+      nvim_dap_virtual_text = {
+        commented = true,
+      },
+    },
+    config = function(opts)
+      local dap = require('dap')
+      local dapui = require('dapui')
+
+      dapui.setup()
+
+      dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open({}) end
+      dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close({}) end
+      dap.listeners.before.event_exited['dapui_config'] = function() dapui.close({}) end
+
+      require('nvim-dap-virtual-text').setup(opts.nvim_dap_virtual_text)
+    end,
+  },
+  {
+    'leoluz/nvim-dap-go',
+    priority = 100,
+    ft = { 'go' },
+    config = true,
+  },
+  {
+    'mfussenegger/nvim-dap-python',
+    dependencies = {
+      'williamboman/mason.nvim',
+    },
+    priority = 100,
+    ft = { 'python' },
+    config = function()
+      local debugpy_path = require('mason-registry').get_package('debugpy'):get_install_path()
+      require('dap-python').setup(debugpy_path .. '/venv/bin/python')
+    end,
+  },
 }

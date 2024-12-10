@@ -11,6 +11,7 @@ FILES=\
 	hushlogin	\
 	mackup		\
 	mackup.cfg	\
+	rpignore	\
 	starship.toml	\
 	tmux.conf	\
 	wgetrc
@@ -21,19 +22,21 @@ MAKEDIRS=\
 	$(XDG_DATA_HOME)/nvim/undo
 
 CONFIGS=\
-	alacritty \
-	fish	\
-	hack	\
-	k9s 	\
-	lf	\
-	nvim
+	alacritty	\
+	bat		\
+	fish		\
+	lazygit		\
+	nvim		\
+	tmux		\
+	wtf		\
+	yazi
 
 .DEFAULT_GOAL: help
 .PHONY: help
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-dotfiles: $(MAKEDIRS) $(FILES) $(DIRS) $(CONFIGS) terminfo ## symlink dotfiles
+dotfiles: $(MAKEDIRS) $(FILES) $(DIRS) $(CONFIGS) ## symlink dotfiles
 
 base: minimal util devops ## install base setup
 
@@ -55,10 +58,6 @@ $(CONFIGS):
 	@rm -rf $(XDG_CONFIG_HOME)/$@
 	@ln -s $(PWD)/$@ $(XDG_CONFIG_HOME)/$@
 
-.PHONY: terminfo
-terminfo: ## install terminfo
-	@tic -x -o ~/.terminfo ./terminfo
-
 .PHONY: brew
 brew: ## install Homebrew
 	@sh ./install/brew.sh
@@ -70,6 +69,10 @@ minimal: brew dotfiles python ## install minimal setup
 .PHONY: util
 util: brew ## install utilities
 	@sh ./install/util.sh
+
+.PHONY: qmk
+qmk: brew ## install qmk dev chain
+	@sh ./install/qmk.sh
 
 .PHONY: python
 python: brew ## install Python3 toolchain

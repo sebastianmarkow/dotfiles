@@ -6,26 +6,15 @@ source "${BASH_SOURCE%/*}/lib.sh"
 
 TAPS=(
     buo/cask-upgrade
-    homebrew/cask
-    homebrew/cask-fonts
-)
-
-HEAD=(
-    neovim
-)
-
-EGGS=(
-    proselint
-    pynvim
-    vim-vint
-    yamllint
 )
 
 FORMULAS=(
     bash
+    btop
     colima
     coreutils
     curl
+    delta
     diffutils
     direnv
     docker
@@ -34,7 +23,6 @@ FORMULAS=(
     fish
     fzf
     gawk
-    gh
     gh
     ghq
     git
@@ -46,17 +34,17 @@ FORMULAS=(
     gpg2
     grep
     grpcurl
-    htop
     iftop
     jq
-    jump
+    lazygit
     less
-    lf
     make
     massren
     moreutils
     mtr
+    neovim
     nmap
+    nvtop
     pidof
     pstree
     rename
@@ -73,15 +61,15 @@ FORMULAS=(
     wrk
     xo/xo/usql
     xz
+    yazi
     yq
 )
 
 CASKS=(
     1password-cli
+    alacritty
+    font-jetbrains-mono-nerd-font
     hammerspoon
-    homebrew/cask-fonts/font-jetbrains-mono-nerd-font
-    homebrew/cask-fonts/font-maple
-    wezterm
 )
 
 h1 "minimal"
@@ -95,7 +83,3 @@ h2 "pip modules"
 for e in "${EGGS[@]}"; do pip_install "$e"; done
 h2 "brew formulas (HEAD)"
 for h in "${HEAD[@]}"; do brew_install "$h" "--HEAD"; done
-h2 "replace icons"
-task "Replacing wezterm icon"
-cp $HOME/.config/wezterm/icons/wezterm.icns /Applications/WezTerm.app/Contents/Resources/terminal.icns
-killall Dock

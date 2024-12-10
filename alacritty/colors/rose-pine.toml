@@ -2,74 +2,73 @@
 # https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
 
 [colors.primary]
-foreground = "#e0def4"
-background = "#191724"
-dim_foreground = "#908caa"
+background        = "#191724"
 bright_foreground = "#e0def4"
+dim_foreground    = "#908caa"
+foreground        = "#e0def4"
 
 [colors.cursor]
-text = "#e0def4"
 cursor = "#524f67"
+text   = "#e0def4"
 
 [colors.vi_mode_cursor]
-text = "#e0def4"
 cursor = "#524f67"
+text   = "#e0def4"
 
 [colors.search.matches]
-foreground = "#908caa"
 background = "#26233a"
+foreground = "#908caa"
 
 [colors.search.focused_match]
-foreground = "#191724"
 background = "#ebbcba"
+foreground = "#191724"
 
 [colors.hints.start]
-foreground = "#908caa"
 background = "#1f1d2e"
+foreground = "#908caa"
 
 [colors.hints.end]
-foreground = "#6e6a86"
 background = "#1f1d2e"
+foreground = "#6e6a86"
 
 [colors.line_indicator]
-foreground = "None"
 background = "None"
+foreground = "None"
 
 [colors.footer_bar]
-foreground = "#e0def4"
 background = "#1f1d2e"
+foreground = "#e0def4"
 
 [colors.selection]
-text = "#e0def4"
 background = "#403d52"
+text       = "#e0def4"
 
 [colors.normal]
-black = "#26233a"
-red = "#eb6f92"
-green = "#31748f"
-yellow = "#f6c177"
-blue = "#9ccfd8"
+black   = "#26233a"
+blue    = "#9ccfd8"
+cyan    = "#ebbcba"
+green   = "#31748f"
 magenta = "#c4a7e7"
-cyan = "#ebbcba"
-white = "#e0def4"
+red     = "#eb6f92"
+white   = "#e0def4"
+yellow  = "#f6c177"
 
 [colors.bright]
-black = "#6e6a86"
-red = "#eb6f92"
-green = "#31748f"
-yellow = "#f6c177"
-blue = "#9ccfd8"
+black   = "#6e6a86"
+blue    = "#9ccfd8"
+cyan    = "#ebbcba"
+green   = "#31748f"
 magenta = "#c4a7e7"
-cyan = "#ebbcba"
-white = "#e0def4"
+red     = "#eb6f92"
+white   = "#e0def4"
+yellow  = "#f6c177"
 
 [colors.dim]
-black = "#6e6a86"
-red = "#eb6f92"
-green = "#31748f"
-yellow = "#f6c177"
-blue = "#9ccfd8"
+black   = "#6e6a86"
+blue    = "#9ccfd8"
+cyan    = "#ebbcba"
+green   = "#31748f"
 magenta = "#c4a7e7"
-cyan = "#ebbcba"
-white = "#e0def4"
-
+red     = "#eb6f92"
+white   = "#e0def4"
+yellow  = "#f6c177"

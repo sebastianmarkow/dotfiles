@@ -1,0 +1,14 @@
+node_modules/
+go/pkg/
+tmp/
+
+*vendor
+*.lock
+*.git/
+
+*.tmp*
+*.log
+*.js
+*.css
+*.svg
+*.pdf

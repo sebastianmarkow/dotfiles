@@ -8,8 +8,8 @@ $directory\
 )\
 [](fg:overlay bg:hl_low)\
 (\
-    $golang\
     $python\
+    $golang\
 )\
 [](fg:hl_low bg:base)\
 $line_break\
@@ -17,140 +17,139 @@ $character\
 """
 
 right_format = """
-
-( $kubernetes)\
-( $gcloud)\
-( $cmd_duration)\
-( $status)\
+[](bg:base)\
+($kubernetes)\
+($gcloud)\
+($cmd_duration)\
+($status)\
 """
 
-add_newline = true
+add_newline = false
 
 palette = 'rose-pine-moon'
 
 [palettes.rose-pine-moon]
-base = '#232136'
-surface = '#2a273f'
-overlay = '#393552'
-muted = '#6e6a86'
-subtle = '#908caa'
-text = '#e0def4'
-love = '#eb6f92'
-gold = '#f6c177'
-rose = '#ea9a97'
-pine = '#3e8fb0'
-foam = '#9ccfd8'
-iris = '#c4a7e7'
-hl_low = '#2a283e'
-hl_med = '#44415a'
+base    = '#232136'
+foam    = '#9ccfd8'
+gold    = '#f6c177'
 hl_high = '#56526e'
+hl_low  = '#2a283e'
+hl_med  = '#44415a'
+iris    = '#c4a7e7'
+love    = '#eb6f92'
+muted   = '#6e6a86'
+overlay = '#393552'
+pine    = '#3e8fb0'
+rose    = '#ea9a97'
+subtle  = '#908caa'
+surface = '#2a273f'
+text    = '#e0def4'
 
 [line_break]
-disable = false
+disabled = false
 
 [character]
-success_symbol = '[ ](bold fg:iris)'
-error_symbol = '[ ](bold fg:love)'
-vimcmd_symbol = '[ NORMAL ](bold fg:base bg:iris)[](inverted fg:base bg:iris)'
+disabled                  = false
+error_symbol              = '[ ](bold fg:love)'
+success_symbol            = '[ ](bold fg:iris)'
 vimcmd_replace_one_symbol = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
-vimcmd_replace_symbol = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
-vimcmd_visual_symbol = '[ VISUAL ](bold fg:base bg:rose)[](inverted fg:base bg:rose)'
-disabled = false
+vimcmd_replace_symbol     = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
+vimcmd_symbol             = '[ NORMAL ](bold fg:base bg:iris)[](inverted fg:base bg:iris)'
+vimcmd_visual_symbol      = '[ VISUAL ](bold fg:base bg:rose)[](inverted fg:base bg:rose)'
 
 [directory]
-format = '([ $path ]($style))'
-style = 'fg:base bg:iris'
-truncation_symbol = '…'
-truncation_length = 3
-truncate_to_repo = true
-disabled = false
+disabled          = false
+format            = '([ $path ]($style))'
+style             = 'fg:base bg:iris'
+truncate_to_repo  = true
+truncation_length = 4
+truncation_symbol = '…/'
 
 [git_branch]
-format = '([ $symbol$branch(:$remote_branch)]($style))'
-style = 'fg:iris bg:overlay'
-symbol = ' '
+disabled          = false
+format            = '([ $symbol$branch(:$remote_branch)]($style))'
+style             = 'fg:iris bg:overlay'
+symbol            = ' '
 truncation_length = 32
 truncation_symbol = '…'
-disabled = false
 
 [git_state]
-format = '([ $state($progress_current/$progress_total) ]($style))'
-style = 'fg:iris bg:overlay'
 disabled = false
-
+format   = '([ $state($progress_current/$progress_total) ]($style))'
+style    = 'fg:iris bg:overlay'
 
 [git_status]
-format = '([$ahead_behind ($conflicted$stashed$modified$renamed$deleted$staged$untracked )]($style))'
-style = 'fg:iris bg:overlay'
-up_to_date = ''
-ahead = '  ${count}'
-diverged = '  ${ahead_count}  ${behind_count}'
-behind = '  ${count}'
+ahead      = '  ${count}'
+behind     = '  ${count}'
 conflicted = '  ${count}'
-untracked = ' 󰋗 ${count}'
-stashed = '  ${count}'
-modified = ' 󰛿 ${count}'
-staged = ' 󰐗 ${count}'
-renamed = ' 󱍸 ${count}'
-deleted = ' 󰍶 ${count}'
-disabled = false
+deleted    = ' 󰍶 ${count}'
+disabled   = false
+diverged   = '  ${ahead_count}  ${behind_count}'
+format     = '([$ahead_behind ($conflicted$stashed$modified$renamed$deleted$staged$untracked )]($style))'
+modified   = ' 󰛿 ${count}'
+renamed    = ' 󱍸 ${count}'
+staged     = ' 󰐗 ${count}'
+stashed    = '  ${count}'
+style      = 'fg:iris bg:overlay'
+untracked  = ' 󰋗 ${count}'
+up_to_date = ''
 
 [golang]
 format = '([ $symbol($version)(\[$mod_version\]) ]($style))'
-style = 'fg:muted bg:hl_low'
+style  = 'fg:muted bg:hl_low'
 symbol = '󰟓 '
 
 [python]
-format = '([ $symbol($version)( \[$virtualenv\]) ]($style))'
-style = 'fg:muted bg:hl_low'
-symbol = ' '
+format        = '([ $symbol($version)( \[$virtualenv\]) ]($style))'
 python_binary = ['python3']
+style         = 'fg:muted bg:hl_low'
+symbol        = ' '
 
 [gcloud]
-format = '[](inverted $style)[$symbol($account\[$project\])]($style)[](inverted $style)'
-style = 'fg:base bg:muted'
-symbol = '󱇶 '
 disabled = true
+format   = '[](fg:prev_bg $style inverted)[$symbol($account\[$project\]) ]'
+style    = 'fg:base bg:muted'
+symbol   = '󱇶 '
 
 [kubernetes]
-format = '[](inverted $style)[$symbol($context)]($style)[](inverted $style)'
-style = 'fg:base bg:muted italic'
-symbol = '󱃾 '
 disabled = false
+format   = '[](fg:prev_bg $style inverted)[$symbol($context) ]($style)'
+style    = 'fg:base bg:muted italic'
+symbol   = '󱃾 '
 
 [[kubernetes.contexts]]
 context_pattern = ".*(prod|02).*"
-style = 'fg:base bg:rose italic'
+style           = 'fg:base bg:rose italic'
 
 [[kubernetes.contexts]]
 context_pattern = ".*(pp|01).*"
-style = 'fg:base bg:gold italic'
+style           = 'fg:base bg:gold italic'
 
 [[kubernetes.contexts]]
 context_pattern = ".*(dev|00).*"
-style = 'fg:base bg:pine italic'
+style           = 'fg:base bg:pine italic'
 
 [status]
-format = '[](inverted $style)[$symbol $common_meaning$signal_name$maybe_int]($style)[](inverted $style)'
-style = 'fg:base bg:love italic'
-map_symbol = true
-symbol = '󱇎'
-success_symbol = ''
+disabled              = false
+format                = '[](fg:prev_bg $style inverted)[$symbol $common_meaning$signal_name$maybe_int ]($style)'
+map_symbol            = true
 not_executable_symbol = ''
-not_found_symbol = '󰩋'
-sigint_symbol = '󰹆'
-signal_symbol = '󱐋'
-disabled = false
+not_found_symbol      = '󰩋'
+sigint_symbol         = '󰹆'
+signal_symbol         = '󱐋'
+style                 = 'fg:base bg:love italic'
+success_symbol        = ''
+symbol                = '󱇎'
 
 [cmd_duration]
-format = '[](inverted $style)[󱎫 $duration]($style)[](inverted $style)'
-style = 'fg:base bg:rose italic'
-min_time = 5000
 disabled = false
+format   = '[](fg:prev_bg $style inverted)[󱎫 $duration ]($style)'
+min_time = 5000
+style    = 'fg:base bg:rose italic'
 
 [time]
-format = '[](inverted $style)[󱑂 $time UTC ]($style)'
-style = 'fg:base bg:hl_high italic'
-time_format = '%T'
+disabled        = false
+format          = '[](inverted $style)[󱑂 $time UTC ]($style)'
+style           = 'fg:base bg:hl_med italic'
+time_format     = '%T'
 utc_time_offset = '0'
-disabled = false

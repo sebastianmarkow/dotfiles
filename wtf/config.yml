@@ -1,0 +1,124 @@
+wtf:
+  colors:
+    background: "#232136"
+    border:
+      focusable: "#c4a7e7"
+      focused: "#eb6f92"
+      normal: "#6e6a86"
+    rows:
+      even: "#e0def4"
+      odd: "#908caa"
+    checked: "#3e8fb0"
+    text: "#e0def4"
+    title: "#c4a7e7"
+    subheading: "#f6c177"
+    label: "#eb6f92"
+  grid:
+    columns: [30,30,30,30,30]
+    rows:    [12,12,12,12,12,8]
+  exitMessage:
+    display: false
+  mods:
+    cmd_brew_outdated:
+      title: Brew outdated
+      args: ["outdated", "--formula"]
+      cmd: "brew"
+      enabled: true
+      position:
+        top: 3
+        left: 0
+        width: 1
+        height: 3
+      type: cmdrunner
+    digitalclock:
+      title: "Time"
+      withDatePrefix: False
+      dateFormat: "Monday 02.01.2006"
+      color: "#e0def4"
+      enabled: true
+      font: digitalfont
+      hourFormat: 24
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 1s
+    github:
+      title: Github
+      enabled: true
+      enableStatus: true
+      showStats: false
+      position:
+        top: 0
+        left: 0
+        height: 2
+        width: 2
+      refreshInterval: 5m
+      repositories:
+        - "metro-digital-inner-source/dasc-infra"
+      username: "sebastianmarkow"
+      customQueries:
+        othersPRs:
+          title: "Assigned Reviews"
+          filter: "is:open is:pr assignee:sebastianmarkow -author:*renovate* archived:false"
+    feed_hackernews:
+      title: Hackernews
+      enabled: true
+      showSource: false
+      showPublishDate: false
+      feeds:
+      - "http://hnapp.com/rss?q=score%3E75%20-type%3Ajob%20comments%3E10%20-host%3Agithub.com"
+      feedLimit: 22
+      position:
+        top: 0
+        left: 2
+        height: 2
+        width: 3
+      refreshInterval: 1h
+      type: feedreader
+    feed_reddit_de:
+      title: r/de
+      enabled: true
+      showSource: false
+      showPublishDate: false
+      feeds:
+      - https://www.reddit.com/r/de/top.rss?t=day
+      feedLimit: 10
+      position:
+        top: 3
+        left: 2
+        height: 1
+        width: 3
+      refreshInterval: 1h
+      type: feedreader
+    feed_reddit_finanzen:
+      title: r/finanzen
+      enabled: true
+      showSource: false
+      showPublishDate: false
+      feeds:
+      - https://www.reddit.com/r/finanzen/top.rss?=day
+      feedLimit: 10
+      position:
+        top: 4
+        left: 2
+        height: 1
+        width: 3
+      refreshInterval: 1h
+      type: feedreader
+    feed_reddit_news:
+      title: r/worldnews
+      enabled: true
+      showSource: false
+      showPublishDate: false
+      feeds:
+      - https://www.reddit.com/r/worldnews/top.rss?=day
+      feedLimit: 10
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 3
+      refreshInterval: 1h
+      type: feedreader

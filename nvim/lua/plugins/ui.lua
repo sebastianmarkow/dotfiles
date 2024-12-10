@@ -1,342 +1,373 @@
-local icons = require("config.icons")
+local icons = require('config.icons')
+
+local open_neotree_in_git_root = function()
+  local git_root = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n', '')
+  local dir_to_open
+
+  if vim.v.shell_error == 0 then
+    dir_to_open = git_root
+  else
+    dir_to_open = vim.fn.getcwd()
+  end
+  require('neo-tree.command').execute({ toggle = true, dir = dir_to_open, reveal = true })
+end
+
+-- NeoTree: Open NeoTree on VimEnter with empty buffer
+vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+  nested = true,
+  callback = function()
+    if vim.fn.argc() == 0 then
+      require('lazy').load({ plugins = { 'neo-tree.nvim' } })
+      open_neotree_in_git_root()
+    end
+  end,
+})
 
 return {
-    {
-        "rose-pine/neovim",
-        name = "rose-pine",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            local palette = require("rose-pine.palette")
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('rose-pine').setup({
+        variant = 'moon',
+        dim_inactive_windows = true,
+        enable = { terminal = true, legacy_highlights = false, migrations = true },
+        styles = { italic = false, bold = false, transparency = false },
+        highlight_groups = {
+          Comment = { italic = true },
+          Keyword = { italic = true },
+          Statement = { italic = true },
+          Visual = { bg = 'highlight_high' },
 
-            require("rose-pine").setup({
-                variant = "moon",
-                dim_inactive_windows = true,
-                 enable = {
-                    terminal = true,
-                    legacy_highlights = false,
-                    migrations = true,
-                },
-                styles = {
-                    italic = false,
-                    bold = true,
-                    transparency = false,
-                },
-                highlight_groups = {
-                    Comment = { italic = true },
-                    Keyword = { italic = true },
-                    Statement = { italic = true },
-                    Visual = { bg = palette.highlight_high },
-                    IlluminatedWordText = { bg = palette.highlight_mid },
-                    IlluminatedWordRead = { bg = palette.highlight_mid },
-                    IlluminatedWordWrite = { bg = palette.highlight_mid },
-                },
-            })
+          IndentLine = { fg = 'overlay', nocombine = true },
+          IndentLineCurrent = { fg = 'subtle', nocombine = true },
 
-            vim.cmd([[colorscheme rose-pine-moon]])
-        end,
-    },
-    {
-        "norcalli/nvim-colorizer.lua",
-        event = { "BufRead" },
-        ft = {
-            "lua",
-            "tmux",
-            "toml",
-            "yaml",
+          NeoTreeTabActive = { fg = 'base', bg = 'foam' },
+          NeoTreeTabSeparatorInactive = { fg = 'base', bg = 'base' },
+          NeoTreeTabSeparatorActive = { fg = 'foam', bg = 'base' },
         },
-        config = function()
-            require("colorizer").setup({
-                "lua",
-                "tmux",
-                "toml",
-                "yaml",
-                html = {
-                    mode = "foreground",
-                },
-            })
-        end,
+      })
+      vim.cmd('colorscheme rose-pine-moon')
+    end,
+  },
+  {
+    'hedyhli/outline.nvim',
+    cmd = { 'Outline', 'OutlineOpen' },
+    keys = { { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle outline' } },
+    config = true,
+  },
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = { 'nvim-lua/plenary.nvim', 'MunifTanjim/nui.nvim' },
+    cmd = 'Neotree',
+    keys = {
+      {
+        '<leader>e',
+        mode = 'n',
+        open_neotree_in_git_root,
+        desc = 'Open NeoTree explorer in git root dir',
+      },
     },
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "MunifTanjim/nui.nvim",
+    config = function()
+      require('neo-tree').setup({
+        close_if_last_window = true,
+        enable_diagnostics = true,
+        enable_git_status = true,
+        popup_border_style = 'rounded',
+        use_libuv_file_watcher = true,
+        source_selector = {
+          sources = { { source = 'filesystem' }, { source = 'git_status' }, { source = 'buffers' } },
+          winbar = true,
+          show_scrolled_off_parent_node = true,
+          content_layout = 'center',
+          tabs_layout = 'equal',
+          separator = { right = '', left = '' },
         },
-        cmd = "Neotree",
-        keys = {
+        sources = { 'filesystem', 'git_status', 'buffers' },
+        filesystem = {
+          filtered_items = {
+            visible = false,
+            hide_dotfiles = false,
+            hide_gitignored = true,
+            never_show = { '.DS_Store', 'thumbs.db' },
+          },
+          follow_current_file = { enabled = true, leave_dirs_open = true },
+          group_empty_dirs = true,
+        },
+        buffers = {
+          show_unloaded = true,
+        },
+        default_component_configs = {
+          indent = {
+            indent_size = 2,
+            padding = 1,
+            with_markers = true,
+            indent_marker = '│',
+            last_indent_marker = '└',
+            highlight = 'NeoTreeIndentMarker',
+            with_expanders = nil,
+            expander_collapsed = '',
+            expander_expanded = '',
+            expander_highlight = 'NeoTreeExpander',
+          },
+          icon = {
+            folder_closed = icons.neotree.folder_closed,
+            folder_open = icons.neotree.folder_open,
+            folder_empty = icons.neotree.folder_empty,
+            default = icons.neotree.default,
+            highlight = 'NeoTreeFileIcon',
+          },
+          modified = { symbol = icons.git.modified, highlight = 'NeoTreeModified' },
+          name = { trailing_slash = false, use_git_status_colors = true, highlight = 'NeoTreeFileName' },
+          git_status = {
+            symbols = {
+              added = icons.git.added,
+              modified = icons.git.modified,
+              deleted = icons.git.deleted,
+              renamed = icons.git.renamed,
+              untracked = icons.git.untracked,
+              ignored = icons.git.ignored,
+              unstaged = icons.git.unstaged,
+              staged = icons.git.staged,
+              conflict = icons.git.conflict,
+            },
+          },
+        },
+      })
+    end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+    },
+    event = 'VeryLazy',
+    opts = function()
+      local function window_number()
+        return string.format(' %d', vim.api.nvim_win_get_number(vim.api.nvim_get_current_win()))
+      end
+
+      local palette = require('rose-pine/palette')
+      local theme = require('lualine/themes/rose-pine')
+      theme.normal.a.bg = palette.iris
+      theme.normal.b.fg = palette.iris
+      theme.visual.a.bg = palette.rose
+      theme.visual.b.fg = palette.rose
+
+      theme.normal.c.fg = palette.subtle
+      theme.insert.c.fg = palette.subtle
+      theme.visual.c.fg = palette.subtle
+      theme.replace.c.fg = palette.subtle
+      theme.command.c.fg = palette.subtle
+      theme.inactive.c.fg = palette.subtle
+
+      local config = {
+        options = {
+          theme = theme,
+          section_separators = { right = '', left = '' },
+          component_separators = { right = '', left = '' },
+          globalstatus = true,
+          disabled_filetypes = { -- Filetypes to disable lualine for.
+            winbar = {
+              'Lazy',
+              'Outline',
+              'dap-repl',
+              'dapui_breakpoints',
+              'dapui_console',
+              'dapui_scopes',
+              'dapui_stacks',
+              'dapui_watches',
+              'git',
+              'gitcommit',
+              'help',
+              'neo-tree',
+              'quickfix',
+            },
+          },
+        },
+        extensions = {
+          'lazy',
+          'mason',
+          'neo-tree',
+          'nvim-dap-ui',
+          'quickfix',
+          'toggleterm',
+        },
+        sections = {
+          lualine_a = {
+            { 'mode', icon = '' },
+          },
+          lualine_b = {
+            { 'branch', icon = '' },
+            { 'diff', colored = true },
             {
-                "<leader>e",
-                mode = "n",
-                function()
-                    local git_root = vim.fn.system("git rev-parse --show-toplevel"):gsub("\n", "")
-                    local dir_to_open
-
-                    if vim.v.shell_error == 0 then
-                        dir_to_open = git_root
-                    else
-                        dir_to_open = vim.fn.getcwd()
-                    end
-
-                    require("neo-tree.command").execute({ toggle = true, dir = dir_to_open, reveal = true })
-                end,
-                desc = "Open NeoTree explorer in git root dir",
+              'diagnostics',
+              colored = true,
+              symbols = {
+                error = icons.diagnostics.error .. ' ',
+                warn = icons.diagnostics.warn .. ' ',
+                info = icons.diagnostics.info .. ' ',
+                hint = icons.diagnostics.hint .. ' ',
+              },
             },
+          },
+          lualine_c = {},
+          lualine_x = {
+            { 'filetype', icon_only = true },
+          },
+          lualine_y = {
+            { 'searchcount' },
+            { 'location' },
+          },
+          lualine_z = {},
         },
-        config = function()
-            require("neo-tree").setup({
-                close_if_last_window = true,
-                popup_border_style = "rounded",
-                enable_git_status = true,
-                enable_diagnostics = true,
-                filesystem = {
-                    filtered_items = {
-                        visible = false,
-                        hide_dotfiles = false,
-                        hide_gitignored = true,
-                        never_show = {
-                            ".DS_Store",
-                            "thumbs.db",
-                        },
-                    },
-                    follow_current_file = {
-                        enabled = true,
-                        leave_dirs_open = true,
-                    },
-                },
-                default_component_configs = {
-                    container = {
-                        enable_character_fade = true,
-                    },
-                    indent = {
-                        indent_size = 2,
-                        padding = 1,
-                        with_markers = true,
-                        indent_marker = "│",
-                        last_indent_marker = "└",
-                        highlight = "NeoTreeIndentMarker",
-                        with_expanders = nil,
-                        expander_collapsed = "",
-                        expander_expanded = "",
-                        expander_highlight = "NeoTreeExpander",
-                    },
-                    icon = {
-                        folder_closed = "󰉋",
-                        folder_open = "󰝰",
-                        folder_empty = "󰉖",
-                        default = "󰈔",
-                        highlight = "NeoTreeFileIcon",
-                    },
-                    modified = {
-                        symbol = "",
-                        highlight = "NeoTreeModified",
-                    },
-                    name = {
-                        trailing_slash = false,
-                        use_git_status_colors = true,
-                        highlight = "NeoTreeFileName",
-                    },
-                    git_status = {
-                        symbols = {
-                            added = icons.git.added,
-                            modified = icons.git.modified,
-                            deleted = icons.git.deleted,
-                            renamed = icons.git.renamed,
-                            untracked = icons.git.untracked,
-                            ignored = icons.git.ignored,
-                            unstaged = icons.git.unstaged,
-                            staged = icons.git.staged,
-                            conflict = icons.git.conflict,
-                        },
-                    },
-                },
-            })
-        end,
-    },
-    {
-        "rcarriga/nvim-notify",
-        config = function()
-            require("notify").setup()
-        end,
-    },
-    {
-        "lewis6991/satellite.nvim",
-        lazy = false,
-        config = function()
-            require("satellite").setup({
-                current_only = false,
-                winblend = 50,
-                zindex = 40,
-                excluded_filetypes = {},
-                width = 2,
-                handlers = {
-                    cursor = {
-                        enable = true,
-                        -- Supports any number of symbols
-                        symbols = { "⎺", "⎻", "⎼", "⎽" },
-                        -- symbols = { '⎻', '⎼' }
-                        -- Highlights:
-                        -- - SatelliteCursor (default links to NonText
-                    },
-                    search = {
-                        enable = true,
-                        -- Highlights:
-                        -- - SatelliteSearch (default links to Search)
-                        -- - SatelliteSearchCurrent (default links to SearchCurrent)
-                    },
-                    diagnostic = {
-                        enable = true,
-                        signs = { "-", "=", "≡" },
-                        min_severity = vim.diagnostic.severity.HINT,
-                        -- Highlights:
-                        -- - SatelliteDiagnosticError (default links to DiagnosticError)
-                        -- - SatelliteDiagnosticWarn (default links to DiagnosticWarn)
-                        -- - SatelliteDiagnosticInfo (default links to DiagnosticInfo)
-                        -- - SatelliteDiagnosticHint (default links to DiagnosticHint)
-                    },
-                    gitsigns = {
-                        enable = true,
-                        signs = { -- can only be a single character (multibyte is okay)
-                            add = "│",
-                            change = "│",
-                            delete = "-",
-                        },
-                        -- Highlights:
-                        -- SatelliteGitSignsAdd (default links to GitSignsAdd)
-                        -- SatelliteGitSignsChange (default links to GitSignsChange)
-                        -- SatelliteGitSignsDelete (default links to GitSignsDelete)
-                    },
-                    marks = {
-                        enable = false,
-                    },
-                    quickfix = {
-                        signs = { "-", "=", "≡" },
-                    },
-                },
-            })
-        end,
-    },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = { "BufRead" },
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
+        inactive_sections = {
+          lualine_a = {},
+          lualine_c = { { 'filename', file_status = true } },
+          lualine_x = { { window_number } },
         },
-        main = "ibl",
-        opts = {
-            indent = {
-                char = "┊",
-            },
-
-            scope = {
-                show_start = false,
-                show_end = false,
-            },
-            exclude = {
-                filetypes = {
-                    "",
-                    "neo-tree",
-                    "checkhealth",
-                    "gitcommit",
-                    "help",
-                    "help",
-                    "lazy",
-                    "lspinfo",
-                    "man",
-                    "mason",
-                    "terminal",
-                },
-            },
+        winbar = {
+          lualine_a = { { 'filename', file_status = true, path = 1 } },
+          lualine_b = { { 'navic' } },
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = { { window_number } },
         },
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        event = { "BufReadPost", "BufNewFile", "VeryLazy" },
-        opts = function()
-            local function window_number()
-                return string.format(" %d", vim.api.nvim_win_get_number(vim.api.nvim_get_current_win()))
-            end
-            local palette = require("rose-pine/palette")
-            local theme = require("lualine/themes/rose-pine")
-            theme.normal.a.bg = palette.iris
-            theme.normal.b.fg = palette.iris
-            theme.visual.a.bg = palette.rose
-            theme.visual.b.fg = palette.rose
+        inactive_winbar = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { { 'filename', file_status = true } },
+          lualine_x = { { window_number } },
+          lualine_y = {},
+        },
+        tabline = {},
+      }
+      return config
+    end,
+  },
+  {
 
-            local config = {
-                options = {
-                    theme = theme,
-                    section_separators = { right = "", left = "" },
-                    component_separators = { right = "", left = "" },
-                    globalstatus = true,
-                    disabled_filetypes = { -- Filetypes to disable lualine for.
-                        winbar = {
-                            "Lazy",
-                            "help",
-                            "neo-tree",
-                            "neotest-summary",
-                            "quickfix",
-                            "qf"
-                        }, -- only ignores the ft for winbar.
-                        statusline = {
-                            "Lazy",
-                            "help",
-                            "neo-tree",
-                        }, -- only ignores the ft for winbar.
-                    },
-                },
-                extensions = { "lazy", "mason", "fugitive", "neo-tree", "nvim-dap-ui", "toggleterm" },
-                sections = {
-                    lualine_a = { { "mode", icon = "" } },
-                    lualine_b = {
-                        { "branch", icon = "" },
-                        { "diff", colored = true },
-                    },
-                    lualine_c = { { "filename", file_status = false } },
-                    lualine_x = { { "filetype", icon_only = true } },
-                    lualine_y = {
-                        {
-                            "diagnostics",
-                            colored = true,
-                            symbols = {
-                                error = icons.diagnostics.Error .. " ",
-                                warn = icons.diagnostics.Warn .. " ",
-                                info = icons.diagnostics.Info .. " ",
-                                hint = icons.diagnostics.Hint .. " ",
-                            },
-                        },
-                        "location",
-                    },
-                    lualine_z = { window_number },
-                },
-                inactive_sections = {
-                    lualine_a = {},
-                    lualine_b = {},
-                    lualine_c = { { "filename", file_status = false } },
-                    lualine_x = { window_number },
-                    lualine_y = {},
-                    lualine_z = {},
-                },
-                winbar = {
-                    lualine_a = { { "buffers", mode = 2, filetype_names = { ["neotest-summary"] = "Neotest" } } },
-                    lualine_b = {},
-                    lualine_c = {},
-                    lualine_x = {},
-                    lualine_y = {},
-                    lualine_z = {},
-                },
-                inactive_winbar = {
-                    lualine_a = {},
-                    lualine_b = {},
-                    lualine_c = { { "buffers", mode = 2 } },
-                    lualine_x = {},
-                    lualine_y = {},
-                    lualine_z = {},
-                },
-                tabline = {},
-            }
-            return config
-        end,
+    'SmiteshP/nvim-navic',
+    event = 'LspAttach',
+    config = true,
+  },
+  {
+
+    'j-hui/fidget.nvim',
+    event = 'LspAttach',
+    opts = {
+      notification = {
+        window = {
+          border = 'rounded',
+        },
+      },
     },
+    config = true,
+  },
+  {
+    'lewis6991/satellite.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('satellite').setup({
+        current_only = true,
+        winblend = 0,
+        zindex = 40,
+        excluded_filetypes = {
+          'Lazy',
+          'help',
+          'neo-tree',
+          'neotest-summary',
+          'quickfix',
+          'qf',
+          'Outline',
+          'gitcommit',
+          'git',
+        },
+        width = 2,
+        handlers = {
+          cursor = { enable = true, symbols = { '⎺', '⎻', '⎼', '⎽' } },
+          search = { enable = true },
+          diagnostic = {
+            enable = true,
+            signs = { '-', '=', '≡' },
+            min_severity = vim.diagnostic.severity.HINT,
+          },
+          gitsigns = { enable = true, signs = { add = '│', change = '│', delete = '-' } },
+          marks = { enable = false },
+          quickfix = { signs = { '-', '=', '≡' } },
+        },
+      })
+    end,
+  },
+  {
+    'nvimdev/indentmini.nvim',
+    event = 'VeryLazy',
+    config = function() require('indentmini').setup({ char = '┊' }) end,
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    event = 'VeryLazy',
+    branch = '0.1.x',
+    dependencies = {
+      'burntsushi/ripgrep',
+      'nvim-lua/plenary.nvim',
+    },
+  },
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    opts = {
+      keys = {
+        scroll_down = '<c-j>', -- binding to scroll down inside the popup
+        scroll_up = '<c-k>', -- binding to scroll up inside the popup
+      },
+    },
+    keys = {
+      {
+        '<leader>?',
+        function() require('which-key').show({ global = false }) end,
+        desc = 'Show keymaps',
+      },
+      -- Groups
+      -- +Plugin
+      { '<leader>p', '', desc = '+Plugin' },
+      { '<leader>pl', ':Lazy<cr>', desc = 'Open Lazy' },
+      { '<leader>pm', ':Mason<cr>', desc = 'Open Mason' },
+    },
+  },
+  {
+    'stevearc/dressing.nvim',
+    -- From https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/ui.lua#L34
+    init = function()
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.select = function(...)
+        require('lazy').load({ plugins = { 'dressing.nvim' } })
+        return vim.ui.select(...)
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.ui.input = function(...)
+        require('lazy').load({ plugins = { 'dressing.nvim' } })
+        return vim.ui.input(...)
+      end
+    end,
+  },
+  {
+    'alexghergh/nvim-tmux-navigation',
+    event = 'VeryLazy',
+    config = function()
+      local nvim_tmux_nav = require('nvim-tmux-navigation')
+
+      nvim_tmux_nav.setup({
+        disable_when_zoomed = true,
+      })
+
+      vim.keymap.set('n', '<M-h>', nvim_tmux_nav.NvimTmuxNavigateLeft)
+      vim.keymap.set('n', '<M-j>', nvim_tmux_nav.NvimTmuxNavigateDown)
+      vim.keymap.set('n', '<M-k>', nvim_tmux_nav.NvimTmuxNavigateUp)
+      vim.keymap.set('n', '<M-l>', nvim_tmux_nav.NvimTmuxNavigateRight)
+    end,
+  },
 }

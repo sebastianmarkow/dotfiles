@@ -1,3 +1,5 @@
-require("config.options")
-require("config.keymaps")
-require("config.lazy")
+require('config.options')
+require('config.autocmd')
+require('config.keymaps')
+require('config.lazy')
+require('config.lastplace')

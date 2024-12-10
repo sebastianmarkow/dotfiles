@@ -1,0 +1,11 @@
+include = ["**/*.toml"]
+
+[formatting]
+
+[[rule]]
+
+[rule.formatting]
+align_entries       = true
+allowed_blank_lines = 1
+include             = ["**/*.toml"]
+reorder_keys        = true

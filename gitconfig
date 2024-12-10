@@ -1,10 +1,10 @@
 [user]
     name = Sebastian Klatt
-    email = sebastian.klatt@metro.digital
+    email = sebastian@markow.io
 
 [core]
     editor = nvim
-    pager = less -R -F -X
+    pager = delta
     excludesfile = ~/.gitignore
     whitespace = trailing-space,space-before-tab,blank-at-eof
     trustctime = false
@@ -29,24 +29,13 @@
 [merge]
     conflictstyle = diff3
     ff = true
-    tool = fugitive
-
-[mergetool "nvim"]
-    prompt = false
-    cmd = nvim -f -c \"Gvdiff\" \"$MERGED\"
 
 [diff]
-    algorithm = patience
-    compactionHeuristic = true
+    colorMoved = default
     renames = copies
-    tool = vimdiff
 
-[difftool "nvim"]
-    prompt = false
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
-[difftool "ksdiff"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[interactive]
+    diffFilter = delta --color-only --features=interactive
 
 [log]
     abbrevCommit = true
@@ -144,7 +133,7 @@
 
     re = reset
     unstage = reset -q HEAD --
-    uncommit = reset --mixed HEAD~
+    uncommit = reset --soft HEAD~1
 
     untrack = rm --cached
 
@@ -159,7 +148,7 @@
     t = tag -n
     last-tag = describe --tags --abrev=0
 
-    home = "!open `git remote -v | grep fetch | head -n1 | awk '{print $2}' | sed 's/git@/https:\\/\\//' | sed 's/\\.com:/\\.com\\//'`"
+    home = "!gh repo view --web"
 
     bf = "!git checkout $(git for-each-ref refs/heads/ --format='%(refname:short)' | fzf)"
 
@@ -181,6 +170,105 @@
 [ghq]
     root = ~/Developer/go/src
     root = ~/Developer/repos
+
+[delta]
+    features = arctic-fox
+
+[delta "arctic-fox"]
+    # author: https://github.com/anthony-halim
+    dark = true
+    syntax-theme = Nord
+    blame-code-style = syntax
+    blame-format = "{author:<18} {commit:<6} {timestamp:<15}"
+    blame-palette = "#2E3440" "#3B4252" "#434C5E"
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    file-style = omit
+    hunk-header-decoration-style = "#5E81AC" ul
+    hunk-header-file-style = blue ul bold
+    hunk-header-line-number-style = yellow box bold
+    hunk-header-style = file line-number syntax bold italic
+    line-numbers = true
+    line-numbers-left-style = "#5E81AC"
+    line-numbers-minus-style = brightred
+    line-numbers-plus-style = brightgreen
+    line-numbers-right-style = "#5E81AC"
+    line-numbers-zero-style = "#4C566A"
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-decoration-style = "#5E81AC" box
+    merge-conflict-ours-diff-header-style = yellow bold
+    merge-conflict-theirs-diff-header-decoration-style = "#5E81AC" box
+    merge-conflict-theirs-diff-header-style = yellow bold
+    minus-emph-style = black red
+    minus-style = brightred
+    plus-emph-style = black green
+    plus-style = brightgreen
+    whitespace-error-style = black bold
+    zero-style = syntax
+
+[delta "rose-pine-moon"]
+    dark = true
+    syntax-theme = Nord
+
+    thm-nc = "#1f1d30"
+    thm-base = "#232136"
+    thm-surface = "#2a273f"
+    thm-overlay = "#393552"
+    thm-muted = "#6e6a86"
+    thm-subtle = "#908caa"
+    thm-text = "#e0def4"
+    thm-love = "#eb6f92"
+    thm-gold = "#f6c177"
+    thm-rose = "#ea9a97"
+    thm-pine = "#3e8fb0"
+    thm-foam = "#9ccfd8"
+    thm-iris = "#c4a7e7"
+    thm-hl-low = "#2a283e"
+    thm-hl-med = "#44415a"
+    thm-hl-high = "#56526e"
+
+    blame-format = "{author:<18} ({commit:>7}) ┊{timestamp:^16}┊ "
+    commit-decoration-style = "#f6c177" box
+    commit-style = "#f6c177" bold italic
+    file-added-label = [+]
+    file-copied-label = [==]
+    file-decoration-style = "#c4a7e7" ul
+    file-modified-label = [*]
+    file-removed-label = [-]
+    file-renamed-label = [->]
+    file-style = "#e0def4" bold
+    hunk-header-decoration-style = "#56526e" box ul
+    hunk-header-file-style = "#c4a7e7" ul
+    hunk-header-line-number-style = "#f6c177" bold
+    hunk-header-style = file line-number bold italic
+    line-numbers = true
+    line-numbers = true
+    line-numbers-left-format = "{nm:>3} │"
+    line-numbers-left-format = "{nm:>3} │"
+    line-numbers-left-style = "#6e6a86"
+    line-numbers-minus-style = "#eb6f92" bold
+    line-numbers-plus-style = "#3e8fb0" bold
+    line-numbers-right-format = "{np:>3} │"
+    line-numbers-right-format = "{np:>3} │"
+    line-numbers-right-style = "#6e6a86"
+    line-numbers-zero-style = "#908caa" italic
+    merge-conflict-begin-symbol = ~
+    merge-conflict-end-symbol = ~
+    merge-conflict-ours-diff-header-decoration-style = "#56526e" box
+    merge-conflict-ours-diff-header-style = "#f6c177" bold
+    merge-conflict-theirs-diff-header-decoration-style = "#56526e" box
+    merge-conflict-theirs-diff-header-style = "#f6c177" bold
+    minus-emph-style = bold "#eb6f92" "#393552"
+    minus-style = "#eb6f92"
+    plus-emph-style = bold "#3e8fb0" "#393552"
+    plus-style = "#3e8fb0"
+    whitespace-error-style = "#eb6f92" reverse
+    zero-style = "#e0def4"
+
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
