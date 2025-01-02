@@ -51,8 +51,8 @@ disabled = false
 [character]
 disabled                  = false
 error_symbol              = '[ ](bold fg:love)'
-success_symbol            = '[ ](bold fg:pine)'
-vimcmd_replace_one_symbol = '[ ](bold fg:iris)'
+success_symbol            = '[ ](bold fg:iris)'
+vimcmd_replace_one_symbol = '[ ](bold fg:pine)'
 vimcmd_replace_symbol     = '[ ](bold fg:gold)'
 vimcmd_symbol             = '[ ](bold fg:muted)'
 vimcmd_visual_symbol      = '[ ](bold fg:rose)'
