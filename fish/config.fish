@@ -33,9 +33,9 @@ set -x FZF_DEFAULT_OPTS '
   --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
   --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
   --tiebreak=end,length
-  --border="rounded"
+  --border="none"
   --marker=""
-  --prompt=" "
+  --prompt="  "
   --bind=shift-tab:toggle-down,tab:toggle-up'
 set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x HOMEBREW_NO_ANALYTICS 1
