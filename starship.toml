@@ -113,43 +113,43 @@ symbol   = '󱇶 '
 
 [kubernetes]
 disabled = false
-format   = '[](fg:prev_bg $style inverted)[$symbol($context) ]($style)'
-style    = 'fg:base bg:muted italic'
+format   = '[](fg:prev_bg $style inverted)[$symbol]($style)[($context) ]($style italic)'
+style    = 'fg:base bg:muted'
 symbol   = '󱃾 '
 
 [[kubernetes.contexts]]
 context_pattern = ".*(prod|02).*"
-style           = 'fg:base bg:rose italic'
+style           = 'fg:base bg:rose'
 
 [[kubernetes.contexts]]
 context_pattern = ".*(pp|01).*"
-style           = 'fg:base bg:gold italic'
+style           = 'fg:base bg:gold'
 
 [[kubernetes.contexts]]
-context_pattern = ".*(dev|00).*"
-style           = 'fg:base bg:pine italic'
+context_pattern = ".*(dev|00|kind).*"
+style           = 'fg:base bg:pine'
 
 [status]
 disabled              = false
-format                = '[](fg:prev_bg $style inverted)[$symbol $common_meaning$signal_name$maybe_int ]($style)'
+format                = '[](fg:prev_bg $style inverted)[$symbol]($style)[ $common_meaning$signal_name$maybe_int ]($style italic)'
 map_symbol            = true
 not_executable_symbol = ''
 not_found_symbol      = ''
 sigint_symbol         = '󰹆'
 signal_symbol         = '󱐋'
-style                 = 'fg:base bg:love italic'
+style                 = 'fg:base bg:love'
 success_symbol        = ''
 symbol                = '󱇎'
 
 [cmd_duration]
 disabled = false
-format   = '[](fg:prev_bg $style inverted)[󱎫 $duration ]($style)'
+format   = '[](fg:prev_bg $style inverted)[󱎫]($style)[ $duration ]($style italic)'
 min_time = 5000
-style    = 'fg:base bg:rose italic'
+style    = 'fg:base bg:rose'
 
 [time]
 disabled        = false
-format          = '[](inverted $style)[󱑂 $time UTC ]($style)'
-style           = 'fg:base bg:hl_med italic'
+format          = '[](inverted $style)[]($style)[ $time UTC ]($style italic)'
+style           = 'fg:base bg:hl_med'
 time_format     = '%T'
 utc_time_offset = '0'
