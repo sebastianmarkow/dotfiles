@@ -31,7 +31,7 @@ FORMULAS=(
     git-lfs
     gnu-sed
     gnu-tar
-    gpg2
+    gnupg
     grep
     grpcurl
     iftop
@@ -67,9 +67,9 @@ FORMULAS=(
 
 CASKS=(
     1password-cli
-    alacritty
     font-jetbrains-mono-nerd-font
     hammerspoon
+    kitty
 )
 
 h1 "minimal"
@@ -79,7 +79,5 @@ h2 "brew casks"
 for f in "${CASKS[@]}"; do cask_install "$f"; done
 h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
-h2 "pip modules"
-for e in "${EGGS[@]}"; do pip_install "$e"; done
 h2 "brew formulas (HEAD)"
 for h in "${HEAD[@]}"; do brew_install "$h" "--HEAD"; done

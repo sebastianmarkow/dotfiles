@@ -30,17 +30,14 @@ enum custom_keycodes {
 };
 
 enum combos {
-    GESC_AND_Q__GRV,
     BSPC_AND_RBRC__BSLS,
     SPC_AND_SYM_BSPC__ESC,
 };
 
-const uint16_t PROGMEM gesc_and_q_combo[] = {QK_GESC, KC_Q, COMBO_END};
 const uint16_t PROGMEM bspc_and_rbcrc_combo[] = {KC_BSPC, KC_RBRC, COMBO_END};
 const uint16_t PROGMEM spc_and_sym_bspc_combo[] = {KC_SPC, SYM_BSPC, COMBO_END};
 
 combo_t key_combos[] = {
-    [GESC_AND_Q__GRV] = COMBO(gesc_and_q_combo, KC_GRV),
     [BSPC_AND_RBRC__BSLS] = COMBO(bspc_and_rbcrc_combo, KC_BSLS),
     [SPC_AND_SYM_BSPC__ESC] = COMBO(spc_and_sym_bspc_combo, KC_ESC),
 };

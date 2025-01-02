@@ -17,8 +17,9 @@ local Caffeinate = {
   },
   activityIntervalSeconds = 25, -- 1 minutes in seconds
   activityTimer = nil, -- Timer to be controlled based on state
-  activityDurationMS = 100,
-  activityMouseMoveRangePixel = 500,
+  activityDurationMS = 3100,
+  activityMouseMoveRangePixel = 200,
+  lastUserActivityID = 0,
 }
 
 function Caffeinate:setIcon(state)
@@ -61,7 +62,7 @@ function Caffeinate:mouseWiggler()
   if idleTime >= self.activityIntervalSeconds then
     local currentMousePosition = hs.mouse.absolutePosition()
 
-    -- Wiggle for 100ms
+    -- Wiggle for 1000ms
     local endTime = hs.timer.absoluteTime() + 1000000000 -- 1s in nanoseconds
     while hs.timer.absoluteTime() < endTime do
       -- Generate random wiggle within a small range
@@ -80,8 +81,13 @@ function Caffeinate:mouseWiggler()
 
     -- Return the mouse to its original position after wiggling
     hs.mouse.setRelativePosition(currentMousePosition)
+    hs.eventtap.leftClick(hs.mouse.getAbsolutePosition())
+    hs.timer.usleep(10000) -- 10ms delay
+    hs.eventtap.rightClick(hs.mouse.getAbsolutePosition())
+    hs.timer.usleep(10000) -- 10ms delay
+    hs.eventtap.leftClick(hs.mouse.getAbsolutePosition())
 
-    hs.caffeinate.declareUserActivity(0)
+    self.lastUserActivityID = hs.caffeinate.declareUserActivity(self.lastUserActivityID)
   end
 end
 

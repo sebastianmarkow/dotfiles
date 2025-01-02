@@ -50,6 +50,22 @@ return {
         },
       })
       vim.cmd('colorscheme rose-pine-moon')
+
+      local palette = require('rose-pine/palette')
+
+      vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
+        pattern = "*",
+        callback = function()
+          vim.cmd('hi Normal guibg=' .. palette.base) -- Active window background
+        end
+      })
+
+      vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
+        pattern = "*",
+        callback = function()
+          vim.cmd('hi Normal guibg=' .. palette._nc) -- Active window background
+        end
+      })
     end,
   },
   {
@@ -142,6 +158,7 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = {
+      'rose-pine/neovim',
       'SmiteshP/nvim-navic',
     },
     event = 'VeryLazy',
@@ -305,7 +322,13 @@ return {
   {
     'nvimdev/indentmini.nvim',
     event = 'VeryLazy',
-    config = function() require('indentmini').setup({ char = '┊' }) end,
+    enabled = true,
+    config = function()
+      require('indentmini').setup({
+        char = '┊',
+        only_current = false,
+      })
+    end,
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -322,7 +345,7 @@ return {
     opts = {
       keys = {
         scroll_down = '<c-j>', -- binding to scroll down inside the popup
-        scroll_up = '<c-k>', -- binding to scroll up inside the popup
+        scroll_up = '<c-k>',   -- binding to scroll up inside the popup
       },
     },
     keys = {
@@ -333,8 +356,8 @@ return {
       },
       -- Groups
       -- +Plugin
-      { '<leader>p', '', desc = '+Plugin' },
-      { '<leader>pl', ':Lazy<cr>', desc = 'Open Lazy' },
+      { '<leader>p',  '',           desc = '+Plugin' },
+      { '<leader>pl', ':Lazy<cr>',  desc = 'Open Lazy' },
       { '<leader>pm', ':Mason<cr>', desc = 'Open Mason' },
     },
   },

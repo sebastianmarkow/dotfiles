@@ -27,13 +27,15 @@ set -x LC_COLLATE 'C'
 
 # Env
 set -x FZF_DEFAULT_OPTS '
-  --color=fg:#908caa,bg:#232136,hl:#ea9a97
+  --color=fg:#908caa,bg:-1,hl:#ea9a97
   --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-  --color=border:#44415a,header:#3e8fb0,gutter:#232136
+  --color=border:#6e6a86,header:#3e8fb0,gutter:#232136
   --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
   --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
-  --inline-info
   --tiebreak=end,length
+  --border="rounded"
+  --marker=""
+  --prompt=" "
   --bind=shift-tab:toggle-down,tab:toggle-up'
 set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
 set -x HOMEBREW_NO_ANALYTICS 1
@@ -100,10 +102,14 @@ alias yt2mp3 'yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 #  builtin source $file 2>/dev/null
 #end
 
+# Kitty
+if set -q KITTY_INSTALLATION_DIR
+    set --global KITTY_SHELL_INTEGRATION enabled
+    source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+    set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
+end
+
 # Fish
-#fish_config theme choose "Rosé Pine Moon"
+# fish_config theme choose "Rosé Pine Moon"
 fish_user_key_bindings
 fish_vi_key_bindings
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/sklatt/.cache/lm-studio/bin

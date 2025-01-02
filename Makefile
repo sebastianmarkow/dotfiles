@@ -22,9 +22,9 @@ MAKEDIRS=\
 	$(XDG_DATA_HOME)/nvim/undo
 
 CONFIGS=\
-	alacritty	\
 	bat		\
 	fish		\
+	kitty		\
 	lazygit		\
 	nvim		\
 	tmux		\
