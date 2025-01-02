@@ -51,11 +51,11 @@ disabled = false
 [character]
 disabled                  = false
 error_symbol              = '[ ](bold fg:love)'
-success_symbol            = '[ ](bold fg:iris)'
-vimcmd_replace_one_symbol = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
-vimcmd_replace_symbol     = '[ REPLACE ](bold fg:base bg:pine)[](inverted fg:base bg:pine)'
-vimcmd_symbol             = '[ NORMAL ](bold fg:base bg:iris)[](inverted fg:base bg:iris)'
-vimcmd_visual_symbol      = '[ VISUAL ](bold fg:base bg:rose)[](inverted fg:base bg:rose)'
+success_symbol            = '[ ](bold fg:pine)'
+vimcmd_replace_one_symbol = '[ ](bold fg:iris)'
+vimcmd_replace_symbol     = '[ ](bold fg:gold)'
+vimcmd_symbol             = '[ ](bold fg:muted)'
+vimcmd_visual_symbol      = '[ ](bold fg:rose)'
 
 [directory]
 disabled          = false
@@ -134,7 +134,7 @@ disabled              = false
 format                = '[](fg:prev_bg $style inverted)[$symbol $common_meaning$signal_name$maybe_int ]($style)'
 map_symbol            = true
 not_executable_symbol = ''
-not_found_symbol      = '󰩋'
+not_found_symbol      = ''
 sigint_symbol         = '󰹆'
 signal_symbol         = '󱐋'
 style                 = 'fg:base bg:love italic'
