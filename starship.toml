@@ -67,7 +67,7 @@ truncation_symbol = './'
 
 [git_branch]
 disabled          = false
-format            = '([ $symbol $branch(:$remote_branch)]($style))'
+format            = '([ $symbol $branch(:$remote_branch) ]($style))'
 style             = 'fg:iris bg:overlay'
 symbol            = ''
 truncation_length = 32
@@ -81,7 +81,7 @@ style    = 'fg:iris bg:overlay'
 [git_status]
 disabled   = false
 style      = 'fg:iris bg:overlay'
-format     = '([$ahead_behind ([]($style fg:hl_low)$conflicted$stashed$modified$renamed$deleted$staged$untracked )]($style))'
+format     = '([$ahead_behind]($style)([]($style fg:hl_low)[$conflicted$stashed$modified$renamed$deleted$staged$untracked ]($style)))'
 ahead      = '  ${count}'
 behind     = '  ${count}'
 conflicted = '  ${count}'
