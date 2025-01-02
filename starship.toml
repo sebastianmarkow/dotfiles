@@ -81,7 +81,7 @@ style    = 'fg:iris bg:overlay'
 [git_status]
 disabled   = false
 style      = 'fg:iris bg:overlay'
-format     = '([$ahead_behind]($style)([]($style fg:hl_low)[$conflicted$stashed$modified$renamed$deleted$staged$untracked ]($style)))'
+format     = '(([]($style fg:hl_low)[$ahead_behind ]($style))([]($style fg:hl_low)[$conflicted$stashed$modified$renamed$deleted$staged$untracked ]($style)))'
 ahead      = '  ${count}'
 behind     = '  ${count}'
 conflicted = '  ${count}'
