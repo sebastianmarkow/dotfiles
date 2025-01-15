@@ -185,7 +185,7 @@ return {
         options = {
           theme = theme,
           section_separators = { right = '', left = '' },
-          component_separators = { right = '', left = '' },
+          component_separators = { right = '', left = '' },
           globalstatus = true,
           disabled_filetypes = { -- Filetypes to disable lualine for.
             winbar = {
@@ -238,6 +238,7 @@ return {
           lualine_y = {
             { 'searchcount' },
             { 'location' },
+            { 'progress' },
           },
           lualine_z = {},
         },

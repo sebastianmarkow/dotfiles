@@ -63,7 +63,7 @@ format            = '([ $path ]($style))'
 style             = 'fg:base bg:iris'
 truncate_to_repo  = true
 truncation_length = 4
-truncation_symbol = './'
+truncation_symbol = '‥/'
 
 [git_branch]
 disabled          = false
