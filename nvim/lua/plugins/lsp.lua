@@ -14,7 +14,7 @@ return {
             'gopls',
             'rust_analyzer',
             'yamlls',
-            'pylsp',
+            'pyright',
             'lua_ls',
             'helm_ls',
             'jsonls',
@@ -157,24 +157,17 @@ return {
             },
           },
         },
-        pylsp = {
+        pyright = {
           filetypes = { 'python' },
           settings = {
-            pylsp = {
-              plugins = {
-                black = { enabled = true },
-                autopep8 = { enabled = false },
-                yapf = { enabled = false },
-                pylint = { enabled = true },
-                ruff = { enabled = false },
-                pyflakes = { enabled = false },
-                pycodestyle = { enabled = false },
-                pylsp_mypy = { enabled = true, report_progress = true, live_mode = false },
-                jedi_completion = { fuzzy = true },
-                isort = { enabled = true },
-              },
-            },
-          },
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+              }
+            }
+          }
         },
         rust_analzyer = { filetypes = { 'rust' }, settings = {} },
       },

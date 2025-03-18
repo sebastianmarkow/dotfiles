@@ -47,6 +47,9 @@ set -x XZ_OPT '-T0'
 set -x TERRAGRUNT_FORWARD_TF_STDOUT 1
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
+# Python
+set -x POETRY_VIRTUALENVS_IN_PROJECT true
+
 # Hooks
 command -s starship > /dev/null; and starship init fish | source; and enable_transience
 command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
