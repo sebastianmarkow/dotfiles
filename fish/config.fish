@@ -102,6 +102,6 @@ if set -q KITTY_INSTALLATION_DIR
 end
 
 # Fish
-# fish_config theme choose "Rosé Pine Moon"
+fish_config theme choose "Rose Pine Moon"
 fish_user_key_bindings
 fish_vi_key_bindings
