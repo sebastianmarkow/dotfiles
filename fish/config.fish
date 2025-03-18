@@ -94,14 +94,6 @@ alias y 'yazi'
 alias yt2m4a 'yt-dlp --extract-audio --audio-format m4a --audio-quality 0'
 alias yt2mp3 'yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 
-# Fisher
-#set -g fisher_path $XDG_DATA_HOME/fisher_plugins
-#set -p fish_function_path fish_function_path[1] $fisher_path/functions
-#set -p fish_complete_path fish_complete_path[1] $fisher_path/completions
-#for file in $fisher_path/conf.d/*.fish
-#  builtin source $file 2>/dev/null
-#end
-
 # Kitty
 if set -q KITTY_INSTALLATION_DIR
     set --global KITTY_SHELL_INTEGRATION enabled
