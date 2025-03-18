@@ -101,6 +101,29 @@ if set -q KITTY_INSTALLATION_DIR
     set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
 end
 
+# Pyenv
+while set pyenv_index (contains -i -- "/Users/sklatt/.pyenv/shims" $PATH)
+set -eg PATH[$pyenv_index]; end; set -e pyenv_index
+set -gx PATH '/Users/sklatt/.pyenv/shims' $PATH
+set -gx PYENV_SHELL fish
+source '/opt/homebrew/Cellar/pyenv/2.5.4/completions/pyenv.fish'
+command pyenv rehash 2>/dev/null
+function pyenv
+  set command $argv[1]
+  set -e argv[1]
+
+  switch "$command"
+  case rehash shell
+    source (pyenv "sh-$command" $argv|psub)
+  case "*"
+    command pyenv "$command" $argv
+  end
+end
+
+
+fish_add_path /opt/homebrew/sbin
+fish_add_path /opt/homebrew/bin
+
 # Fish
 fish_config theme choose "Rose Pine Moon"
 fish_user_key_bindings
