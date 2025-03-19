@@ -14,7 +14,7 @@ return {
             'gopls',
             'rust_analyzer',
             'yamlls',
-            'pyright',
+            'basedpyright',
             'lua_ls',
             'helm_ls',
             'jsonls',
@@ -157,13 +157,13 @@ return {
             },
           },
         },
-        pyright = {
+        basedpyright = {
           filetypes = { 'python' },
           settings = {
-            python = {
+            bpythonasedpyright = {
               analysis = {
                 autoSearchPaths = true,
-                diagnosticMode = "workspace",
+                diagnosticMode = "openFilesOnly",
                 useLibraryCodeForTypes = true,
               }
             }
