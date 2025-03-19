@@ -101,3 +101,9 @@ cscope.po.out
 
 # Python
 .python-version
+pyrightconfig.json
+
+# direnv
+.envrc
+
+CLAUDE.md
