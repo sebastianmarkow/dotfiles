@@ -16,12 +16,12 @@ return {
     priority = 500,
     ft = { 'go', 'python' },
     keys = {
-      { '<leader>d', '', desc = '+Debug' },
-      { '<leader>ds', function() require('dap').continue() end, desc = 'Run' },
-      { '<leader>dK', function() require('dap.ui.widgets').hover() end, desc = 'Widgets' },
+      { '<leader>d',  '',                                                desc = '+Debug' },
+      { '<leader>ds', function() require('dap').continue() end,          desc = 'Run' },
+      { '<leader>dK', function() require('dap.ui.widgets').hover() end,  desc = 'Widgets' },
       { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'Toggle Breakpoint' },
-      { '<leader>dc', function() require('dap').run_to_cursor() end, desc = 'Continue' },
-      { '<leader>dt', function() require('dap').terminate() end, desc = 'Terminate' },
+      { '<leader>dc', function() require('dap').run_to_cursor() end,     desc = 'Continue' },
+      { '<leader>dt', function() require('dap').terminate() end,         desc = 'Terminate' },
     },
     opts = {
       nvim_dap_virtual_text = {
