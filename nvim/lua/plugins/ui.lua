@@ -13,15 +13,15 @@ local open_neotree_in_git_root = function()
 end
 
 -- NeoTree: Open NeoTree on VimEnter with empty buffer
-vim.api.nvim_create_autocmd({ 'VimEnter' }, {
-  nested = true,
-  callback = function()
-    if vim.fn.argc() == 0 then
-      require('lazy').load({ plugins = { 'neo-tree.nvim' } })
-      open_neotree_in_git_root()
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ 'VimEnter' }, {
+--   nested = true,
+--   callback = function()
+--     if vim.fn.argc() == 0 then
+--       require('lazy').load({ plugins = { 'neo-tree.nvim' } })
+--       open_neotree_in_git_root()
+--     end
+--   end,
+-- })
 
 return {
   {
