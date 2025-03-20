@@ -62,6 +62,7 @@ vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter' }, {
   group = cursor_group,
   desc = 'show cursor line only in active window',
 })
+
 vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
   pattern = '*',
   command = 'set nocursorline',
