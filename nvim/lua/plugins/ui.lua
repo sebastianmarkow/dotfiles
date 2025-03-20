@@ -191,6 +191,7 @@ return {
             winbar = {
               'Lazy',
               'Outline',
+              'codecompanion',
               'dap-repl',
               'dapui_breakpoints',
               'dapui_console',
