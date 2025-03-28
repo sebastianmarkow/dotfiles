@@ -57,7 +57,9 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = false,
-        virtual_text = { spacing = 0, source = false, prefix = '' },
+        virtual_lines = {
+          current_line = true,
+        },
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
