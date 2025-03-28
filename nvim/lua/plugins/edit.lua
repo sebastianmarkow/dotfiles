@@ -2,6 +2,9 @@ return {
   { 'numToStr/Comment.nvim', event = 'InsertEnter' },
   {
     'windwp/nvim-autopairs',
+    dependencies = {
+      'hrsh7th/nvim-cmp',
+    },
     event = 'InsertEnter',
     opts = {
       check_ts = true,

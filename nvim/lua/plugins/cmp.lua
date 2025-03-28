@@ -61,11 +61,11 @@ return {
           end, { 'i', 's' }),
         }),
         sources = cmp.config.sources({
-          { name = 'nvim_lsp', priority = 100 },
+          { name = 'nvim_lsp',                priority = 100 },
           { name = 'nvim_lsp_signature_help', priority = 100 },
-          { name = 'luasnip', priority = 80 },
-          { name = 'treesitter', priority = 50, keyword_length = 3 },
-          { name = 'path', priority = 25 },
+          { name = 'luasnip',                 priority = 80 },
+          { name = 'treesitter',              priority = 50, keyword_length = 3 },
+          { name = 'path',                    priority = 25 },
         }),
         formatting = {
           fields = { 'abbr', 'kind', 'menu' },

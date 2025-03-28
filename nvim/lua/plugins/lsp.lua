@@ -48,6 +48,7 @@ return {
           })
         end,
       },
+      'hrsh7th/nvim-cmp',
       'hrsh7th/cmp-nvim-lsp',
     },
     event = { 'BufReadPre', 'BufNewFile' },
