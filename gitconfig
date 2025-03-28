@@ -122,7 +122,7 @@
     pl = pull
     plm = pull origin master
     pla = pull --all
-    plm = pull --no-rebase
+    plnr = pull --no-rebase
     pull-merge = pull --no-rebase
 
     p = push
@@ -246,13 +246,10 @@
     hunk-header-line-number-style = "#f6c177" bold
     hunk-header-style = file line-number bold italic
     line-numbers = true
-    line-numbers = true
-    line-numbers-left-format = "{nm:>3} │"
     line-numbers-left-format = "{nm:>3} │"
     line-numbers-left-style = "#6e6a86"
     line-numbers-minus-style = "#eb6f92" bold
     line-numbers-plus-style = "#3e8fb0" bold
-    line-numbers-right-format = "{np:>3} │"
     line-numbers-right-format = "{np:>3} │"
     line-numbers-right-style = "#6e6a86"
     line-numbers-zero-style = "#908caa" italic

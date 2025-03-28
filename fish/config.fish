@@ -1,7 +1,7 @@
 # No, no, no!
 status is-interactive; or exit 1
 
-set -Ua fish_features qmark-noglob
+set -U fish_features qmark-noglob
 set fish_greeting ''
 
 # Path
@@ -11,7 +11,7 @@ set -x PYENV_ROOT $HOME/.pyenv
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
-set -x PATH /opt/homebrew/bin $GOBIN $PATH
+set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $GOBIN $PATH
 
 # Base
 set -x EDITOR 'nvim'
@@ -19,7 +19,6 @@ set -x VISUAL $EDITOR
 set -x PAGER 'less -R'
 set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
-set -x GREP_OPTIONS '--color=auto'
 set -x LANG 'en_US.UTF-8'
 set -x LC_CTYPE 'en_US.UTF-8'
 set -x LC_MESSAGES 'en_US.UTF-8'
@@ -79,6 +78,7 @@ abbr --add yt 'yt-dlp'
 # Aliases
 alias ag 'rg'
 alias compare 'diff -rq'
+alias grep 'grep --color=auto'
 alias gitroot 'test -n (git rev-parse --show-cdup); and cd (git rev-parse --show-cdup)'
 alias h 'fzf_history'
 alias ktc 'kubectl top pods -A | sort --reverse --key 3 --numeric | head -25'
@@ -109,7 +109,7 @@ while set pyenv_index (contains -i -- "/Users/sklatt/.pyenv/shims" $PATH)
 set -eg PATH[$pyenv_index]; end; set -e pyenv_index
 set -gx PATH '/Users/sklatt/.pyenv/shims' $PATH
 set -gx PYENV_SHELL fish
-source '/opt/homebrew/Cellar/pyenv/2.5.4/completions/pyenv.fish'
+source (brew --prefix pyenv)'/completions/pyenv.fish'
 command pyenv rehash 2>/dev/null
 function pyenv
   set command $argv[1]
@@ -124,8 +124,6 @@ function pyenv
 end
 
 
-fish_add_path /opt/homebrew/sbin
-fish_add_path /opt/homebrew/bin
 
 # Fish
 fish_config theme choose "Rose Pine Moon"
