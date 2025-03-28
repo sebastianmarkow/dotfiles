@@ -25,8 +25,8 @@ return {
         },
       },
       opts = {
-        -- Set debug logging
-        log_level = "DEBUG",
+        -- Set info logging
+        log_level = "INFO",
       },
     },
   }

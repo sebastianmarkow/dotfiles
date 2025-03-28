@@ -79,7 +79,7 @@ return {
                 nvim_lsp = '[LSP]',
                 luasnip = '[Snippet]',
                 path = '[Path]',
-                treesitter = '[Tresitter]',
+                treesitter = '[Treesitter]',
               })[entry.source.name]
               return vim_item
             end,

@@ -99,7 +99,7 @@ return {
               '*flow*.{yml,yaml}',
             },
             format = { enabled = false },
-            -- anabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
+            -- enabling this conflicts between Kubernetes resources and kustomization.yaml and Helmreleases
             validate = false,
             completion = true,
             hover = true,
@@ -161,7 +161,7 @@ return {
         basedpyright = {
           filetypes = { 'python' },
           settings = {
-            bpythonasedpyright = {
+            basedpyright = {
               analysis = {
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly",
@@ -170,7 +170,7 @@ return {
             }
           }
         },
-        rust_analzyer = { filetypes = { 'rust' }, settings = {} },
+        rust_analyzer = { filetypes = { 'rust' }, settings = {} },
       },
     },
     config = function(_, opts)

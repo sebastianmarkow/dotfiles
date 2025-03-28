@@ -63,7 +63,7 @@ return {
       vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
         pattern = "*",
         callback = function()
-          vim.cmd('hi Normal guibg=' .. palette._nc) -- Active window background
+          vim.cmd('hi Normal guibg=' .. palette._nc) -- Inactive window background
         end
       })
     end,
@@ -335,7 +335,6 @@ return {
     event = 'VeryLazy',
     branch = '0.1.x',
     dependencies = {
-      'burntsushi/ripgrep',
       'nvim-lua/plenary.nvim',
     },
   },
