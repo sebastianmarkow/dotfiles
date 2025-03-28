@@ -337,6 +337,16 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
+    keys = {
+      -- Groups
+      -- +Plugin
+      { '<leader>f', '', desc = '+Find' },
+      {
+        '<leader>ff',
+        function() require('telescope.builtin').find_files() end,
+        desc = 'Show keymaps',
+      },
+    },
   },
   {
     'folke/which-key.nvim',
