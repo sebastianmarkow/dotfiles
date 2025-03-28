@@ -11,26 +11,15 @@ return {
         },
         build = function()
           local lsp_servers = {
+            'basedpyright',
             'gopls',
+            'lua_ls',
             'rust_analyzer',
             'yamlls',
-            'basedpyright',
-            'lua_ls',
-            'helm_ls',
-            'jsonls',
-            'jq_lsp',
-            'terraformls',
           }
           local tools = {
-            'delve',
             'debugpy',
-            'gitlint',
-            'hadolint',
-            'markdownlint',
             'ruff',
-            'shellcheck',
-            'tflint',
-            'tfsec',
             'yamllint',
           }
 
