@@ -2,7 +2,6 @@ return {
   {
     'hrsh7th/nvim-cmp',
     dependencies = {
-      'L3MON4D3/LuaSnip',
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -10,22 +9,14 @@ return {
       'onsails/lspkind.nvim',
       'rafamadriz/friendly-snippets',
       'ray-x/cmp-treesitter',
-      'saadparwaiz1/cmp_luasnip',
     },
     version = 'v2.*',
     event = { 'VeryLazy', 'LspAttach' },
     config = function()
       local cmp = require('cmp')
-      local luasnip = require('luasnip')
       local lspkind = require('lspkind')
 
-      luasnip.config.setup({})
-      require('luasnip.loaders.from_vscode').lazy_load()
-
       cmp.setup({
-        snippet = {
-          expand = function(args) luasnip.lsp_expand(args.body) end,
-        },
         window = { completion = cmp.config.window.bordered(), documentation = cmp.config.window.bordered() },
         completion = { completeopt = 'menu,menuone,noinsert' },
         mapping = cmp.mapping.preset.insert({
@@ -37,8 +28,6 @@ return {
           ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_locally_jumpable() then
-              luasnip.expand_or_jump()
             else
               fallback()
             end
@@ -46,8 +35,6 @@ return {
           ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
             else
               fallback()
             end
@@ -63,7 +50,6 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lsp',                priority = 100 },
           { name = 'nvim_lsp_signature_help', priority = 100 },
-          { name = 'luasnip',                 priority = 80 },
           { name = 'treesitter',              priority = 50, keyword_length = 3 },
           { name = 'path',                    priority = 25 },
         }),
