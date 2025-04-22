@@ -50,8 +50,22 @@ set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 set -x POETRY_VIRTUALENVS_IN_PROJECT true
 
 # Hooks
-command -s starship > /dev/null; and starship init fish | source; and enable_transience
-command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+if status is-interactive
+  # Async hooks for better startup time
+  function __setup_tools --on-event fish_prompt
+    # Only run this once
+    functions -e __setup_tools
+
+    # Starship
+    command -s starship > /dev/null; and begin
+      starship init fish | source
+      enable_transience
+    end
+
+    # Zoxide
+    command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+  end
+end
 
 # Abbreviations
 abbr --add cp 'cp -iR'
@@ -109,8 +123,20 @@ while set pyenv_index (contains -i -- "/Users/sklatt/.pyenv/shims" $PATH)
 set -eg PATH[$pyenv_index]; end; set -e pyenv_index
 set -gx PATH '/Users/sklatt/.pyenv/shims' $PATH
 set -gx PYENV_SHELL fish
-source (brew --prefix pyenv)'/completions/pyenv.fish'
-command pyenv rehash 2>/dev/null
+
+# Cache pyenv prefix (brew --prefix is slow)
+if not set -q __PYENV_PREFIX
+  set -gx __PYENV_PREFIX (brew --prefix pyenv)
+end
+source $__PYENV_PREFIX'/completions/pyenv.fish'
+
+# Lazy rehash
+function __pyenv_rehash_on_use --on-event fish_preexec
+  if string match -q "*pip*install*" $argv[1]; or string match -q "*pip*uninstall*" $argv[1]; or string match -q "*poetry*add*" $argv[1]; or string match -q "*poetry*remove*" $argv[1]
+    command pyenv rehash 2>/dev/null
+  end
+end
+
 function pyenv
   set command $argv[1]
   set -e argv[1]
@@ -123,9 +149,17 @@ function pyenv
   end
 end
 
-
-
 # Fish
-fish_config theme choose "Rose Pine Moon"
+# Load key bindings only once at startup
 fish_user_key_bindings
 fish_vi_key_bindings
+
+# Defer theme application to first prompt if not already set
+if status is-interactive; and not set -q __FISH_THEME_LOADED
+  function __load_theme --on-event fish_prompt
+    # Only run this once
+    functions -e __load_theme
+    set -g __FISH_THEME_LOADED 1
+    fish_config theme choose "Rose Pine Moon"
+  end
+end

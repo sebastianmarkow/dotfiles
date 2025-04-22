@@ -17,8 +17,21 @@ elseif hostname == 'pris' then
 else -- any
 end
 
--- loading modules
-require('./modules/caffeinate')
+-- Setup garbage collection to reduce memory usage
+collectgarbage("setpause", 160)
+collectgarbage("setstepmul", 200)
+
+-- Asynchronously load modules
+local function loadModuleAsync(name)
+  hs.timer.doAfter(0.1, function()
+    require('./modules/' .. name)
+  end)
+end
+
+-- Priority module - load immediately
 require('./modules/grid')
-require('./modules/ms-teams')
-require('./modules/homebrew')
+
+-- Load other modules asynchronously
+loadModuleAsync('caffeinate')
+loadModuleAsync('ms-teams')
+loadModuleAsync('homebrew')

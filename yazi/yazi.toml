@@ -5,5 +5,24 @@ sort_sensitive = true
 sort_dir_first = true
 show_hidden = true
 show_symlink = true
-scrolloff = 5
+scrolloff = 3  # Reduced for better performance
 title_format = "{cwd}"
+
+[preview]
+max_width = 2048  # Limit preview size for better performance
+max_height = 2048
+
+[opener]
+folder = [{ exec = "yazi", desc = "Open in Yazi", block = true }]
+
+[plugin]
+preload = []  # Only load plugins as needed
+
+[input]
+find_as_you_type = true  # Faster filtering
+
+[session]
+# Use disk cache for faster directory traversal
+disk_cache = true
+disk_cache_size = 100
+disk_cache_dir = "/tmp/yazi_cache"
