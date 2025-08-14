@@ -121,7 +121,6 @@ git:
   fetchAll: true
   autoStageResolvedConflicts: true
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
-  allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
   overrideGpg: false
   disableForcePushing: true
   commitPrefix:
@@ -134,6 +133,8 @@ git:
     showGraph: always
     showWholeGraph: false
   truncateCopiedCommitHashesTo: 8
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
 update:
   method: never
 refresher:

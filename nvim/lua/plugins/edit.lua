@@ -22,14 +22,15 @@ return {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    filetype = { 'python', 'go', 'rust', 'lua' },
+    filetype = { 'python', 'go', 'rust', 'lua', 'yaml', 'terraform', 'toml' },
     config = function()
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
           go = { 'goimports', 'gofmt' },
-          python = { 'isort', 'black' },
+          python = { 'isort', 'ruff' },
           rust = { 'rustfmt' },
+          yaml = { 'yamlfmt' },
         },
         default_format_opts = { lsp_format = 'fallback' },
         format_on_save = {

@@ -11,12 +11,11 @@ set -x PYENV_ROOT $HOME/.pyenv
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_DATA_HOME $HOME/.local/share
-set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $GOBIN $PATH
+set -x PATH /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin $HOME/.local/bin $GOBIN $PATH
 
 # Base
 set -x EDITOR 'nvim'
 set -x VISUAL $EDITOR
-set -x PAGER 'less -R'
 set -x MANPAGER 'less -X'
 set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
 set -x LANG 'en_US.UTF-8'
@@ -60,6 +59,10 @@ if status is-interactive
     command -s starship > /dev/null; and begin
       starship init fish | source
       enable_transience
+    end
+
+    command -s bob > /dev/null; and begin
+      bob complete fish | source
     end
 
     # Zoxide

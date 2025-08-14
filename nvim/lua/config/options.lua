@@ -93,6 +93,7 @@ local options = {
 
   -- Sign Column
   signcolumn = 'yes:1',
+  laststatus = 3,
 
   -- Filetype glob
   wildmenu = true, -- enable filepath completion in the command bar

@@ -266,9 +266,3 @@
     whitespace-error-style = "#eb6f92" reverse
     zero-style = "#e0def4"
 
-
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true

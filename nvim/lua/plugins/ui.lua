@@ -53,18 +53,18 @@ return {
 
       local palette = require('rose-pine/palette')
 
-      vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
-        pattern = "*",
+      vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'FocusGained' }, {
+        pattern = '*',
         callback = function()
           vim.cmd('hi Normal guibg=' .. palette.base) -- Active window background
-        end
+        end,
       })
 
-      vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
-        pattern = "*",
+      vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave', 'FocusLost' }, {
+        pattern = '*',
         callback = function()
           vim.cmd('hi Normal guibg=' .. palette._nc) -- Inactive window background
-        end
+        end,
       })
     end,
   },
@@ -77,7 +77,11 @@ return {
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
-    dependencies = { 'nvim-lua/plenary.nvim', 'MunifTanjim/nui.nvim' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      { 'echasnovski/mini.icons', opts = {} },
+    },
     cmd = 'Neotree',
     keys = {
       {
@@ -130,11 +134,18 @@ return {
             expander_highlight = 'NeoTreeExpander',
           },
           icon = {
-            folder_closed = icons.neotree.folder_closed,
-            folder_open = icons.neotree.folder_open,
-            folder_empty = icons.neotree.folder_empty,
-            default = icons.neotree.default,
-            highlight = 'NeoTreeFileIcon',
+            provider = function(icon, node) -- setup a custom icon provider
+              local text, hl
+              local mini_icons = require('mini.icons')
+              if node.type == 'file' then
+                text, hl = mini_icons.get('file', node.name)
+              elseif node.type == 'directory' then
+                text, hl = mini_icons.get('directory', node.name)
+                if node:is_expanded() then text = nil end
+              end
+              if text then icon.text = text end
+              if hl then icon.highlight = hl end
+            end,
           },
           modified = { symbol = icons.git.modified, highlight = 'NeoTreeModified' },
           name = { trailing_slash = false, use_git_status_colors = true, highlight = 'NeoTreeFileName' },
@@ -258,7 +269,7 @@ return {
         inactive_winbar = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = { { 'filename', file_status = true } },
+          lualine_c = { { 'filename', file_status = true, path = 1 } },
           lualine_x = { { window_number } },
           lualine_y = {},
         },
@@ -354,7 +365,7 @@ return {
     opts = {
       keys = {
         scroll_down = '<c-j>', -- binding to scroll down inside the popup
-        scroll_up = '<c-k>',   -- binding to scroll up inside the popup
+        scroll_up = '<c-k>', -- binding to scroll up inside the popup
       },
     },
     keys = {
@@ -365,8 +376,8 @@ return {
       },
       -- Groups
       -- +Plugin
-      { '<leader>p',  '',           desc = '+Plugin' },
-      { '<leader>pl', ':Lazy<cr>',  desc = 'Open Lazy' },
+      { '<leader>p', '', desc = '+Plugin' },
+      { '<leader>pl', ':Lazy<cr>', desc = 'Open Lazy' },
       { '<leader>pm', ':Mason<cr>', desc = 'Open Mason' },
     },
   },

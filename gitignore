@@ -106,4 +106,7 @@ pyrightconfig.json
 # direnv
 .envrc
 
+# Claude
 CLAUDE.md
+.claude/*
+
