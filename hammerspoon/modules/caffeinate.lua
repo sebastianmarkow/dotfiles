@@ -20,6 +20,8 @@ local Caffeinate = {
   activityDurationMS = 3100,
   activityMouseMoveRangePixel = 200,
   lastUserActivityID = 0,
+  meetingActive = false,
+  caffeinateWasActive = false,
 }
 
 function Caffeinate:setIcon(state)
@@ -91,6 +93,28 @@ function Caffeinate:mouseWiggler()
   end
 end
 
+function Caffeinate:onMeetingStart()
+  if not self.meetingActive then
+    self.meetingActive = true
+    if hs.caffeinate.get('displayIdle') then
+      self.caffeinateWasActive = true
+      self:toggle(true)
+      hs.notify.show('Caffeinate', '', 'Paused for active call')
+    end
+  end
+end
+
+function Caffeinate:onMeetingEnd()
+  if self.meetingActive then
+    self.meetingActive = false
+    if self.caffeinateWasActive then
+      self.caffeinateWasActive = false
+      self:toggle(true)
+      hs.notify.show('Caffeinate', '', 'Resumed after call ended')
+    end
+  end
+end
+
 function Caffeinate:batteryCallback()
   if hs.battery.powerSource() == 'Battery Power' then
     if hs.battery.percentage() <= self.batteryCap and hs.caffeinate.get('displayIdle') then
@@ -113,5 +137,53 @@ if Caffeinate then
     :start()
   hs.hotkey.bind(hs.settings.get('leader'), 'c', function()
     Caffeinate:toggle()
+  end)
+
+  -- Zoom: a dedicated 'Zoom Meeting' window appears for the duration of a call
+  local zoomWF = hs.window.filter.new(false):setAppFilter('zoom.us')
+  zoomWF:subscribe(hs.window.filter.windowCreated, function(win)
+    local t = win:title()
+    if t == 'Zoom Meeting' or t == 'Zoom Webinar' then
+      Caffeinate:onMeetingStart()
+    end
+  end)
+  zoomWF:subscribe(hs.window.filter.windowDestroyed, function(win)
+    local t = win:title()
+    if t == 'Zoom Meeting' or t == 'Zoom Webinar' then
+      Caffeinate:onMeetingEnd()
+    end
+  end)
+
+  -- Teams: call windows have dynamic titles (meeting/channel name);
+  -- any window that isn't the main app shell is treated as a call.
+  -- Verify with: hs.application.get('Microsoft Teams'):allWindows()
+  local teamsWF = hs.window.filter.new(false):setAppFilter('Microsoft Teams')
+  teamsWF:subscribe(hs.window.filter.windowCreated, function(win)
+    local t = win:title()
+    if t ~= '' and not t:match('^Microsoft Teams') then
+      Caffeinate:onMeetingStart()
+    end
+  end)
+  teamsWF:subscribe(hs.window.filter.windowDestroyed, function(win)
+    local t = win:title()
+    if t ~= '' and not t:match('^Microsoft Teams') then
+      Caffeinate:onMeetingEnd()
+    end
+  end)
+
+  -- Slack: huddles open a floating window separate from the main app.
+  -- Verify title with: hs.application.get('Slack'):allWindows()
+  local slackWF = hs.window.filter.new(false):setAppFilter('Slack')
+  slackWF:subscribe(hs.window.filter.windowCreated, function(win)
+    local t = win:title()
+    if t == 'Huddle' or t == 'Slack Call' then
+      Caffeinate:onMeetingStart()
+    end
+  end)
+  slackWF:subscribe(hs.window.filter.windowDestroyed, function(win)
+    local t = win:title()
+    if t == 'Huddle' or t == 'Slack Call' then
+      Caffeinate:onMeetingEnd()
+    end
   end)
 end
