@@ -1,11 +1,10 @@
 local icons = require('config.icons')
 
 local open_neotree_in_git_root = function()
-  local git_root = vim.fn.system('git rev-parse --show-toplevel'):gsub('\n', '')
+  local result = vim.system({ 'git', 'rev-parse', '--show-toplevel' }, { text = true }):wait()
   local dir_to_open
-
-  if vim.v.shell_error == 0 then
-    dir_to_open = git_root
+  if result.code == 0 then
+    dir_to_open = result.stdout:gsub('\n', '')
   else
     dir_to_open = vim.fn.getcwd()
   end
