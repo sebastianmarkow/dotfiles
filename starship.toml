@@ -20,8 +20,6 @@ $character\
 
 right_format = """
 [](bg:base)\
-($kubernetes)\
-($gcloud)\
 ($cmd_duration)\
 ($status)\
 """

@@ -67,6 +67,9 @@ if status is-interactive
 
     # Zoxide
     command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+
+    # Direnv
+    command -s direnv > /dev/null; and direnv hook fish | source
   end
 end
 
@@ -123,9 +126,9 @@ if set -q KITTY_INSTALLATION_DIR
 end
 
 # Pyenv
-while set pyenv_index (contains -i -- "/Users/sklatt/.pyenv/shims" $PATH)
+while set pyenv_index (contains -i -- "$PYENV_ROOT/shims" $PATH)
 set -eg PATH[$pyenv_index]; end; set -e pyenv_index
-set -gx PATH '/Users/sklatt/.pyenv/shims' $PATH
+set -gx PATH "$PYENV_ROOT/shims" $PATH
 set -gx PYENV_SHELL fish
 
 # Cache pyenv prefix (brew --prefix is slow)
@@ -157,9 +160,9 @@ end
 fish_add_path $HOME/.opencode/bin
 
 # Fish
-# Load key bindings only once at startup
-fish_user_key_bindings
+# Load key bindings only once at startup (vi first, then custom on top)
 fish_vi_key_bindings
+fish_user_key_bindings
 
 # Defer theme application to first prompt if not already set
 if status is-interactive; and not set -q __FISH_THEME_LOADED
