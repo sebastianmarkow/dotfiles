@@ -1,4 +1,6 @@
-[manager]
+# : Manager {{{
+
+[mgr]
 cwd = { fg = "#9ccfd8" }
 
 # Hovered
@@ -26,6 +28,11 @@ border_style = { fg = "#524f67" }
 # Highlighting
 syntect_theme = "~/.config/yazi/rose-pine.tmTheme"
 
+# : }}}
+
+
+# : Status {{{
+
 [status]
 separator_open = ""
 separator_close = ""
@@ -48,21 +55,41 @@ permissions_w = { fg = "#B4637A" }
 permissions_x = { fg = "#9ccfd8" }
 permissions_s = { fg = "#524f67" }
 
+# : }}}
+
+
+# : Input {{{
+
 [input]
 border = { fg = "#524f67" }
 title = {}
 value = {}
 selected = { reversed = true }
 
+# : }}}
+
+
+# : Select {{{
+
 [select]
 border = { fg = "#524f67" }
 active = { fg = "#eb6f92" }
 inactive = {}
 
+# : }}}
+
+
+# : Tasks {{{
+
 [tasks]
 border = { fg = "#524f67" }
 title = {}
 hovered = { underline = true }
+
+# : }}}
+
+
+# : Which {{{
 
 [which]
 mask = { bg = "#313244" }
@@ -72,12 +99,22 @@ desc = { fg = "#eb6f92" }
 separator = "  "
 separator_style = { fg = "#585b70" }
 
+# : }}}
+
+
+# : Help {{{
+
 [help]
 on = { fg = "#eb6f92" }
 exec = { fg = "#9ccfd8" }
 desc = { fg = "#9399b2" }
 hovered = { bg = "#585b70", bold = true }
 footer = { fg = "#2A273F", bg = "#e0def4" }
+
+# : }}}
+
+
+# : File-specific styles {{{
 
 [filetype]
 
@@ -102,3 +139,5 @@ rules = [
     { name = "*", fg = "#e0def4" },
     { name = "*/", fg = "#524f67" },
 ]
+
+# : }}}

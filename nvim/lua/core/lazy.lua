@@ -15,7 +15,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup({
   spec = { { import = 'plugins' } },
-  defaults = { 
+  defaults = {
     lazy = true,
     -- Disable module = true for non-module plugins for faster require performance
     module = false,

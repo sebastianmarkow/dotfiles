@@ -1,4 +1,6 @@
 format = """
+ \
+[](fg:iris bg:base)\
 $directory\
 [](fg:iris bg:overlay)\
 (\
@@ -74,12 +76,12 @@ truncation_length = 32
 truncation_symbol = '…'
 
 [git_state]
-disabled = false
+disabled = true
 format   = '([ $state($progress_current/$progress_total) ]($style))'
 style    = 'fg:iris bg:overlay'
 
 [git_status]
-disabled   = false
+disabled   = true
 style      = 'fg:iris bg:overlay'
 format     = '(([]($style fg:hl_low)[$ahead_behind ]($style))([]($style fg:hl_low)[$conflicted$stashed$modified$renamed$deleted$staged$untracked ]($style)))'
 ahead      = '  ${count}'
@@ -112,7 +114,7 @@ style    = 'fg:base bg:muted'
 symbol   = '󱇶 '
 
 [kubernetes]
-disabled = false
+disabled = true
 format   = '[](fg:prev_bg $style inverted)[$symbol]($style)[($context) ]($style italic)'
 style    = 'fg:base bg:muted'
 symbol   = '󱃾 '
@@ -122,7 +124,7 @@ context_pattern = ".*(prod|02).*"
 style           = 'fg:base bg:rose'
 
 [[kubernetes.contexts]]
-context_pattern = ".*(pp|01).*"
+context_pattern = ".*(pp|01|staging).*"
 style           = 'fg:base bg:gold'
 
 [[kubernetes.contexts]]
@@ -149,7 +151,7 @@ style    = 'fg:base bg:rose'
 
 [time]
 disabled        = false
-format          = '[](inverted $style)[]($style)[ $time UTC ]($style italic)'
+format          = '[](inverted $style)[]($style)[ $time UTC ]($style italic)[](inverted $style) '
 style           = 'fg:base bg:hl_med'
 time_format     = '%T'
 utc_time_offset = '0'

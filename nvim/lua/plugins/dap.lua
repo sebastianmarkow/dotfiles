@@ -1,63 +1,84 @@
 return {
-  {
-    'mfussenegger/nvim-dap',
-    dependencies = {
-      {
-        'rcarriga/nvim-dap-ui',
-        dependencies = {
-          'nvim-neotest/nvim-nio',
-          'theHamsta/nvim-dap-virtual-text',
-        },
-        keys = {
-          { '<leader>du', function() require('dapui').toggle({}) end, desc = 'Dap UI' },
-        },
-      },
-    },
-    priority = 500,
-    ft = { 'go', 'python' },
-    keys = {
-      { '<leader>d', '', desc = '+Debug' },
-      { '<leader>ds', function() require('dap').continue() end, desc = 'Run' },
-      { '<leader>dK', function() require('dap.ui.widgets').hover() end, desc = 'Widgets' },
-      { '<leader>db', function() require('dap').toggle_breakpoint() end, desc = 'Toggle Breakpoint' },
-      { '<leader>dc', function() require('dap').run_to_cursor() end, desc = 'Continue' },
-      { '<leader>dt', function() require('dap').terminate() end, desc = 'Terminate' },
-    },
-    opts = {
-      nvim_dap_virtual_text = {
-        commented = true,
-      },
-    },
-    config = function(opts)
-      local dap = require('dap')
-      local dapui = require('dapui')
-
-      dapui.setup()
-
-      dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open({}) end
-      dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close({}) end
-      dap.listeners.before.event_exited['dapui_config'] = function() dapui.close({}) end
-
-      require('nvim-dap-virtual-text').setup(opts.nvim_dap_virtual_text)
-    end,
-  },
-  {
+  'mfussenegger/nvim-dap',
+  dependencies = {
+    'rcarriga/nvim-dap-ui',
+    'theHamsta/nvim-dap-virtual-text',
+    'nvim-neotest/nvim-nio',
     'leoluz/nvim-dap-go',
-    priority = 100,
-    ft = { 'go' },
-    config = true,
-  },
-  {
     'mfussenegger/nvim-dap-python',
-    dependencies = {
-      'williamboman/mason.nvim',
-    },
-    enabled = false,
-    priority = 100,
-    ft = { 'python' },
-    config = function()
-      local debugpy_path = require('mason-registry').get_package('debugpy'):get_install_path()
-      require('dap-python').setup(debugpy_path .. '/venv/bin/python')
-    end,
   },
+  ft = { 'go', 'python' },
+  keys = {
+    {
+      '<leader>dc',
+      function() require('dap').continue() end,
+      desc = 'Debug: Start/Continue',
+    },
+    {
+      '<leader>dsi',
+      function() require('dap').step_into() end,
+      desc = 'Debug: Step Into',
+    },
+    {
+      '<leader>dsO',
+      function() require('dap').step_over() end,
+      desc = 'Debug: Step Over',
+    },
+    {
+      '<leader>dso',
+      function() require('dap').step_out() end,
+      desc = 'Debug: Step Out',
+    },
+    {
+      '<leader>db',
+      function() require('dap').toggle_breakpoint() end,
+      desc = 'Debug: Toggle Breakpoint',
+    },
+    {
+      '<leader>dB',
+      function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+      desc = 'Debug: Set Conditional Breakpoint',
+    },
+    {
+      '<leader>dt',
+      function() require('dapui').toggle() end,
+      desc = 'Debug: Toggle UI',
+    },
+    {
+      '<leader>dl',
+      function() require('dap').run_last() end,
+      desc = 'Debug: Run Last Configuration',
+    },
+  },
+  config = function()
+    local dap = require('dap')
+    local dapui = require('dapui')
+
+    dapui.setup({
+      icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+      controls = {
+        icons = {
+          pause = '⏸',
+          play = '▶',
+          step_into = '⏎',
+          step_over = '⏭',
+          step_out = '⏮',
+          step_back = 'b',
+          run_last = '▶▶',
+          terminate = '⏹',
+          disconnect = '⏏',
+        },
+      },
+    })
+
+    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+    dap.listeners.before.event_exited['dapui_config'] = dapui.close
+
+    require('nvim-dap-virtual-text').setup()
+
+    local dappython = require('dap-python')
+    dappython.setup('uv')
+    dappython.test_runner = 'pytest'
+  end,
 }

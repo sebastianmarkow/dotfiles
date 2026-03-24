@@ -12,17 +12,6 @@ local open_neotree_in_git_root = function()
   require('neo-tree.command').execute({ toggle = true, dir = dir_to_open, reveal = true })
 end
 
--- NeoTree: Open NeoTree on VimEnter with empty buffer
--- vim.api.nvim_create_autocmd({ 'VimEnter' }, {
---   nested = true,
---   callback = function()
---     if vim.fn.argc() == 0 then
---       require('lazy').load({ plugins = { 'neo-tree.nvim' } })
---       open_neotree_in_git_root()
---     end
---   end,
--- })
-
 return {
   {
     'rose-pine/neovim',
@@ -69,12 +58,6 @@ return {
     end,
   },
   {
-    'hedyhli/outline.nvim',
-    cmd = { 'Outline', 'OutlineOpen' },
-    keys = { { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle outline' } },
-    config = true,
-  },
-  {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
     dependencies = {
@@ -99,19 +82,19 @@ return {
         popup_border_style = 'rounded',
         use_libuv_file_watcher = true,
         source_selector = {
-          sources = { { source = 'filesystem' }, { source = 'git_status' }, { source = 'buffers' } },
+          sources = { { source = 'filesystem' }, { source = 'buffers' }, { source = 'git_status' } },
           winbar = true,
           show_scrolled_off_parent_node = true,
           content_layout = 'center',
           tabs_layout = 'equal',
           separator = { right = '', left = '' },
         },
-        sources = { 'filesystem', 'git_status', 'buffers' },
+        sources = { 'filesystem', 'buffers', 'git_status' },
         filesystem = {
           filtered_items = {
             visible = false,
             hide_dotfiles = false,
-            hide_gitignored = true,
+            hide_gitignored = false,
             never_show = { '.DS_Store', 'thumbs.db' },
           },
           follow_current_file = { enabled = true, leave_dirs_open = true },
@@ -170,7 +153,6 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = {
       'rose-pine/neovim',
-      'SmiteshP/nvim-navic',
     },
     event = 'VeryLazy',
     opts = function()
@@ -223,7 +205,6 @@ return {
           'neo-tree',
           'nvim-dap-ui',
           'quickfix',
-          'toggleterm',
         },
         sections = {
           lualine_a = {
@@ -279,88 +260,22 @@ return {
     end,
   },
   {
-    'SmiteshP/nvim-navic',
-    event = 'LspAttach',
-    config = true,
-  },
-  {
     'j-hui/fidget.nvim',
-    event = 'LspAttach',
+    event = 'VeryLazy',
     opts = {
       notification = {
+        override_vim_notify = true,
         window = {
           border = 'rounded',
         },
       },
     },
-    config = true,
-  },
-  {
-    'lewis6991/satellite.nvim',
-    event = 'VeryLazy',
-    config = function()
-      require('satellite').setup({
-        current_only = true,
-        winblend = 0,
-        zindex = 40,
-        excluded_filetypes = {
-          'Lazy',
-          'help',
-          'neo-tree',
-          'neotest-summary',
-          'quickfix',
-          'qf',
-          'Outline',
-          'gitcommit',
-          'git',
-        },
-        width = 2,
-        handlers = {
-          cursor = { enable = true, symbols = { '⎺', '⎻', '⎼', '⎽' } },
-          search = { enable = true },
-          diagnostic = {
-            enable = true,
-            signs = { '-', '=', '≡' },
-            min_severity = vim.diagnostic.severity.HINT,
-          },
-          gitsigns = { enable = true, signs = { add = '│', change = '│', delete = '-' } },
-          marks = { enable = false },
-          quickfix = { signs = { '-', '=', '≡' } },
-        },
-      })
-    end,
-  },
-  {
-    'nvimdev/indentmini.nvim',
-    event = 'VeryLazy',
-    enabled = true,
-    config = function()
-      require('indentmini').setup({
-        char = '┊',
-        only_current = false,
-      })
-    end,
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    event = 'VeryLazy',
-    branch = '0.1.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    keys = {
-      -- Groups
-      -- +Plugin
-      { '<leader>f', '', desc = '+Find' },
-      {
-        '<leader>ff',
-        function() require('telescope.builtin').find_files() end,
-        desc = 'Show keymaps',
-      },
-    },
   },
   {
     'folke/which-key.nvim',
+    dependencies = {
+      'echasnovski/mini.icons',
+    },
     event = 'VeryLazy',
     opts = {
       keys = {
@@ -380,37 +295,5 @@ return {
       { '<leader>pl', ':Lazy<cr>', desc = 'Open Lazy' },
       { '<leader>pm', ':Mason<cr>', desc = 'Open Mason' },
     },
-  },
-  {
-    'stevearc/dressing.nvim',
-    -- From https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/ui.lua#L34
-    init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.select = function(...)
-        require('lazy').load({ plugins = { 'dressing.nvim' } })
-        return vim.ui.select(...)
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.input = function(...)
-        require('lazy').load({ plugins = { 'dressing.nvim' } })
-        return vim.ui.input(...)
-      end
-    end,
-  },
-  {
-    'alexghergh/nvim-tmux-navigation',
-    event = 'VeryLazy',
-    config = function()
-      local nvim_tmux_nav = require('nvim-tmux-navigation')
-
-      nvim_tmux_nav.setup({
-        disable_when_zoomed = true,
-      })
-
-      vim.keymap.set('n', '<M-h>', nvim_tmux_nav.NvimTmuxNavigateLeft)
-      vim.keymap.set('n', '<M-j>', nvim_tmux_nav.NvimTmuxNavigateDown)
-      vim.keymap.set('n', '<M-k>', nvim_tmux_nav.NvimTmuxNavigateUp)
-      vim.keymap.set('n', '<M-l>', nvim_tmux_nav.NvimTmuxNavigateRight)
-    end,
   },
 }

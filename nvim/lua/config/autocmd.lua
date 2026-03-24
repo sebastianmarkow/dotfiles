@@ -15,7 +15,12 @@ local indentation_settings = {
   -- spaces with 4 spaces width
   [{ 'python' }] = { expandtab = true, tabstop = 4, shiftwidth = 4, softtabstop = 4 },
   -- spaces with 2 spaces width
-  [{ 'terraform', 'terragrunt', 'lua', 'fish', 'bash' }] = { expandtab = true, tabstop = 2, shiftwidth = 2, softtabstop = 2 },
+  [{ 'terraform', 'terragrunt', 'lua', 'fish', 'bash' }] = {
+    expandtab = true,
+    tabstop = 2,
+    shiftwidth = 2,
+    softtabstop = 2,
+  },
 }
 
 -- Create a single autocmd for each indentation style
@@ -42,9 +47,7 @@ local cursor_group = vim.api.nvim_create_augroup('CursorLine', { clear = true })
 
 -- Use a single callback function to set cursorline for better performance
 local function set_cursorline(value)
-  return function()
-    vim.opt_local.cursorline = value
-  end
+  return function() vim.opt_local.cursorline = value end
 end
 
 vim.api.nvim_create_autocmd({ 'InsertLeave', 'WinEnter' }, {
@@ -58,4 +61,15 @@ vim.api.nvim_create_autocmd({ 'InsertEnter', 'WinLeave' }, {
   group = cursor_group,
   pattern = '*',
   callback = set_cursorline(false),
+})
+
+-- Last place cursor
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = '*',
+  callback = function()
+    if vim.bo.filetype == 'gitcommit' then return end
+
+    local last_pos = vim.fn.line('\'"')
+    if last_pos > 0 and last_pos <= vim.fn.line('$') then vim.cmd('normal! g`"') end
+  end
 })
