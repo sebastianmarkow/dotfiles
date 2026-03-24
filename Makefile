@@ -27,6 +27,7 @@ CONFIGS=\
 	kitty		\
 	lazygit		\
 	nvim		\
+	opencode	\
 	tmux		\
 	wtf		\
 	yazi

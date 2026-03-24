@@ -108,5 +108,11 @@ pyrightconfig.json
 
 # Claude
 CLAUDE.md
+Claude.md
 .claude/*
 
+# Opencode
+.opencode
+AGENT.md
+.serena
+opencode/node_modules

@@ -1,38 +1,36 @@
 return {
-  { 'numToStr/Comment.nvim', event = 'InsertEnter' },
   {
     'windwp/nvim-autopairs',
-    -- dependencies = {
-    --   'hrsh7th/nvim-cmp',
-    -- },
     event = 'InsertEnter',
     opts = {
       check_ts = true,
-      enable_check_bracket_line = false,
-      ignored_next_char = '[%w%.]',
     },
-    config = function(opts)
-      -- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      -- local cmp = require('cmp')
-      -- cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-      require('nvim-autopairs').setup(opts)
-    end,
   },
   {
     'stevearc/conform.nvim',
-    event = { 'BufWritePre' },
+    event = { 'BufReadPre', 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    filetype = { 'python', 'go', 'rust', 'lua', 'yaml', 'terraform', 'toml' },
+    ft = { 'python', 'go', 'lua', 'yaml' },
+    keys = {
+      {
+        '<leader>cf',
+        function()
+          require('conform').format({ async = true }, function(err, did_edit)
+            if not err and did_edit then vim.notify('Code formatted', vim.log.levels.INFO, { title = 'Conform' }) end
+          end)
+        end,
+        mode = { 'n', 'v' },
+        desc = 'Format buffer',
+      },
+    },
     config = function()
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
           go = { 'goimports', 'gofmt' },
           python = { 'isort', 'ruff' },
-          rust = { 'rustfmt' },
           yaml = { 'yamlfmt' },
         },
-        default_format_opts = { lsp_format = 'fallback' },
         format_on_save = {
           lsp_format = 'fallback',
           timeout_ms = 500,

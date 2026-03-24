@@ -42,7 +42,7 @@ set -x HOMEBREW_NO_ENV_HINTS 1
 set -x STARSHIP_CONFIG $HOME/.starship.toml
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x XZ_OPT '-T0'
-set -x TERRAGRUNT_FORWARD_TF_STDOUT 1
+set -x TG_TF_FORWARD_STDOUT true
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
 
 # Python
@@ -82,6 +82,7 @@ abbr --add kns 'kubens'
 abbr --add la 'ls -a'
 abbr --add mv 'mv -i'
 abbr --add ngit 'neogit'
+abbr --add oc 'opencode'
 abbr --add pp 'pbpaste'
 abbr --add rp 'repo'
 abbr --add sl 'ls'
@@ -151,6 +152,9 @@ function pyenv
     command pyenv "$command" $argv
   end
 end
+
+# Opencode
+fish_add_path $HOME/.opencode/bin
 
 # Fish
 # Load key bindings only once at startup
