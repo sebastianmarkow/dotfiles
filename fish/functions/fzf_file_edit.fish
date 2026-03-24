@@ -3,7 +3,7 @@ function fzf_file_edit --description 'Select files and open in editor'
         echo 'error: fzf not found'
         exit 1
     end
-    fzf --header="Edit files" --preview="head -$LINES {}" -m -q (commandline -t) | read -z -l fzf_last_select
+    fzf --header="Edit files" --preview="bat --color=always --style=numbers {}" -m -q (commandline -t) | read -z -l fzf_last_select
     if [ $fzf_last_select ]
         string split '\n' $fzf_last_select | string join ' ' | xargs nvim -o
     end
