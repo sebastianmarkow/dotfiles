@@ -15,20 +15,24 @@ local Caffeinate = {
     fadeOutDuration = 0.15,
     padding = nil,
   },
-  activityIntervalSeconds = 25, -- 1 minutes in seconds
+  activityIntervalSeconds = 25, -- seconds between idle-activity checks
   activityTimer = nil, -- Timer to be controlled based on state
+  wiggleInProgress = false,
   activityDurationMS = 3100,
   activityMouseMoveRangePixel = 200,
   lastUserActivityID = 0,
-  meetingActive = false,
+  activeMeetingCount = 0,
   caffeinateWasActive = false,
+  zoomMeetingWindows = {},
+  teamsMeetingWindows = {},
+  slackMeetingWindows = {},
 }
 
 function Caffeinate:setIcon(state)
   if state then
-    self.menubar:setIcon('./assets/caffeinate_active.pdf')
+    self.menubar:setIcon(hs.configdir .. '/assets/caffeinate_active.pdf')
   else
-    self.menubar:setIcon('./assets/caffeinate_inactive.pdf')
+    self.menubar:setIcon(hs.configdir .. '/assets/caffeinate_inactive.pdf')
   end
 end
 
@@ -59,43 +63,41 @@ end
 
 function Caffeinate:mouseWiggler()
   local idleTime = hs.host.idleTime()
+  if self.wiggleInProgress then return end
 
-  -- If the system has been idle for more than 2 minutes (120 seconds)
   if idleTime >= self.activityIntervalSeconds then
-    local currentMousePosition = hs.mouse.absolutePosition()
+    self.wiggleInProgress = true
+    local originalPos = hs.mouse.absolutePosition()
+    local totalSteps = math.floor(self.activityDurationMS / 100)
 
-    -- Wiggle for 1000ms
-    local endTime = hs.timer.absoluteTime() + 1000000000 -- 1s in nanoseconds
-    while hs.timer.absoluteTime() < endTime do
-      -- Generate random wiggle within a small range
-      local wiggleDistanceX = math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel)
-      local wiggleDistanceY = math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel)
-
-      -- Move the mouse to the new random position
-      hs.mouse.setRelativePosition({
-        x = currentMousePosition.x + wiggleDistanceX,
-        y = currentMousePosition.y + wiggleDistanceY,
-      })
-
-      -- Small delay to allow the wiggle effect to take place
-      hs.timer.usleep(10000) -- 10ms delay
+    local step
+    step = function(n)
+      if n <= totalSteps then
+        hs.mouse.absolutePosition({
+          x = originalPos.x + math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel),
+          y = originalPos.y + math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel),
+        })
+        hs.timer.doAfter(0.1, function() step(n + 1) end)
+      else
+        -- Return the mouse to its original position after wiggling
+        hs.mouse.absolutePosition(originalPos)
+        hs.eventtap.leftClick(hs.mouse.absolutePosition())
+        hs.timer.usleep(10000) -- 10ms delay
+        hs.eventtap.rightClick(hs.mouse.absolutePosition())
+        hs.timer.usleep(10000) -- 10ms delay
+        hs.eventtap.leftClick(hs.mouse.absolutePosition())
+        self.lastUserActivityID = hs.caffeinate.declareUserActivity(self.lastUserActivityID)
+        self.wiggleInProgress = false
+      end
     end
 
-    -- Return the mouse to its original position after wiggling
-    hs.mouse.setRelativePosition(currentMousePosition)
-    hs.eventtap.leftClick(hs.mouse.getAbsolutePosition())
-    hs.timer.usleep(10000) -- 10ms delay
-    hs.eventtap.rightClick(hs.mouse.getAbsolutePosition())
-    hs.timer.usleep(10000) -- 10ms delay
-    hs.eventtap.leftClick(hs.mouse.getAbsolutePosition())
-
-    self.lastUserActivityID = hs.caffeinate.declareUserActivity(self.lastUserActivityID)
+    step(1)
   end
 end
 
 function Caffeinate:onMeetingStart()
-  if not self.meetingActive then
-    self.meetingActive = true
+  self.activeMeetingCount = self.activeMeetingCount + 1
+  if self.activeMeetingCount == 1 then
     if hs.caffeinate.get('displayIdle') then
       self.caffeinateWasActive = true
       self:toggle(true)
@@ -105,10 +107,10 @@ function Caffeinate:onMeetingStart()
 end
 
 function Caffeinate:onMeetingEnd()
-  if self.meetingActive then
-    self.meetingActive = false
-    if self.caffeinateWasActive then
-      self.caffeinateWasActive = false
+  self.activeMeetingCount = math.max(0, self.activeMeetingCount - 1)
+  if self.activeMeetingCount == 0 and self.caffeinateWasActive then
+    self.caffeinateWasActive = false
+    if not hs.caffeinate.get('displayIdle') then
       self:toggle(true)
       hs.notify.show('Caffeinate', '', 'Resumed after call ended')
     end
@@ -124,7 +126,7 @@ function Caffeinate:batteryCallback()
   end
 end
 
-if Caffeinate then
+if Caffeinate.menubar then
   Caffeinate.menubar:setTooltip('Toggle Caffeinate')
   Caffeinate.menubar:setClickCallback(function()
     Caffeinate:toggle()
@@ -139,34 +141,58 @@ if Caffeinate then
     Caffeinate:toggle()
   end)
 
-  -- Zoom: a dedicated 'Zoom Meeting' window appears for the duration of a call
+  -- Zoom: a dedicated 'Zoom Meeting' window appears for the duration of a call.
+  -- Subscribe to windowCreated and re-check after a short delay because Zoom sets
+  -- the title asynchronously after window creation; deduplication is done by window ID.
   local zoomWF = hs.window.filter.new(false):setAppFilter('zoom.us')
   zoomWF:subscribe(hs.window.filter.windowCreated, function(win)
-    local t = win:title()
-    if t == 'Zoom Meeting' or t == 'Zoom Webinar' then
-      Caffeinate:onMeetingStart()
+    local function checkZoomWindow(w)
+      if not w or not w:isStandard() then return end
+      local t = w:title()
+      if (t == 'Zoom Meeting' or t == 'Zoom Webinar') and not Caffeinate.zoomMeetingWindows[w:id()] then
+        Caffeinate.zoomMeetingWindows[w:id()] = true
+        Caffeinate:onMeetingStart()
+      end
     end
+    checkZoomWindow(win)
+    -- Zoom sometimes sets the window title asynchronously after creation;
+    -- re-check after a short delay to catch the title change.
+    hs.timer.doAfter(1.5, function() checkZoomWindow(win) end)
   end)
   zoomWF:subscribe(hs.window.filter.windowDestroyed, function(win)
-    local t = win:title()
-    if t == 'Zoom Meeting' or t == 'Zoom Webinar' then
+    if Caffeinate.zoomMeetingWindows[win:id()] then
+      Caffeinate.zoomMeetingWindows[win:id()] = nil
       Caffeinate:onMeetingEnd()
     end
   end)
 
+  -- Fallback: if Zoom crashes or quits mid-call, drain all tracked Zoom meetings.
+  Caffeinate.zoomAppWatcher = hs.application.watcher.new(function(name, event, app)
+    if name == 'zoom.us' and event == hs.application.watcher.terminated then
+      local count = 0
+      for _ in pairs(Caffeinate.zoomMeetingWindows) do count = count + 1 end
+      Caffeinate.zoomMeetingWindows = {}
+      for _ = 1, count do
+        Caffeinate:onMeetingEnd()
+      end
+    end
+  end):start()
+
   -- Teams: call windows have dynamic titles (meeting/channel name);
   -- any window that isn't the main app shell is treated as a call.
+  -- A minimum title length of 10 filters out short transient windows.
   -- Verify with: hs.application.get('Microsoft Teams'):allWindows()
   local teamsWF = hs.window.filter.new(false):setAppFilter('Microsoft Teams')
   teamsWF:subscribe(hs.window.filter.windowCreated, function(win)
     local t = win:title()
-    if t ~= '' and not t:match('^Microsoft Teams') then
+    if t ~= '' and t:len() > 10 and not t:match('^Microsoft Teams') and not Caffeinate.teamsMeetingWindows[win:id()] then
+      Caffeinate.teamsMeetingWindows[win:id()] = true
       Caffeinate:onMeetingStart()
     end
   end)
   teamsWF:subscribe(hs.window.filter.windowDestroyed, function(win)
-    local t = win:title()
-    if t ~= '' and not t:match('^Microsoft Teams') then
+    if Caffeinate.teamsMeetingWindows[win:id()] then
+      Caffeinate.teamsMeetingWindows[win:id()] = nil
       Caffeinate:onMeetingEnd()
     end
   end)
@@ -176,13 +202,14 @@ if Caffeinate then
   local slackWF = hs.window.filter.new(false):setAppFilter('Slack')
   slackWF:subscribe(hs.window.filter.windowCreated, function(win)
     local t = win:title()
-    if t == 'Huddle' or t == 'Slack Call' then
+    if (t == 'Huddle' or t == 'Slack Call') and not Caffeinate.slackMeetingWindows[win:id()] then
+      Caffeinate.slackMeetingWindows[win:id()] = true
       Caffeinate:onMeetingStart()
     end
   end)
   slackWF:subscribe(hs.window.filter.windowDestroyed, function(win)
-    local t = win:title()
-    if t == 'Huddle' or t == 'Slack Call' then
+    if Caffeinate.slackMeetingWindows[win:id()] then
+      Caffeinate.slackMeetingWindows[win:id()] = nil
       Caffeinate:onMeetingEnd()
     end
   end)
