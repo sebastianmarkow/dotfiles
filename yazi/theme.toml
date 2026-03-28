@@ -1,27 +1,37 @@
+# Rose Pine Moon - consistent with nvim, tmux, starship, kitty, lazygit
+#
+# Palette reference:
+#   base    = #232136   surface  = #2a273f   overlay  = #393552
+#   muted   = #6e6a86   subtle   = #908caa   text     = #e0def4
+#   love    = #eb6f92   gold     = #f6c177   rose     = #ea9a97
+#   pine    = #3e8fb0   foam     = #9ccfd8   iris     = #c4a7e7
+#   hl_low  = #2a283e   hl_med   = #44415a   hl_high  = #56526e
+
+
 # : Manager {{{
 
 [mgr]
-cwd = { fg = "#9ccfd8" }
+cwd = { fg = "#c4a7e7" }  # iris — matches starship directory segment
 
 # Find
-find_keyword = { fg = "#f6c177", italic = true }
+find_keyword  = { fg = "#f6c177", bold = true, italic = true }
 find_position = { fg = "#eb6f92", bg = "reset", italic = true }
 
 # Marker
 marker_selected = { fg = "#9ccfd8", bg = "#9ccfd8" }
-marker_copied = { fg = "#f6c177", bg = "#f6c177" }
-marker_cut = { fg = "#B4637A", bg = "#B4637A" }
+marker_copied   = { fg = "#f6c177", bg = "#f6c177" }
+marker_cut      = { fg = "#eb6f92", bg = "#eb6f92" }
 
-# Tab
-tab_active = { fg = "#e0def4", bg = "#191724" }
-tab_inactive = { fg = "#e0def4", bg = "#2A273F" }
-tab_width = 1
+# Tab — active is brighter/more prominent
+tab_active   = { fg = "#e0def4", bg = "#393552", bold = true }
+tab_inactive = { fg = "#908caa", bg = "#2a273f" }
+tab_width    = 1
 
 # Border
 border_symbol = "│"
-border_style = { fg = "#524f67" }
+border_style  = { fg = "#393552" }
 
-# Highlighting
+# Syntax highlighting
 syntect_theme = "~/.config/yazi/rose-pine.tmTheme"
 
 # : }}}
@@ -30,7 +40,7 @@ syntect_theme = "~/.config/yazi/rose-pine.tmTheme"
 # : Indicator {{{
 
 [indicator]
-current = { fg = "#e0def4", bg = "#26233a" }
+current = { fg = "#e0def4", bg = "#2a283e" }
 preview = { underline = true }
 
 # : }}}
@@ -39,26 +49,26 @@ preview = { underline = true }
 # : Status {{{
 
 [status]
-separator_open = ""
-separator_close = ""
-separator_style = { fg = "#2A273F", bg = "#2A273F" }
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#2a273f", bg = "#2a273f" }
 
-# Mode
-mode_normal = { fg = "#191724", bg = "#ebbcba", bold = true }
-mode_select = { fg = "#e0def4", bg = "#9ccfd8", bold = true }
-mode_unset = { fg = "#e0def4", bg = "#b4637a", bold = true }
+# Mode — iris for normal (calm), foam for select (active), love for unset (danger)
+mode_normal = { fg = "#232136", bg = "#c4a7e7", bold = true }
+mode_select = { fg = "#232136", bg = "#9ccfd8", bold = true }
+mode_unset  = { fg = "#e0def4", bg = "#eb6f92", bold = true }
 
 # Progress
-progress_label = { fg = "#e0def4", bold = true }
-progress_normal = { fg = "#191724", bg = "#2A273F" }
-progress_error = { fg = "#B4637A", bg = "#2A273F" }
+progress_label  = { fg = "#e0def4", bold = true }
+progress_normal = { fg = "#9ccfd8", bg = "#2a273f" }
+progress_error  = { fg = "#eb6f92", bg = "#2a273f" }
 
-# Permissions
-permissions_t = { fg = "#31748f" }
+# Permissions — pine/gold/love/foam matches conventional read/write/exec colors
+permissions_t = { fg = "#3e8fb0" }
 permissions_r = { fg = "#f6c177" }
-permissions_w = { fg = "#B4637A" }
-permissions_x = { fg = "#9ccfd8" }
-permissions_s = { fg = "#524f67" }
+permissions_w = { fg = "#eb6f92" }
+permissions_x = { fg = "#9ccfd8", bold = true }
+permissions_s = { fg = "#56526e" }
 
 # : }}}
 
@@ -66,9 +76,9 @@ permissions_s = { fg = "#524f67" }
 # : Input {{{
 
 [input]
-border = { fg = "#524f67" }
-title = {}
-value = {}
+border   = { fg = "#393552" }
+title    = { fg = "#c4a7e7", bold = true }
+value    = {}
 selected = { reversed = true }
 
 # : }}}
@@ -77,9 +87,9 @@ selected = { reversed = true }
 # : Select {{{
 
 [select]
-border = { fg = "#524f67" }
-active = { fg = "#eb6f92" }
-inactive = {}
+border   = { fg = "#393552" }
+active   = { fg = "#c4a7e7", bold = true }
+inactive = { fg = "#908caa" }
 
 # : }}}
 
@@ -87,9 +97,9 @@ inactive = {}
 # : Tasks {{{
 
 [tasks]
-border = { fg = "#524f67" }
-title = {}
-hovered = { underline = true }
+border  = { fg = "#393552" }
+title   = { fg = "#c4a7e7", bold = true }
+hovered = { bg = "#44415a", bold = true }
 
 # : }}}
 
@@ -97,12 +107,12 @@ hovered = { underline = true }
 # : Which {{{
 
 [which]
-mask = { bg = "#313244" }
-cand = { fg = "#9ccfd8" }
-rest = { fg = "#9399b2" }
-desc = { fg = "#eb6f92" }
-separator = "  "
-separator_style = { fg = "#585b70" }
+mask           = { bg = "#393552" }
+cand           = { fg = "#9ccfd8" }
+rest           = { fg = "#908caa" }
+desc           = { fg = "#c4a7e7" }
+separator      = "  "
+separator_style = { fg = "#56526e" }
 
 # : }}}
 
@@ -110,11 +120,11 @@ separator_style = { fg = "#585b70" }
 # : Help {{{
 
 [help]
-on = { fg = "#eb6f92" }
-exec = { fg = "#9ccfd8" }
-desc = { fg = "#9399b2" }
-hovered = { bg = "#585b70", bold = true }
-footer = { fg = "#2A273F", bg = "#e0def4" }
+on      = { fg = "#eb6f92" }
+exec    = { fg = "#9ccfd8" }
+desc    = { fg = "#908caa" }
+hovered = { bg = "#44415a", bold = true }
+footer  = { fg = "#2a273f", bg = "#e0def4" }
 
 # : }}}
 
@@ -122,27 +132,56 @@ footer = { fg = "#2A273F", bg = "#e0def4" }
 # : File-specific styles {{{
 
 [filetype]
-
 rules = [
-    # Images
+    # Directories — iris (purple) for clear hierarchy
+    { url = "*/", fg = "#c4a7e7", bold = true },
+
+    # Images — foam (cyan)
     { mime = "image/*", fg = "#9ccfd8" },
 
-    # Videos
+    # Video / Audio — gold (warm)
     { mime = "video/*", fg = "#f6c177" },
     { mime = "audio/*", fg = "#f6c177" },
 
-    # Archives
-    { mime = "application/zip", fg = "#eb6f92" },
-    { mime = "application/gzip", fg = "#eb6f92" },
-    { mime = "application/x-tar", fg = "#eb6f92" },
-    { mime = "application/x-bzip", fg = "#eb6f92" },
-    { mime = "application/x-bzip2", fg = "#eb6f92" },
+    # Archives — love (red/pink)
+    { mime = "application/zip",             fg = "#eb6f92" },
+    { mime = "application/gzip",            fg = "#eb6f92" },
+    { mime = "application/x-tar",           fg = "#eb6f92" },
+    { mime = "application/x-bzip",          fg = "#eb6f92" },
+    { mime = "application/x-bzip2",         fg = "#eb6f92" },
     { mime = "application/x-7z-compressed", fg = "#eb6f92" },
-    { mime = "application/x-rar", fg = "#eb6f92" },
+    { mime = "application/x-rar",           fg = "#eb6f92" },
+    { mime = "application/zstd",            fg = "#eb6f92" },
+    { mime = "application/x-xz",            fg = "#eb6f92" },
 
-    # Fallback
+    # Documents — rose (soft pink)
+    { mime = "application/pdf",                          fg = "#ea9a97" },
+    { mime = "application/msword",                       fg = "#ea9a97" },
+    { mime = "application/vnd.openxmlformats*",          fg = "#ea9a97" },
+    { mime = "application/vnd.oasis*",                   fg = "#ea9a97" },
+    { mime = "application/epub+zip",                     fg = "#ea9a97" },
+
+    # Data / Config — gold
+    { url = "*.json",  fg = "#f6c177" },
+    { url = "*.jsonc", fg = "#f6c177" },
+    { url = "*.toml",  fg = "#f6c177" },
+    { url = "*.yaml",  fg = "#f6c177" },
+    { url = "*.yml",   fg = "#f6c177" },
+    { url = "*.env",   fg = "#f6c177" },
+    { url = "*.ini",   fg = "#f6c177" },
+    { url = "*.conf",  fg = "#f6c177" },
+
+    # Scripts / Executables — pine (teal-blue)
+    { url = "*.sh",   fg = "#3e8fb0", bold = true },
+    { url = "*.bash", fg = "#3e8fb0", bold = true },
+    { url = "*.fish", fg = "#3e8fb0", bold = true },
+    { url = "*.zsh",  fg = "#3e8fb0", bold = true },
+    { url = "*.py",   fg = "#3e8fb0" },
+    { url = "*.rb",   fg = "#3e8fb0" },
+    { url = "*.pl",   fg = "#3e8fb0" },
+
+    # Fallback — text
     { url = "*", fg = "#e0def4" },
-    { url = "*/", fg = "#524f67" },
 ]
 
 # : }}}
