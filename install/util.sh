@@ -45,6 +45,7 @@ FORMULAS=(
     w3m                 # w3m - terminal web browser
     xh                  # xh - httpie-compatible HTTP client
     yank                # yank - copy terminal output to clipboard
+    zk                  # zk - plain-text note-taking with Zettelkasten
 )
 
 CASKS=(
