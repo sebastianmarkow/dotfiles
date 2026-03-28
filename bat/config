@@ -1,0 +1,14 @@
+# bat configuration
+# https://github.com/sharkdp/bat
+
+--theme="rose-pine-moon"
+--style="numbers,changes,header-filename"
+--italic-text=always
+--paging=never
+--color=always
+
+--map-syntax="*.conf:INI"
+--map-syntax="*.env:Bash"
+--map-syntax="*.envrc:Bash"
+--map-syntax="Makefile:Makefile"
+--map-syntax="*.toml:TOML"

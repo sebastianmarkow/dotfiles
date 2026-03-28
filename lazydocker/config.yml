@@ -1,0 +1,48 @@
+# Rose Pine Moon — lazydocker configuration
+# https://rosepinetheme.com/palette/ingredients
+#
+# base     = #232136   surface  = #2a273f   overlay  = #393552
+# muted    = #6e6a86   subtle   = #908caa   text     = #e0def4
+# love     = #eb6f92   gold     = #f6c177   rose     = #ea9a97
+# pine     = #3e8fb0   foam     = #9ccfd8   iris     = #c4a7e7
+# hl-low   = #2a283e   hl-med   = #44415a   hl-high  = #56526e
+
+gui:
+  scrollHeight: 2
+  language: auto
+  mouseEvents: false
+  returnImmediately: false
+  wrapMainPanel: true
+  theme:
+    activeBorderColor:
+      - '#9ccfd8'  # foam
+      - bold
+    inactiveBorderColor:
+      - '#393552'  # overlay
+    optionsTextColor:
+      - '#c4a7e7'  # iris
+    selectedLineBgColor:
+      - '#44415a'  # hl-med
+    selectedRangeBgColor:
+      - '#44415a'  # hl-med
+    headerBgColor:
+      - '#2a273f'  # surface
+    unstagedChangesColor:
+      - '#eb6f92'  # love
+    defaultFgColor:
+      - '#e0def4'  # text
+
+logs:
+  timestamps: false
+  since: '60m'
+  tail: 200
+
+commandTemplates:
+  dockerCompose: docker compose
+
+stats:
+  graphs:
+    - stat: cpu
+      color: '#9ccfd8'   # foam
+    - stat: memory
+      color: '#c4a7e7'   # iris

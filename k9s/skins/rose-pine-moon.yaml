@@ -1,0 +1,102 @@
+# Rose Pine Moon — k9s skin
+# https://rosepinetheme.com/palette/ingredients
+#
+# base     = #232136   surface  = #2a273f   overlay  = #393552
+# muted    = #6e6a86   subtle   = #908caa   text     = #e0def4
+# love     = #eb6f92   gold     = #f6c177   rose     = #ea9a97
+# pine     = #3e8fb0   foam     = #9ccfd8   iris     = #c4a7e7
+# hl-low   = #2a283e   hl-med   = #44415a   hl-high  = #56526e
+
+k9s:
+  body:
+    fgColor: '#e0def4'       # text
+    bgColor: '#232136'       # base
+    logoColor: '#c4a7e7'     # iris
+
+  prompt:
+    fgColor: '#e0def4'       # text
+    bgColor: '#2a273f'       # surface
+    suggestColor: '#908caa'  # subtle
+
+  info:
+    fgColor: '#9ccfd8'       # foam
+    sectionColor: '#e0def4'  # text
+
+  dialog:
+    fgColor: '#e0def4'       # text
+    bgColor: '#2a273f'       # surface
+    buttonFgColor: '#232136' # base
+    buttonBgColor: '#c4a7e7' # iris
+    buttonFocusFgColor: '#232136' # base
+    buttonFocusBgColor: '#9ccfd8' # foam
+    labelFgColor: '#f6c177'  # gold
+    fieldFgColor: '#e0def4'  # text
+
+  frame:
+    border:
+      fgColor: '#393552'     # overlay
+      focusColor: '#9ccfd8'  # foam
+    menu:
+      fgColor: '#e0def4'     # text
+      keyColor: '#c4a7e7'    # iris
+      numFgColor: '#f6c177'  # gold
+    crumbs:
+      fgColor: '#232136'     # base
+      bgColor: '#9ccfd8'     # foam
+      activeColor: '#c4a7e7' # iris
+    status:
+      newColor: '#9ccfd8'    # foam
+      modifyColor: '#c4a7e7' # iris
+      addColor: '#9ccfd8'    # foam
+      errorColor: '#eb6f92'  # love
+      highlightColor: '#f6c177' # gold
+      killColor: '#eb6f92'   # love
+      completedColor: '#6e6a86' # muted
+    title:
+      fgColor: '#e0def4'     # text
+      bgColor: '#232136'     # base
+      highlightColor: '#c4a7e7' # iris
+      counterColor: '#9ccfd8' # foam
+      filterColor: '#f6c177' # gold
+
+  views:
+    charts:
+      bgColor: default
+      chartBgColor: default
+      dialBgColor: default
+      defaultDialColors:
+        ok: '#9ccfd8'        # foam
+        warn: '#f6c177'      # gold
+        critical: '#eb6f92'  # love
+      defaultChartColors:
+        ok: '#9ccfd8'        # foam
+        warn: '#f6c177'      # gold
+        critical: '#eb6f92'  # love
+    table:
+      fgColor: '#e0def4'     # text
+      bgColor: '#232136'     # base
+      markColor: '#f6c177'   # gold
+      header:
+        fgColor: '#9ccfd8'   # foam
+        bgColor: '#232136'   # base
+        sorterColor: '#c4a7e7' # iris
+    xray:
+      fgColor: '#e0def4'     # text
+      bgColor: '#232136'     # base
+      cursorColor: '#44415a' # hl-med
+      graphicColor: '#c4a7e7' # iris
+      showIcons: false
+    yaml:
+      keyColor: '#c4a7e7'    # iris
+      colonColor: '#6e6a86'  # muted
+      valueColor: '#e0def4'  # text
+      rootKeyColor: '#9ccfd8' # foam
+      headerColor: '#f6c177' # gold
+    logs:
+      fgColor: '#e0def4'     # text
+      bgColor: '#232136'     # base
+      indicator:
+        fgColor: '#9ccfd8'   # foam
+        bgColor: '#232136'   # base
+        toggleOnColor: '#9ccfd8'  # foam
+        toggleOffColor: '#6e6a86' # muted

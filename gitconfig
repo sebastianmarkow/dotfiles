@@ -222,6 +222,10 @@
     syntax-theme = Nord
     navigate = true
     hyperlinks = true
+    side-by-side = true
+    diff-stat-align-width = 48
+    true-color = always
+    paging = auto
 
     # palette
     thm-base = "#232136"
