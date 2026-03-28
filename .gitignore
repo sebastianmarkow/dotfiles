@@ -16,6 +16,7 @@ nvim/spell/*.spl
 fish/fish*
 !fish/fishfile
 fish/conf.d/*
+!fish/conf.d/dotfiles_staleness.fish
 fish/completions/*.gen.fish
 
 # Rust
