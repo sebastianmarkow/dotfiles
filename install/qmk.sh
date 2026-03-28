@@ -9,7 +9,7 @@ TAPS=(
 )
 
 FORMULAS=(
-    qmk
+    qmk  # QMK - keyboard firmware toolkit
 )
 
 h1 "qmk"
