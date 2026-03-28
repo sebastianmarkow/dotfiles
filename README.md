@@ -1,7 +1,9 @@
 dotfiles
 ========
 
-A heavily opinionated set of dotfiles (for macOS/darwin).
+A heavily opinionated set of dotfiles for macOS/darwin.
+
+Includes configs for: fish, neovim, kitty, tmux, lazygit, yazi, starship, opencode, and more.
 
 Requirements
 ------------
@@ -19,5 +21,18 @@ $ cd dotfiles
 $ make help
 ~~~
 
-__Warning:__ `make dotfiles` target will overwrite existing files in the `$HOME`
-directory of the current user. Be sure to backup any files you'd like to keep.
+**Warning:** `make dotfiles` will overwrite existing files in `$HOME`. Back up anything you want to keep first.
+
+Install Targets
+---------------
+
+| Target    | Description                        |
+|-----------|------------------------------------|
+| `dotfiles` | Symlink all dotfiles               |
+| `base`    | Install base setup (minimal+devops) |
+| `minimal` | Homebrew + dotfiles + Python       |
+| `util`    | Utilities via Homebrew             |
+| `python`  | Python3 toolchain                  |
+| `go`      | Go toolchain                       |
+| `devops`  | DevOps toolchain                   |
+| `qmk`     | QMK keyboard firmware dev chain    |
