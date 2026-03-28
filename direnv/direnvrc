@@ -1,0 +1,31 @@
+# direnv stdlib extensions
+# Loaded automatically from $XDG_CONFIG_HOME/direnv/direnvrc
+# https://direnv.net/man/direnvrc.1.html
+
+# Python: create/activate venv via uv
+layout_python-uv() {
+  local python=${1:-python3}
+  local venv=.venv
+  if [[ ! -d "$venv" ]]; then
+    log_status "creating virtualenv with uv"
+    uv venv --python "$python" "$venv"
+  fi
+  source "$venv/bin/activate"
+  export VIRTUAL_ENV="$PWD/$venv"
+  export UV_PROJECT_ENVIRONMENT="$PWD/$venv"
+}
+
+# Go: isolate GOPATH per project
+layout_go() {
+  export GOPATH="$PWD/.gopath"
+  export PATH="$GOPATH/bin:$PATH"
+  mkdir -p "$GOPATH/src" "$GOPATH/bin"
+}
+
+# Node: add local node_modules/.bin to PATH
+layout_node() {
+  export PATH="$PWD/node_modules/.bin:$PATH"
+}
+
+# Shorthand aliases
+use_python() { layout python-uv "$@"; }

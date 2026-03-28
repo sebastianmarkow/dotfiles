@@ -1,0 +1,33 @@
+# Rose Pine Moon — navi configuration
+# https://github.com/denisidoro/navi
+
+cheats:
+  paths:
+    - ~/.config/navi/cheats
+
+finder:
+  # Use the same FZF colors as the rest of the environment
+  command: fzf
+  overrides: >
+    --color=fg:#908caa,bg:-1,hl:#ea9a97
+    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+    --color=border:#6e6a86,header:#3e8fb0,gutter:#232136
+    --color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
+    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+    --border=none
+    --prompt="  "
+    --height=60%
+    --info=inline
+    --tiebreak=end,length
+
+style:
+  tag:
+    color: cyan
+    width_percentage: 26
+    min_width: 20
+  comment:
+    color: blue
+    width_percentage: 42
+    min_width: 45
+  snippet:
+    color: white

@@ -1,0 +1,20 @@
+# Rose Pine Moon — posting configuration
+# https://github.com/darrenburns/posting
+# posting ships with rose-pine built-in
+
+theme: rose-pine
+text_area_theme: monokai
+layout: horizontal
+use_host_environment: true
+
+response:
+  prettify_json: true
+
+heading:
+  visible: true
+
+collection_browser:
+  position: left
+
+animation:
+  enabled: false

@@ -11,7 +11,8 @@ FILES=\
 	hushlogin	\
 	mackup		\
 	mackup.cfg	\
-	rpignore	\
+	rgignore	\
+	ripgreprc	\
 	starship.toml	\
 	tmux.conf	\
 	wgetrc
@@ -22,12 +23,20 @@ MAKEDIRS=\
 	$(XDG_DATA_HOME)/nvim/undo
 
 CONFIGS=\
+	atuin		\
 	bat		\
+	btop		\
+	direnv		\
 	fish		\
+	harlequin	\
+	k9s		\
 	kitty		\
+	lazydocker	\
 	lazygit		\
+	navi		\
 	nvim		\
 	opencode	\
+	posting		\
 	tmux		\
 	wtf		\
 	yazi

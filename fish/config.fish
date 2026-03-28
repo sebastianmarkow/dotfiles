@@ -43,6 +43,7 @@ set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x XZ_OPT '-T0'
 set -x TG_TF_FORWARD_STDOUT true
 set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
+set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 
 # Python
 set -x POETRY_VIRTUALENVS_IN_PROJECT true
@@ -81,6 +82,12 @@ if status is-interactive
 
     # Direnv
     __cached_source direnv direnv hook fish
+
+    # Atuin (shell history)
+    __cached_source atuin atuin init fish --disable-up-arrow
+
+    # Navi (interactive cheatsheet widget)
+    __cached_source navi navi widget fish
 
     # Pyenv completions
     if set -q __PYENV_PREFIX

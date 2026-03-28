@@ -1,0 +1,10 @@
+# Rose Pine Moon — harlequin configuration
+# https://harlequin.sh
+# harlequin ships with rose-pine built-in
+
+[harlequin]
+theme = "rose-pine"
+show_files = true
+show_s3 = false
+limit = 100_000
+locale = "en_US.UTF-8"
