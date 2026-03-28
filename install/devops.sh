@@ -26,7 +26,7 @@ FORMULAS=(
     terraform-docs
     terragrunt
     tflint
-    tfsec
+    trivy # IaC + container + secrets scanner (replaces tfsec; tfsec merged into trivy)
 )
 
 CASKS=(

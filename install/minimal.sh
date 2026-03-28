@@ -33,8 +33,8 @@ FORMULAS=(
     gnu-tar
     gnupg
     grep
+    bandwhich # network utilization by process/connection (replaces iftop)
     grpcurl
-    iftop
     jq
     lazygit
     less
@@ -57,8 +57,8 @@ FORMULAS=(
     tmux
     tree
     watch
+    oha  # rust-based HTTP benchmarker with TUI histogram (replaces wrk)
     wget
-    wrk
     xo/xo/usql
     xz
     yazi
