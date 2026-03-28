@@ -1,7 +1,7 @@
 function fzf_filepath --description 'Select/insert filepath into commandline'
-    if not type fzf >/dev/null 2>&1
+    if not command -s fzf >/dev/null
         echo 'error: fzf not found'
-        exit 1
+        return 1
     end
     fzf --header="Insert filepath" --preview="ccat --color=always {}" -m -q (commandline -t) | read -z -l fzf_last_select
     if [ $fzf_last_select ]
