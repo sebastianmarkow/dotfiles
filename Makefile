@@ -39,7 +39,8 @@ CONFIGS=\
 	posting		\
 	tmux		\
 	wtf		\
-	yazi
+	yazi		\
+	zk
 
 .DEFAULT_GOAL: help
 .PHONY: help

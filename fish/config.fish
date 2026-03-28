@@ -45,6 +45,7 @@ set -gx TG_TF_FORWARD_STDOUT true
 set -gx USE_GKE_GCLOUD_AUTH_PLUGIN True
 set -gx RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 set -gx POETRY_VIRTUALENVS_IN_PROJECT true
+set -gx ZK_NOTEBOOK_DIR $HOME/Notes
 
 # Kitty
 if set -q KITTY_INSTALLATION_DIR
@@ -112,6 +113,9 @@ abbr --add up 'upgrade'
 abbr --add v 'nvim'
 abbr --add vim 'nvim'
 abbr --add yt 'yt-dlp'
+abbr --add zn 'zk new'
+abbr --add ze 'zk edit'
+abbr --add zl 'zk list'
 abbr --add gcm --set-cursor=% 'git commit -m "%"'
 abbr --add gfix --set-cursor=% 'git commit --fixup=%'
 abbr --add gri --set-cursor=% 'git rebase -i HEAD~%'
