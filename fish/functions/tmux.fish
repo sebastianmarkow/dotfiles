@@ -14,7 +14,7 @@ function tmux --description 'Attach to tmux session'
                     end
                     return 0
                 case '*'
-                    echo -e (string join "\n" $sessions) | fzf --header="Choose tmux session" | read -l fzf_last_select
+                    string join \n $sessions | fzf --header="Choose tmux session" | read -l fzf_last_select
                     if [ $fzf_last_select ]
                         set -l session (echo $fzf_last_select | cut -f 1 -d " ")
                         if [ $TMUX ]

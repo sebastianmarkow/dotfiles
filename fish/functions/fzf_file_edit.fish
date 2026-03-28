@@ -1,10 +1,10 @@
 function fzf_file_edit --description 'Select files and open in editor'
-    if not type fzf >/dev/null 2>&1
+    if not command -s fzf >/dev/null
         echo 'error: fzf not found'
-        exit 1
+        return 1
     end
-    fzf --header="Edit files" --preview="bat --color=always --style=numbers {}" -m -q (commandline -t) | read -z -l fzf_last_select
-    if [ $fzf_last_select ]
-        string split '\n' $fzf_last_select | string join ' ' | xargs nvim -o
+    set -l selected (fzf --header="Edit files" --preview="bat --color=always --style=numbers {}" -m -q (commandline -t) --print0 | string split0)
+    if set -q selected[1]
+        $EDITOR -o $selected
     end
 end

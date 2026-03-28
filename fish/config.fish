@@ -1,7 +1,6 @@
 # No, no, no!
 status is-interactive; or exit 1
 
-set -U fish_features qmark-noglob
 set fish_greeting ''
 
 # Path
@@ -55,21 +54,40 @@ if status is-interactive
     # Only run this once
     functions -e __setup_tools
 
+    mkdir -p $HOME/.cache/fish
+
+    # Helper: source from cache, regenerating if the binary is newer than the cache
+    function __cached_source
+      set -l bin (command -s $argv[1])
+      test -n "$bin"; or return
+      set -l cache $HOME/.cache/fish/$argv[1].fish
+      if not test -f $cache; or test $bin -nt $cache
+        $argv[2..-1] > $cache
+      end
+      source $cache
+    end
+
     # Starship
-    command -s starship > /dev/null; and begin
-      starship init fish | source
+    if command -s starship > /dev/null
+      __cached_source starship starship init fish
       enable_transience
     end
 
-    command -s bob > /dev/null; and begin
-      bob complete fish | source
-    end
+    # Bob (neovim version manager completions)
+    __cached_source bob bob complete fish
 
     # Zoxide
-    command -s zoxide > /dev/null; and zoxide init --cmd j --hook pwd fish | source
+    __cached_source zoxide zoxide init --cmd j --hook pwd fish
 
     # Direnv
-    command -s direnv > /dev/null; and direnv hook fish | source
+    __cached_source direnv direnv hook fish
+
+    # Pyenv completions
+    if set -q __PYENV_PREFIX
+      source $__PYENV_PREFIX/completions/pyenv.fish
+    end
+
+    functions -e __cached_source
   end
 end
 
@@ -95,6 +113,9 @@ abbr --add up 'upgrade'
 abbr --add v 'nvim'
 abbr --add vim 'nvim'
 abbr --add yt 'yt-dlp'
+abbr --add gcm --set-cursor=% 'git commit -m "%"'
+abbr --add gfix --set-cursor=% 'git commit --fixup=%'
+abbr --add gri --set-cursor=% 'git rebase -i HEAD~%'
 
 # Aliases
 alias ag 'rg'
@@ -135,7 +156,6 @@ set -gx PYENV_SHELL fish
 if not set -q __PYENV_PREFIX
   set -gx __PYENV_PREFIX (brew --prefix pyenv)
 end
-source $__PYENV_PREFIX'/completions/pyenv.fish'
 
 # Lazy rehash
 function __pyenv_rehash_on_use --on-event fish_preexec
