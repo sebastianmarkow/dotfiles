@@ -11,6 +11,7 @@ TAPS=(
 )
 
 FORMULAS=(
+    ast-grep # structural code search and replace using AST patterns
     bat # cat replacement with line numbers and syntax highlighting
     calc
     cloc
@@ -21,14 +22,21 @@ FORMULAS=(
     glow # markdown renderer with pager support (replaces mdcat)
     go-task
     graphviz
+    gum       # shell script UI components (prompts, spinners, confirms)
+    harlequin # TUI SQL IDE (DuckDB, Postgres, SQLite)
     hurl # scriptable HTTP request runner (.hurl files)
+    hyperfine # statistical CLI benchmarking tool
+    jless # TUI pager for JSON navigation
     jo
     lua
     luajit
     mandoc
+    navi     # interactive cheatsheet tool with fzf integration
+    posting  # TUI HTTP client with collections and history
     pv
     ragel
     rclone
+    serpl      # TUI find-and-replace across files
     shellcheck
     terminal-notifier
     trash

@@ -9,6 +9,7 @@ TAPS=(
 )
 
 FORMULAS=(
+    atuin # shell history replacement with full-text search, timestamps, and stats
     bash
     btop
     colima
@@ -17,6 +18,8 @@ FORMULAS=(
     delta
     diffutils
     direnv
+    duf   # df replacement with color-coded disk usage overview
+    dust  # du replacement with tree visualization
     docker
     fd # find replacement
     findutils
@@ -47,6 +50,7 @@ FORMULAS=(
     nvtop
     pidof
     pstree
+    procs # ps replacement with color, tree view, and filtering
     rename
     ripgrep
     rsync
@@ -57,6 +61,7 @@ FORMULAS=(
     tmux
     tree
     watch
+    viddy # watch replacement with diff highlighting and TUI
     oha  # rust-based HTTP benchmarker with TUI histogram (replaces wrk)
     wget
     xo/xo/usql
