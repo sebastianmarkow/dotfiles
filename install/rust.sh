@@ -5,19 +5,19 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 CRATES=(
-    cargo-edit      # cargo add/rm/upgrade for dependency management
-    cargo-watch     # watch files and re-run commands on change
-    cargo-nextest   # next-gen test runner (faster, better output)
-    cargo-audit     # audit dependencies for security vulnerabilities
-    cargo-outdated  # check for outdated dependencies
-    cargo-expand    # expand macros for debugging
-    bacon           # background code checker TUI
-    bottom          # cross-platform TUI system monitor (btm)
-    tokei           # fast code statistics
+    cargo-edit      # cargo-edit - manage dependencies (add/rm/upgrade)
+    cargo-watch     # cargo-watch - re-run commands on file change
+    cargo-nextest   # cargo-nextest - faster test runner
+    cargo-audit     # cargo-audit - audit dependencies for vulnerabilities
+    cargo-outdated  # cargo-outdated - check for outdated dependencies
+    cargo-expand    # cargo-expand - expand macros for debugging
+    bacon           # Bacon - background code checker TUI
+    bottom          # Bottom - TUI system monitor
+    tokei           # Tokei - code statistics
 )
 
 FORMULAS=(
-    rustup
+    rustup  # rustup - Rust toolchain installer
 )
 
 h1 "rust"
