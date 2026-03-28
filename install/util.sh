@@ -11,48 +11,48 @@ TAPS=(
 )
 
 FORMULAS=(
-    ast-grep # structural code search and replace using AST patterns
-    bat # cat replacement with line numbers and syntax highlighting
-    calc
-    cloc
-    cloog
-    entr
-    fdupes
-    fx # json terminal viewer
-    glow # markdown renderer with pager support (replaces mdcat)
-    go-task
-    graphviz
-    gum       # shell script UI components (prompts, spinners, confirms)
-    harlequin # TUI SQL IDE (DuckDB, Postgres, SQLite)
-    hurl # scriptable HTTP request runner (.hurl files)
-    hyperfine # statistical CLI benchmarking tool
-    jless # TUI pager for JSON navigation
-    jo
-    lua
-    luajit
-    mandoc
-    navi     # interactive cheatsheet tool with fzf integration
-    posting  # TUI HTTP client with collections and history
-    pv
-    ragel
-    rclone
-    serpl      # TUI find-and-replace across files
-    shellcheck
-    terminal-notifier
-    trash
-    upx
-    vmtouch
-    w3m
-    xh   # rust-based httpie-compatible HTTP client (replaces http-prompt)
-    yank
+    ast-grep            # ast-grep - structural code search via AST patterns
+    bat                 # bat - cat replacement with syntax highlighting
+    calc                # calc - arbitrary-precision calculator
+    cloc                # cloc - count lines of code
+    cloog               # CLooG - polyhedral code generator
+    entr                # entr - run commands on file change
+    fdupes              # fdupes - find duplicate files
+    fx                  # fx - interactive JSON viewer
+    glow                # Glow - markdown renderer with pager
+    go-task             # Task - Makefile alternative
+    graphviz            # Graphviz - graph visualization
+    gum                 # gum - shell script UI components
+    harlequin           # Harlequin - TUI SQL IDE
+    hurl                # Hurl - scriptable HTTP request runner
+    hyperfine           # Hyperfine - statistical CLI benchmarking
+    jless               # jless - TUI pager for JSON navigation
+    jo                  # jo - JSON output from shell
+    lua                 # Lua - scripting language
+    luajit              # LuaJIT - JIT compiler for Lua
+    mandoc              # mandoc - man page renderer
+    navi                # navi - interactive cheatsheet with fzf
+    posting             # Posting - TUI HTTP client
+    pv                  # pv - monitor pipe data progress
+    ragel               # Ragel - state machine compiler
+    rclone              # rclone - cloud storage sync
+    serpl               # serpl - TUI find-and-replace across files
+    shellcheck          # ShellCheck - shell script linter
+    terminal-notifier   # terminal-notifier - macOS notifications from CLI
+    trash               # trash - safe delete (moves to Trash)
+    upx                 # UPX - executable compressor
+    vmtouch             # vmtouch - manage filesystem cache
+    w3m                 # w3m - terminal web browser
+    xh                  # xh - httpie-compatible HTTP client
+    yank                # yank - copy terminal output to clipboard
 )
 
 CASKS=(
-    arq
-    alfred
-    aerial
-    hazel
-    monitorcontrol
+    arq             # Arq - backup software
+    alfred          # Alfred - macOS launcher and productivity
+    aerial          # Aerial - Apple TV screensavers
+    hazel           # Hazel - automated file organizer
+    monitorcontrol  # MonitorControl - external display brightness/volume
 )
 
 h1 "utilities"
