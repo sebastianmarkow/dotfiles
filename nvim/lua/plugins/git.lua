@@ -2,7 +2,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
-    keys = { { 'gn', ':Gitsigns next_hunk<CR>', noremap = true }, { 'gp', ':Gitsigns prev_hunk<CR>', noremap = true } },
+    keys = { { ']h', ':Gitsigns next_hunk<CR>', noremap = true }, { '[h', ':Gitsigns prev_hunk<CR>', noremap = true } },
     config = function()
       local gitsigns = require('gitsigns')
       gitsigns.setup({
@@ -31,7 +31,6 @@ return {
     event = 'BufReadPre',
     config = function()
       vim.g.committia_open_only_vim_starting = 0
-      vim.g.committia_hooks = vim.empty_dict()
     end,
   },
 }

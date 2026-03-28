@@ -26,7 +26,6 @@ return {
           ':MasonInstall json-lsp',
           ':MasonInstall lua-language-server',
           ':MasonInstall markdownlint',
-          ':MasonInstall python-lsp-server',
           ':MasonInstall ruff',
           ':MasonInstall rust-analyzer',
           ':MasonInstall shellcheck',
@@ -35,6 +34,7 @@ return {
           ':MasonInstall terraform-ls',
           ':MasonInstall tflint',
           ':MasonInstall tfsec',
+          ':MasonInstall yamlfmt',
           ':MasonInstall yamllint',
         },
         opts = {},
@@ -45,7 +45,40 @@ return {
     keys = { { '<leader>cm', '<cmd>Mason<cr>', desc = 'Mason' } },
     config = function()
       require('mason').setup()
-      require('mason-lspconfig').setup()
+
+      local on_attach = function(_, bufnr)
+        local map = function(keys, func, desc)
+          vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+        end
+        map('gd', vim.lsp.buf.definition, 'Goto Definition')
+        map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+        map('gi', vim.lsp.buf.implementation, 'Goto Implementation')
+        map('gr', vim.lsp.buf.references, 'Goto References')
+        map('K', vim.lsp.buf.hover, 'Hover Documentation')
+        map('<leader>lr', vim.lsp.buf.rename, 'Rename')
+        map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
+        map('[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
+        map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+        map('<leader>lf', vim.diagnostic.open_float, 'Show Diagnostic Float')
+      end
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local ok, blink = pcall(require, 'blink.cmp')
+      if ok then
+        capabilities = blink.get_lsp_capabilities(capabilities)
+      end
+
+      require('mason-lspconfig').setup({
+        handlers = {
+          function(server_name)
+            local server_ok, server_config = pcall(require, 'lsp.' .. server_name)
+            local config = server_ok and server_config or {}
+            config.on_attach = on_attach
+            config.capabilities = capabilities
+            require('lspconfig')[server_name].setup(config)
+          end,
+        },
+      })
 
       vim.diagnostic.config({
         virtual_text = true,
