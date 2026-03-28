@@ -16,6 +16,7 @@ return {
         build = {
           ':MasonUpdate',
           ':MasonInstall basedpyright',
+          ':MasonInstall codelldb',
           ':MasonInstall debugpy',
           ':MasonInstall delve',
           ':MasonInstall gitlint',
