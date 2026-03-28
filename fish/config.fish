@@ -4,26 +4,26 @@ status is-interactive; or exit 1
 set fish_greeting ''
 
 # Path
-set -x GOPATH $HOME/Developer/go
-set -x GOBIN $GOPATH/bin
-set -x PYENV_ROOT $HOME/.pyenv
-set -x XDG_CACHE_HOME $HOME/.cache
-set -x XDG_CONFIG_HOME $HOME/.config
-set -x XDG_DATA_HOME $HOME/.local/share
-set -x PATH /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin $HOME/.local/bin $GOBIN $PATH
+set -gx GOPATH $HOME/Developer/go
+set -gx GOBIN $GOPATH/bin
+set -gx PYENV_ROOT $HOME/.pyenv
+set -gx XDG_CACHE_HOME $HOME/.cache
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx PATH /opt/homebrew/bin /opt/homebrew/sbin /usr/local/bin $HOME/.local/bin $GOBIN $PATH
 
 # Base
-set -x EDITOR 'nvim'
-set -x VISUAL $EDITOR
-set -x MANPAGER 'less -X'
-set -x LESS '--ignore-case --chop-long-lines --long-prompt --silent'
-set -x LANG 'en_US.UTF-8'
-set -x LC_CTYPE 'en_US.UTF-8'
-set -x LC_MESSAGES 'en_US.UTF-8'
-set -x LC_COLLATE 'C'
+set -gx EDITOR 'nvim'
+set -gx VISUAL $EDITOR
+set -gx MANPAGER 'less -X'
+set -gx LESS '--ignore-case --chop-long-lines --long-prompt --silent'
+set -gx LANG 'en_US.UTF-8'
+set -gx LC_CTYPE 'en_US.UTF-8'
+set -gx LC_MESSAGES 'en_US.UTF-8'
+set -gx LC_COLLATE 'C'
 
 # Env
-set -x FZF_DEFAULT_OPTS '
+set -gx FZF_DEFAULT_OPTS '
   --color=fg:#908caa,bg:-1,hl:#ea9a97
   --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
   --color=border:#6e6a86,header:#3e8fb0,gutter:#232136
@@ -31,72 +31,64 @@ set -x FZF_DEFAULT_OPTS '
   --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
   --tiebreak=end,length
   --border="none"
-  --marker=""
-  --prompt="  "
+  --marker=""
+  --prompt="  "
   --bind=shift-tab:toggle-down,tab:toggle-up'
-set -x FZF_DEFAULT_COMMAND 'rg --files --color never'
-set -x HOMEBREW_NO_ANALYTICS 1
-set -x HOMEBREW_NO_EMOJI 1
-set -x HOMEBREW_NO_ENV_HINTS 1
-set -x STARSHIP_CONFIG $HOME/.starship.toml
-set -x VIRTUAL_ENV_DISABLE_PROMPT 1
-set -x XZ_OPT '-T0'
-set -x TG_TF_FORWARD_STDOUT true
-set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
-set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
+set -gx FZF_DEFAULT_COMMAND 'rg --files --color never'
+set -gx HOMEBREW_NO_ANALYTICS 1
+set -gx HOMEBREW_NO_EMOJI 1
+set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx STARSHIP_CONFIG $HOME/.starship.toml
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+set -gx XZ_OPT '-T0'
+set -gx TG_TF_FORWARD_STDOUT true
+set -gx USE_GKE_GCLOUD_AUTH_PLUGIN True
+set -gx RIPGREP_CONFIG_PATH $HOME/.ripgreprc
+set -gx POETRY_VIRTUALENVS_IN_PROJECT true
 
-# Python
-set -x POETRY_VIRTUALENVS_IN_PROJECT true
-
-# Hooks
-if status is-interactive
-  # Async hooks for better startup time
-  function __setup_tools --on-event fish_prompt
-    # Only run this once
-    functions -e __setup_tools
-
-    mkdir -p $HOME/.cache/fish
-
-    # Helper: source from cache, regenerating if the binary is newer than the cache
-    function __cached_source
-      set -l bin (command -s $argv[1])
-      test -n "$bin"; or return
-      set -l cache $HOME/.cache/fish/$argv[1].fish
-      if not test -f $cache; or test $bin -nt $cache
-        $argv[2..-1] > $cache
-      end
-      source $cache
-    end
-
-    # Starship
-    if command -s starship > /dev/null
-      __cached_source starship starship init fish
-      enable_transience
-    end
-
-    # Bob (neovim version manager completions)
-    __cached_source bob bob complete fish
-
-    # Zoxide
-    __cached_source zoxide zoxide init --cmd j --hook pwd fish
-
-    # Direnv
-    __cached_source direnv direnv hook fish
-
-    # Atuin (shell history)
-    __cached_source atuin atuin init fish --disable-up-arrow
-
-    # Navi (interactive cheatsheet widget)
-    __cached_source navi navi widget fish
-
-    # Pyenv completions
-    if set -q __PYENV_PREFIX
-      source $__PYENV_PREFIX/completions/pyenv.fish
-    end
-
-    functions -e __cached_source
-  end
+# Kitty
+if set -q KITTY_INSTALLATION_DIR
+    set -g KITTY_SHELL_INTEGRATION enabled
+    source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+    set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
 end
+
+# Pyenv
+if command -q pyenv
+    # Remove any existing shim entries before prepending to avoid duplicates in nested shells
+    while set pyenv_index (contains -i -- "$PYENV_ROOT/shims" $PATH)
+        set -eg PATH[$pyenv_index]
+    end
+    set -e pyenv_index
+    set -gx PATH "$PYENV_ROOT/shims" $PATH
+    set -gx PYENV_SHELL fish
+
+    # Cache brew --prefix once (it's slow)
+    if not set -q __PYENV_PREFIX
+        set -gx __PYENV_PREFIX (brew --prefix pyenv)
+    end
+
+    # Rehash shims after pip/poetry installs
+    function __pyenv_rehash_on_use --on-event fish_preexec
+        if string match -q "*pip*install*" $argv[1]; or string match -q "*pip*uninstall*" $argv[1]; or string match -q "*poetry*add*" $argv[1]; or string match -q "*poetry*remove*" $argv[1]
+            command pyenv rehash 2>/dev/null
+        end
+    end
+
+    function pyenv
+        set command $argv[1]
+        set -e argv[1]
+        switch "$command"
+        case rehash shell
+            source (pyenv "sh-$command" $argv|psub)
+        case "*"
+            command pyenv "$command" $argv
+        end
+    end
+end
+
+# Opencode
+fish_add_path $HOME/.opencode/bin
 
 # Abbreviations
 abbr --add cp 'cp -iR'
@@ -128,7 +120,7 @@ abbr --add gri --set-cursor=% 'git rebase -i HEAD~%'
 alias ag 'rg'
 alias compare 'diff -rq'
 alias grep 'grep --color=auto'
-alias gitroot 'test -n (git rev-parse --show-cdup); and cd (git rev-parse --show-cdup)'
+alias gitroot 'cd (git rev-parse --show-toplevel)'
 alias h 'fzf_history'
 alias ktc 'kubectl top pods -A | sort --reverse --key 3 --numeric | head -25'
 alias ktm 'kubectl top pods -A | sort --reverse --key 4 --numeric | head -25'
@@ -146,57 +138,46 @@ alias y 'yazi'
 alias yt2m4a 'yt-dlp --extract-audio --audio-format m4a --audio-quality 0'
 alias yt2mp3 'yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 
-# Kitty
-if set -q KITTY_INSTALLATION_DIR
-    set --global KITTY_SHELL_INTEGRATION enabled
-    source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-    set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-end
-
-# Pyenv
-while set pyenv_index (contains -i -- "$PYENV_ROOT/shims" $PATH)
-set -eg PATH[$pyenv_index]; end; set -e pyenv_index
-set -gx PATH "$PYENV_ROOT/shims" $PATH
-set -gx PYENV_SHELL fish
-
-# Cache pyenv prefix (brew --prefix is slow)
-if not set -q __PYENV_PREFIX
-  set -gx __PYENV_PREFIX (brew --prefix pyenv)
-end
-
-# Lazy rehash
-function __pyenv_rehash_on_use --on-event fish_preexec
-  if string match -q "*pip*install*" $argv[1]; or string match -q "*pip*uninstall*" $argv[1]; or string match -q "*poetry*add*" $argv[1]; or string match -q "*poetry*remove*" $argv[1]
-    command pyenv rehash 2>/dev/null
-  end
-end
-
-function pyenv
-  set command $argv[1]
-  set -e argv[1]
-
-  switch "$command"
-  case rehash shell
-    source (pyenv "sh-$command" $argv|psub)
-  case "*"
-    command pyenv "$command" $argv
-  end
-end
-
-# Opencode
-fish_add_path $HOME/.opencode/bin
-
 # Fish
-# Load key bindings only once at startup (vi first, then custom on top)
+# vi bindings first, then user overrides on top
 fish_vi_key_bindings
 fish_user_key_bindings
 
-# Defer theme application to first prompt if not already set
-if status is-interactive; and not set -q __FISH_THEME_LOADED
-  function __load_theme --on-event fish_prompt
-    # Only run this once
-    functions -e __load_theme
+# Defer theme + tool init to first prompt
+function __init_interactive --on-event fish_prompt
+    functions -e __init_interactive
+
+    # Theme
     set -g __FISH_THEME_LOADED 1
     fish_config theme choose "Rose Pine Moon"
-  end
+
+    mkdir -p $HOME/.cache/fish
+
+    # Source tool init from cache, regenerating if the binary is newer than the cache
+    function __cached_source
+        set -l bin (command -s $argv[1])
+        test -n "$bin"; or return
+        set -l cache $HOME/.cache/fish/$argv[1].fish
+        if not test -f $cache; or test $bin -nt $cache
+            $argv[2..-1] > $cache
+        end
+        source $cache
+    end
+
+    if command -q starship
+        __cached_source starship starship init fish
+        enable_transience
+    end
+
+    __cached_source bob bob complete fish
+    __cached_source zoxide zoxide init --cmd j --hook pwd fish
+    __cached_source direnv direnv hook fish
+    __cached_source atuin atuin init fish --disable-up-arrow
+    __cached_source navi navi widget fish
+
+    if set -q __PYENV_PREFIX
+        source $__PYENV_PREFIX/completions/pyenv.fish
+    end
+
+    functions -e __cached_source
 end
