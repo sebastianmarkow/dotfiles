@@ -179,7 +179,7 @@
     root = ~/Developer/repos
 
 [delta]
-    features = arctic-fox
+    features = rose-pine-moon
 
 [delta "arctic-fox"]
     # author: https://github.com/anthony-halim
@@ -220,8 +220,10 @@
 [delta "rose-pine-moon"]
     dark = true
     syntax-theme = Nord
+    navigate = true
+    hyperlinks = true
 
-    thm-nc = "#1f1d30"
+    # palette
     thm-base = "#232136"
     thm-surface = "#2a273f"
     thm-overlay = "#393552"
@@ -238,7 +240,9 @@
     thm-hl-med = "#44415a"
     thm-hl-high = "#56526e"
 
+    blame-code-style = syntax
     blame-format = "{author:<18} ({commit:>7}) ┊{timestamp:^16}┊ "
+    blame-palette = "#232136" "#2a273f" "#393552"
     commit-decoration-style = "#f6c177" box
     commit-style = "#f6c177" bold italic
     file-added-label = [+]
@@ -256,20 +260,20 @@
     line-numbers-left-format = "{nm:>3} │"
     line-numbers-left-style = "#6e6a86"
     line-numbers-minus-style = "#eb6f92" bold
-    line-numbers-plus-style = "#3e8fb0" bold
+    line-numbers-plus-style = "#9ccfd8" bold
     line-numbers-right-format = "{np:>3} │"
     line-numbers-right-style = "#6e6a86"
     line-numbers-zero-style = "#908caa" italic
-    merge-conflict-begin-symbol = ~
-    merge-conflict-end-symbol = ~
+    merge-conflict-begin-symbol = ╔
+    merge-conflict-end-symbol = ╚
     merge-conflict-ours-diff-header-decoration-style = "#56526e" box
     merge-conflict-ours-diff-header-style = "#f6c177" bold
     merge-conflict-theirs-diff-header-decoration-style = "#56526e" box
-    merge-conflict-theirs-diff-header-style = "#f6c177" bold
-    minus-emph-style = bold "#eb6f92" "#393552"
+    merge-conflict-theirs-diff-header-style = "#ea9a97" bold
+    minus-emph-style = bold "#eb6f92" "#44415a"
     minus-style = "#eb6f92"
-    plus-emph-style = bold "#3e8fb0" "#393552"
-    plus-style = "#3e8fb0"
+    plus-emph-style = bold "#9ccfd8" "#44415a"
+    plus-style = "#9ccfd8"
     whitespace-error-style = "#eb6f92" reverse
     zero-style = "#e0def4"
 
