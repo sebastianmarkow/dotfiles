@@ -83,6 +83,10 @@ python: brew ## install Python3 toolchain
 go: brew ## install Go toolchain
 	@sh ./install/go.sh
 
+.PHONY: rust
+rust: brew ## install Rust toolchain
+	@sh ./install/rust.sh
+
 .PHONY: devops
 devops: brew ## install devops toolchain
 	@sh ./install/devops.sh

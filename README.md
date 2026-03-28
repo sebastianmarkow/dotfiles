@@ -34,5 +34,6 @@ Install Targets
 | `util`    | Utilities via Homebrew             |
 | `python`  | Python3 toolchain                  |
 | `go`      | Go toolchain                       |
+| `rust`    | Rust toolchain                     |
 | `devops`  | DevOps toolchain                   |
 | `qmk`     | QMK keyboard firmware dev chain    |
