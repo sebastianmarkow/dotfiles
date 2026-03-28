@@ -4,7 +4,7 @@ function fzf_cd --description "Interactive cd"
         exit 1
     end
 
-    fd --type d | fzf --header="Change directory" --tiebreak=end,length | read -l fzf_last_select
+    fd --type d --exclude .git --exclude node_modules --exclude .cache --exclude __pycache__ --exclude .venv | fzf --header="Change directory" --tiebreak=end,length | read -l fzf_last_select
     if [ $fzf_last_select ]
         cd $fzf_last_select
     end
