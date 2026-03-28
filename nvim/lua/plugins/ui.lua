@@ -44,14 +44,14 @@ return {
       vim.api.nvim_create_autocmd({ 'WinEnter', 'BufEnter', 'FocusGained' }, {
         pattern = '*',
         callback = function()
-          vim.cmd('hi Normal guibg=' .. palette.base) -- Active window background
+          vim.api.nvim_set_hl(0, 'Normal', { bg = palette.base }) -- Active window background
         end,
       })
 
       vim.api.nvim_create_autocmd({ 'WinLeave', 'BufLeave', 'FocusLost' }, {
         pattern = '*',
         callback = function()
-          vim.cmd('hi Normal guibg=' .. palette._nc) -- Inactive window background
+          vim.api.nvim_set_hl(0, 'Normal', { bg = palette._nc }) -- Inactive window background
         end,
       })
     end,

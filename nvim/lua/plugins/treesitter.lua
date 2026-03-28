@@ -4,7 +4,7 @@ return {
     dependencies = {
       { 'theHamsta/nvim-treesitter-pairs', ft = { 'python', 'go' } },
     },
-    lazy = false,
+    event = 'BufReadPost',
     build = {
       ':TSUpdate',
       ':TSInstall! bash',
