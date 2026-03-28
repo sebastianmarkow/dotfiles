@@ -11,17 +11,21 @@ FORMULAS=(
     datawire/blackbird/telepresence
     derailed/k9s/k9s
     derailed/popeye/popeye
+    wagoodman/brew/dive # TUI Docker image layer explorer
     fluxcd/tap/flux
     hadolint
     helm
     istioctl
+    jesseduffield/lazydocker/lazydocker # TUI for Docker (companion to lazygit)
     kind
     krew
+    kubecolor   # colorizes kubectl output (drop-in replacement)
     kubeconform
     kubectx
     kubeseal
     kustomize
     stern
+    termshark # TUI frontend for tshark/Wireshark packet analysis
     terraform
     terraform-docs
     terragrunt
