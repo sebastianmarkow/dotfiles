@@ -9,6 +9,8 @@ function tmux --description 'Attach to tmux session'
                 case 1
                     if [ ! $TMUX ]
                         command tmux new-session -A -s (echo $sessions | cut -f 1 -d " ")
+                    else
+                        command tmux display "Already in session: #S"
                     end
                     return 0
                 case '*'
