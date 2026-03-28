@@ -4,19 +4,24 @@ dir = "~/Notes"
 [note]
 language = "en"
 default-title = "Untitled"
-filename = "{{id}}"
+# Hybrid: stable ID prefix + human-readable slug. Allows safe renames without
+# breaking wiki-links, since zk resolves links by ID prefix.
+filename = "{{id}}-{{slug title}}"
 extension = "md"
 id-charset = "alphanum"
 id-length = 8
 id-case = "lower"
 template = "default.md"
+exclude = [".git"]
 
 [extra]
 author = ""
 
 [format.markdown]
 link-format = "wiki"
+link-drop-extension = true
 hashtags = true
+colon-tags = true
 
 [tool]
 editor = "nvim"
@@ -30,10 +35,56 @@ fzf-preview = "bat --style=plain --language=markdown --color=always {path}"
 wiki-title = "hint"
 dead-link = "error"
 
+# ── Filters ──────────────────────────────────────────────────────────────────
+
 [filter]
-recents = "--sort created- --created-after 'last two weeks'"
+recent   = "--sort created- --created-after 'last two weeks'"
+today    = "--sort modified- --modified-after 'today'"
+fleeting = "path:inbox"
+orphans  = "--no-link --exclude 'journal/**'"
+
+# ── Aliases ───────────────────────────────────────────────────────────────────
 
 [alias]
-ls    = "zk list --quiet $@"
-daily = "zk new --no-input --title 'Daily Notes' '$ZK_NOTEBOOK_DIR/journal'"
-week  = "zk list --sort created- --created-after 'last 7 days' --quiet $@"
+# Quick shortcuts
+ls     = "zk list --quiet $@"
+ed     = "zk edit --interactive $@"
+
+# Recency
+recent = "zk edit --interactive --sort created- --created-after 'last two weeks' $@"
+today  = "zk edit --interactive --sort modified- --modified-after 'today' $@"
+
+# Note weight (identify stubs)
+wc     = "zk list --format '{{word-count}}\t{{title}}' --sort word-count $@"
+
+# Backlink hygiene: find notes missing a reciprocal link
+bl     = "zk edit --interactive --missing-backlink $@"
+
+# Random note for review
+lucky  = "zk list --quiet --sort random --limit 1"
+
+# Capture quick thoughts into inbox
+cap    = "zk new --no-input --group fleeting $@"
+
+# Daily journal entry (idempotent via --no-input if already exists today)
+daily  = "zk new --no-input --group journal"
+
+# ── Groups ────────────────────────────────────────────────────────────────────
+
+[group.journal]
+paths = ["journal/**"]
+
+[group.journal.note]
+filename = "{{format-date now '%Y/%m/%Y-%m-%d'}}"
+extension = "md"
+template = "journal.md"
+default-title = "{{format-date now '%Y-%m-%d'}}"
+
+[group.fleeting]
+paths = ["inbox/**"]
+
+[group.fleeting.note]
+filename = "{{id}}-{{slug title}}"
+extension = "md"
+template = "fleeting.md"
+default-title = "Fleeting Note"
