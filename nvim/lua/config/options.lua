@@ -69,7 +69,7 @@ vim.o.autoindent = true -- auto indent next line
 vim.o.copyindent = true -- use the same indentation for autoindent
 vim.o.smartindent = true -- do smart autoindenting when starting a new line
 vim.o.startofline = false -- cursor stays at same column while moving horizontal
-vim.o.joinspaces = true -- do not add additional spaces on join
+vim.o.joinspaces = true -- add extra space after '.', '?' and '!' on join
 vim.o.clipboard = 'unnamed'
 vim.o.formatoptions = 'qcnrj'
 --                     |||||

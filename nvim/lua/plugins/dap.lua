@@ -15,17 +15,17 @@ return {
       desc = 'Debug: Start/Continue',
     },
     {
-      '<leader>dsi',
+      '<leader>di',
       function() require('dap').step_into() end,
       desc = 'Debug: Step Into',
     },
     {
-      '<leader>dsO',
+      '<leader>dv',
       function() require('dap').step_over() end,
       desc = 'Debug: Step Over',
     },
     {
-      '<leader>dso',
+      '<leader>do',
       function() require('dap').step_out() end,
       desc = 'Debug: Step Out',
     },
