@@ -5,21 +5,16 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 TOOLS=(
-    github.com/lukehoban/go-outline@latest
-    github.com/mailgun/godebug@latest
     github.com/x-motemen/gore/cmd/gore@latest
-    github.com/newhook/go-symbols@latest
-    github.com/nsf/gocode@latest
-    github.com/rogpeppe/godef@latest
-    github.com/tools/godep@latest
-    github.com/tpng/gopkgs@latest
-    golang.org/x/lint/golint@latest
     golang.org/x/tools/gopls@latest
-    sourcegraph.com/sqs/goreturns@latest
+    github.com/go-delve/delve/cmd/dlv@latest    # debugger (replaces godebug)
+    golang.org/x/tools/cmd/goimports@latest     # auto-manage imports (replaces goreturns)
+    mvdan.cc/gofumpt@latest                     # stricter gofmt
 )
 
 FORMULAS=(
     go
+    golangci-lint # meta-linter (replaces golint)
 )
 
 h1 "go"

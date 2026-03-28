@@ -10,26 +10,22 @@ TAPS=(
     homebrew/core
 )
 
-EGGS=(
-    http-prompt
-)
-
 FORMULAS=(
-    bat # cat replacment with line numbers and syntax highlighting
+    bat # cat replacement with line numbers and syntax highlighting
     calc
-    ccat # cat replacement with syntax highlighting
     cloc
     cloog
     entr
     fdupes
     fx # json terminal viewer
+    glow # markdown renderer with pager support (replaces mdcat)
     go-task
     graphviz
+    hurl # scriptable HTTP request runner (.hurl files)
     jo
     lua
     luajit
     mandoc
-    mdcat
     pv
     ragel
     rclone
@@ -39,6 +35,7 @@ FORMULAS=(
     upx
     vmtouch
     w3m
+    xh   # rust-based httpie-compatible HTTP client (replaces http-prompt)
     yank
 )
 
@@ -57,5 +54,3 @@ h2 "brew casks"
 for f in "${CASKS[@]}"; do cask_install "$f"; done
 h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
-h2 "pip modules"
-for e in "${EGGS[@]}"; do pip_install "$e"; done
