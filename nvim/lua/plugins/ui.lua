@@ -93,7 +93,7 @@ return {
           filtered_items = {
             visible = false,
             hide_dotfiles = false,
-            hide_gitignored = false,
+            hide_gitignored = true,
             never_show = { '.DS_Store', 'thumbs.db' },
           },
           follow_current_file = { enabled = true, leave_dirs_open = true },
