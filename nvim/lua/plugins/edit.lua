@@ -8,7 +8,7 @@ return {
   },
   {
     'stevearc/conform.nvim',
-    event = { 'BufReadPre', 'BufWritePre' },
+    event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     ft = { 'python', 'go', 'lua', 'yaml' },
     keys = {
