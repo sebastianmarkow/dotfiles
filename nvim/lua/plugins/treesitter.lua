@@ -27,6 +27,7 @@ return {
       ':TSInstall! make',
       ':TSInstall! markdown',
       ':TSInstall! markdown_inline',
+      ':TSInstall! latex',
       ':TSInstall! mermaid',
       ':TSInstall! proto',
       ':TSInstall! python',
