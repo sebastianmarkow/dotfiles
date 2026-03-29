@@ -57,6 +57,13 @@ return {
         style = 'full',
         cell = 'padded',
       },
+      latex = {
+        enabled = true,
+        converter = 'latex2text',
+        highlight = 'RenderMarkdownMath',
+        top_pad = 0,
+        bottom_pad = 0,
+      },
       link = {
         enabled = true,
         footnote = { superscript = true },
