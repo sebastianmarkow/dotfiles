@@ -26,6 +26,7 @@ return {
       ':TSInstall! luadoc',
       ':TSInstall! make',
       ':TSInstall! markdown',
+      ':TSInstall! markdown_inline',
       ':TSInstall! mermaid',
       ':TSInstall! proto',
       ':TSInstall! python',
