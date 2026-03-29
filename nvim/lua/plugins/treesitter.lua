@@ -1,56 +1,32 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
     dependencies = {
       { 'theHamsta/nvim-treesitter-pairs', ft = { 'python', 'go' } },
     },
-    event = 'BufReadPost',
-    build = {
-      ':TSUpdate',
-      ':TSInstall! bash',
-      ':TSInstall! diff',
-      ':TSInstall! dockerfile',
-      ':TSInstall! fish',
-      ':TSInstall! git_config',
-      ':TSInstall! gitattributes',
-      ':TSInstall! gitcommit',
-      ':TSInstall! gitignore',
-      ':TSInstall! go',
-      ':TSInstall! gomod',
-      ':TSInstall! gosum',
-      ':TSInstall! gotmpl',
-      ':TSInstall! hcl',
-      ':TSInstall! http',
-      ':TSInstall! json',
-      ':TSInstall! lua',
-      ':TSInstall! luadoc',
-      ':TSInstall! make',
-      ':TSInstall! markdown',
-      ':TSInstall! markdown_inline',
-      ':TSInstall! latex',
-      ':TSInstall! mermaid',
-      ':TSInstall! proto',
-      ':TSInstall! python',
-      ':TSInstall! rst',
-      ':TSInstall! rust',
-      ':TSInstall! sql',
-      ':TSInstall! terraform',
-      ':TSInstall! tmux',
-      ':TSInstall! toml',
-      ':TSInstall! yaml',
-    },
+    build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup({
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-          -- Disable for +100kb files
-          disable = function(_, buf)
-            local max_filesize = 100 * 1024
-            local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then return true end
-          end,
-        }
+      require('nvim-treesitter').setup()
+
+      require('nvim-treesitter').install({
+        'bash', 'diff', 'dockerfile', 'fish',
+        'git_config', 'gitattributes', 'gitcommit', 'gitignore',
+        'go', 'gomod', 'gosum', 'gotmpl',
+        'hcl', 'http', 'json', 'latex',
+        'lua', 'luadoc', 'make', 'markdown', 'markdown_inline',
+        'mermaid', 'proto', 'python', 'rst', 'rust',
+        'sql', 'terraform', 'tmux', 'toml', 'yaml',
+      })
+
+      -- Disable treesitter highlighting for files >100KB
+      vim.api.nvim_create_autocmd('FileType', {
+        callback = function(args)
+          local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(args.buf))
+          if ok and stats and stats.size > 100 * 1024 then return end
+          pcall(vim.treesitter.start, args.buf)
+        end,
       })
     end,
   },
