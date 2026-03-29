@@ -58,8 +58,8 @@ return {
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
         map('<leader>lr', vim.lsp.buf.rename, 'Rename')
         map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
-        map('[d', vim.diagnostic.goto_prev, 'Previous Diagnostic')
-        map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+        map('[d', function() vim.diagnostic.jump({ count = -1 }) end, 'Previous Diagnostic')
+        map(']d', function() vim.diagnostic.jump({ count = 1 }) end, 'Next Diagnostic')
         map('<leader>lf', vim.diagnostic.open_float, 'Show Diagnostic Float')
       end
 

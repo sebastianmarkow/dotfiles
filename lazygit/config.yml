@@ -85,7 +85,6 @@ git:
   paging:
     colorArg: always
     pager: "delta --features=rose-pine-moon --paging=never"
-    useConfig: false
     externalDiffCommand: ""
   commit:
     signOff: false
