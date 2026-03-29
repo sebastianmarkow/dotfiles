@@ -47,39 +47,32 @@ return {
     config = function()
       require('mason').setup()
 
-      local on_attach = function(_, bufnr)
-        local map = function(keys, func, desc)
-          vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-        end
-        map('gd', vim.lsp.buf.definition, 'Goto Definition')
-        map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
-        map('gi', vim.lsp.buf.implementation, 'Goto Implementation')
-        map('gr', vim.lsp.buf.references, 'Goto References')
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
-        map('<leader>lr', vim.lsp.buf.rename, 'Rename')
-        map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
-        map('[d', function() vim.diagnostic.jump({ count = -1 }) end, 'Previous Diagnostic')
-        map(']d', function() vim.diagnostic.jump({ count = 1 }) end, 'Next Diagnostic')
-        map('<leader>lf', vim.diagnostic.open_float, 'Show Diagnostic Float')
-      end
-
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       local ok, blink = pcall(require, 'blink.cmp')
       if ok then
         capabilities = blink.get_lsp_capabilities(capabilities)
       end
+      vim.lsp.config('*', { capabilities = capabilities })
 
-      require('mason-lspconfig').setup({
-        handlers = {
-          function(server_name)
-            local server_ok, server_config = pcall(require, 'lsp.' .. server_name)
-            local config = server_ok and server_config or {}
-            config.on_attach = on_attach
-            config.capabilities = capabilities
-            require('lspconfig')[server_name].setup(config)
-          end,
-        },
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(ev)
+          local map = function(keys, func, desc)
+            vim.keymap.set('n', keys, func, { buffer = ev.buf, desc = desc })
+          end
+          map('gd', vim.lsp.buf.definition, 'Goto Definition')
+          map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+          map('gi', vim.lsp.buf.implementation, 'Goto Implementation')
+          map('gr', vim.lsp.buf.references, 'Goto References')
+          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          map('<leader>lr', vim.lsp.buf.rename, 'Rename')
+          map('<leader>la', vim.lsp.buf.code_action, 'Code Action')
+          map('[d', function() vim.diagnostic.jump({ count = -1 }) end, 'Previous Diagnostic')
+          map(']d', function() vim.diagnostic.jump({ count = 1 }) end, 'Next Diagnostic')
+          map('<leader>lf', vim.diagnostic.open_float, 'Show Diagnostic Float')
+        end,
       })
+
+      require('mason-lspconfig').setup()
 
       vim.diagnostic.config({
         virtual_text = true,
