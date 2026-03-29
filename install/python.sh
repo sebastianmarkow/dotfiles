@@ -5,7 +5,8 @@ PATH=/usr/local/bin:$PATH
 source "${BASH_SOURCE%/*}/lib.sh"
 
 FORMULAS=(
-    uv  # uv - fast Python package manager
+    pyenv  # pyenv - Python version manager
+    uv     # uv - fast Python package manager
 )
 
 h1 "python"

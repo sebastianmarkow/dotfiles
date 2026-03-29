@@ -11,6 +11,7 @@ TAPS=(
 FORMULAS=(
     atuin        # Atuin - shell history with full-text search and stats
     bash         # GNU Bash - shell
+    bob          # bob - Neovim version manager
     btop         # btop++ - resource monitor
     colima       # Colima - container runtime for macOS
     coreutils    # GNU Core Utilities - basic file/shell utilities
@@ -44,6 +45,7 @@ FORMULAS=(
     make         # GNU Make - build automation
     massren      # massren - bulk file rename via editor
     moreutils    # moreutils - additional Unix utilities
+    navi         # navi - interactive cheatsheet with fzf
     mtr          # mtr - network diagnostics (ping + traceroute)
     neovim       # Neovim - text editor
     nmap         # Nmap - network scanner
@@ -68,6 +70,9 @@ FORMULAS=(
     xz           # XZ Utils - compression
     yazi         # Yazi - TUI file manager
     yq           # yq - YAML/JSON/TOML processor
+    yt-dlp       # yt-dlp - video downloader
+    zk           # zk - plain-text note-taking with Zettelkasten
+    zoxide       # zoxide - smarter cd command
 )
 
 CASKS=(

@@ -31,7 +31,6 @@ FORMULAS=(
     lua                 # Lua - scripting language
     luajit              # LuaJIT - JIT compiler for Lua
     mandoc              # mandoc - man page renderer
-    navi                # navi - interactive cheatsheet with fzf
     posting             # Posting - TUI HTTP client
     pv                  # pv - monitor pipe data progress
     ragel               # Ragel - state machine compiler
@@ -45,7 +44,6 @@ FORMULAS=(
     w3m                 # w3m - terminal web browser
     xh                  # xh - httpie-compatible HTTP client
     yank                # yank - copy terminal output to clipboard
-    zk                  # zk - plain-text note-taking with Zettelkasten
 )
 
 CASKS=(
