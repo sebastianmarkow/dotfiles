@@ -16,5 +16,5 @@ MODULES=(
 h1 "python"
 h2 "brew formulas"
 for f in "${FORMULAS[@]}"; do brew_install "$f"; done
-h2 "pip modules"
-for m in "${MODULES[@]}"; do pip_install "$m"; done
+h2 "pipx packages"
+for m in "${MODULES[@]}"; do pipx_install "$m"; done

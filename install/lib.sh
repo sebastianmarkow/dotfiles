@@ -110,6 +110,22 @@ function pip_install() {
     fi
 }
 
+function pipx_install() {
+    INSTALLED_PIPX=${INSTALLED_PIPX:-"$(pipx list --short 2>/dev/null | awk '{print tolower($1)}')"}
+    task "install $1"
+    echo "$INSTALLED_PIPX" | grep "$(echo "$1" | tr A-Z a-z)" > /dev/null 2>&1 | true
+    if [[ ${PIPESTATUS[1]} != 0 ]]; then
+        pipx install "$1" > /dev/null 2>&1
+        if [[ $? != 0 ]]; then
+            error
+        else
+            success
+        fi
+    else
+        warn "installed"
+    fi
+}
+
 function gem_install() {
     INSTALLED_GEMS=${INSTALLED_GEMS:-"$(gem list -q | cut -f 1 -d " " | tr A-Z a-z)"}
     task "install $1"

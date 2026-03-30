@@ -51,6 +51,7 @@ FORMULAS=(
     nmap         # Nmap - network scanner
     nvtop        # nvtop - GPU monitor
     pidof        # pidof - find process ID by name
+    pipx         # pipx - install and run Python applications in isolated environments
     pstree       # pstree - process tree viewer
     procs        # procs - process viewer (ps replacement)
     rename       # rename - batch file renamer
