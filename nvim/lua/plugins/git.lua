@@ -22,7 +22,6 @@ return {
         watch_gitdir = { interval = 5000 },
         auto_attach = true,
         attach_to_untracked = false,
-        preview_config = { border = 'rounded' },
       })
     end,
   },
