@@ -78,7 +78,6 @@ return {
         close_if_last_window = true,
         enable_diagnostics = true,
         enable_git_status = true,
-        popup_border_style = 'rounded',
         use_libuv_file_watcher = true,
         source_selector = {
           sources = { { source = 'filesystem' }, { source = 'buffers' }, { source = 'git_status' } },
@@ -264,9 +263,6 @@ return {
     opts = {
       notification = {
         override_vim_notify = true,
-        window = {
-          border = 'rounded',
-        },
       },
     },
   },

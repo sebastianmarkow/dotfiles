@@ -24,7 +24,6 @@ require('lazy').setup({
   checker = { enabled = false },
   change_detection = { enabled = true, notify = false },
   lockfile = vim.fn.stdpath('config') .. '/lazy-lock.json',
-  ui = { border = 'rounded' },
   performance = {
     cache = {
       enabled = true,

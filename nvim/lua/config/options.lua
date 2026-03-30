@@ -42,6 +42,7 @@ vim.o.linespace = 0
 vim.o.listchars = 'tab:▸ ,trail:⋅,eol:¬,nbsp:_,extends:»,precedes:«' -- invisible character
 vim.o.list = true
 vim.o.fillchars = 'eob: '
+vim.o.winborder = 'rounded'
 vim.o.shortmess = 'CcFIoOsTtW'
 
 -- Search
