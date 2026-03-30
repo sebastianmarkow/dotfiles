@@ -29,21 +29,21 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ run = '${EDITOR:-nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+	{ run = '${EDITOR:-nvim} %s', desc = "$EDITOR", block = true, for = "unix" },
 ]
 open = [
-	{ run = 'open "$@"',     desc = "Open", for = "macos" },
-	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+	{ run = 'open %s',      desc = "Open", for = "macos" },
+	{ run = 'xdg-open %s1', desc = "Open", for = "linux" },
 ]
 reveal = [
-	{ run = 'open -R "$1"',                     desc = "Reveal",             for = "macos" },
-	{ run = 'xdg-open "$(dirname "$1")"',        desc = "Reveal in manager",  for = "linux" },
+	{ run = 'open -R %s1',  desc = "Reveal",            for = "macos" },
+	{ run = 'xdg-open %d1', desc = "Reveal in manager", for = "linux" },
 ]
 extract = [
-	{ run = 'ya pub extract --list "$@"', desc = "Extract here" },
+	{ run = 'ya pub extract --list %s', desc = "Extract here" },
 ]
 play = [
-	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+	{ run = 'mpv --force-window %s', orphan = true, for = "unix" },
 ]
 
 [open]
