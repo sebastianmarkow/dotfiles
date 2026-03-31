@@ -26,7 +26,8 @@ function __dotfiles_staleness_check --on-event fish_prompt
         set age (math $now - (cat $ts_file))
     end
 
-    if test $age -gt 3600
+    # Check every 12h
+    if test $age -gt 43200
         mkdir -p $HOME/.cache/fish
         echo $now >$ts_file
         git -C $repo fetch --quiet 2>/dev/null &
