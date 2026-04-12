@@ -22,17 +22,21 @@ marker_selected = { fg = "#9ccfd8", bg = "#9ccfd8" }
 marker_copied   = { fg = "#f6c177", bg = "#f6c177" }
 marker_cut      = { fg = "#eb6f92", bg = "#eb6f92" }
 
-# Tab — active is brighter/more prominent
-tab_active   = { fg = "#e0def4", bg = "#393552", bold = true }
-tab_inactive = { fg = "#908caa", bg = "#2a273f" }
-tab_width    = 1
-
 # Border
 border_symbol = "│"
 border_style  = { fg = "#393552" }
 
 # Syntax highlighting
 syntect_theme = "~/.config/yazi/rose-pine.tmTheme"
+
+# : }}}
+
+
+# : Tabs {{{
+
+[tabs]
+tab_active   = { fg = "#e0def4", bg = "#393552", bold = true }
+tab_inactive = { fg = "#908caa", bg = "#2a273f" }
 
 # : }}}
 
@@ -84,9 +88,9 @@ selected = { reversed = true }
 # : }}}
 
 
-# : Select {{{
+# : Pick {{{
 
-[select]
+[pick]
 border   = { fg = "#393552" }
 active   = { fg = "#c4a7e7", bold = true }
 inactive = { fg = "#908caa" }
@@ -144,15 +148,15 @@ rules = [
     { mime = "audio/*", fg = "#f6c177" },
 
     # Archives — love (red/pink)
-    { mime = "application/zip",             fg = "#eb6f92" },
-    { mime = "application/gzip",            fg = "#eb6f92" },
-    { mime = "application/x-tar",           fg = "#eb6f92" },
-    { mime = "application/x-bzip",          fg = "#eb6f92" },
-    { mime = "application/x-bzip2",         fg = "#eb6f92" },
-    { mime = "application/x-7z-compressed", fg = "#eb6f92" },
-    { mime = "application/x-rar",           fg = "#eb6f92" },
-    { mime = "application/zstd",            fg = "#eb6f92" },
-    { mime = "application/x-xz",            fg = "#eb6f92" },
+    { mime = "application/zip",           fg = "#eb6f92" },
+    { mime = "application/gzip",          fg = "#eb6f92" },
+    { mime = "application/tar",           fg = "#eb6f92" },
+    { mime = "application/bzip",          fg = "#eb6f92" },
+    { mime = "application/bzip2",         fg = "#eb6f92" },
+    { mime = "application/7z-compressed", fg = "#eb6f92" },
+    { mime = "application/rar",           fg = "#eb6f92" },
+    { mime = "application/zstd",          fg = "#eb6f92" },
+    { mime = "application/xz",            fg = "#eb6f92" },
 
     # Documents — rose (soft pink)
     { mime = "application/pdf",                          fg = "#ea9a97" },
