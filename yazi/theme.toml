@@ -35,8 +35,10 @@ syntect_theme = "~/.config/yazi/rose-pine.tmTheme"
 # : Tabs {{{
 
 [tabs]
-tab_active   = { fg = "#e0def4", bg = "#393552", bold = true }
-tab_inactive = { fg = "#908caa", bg = "#2a273f" }
+active   = { fg = "#e0def4", bg = "#393552", bold = true }
+inactive = { fg = "#908caa", bg = "#2a273f" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
 
 # : }}}
 
@@ -53,14 +55,9 @@ preview = { underline = true }
 # : Status {{{
 
 [status]
-separator_open  = ""
-separator_close = ""
-separator_style = { fg = "#2a273f", bg = "#2a273f" }
-
-# Mode — iris for normal (calm), foam for select (active), love for unset (danger)
-mode_normal = { fg = "#232136", bg = "#c4a7e7", bold = true }
-mode_select = { fg = "#232136", bg = "#9ccfd8", bold = true }
-mode_unset  = { fg = "#e0def4", bg = "#eb6f92", bold = true }
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Progress
 progress_label  = { fg = "#e0def4", bold = true }
@@ -68,11 +65,27 @@ progress_normal = { fg = "#9ccfd8", bg = "#2a273f" }
 progress_error  = { fg = "#eb6f92", bg = "#2a273f" }
 
 # Permissions — pine/gold/love/foam matches conventional read/write/exec colors
-permissions_t = { fg = "#3e8fb0" }
-permissions_r = { fg = "#f6c177" }
-permissions_w = { fg = "#eb6f92" }
-permissions_x = { fg = "#9ccfd8", bold = true }
-permissions_s = { fg = "#56526e" }
+perm_type  = { fg = "#3e8fb0" }
+perm_read  = { fg = "#f6c177" }
+perm_write = { fg = "#eb6f92" }
+perm_exec  = { fg = "#9ccfd8", bold = true }
+perm_sep   = { fg = "#56526e" }
+
+# : }}}
+
+
+# : Mode {{{
+
+[mode]
+# Mode — iris for normal (calm), foam for select (active), love for unset (danger)
+normal_main = { fg = "#232136", bg = "#c4a7e7", bold = true }
+normal_alt  = { fg = "#c4a7e7", bg = "#2a273f" }
+
+select_main = { fg = "#232136", bg = "#9ccfd8", bold = true }
+select_alt  = { fg = "#9ccfd8", bg = "#2a273f" }
+
+unset_main  = { fg = "#e0def4", bg = "#eb6f92", bold = true }
+unset_alt   = { fg = "#eb6f92", bg = "#2a273f" }
 
 # : }}}
 
