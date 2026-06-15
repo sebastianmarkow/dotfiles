@@ -1,0 +1,6 @@
+# Rust toolchain
+#
+# Install with: brew bundle install --file=install/Brewfile.rust
+# cargo crates are installed separately by install/rust.sh
+
+brew "rustup"  # rustup - Rust toolchain installer

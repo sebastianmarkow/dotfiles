@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-PATH=/usr/local/bin:$PATH
-
 source "${BASH_SOURCE%/*}/lib.sh"
+
+# Homebrew formulas live in install/Brewfile.data (hdf5).
 
 EGGS=(
     bokeh           # Bokeh - interactive web visualization
@@ -33,12 +33,6 @@ EGGS=(
     umap-learn      # UMAP - dimensionality reduction
 )
 
-FORMULAS=(
-    hdf5  # HDF5 - hierarchical data format library
-)
-
 h1 "data science"
-h2 "brew formulas"
-for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "pipx packages"
 for e in "${EGGS[@]}"; do pipx_install "$e"; done

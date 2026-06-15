@@ -1,0 +1,76 @@
+# minimal setup
+#
+# Install with: brew bundle install --file=install/Brewfile.minimal
+
+tap "buo/cask-upgrade"
+
+cask "1password-cli"                  # 1Password CLI - password manager CLI
+cask "font-jetbrains-mono-nerd-font"  # JetBrains Mono Nerd Font - coding font with icons
+cask "hammerspoon"                    # Hammerspoon - macOS automation
+cask "kitty"                          # Kitty - GPU-accelerated terminal
+
+brew "atuin"        # Atuin - shell history with full-text search and stats
+brew "bash"         # GNU Bash - shell
+brew "bob"          # bob - Neovim version manager
+brew "btop"         # btop++ - resource monitor
+brew "colima"       # Colima - container runtime for macOS
+brew "coreutils"    # GNU Core Utilities - basic file/shell utilities
+brew "curl"         # cURL - HTTP client
+brew "delta"        # git-delta - syntax-highlighted diff pager
+brew "diffutils"    # GNU Diffutils - file comparison
+brew "direnv"       # direnv - per-directory environment variables
+brew "duf"          # DUF - disk usage/free (df replacement)
+brew "dust"         # dust - disk usage tree (du replacement)
+brew "docker"       # Docker - container engine
+brew "fd"           # fd - fast find replacement
+brew "findutils"    # GNU Findutils - find/xargs/locate
+brew "fish"         # Fish - interactive shell
+brew "fzf"          # fzf - fuzzy finder
+brew "gawk"         # GNU Awk - text processing
+brew "gh"           # GitHub CLI - GitHub from terminal
+brew "ghq"          # ghq - repository manager
+brew "git"          # Git - version control
+brew "git-crypt"    # git-crypt - transparent git encryption
+brew "git-extras"   # git-extras - additional git commands
+brew "git-lfs"      # Git LFS - large file storage
+brew "gnu-sed"      # GNU sed - stream editor
+brew "gnu-tar"      # GNU tar - archiver
+brew "gnupg"        # GnuPG - encryption and signing
+brew "grep"         # GNU grep - pattern matching
+brew "bandwhich"    # Bandwhich - network utilization by process
+brew "grpcurl"      # gRPCurl - gRPC client
+brew "jq"           # jq - JSON processor
+brew "lazygit"      # Lazygit - TUI git client
+brew "less"         # less - file pager
+brew "make"         # GNU Make - build automation
+brew "massren"      # massren - bulk file rename via editor
+brew "moreutils"    # moreutils - additional Unix utilities
+brew "navi"         # navi - interactive cheatsheet with fzf
+brew "mtr"          # mtr - network diagnostics (ping + traceroute)
+brew "neovim"       # Neovim - text editor
+brew "nmap"         # Nmap - network scanner
+brew "nvtop"        # nvtop - GPU monitor
+brew "pidof"        # pidof - find process ID by name
+brew "pipx"         # pipx - install and run Python applications in isolated environments
+brew "pstree"       # pstree - process tree viewer
+brew "procs"        # procs - process viewer (ps replacement)
+brew "rename"       # rename - batch file renamer
+brew "ripgrep"      # ripgrep - fast grep replacement
+brew "rsync"        # rsync - file sync and transfer
+brew "since"        # since - show new file content since last check
+brew "ssh-copy-id"  # ssh-copy-id - install SSH public keys
+brew "starship"     # Starship - cross-shell prompt
+brew "tcpdump"      # tcpdump - network packet analyzer
+brew "tmux"         # tmux - terminal multiplexer
+brew "tree"         # tree - directory tree viewer
+brew "watch"        # watch - run command periodically
+brew "viddy"        # Viddy - watch replacement with diff highlighting
+brew "oha"          # oha - HTTP load tester with TUI
+brew "wget"         # Wget - file downloader
+brew "xo/xo/usql"   # usql - universal SQL client
+brew "xz"           # XZ Utils - compression
+brew "yazi"         # Yazi - TUI file manager
+brew "yq"           # yq - YAML/JSON/TOML processor
+brew "yt-dlp"       # yt-dlp - video downloader
+brew "zk"           # zk - plain-text note-taking with Zettelkasten
+brew "zoxide"       # zoxide - smarter cd command

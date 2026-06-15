@@ -1,0 +1,33 @@
+# devops toolchain
+#
+# Install with: brew bundle install --file=install/Brewfile.devops
+# kubectl krew plugins are installed separately by install/devops.sh
+
+cask "google-cloud-sdk"  # Google Cloud SDK - GCP CLI tools
+
+brew "act"                                    # act - run GitHub Actions locally
+brew "argo"                                   # Argo Workflows - Kubernetes workflow engine
+brew "argocd"                                 # Argo CD - GitOps continuous delivery
+brew "datawire/blackbird/telepresence"        # Telepresence - local-to-cluster dev proxy
+brew "derailed/k9s/k9s"                       # K9s - TUI Kubernetes cluster manager
+brew "derailed/popeye/popeye"                 # Popeye - Kubernetes resource sanitizer
+brew "wagoodman/brew/dive"                    # Dive - Docker image layer explorer
+brew "fluxcd/tap/flux"                        # Flux - GitOps toolkit for Kubernetes
+brew "hadolint"                               # Hadolint - Dockerfile linter
+brew "helm"                                   # Helm - Kubernetes package manager
+brew "istioctl"                               # Istioctl - Istio service mesh CLI
+brew "jesseduffield/lazydocker/lazydocker"    # Lazydocker - TUI Docker manager
+brew "kind"                                   # kind - Kubernetes in Docker
+brew "krew"                                   # krew - kubectl plugin manager
+brew "kubecolor"                              # kubecolor - colorized kubectl output
+brew "kubeconform"                            # kubeconform - Kubernetes manifest validator
+brew "kubectx"                                # kubectx - Kubernetes context/namespace switcher
+brew "kubeseal"                               # kubeseal - Kubernetes secret encryption
+brew "kustomize"                              # Kustomize - Kubernetes config customizer
+brew "stern"                                  # Stern - multi-pod log tailer
+brew "termshark"                              # Termshark - TUI packet analyzer
+brew "terraform"                              # Terraform - infrastructure as code
+brew "terraform-docs"                         # terraform-docs - generate Terraform documentation
+brew "terragrunt"                             # Terragrunt - Terraform wrapper
+brew "tflint"                                 # TFLint - Terraform linter
+brew "trivy"                                  # Trivy - IaC/container/secrets security scanner

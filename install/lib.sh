@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Ensure Homebrew is on PATH for both Apple Silicon (/opt/homebrew) and
+# Intel (/usr/local). Homebrew packages themselves are installed declaratively
+# via the Brewfiles (see install/Brewfile.*); these helpers only cover tools
+# Homebrew cannot manage (go install, cargo, pipx, kubectl krew).
+for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+    if [ -x "$brew_bin" ]; then
+        eval "$("$brew_bin" shellenv)"
+        break
+    fi
+done
+
 ESC_SEQ="\x1b["
 COL_RESET=$ESC_SEQ"39;49;00m"
 COL_RED=$ESC_SEQ"31;01m"
@@ -43,54 +54,6 @@ function error() {
 
 function warn() {
     printf "%b[%s]%b\n" "$COL_YELLOW" "$1" "$COL_RESET"
-}
-
-function brew_tap() {
-    INSTALLED_TAPS=${INSTALLED_TAPS:-"$(brew tap | tr A-Z a-z)"}
-    task "tap $1"
-    echo "$INSTALLED_TAPS" | grep "$1" > /dev/null 2>&1 | true
-    if [[ ${PIPESTATUS[1]} != 0 ]]; then
-        brew tap "$1" > /dev/null 2>&1
-        if [[ $? != 0 ]]; then
-            error
-        else
-            success
-        fi
-    else
-        warn "tapped"
-    fi
-}
-
-function brew_install() {
-    INSTALLED_FORMULAS=${INSTALLED_FORMULAS:-"$(brew list --full-name --formula | tr A-Z a-z)"}
-    task "install $1"
-    echo "$INSTALLED_FORMULAS" | grep "$1" > /dev/null 2>&1 | true
-    if [[ ${PIPESTATUS[1]} != 0 ]]; then
-        brew install $1 $2 > /dev/null 2>&1
-        if [[ $? != 0 ]]; then
-            error
-        else
-            success
-        fi
-    else
-        warn "installed"
-    fi
-}
-
-function cask_install() {
-    INSTALLED_CASKS=${INSTALLED_CASKS:-"$(brew list --full-name --casks -1 | tr A-Z a-z)"}
-    task "install $1"
-    echo "$INSTALLED_CASKS" | grep "$1" > /dev/null 2>&1 | true
-    if [[ ${PIPESTATUS[1]} != 0 ]]; then
-        brew install $1 $2 > /dev/null 2>&1
-        if [[ $? != 0 ]]; then
-            error
-        else
-            success
-        fi
-    else
-        warn "installed"
-    fi
 }
 
 function pip_install() {

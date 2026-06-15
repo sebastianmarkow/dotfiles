@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-PATH=/usr/local/bin:$PATH
-
 source "${BASH_SOURCE%/*}/lib.sh"
+
+# Homebrew formulas live in install/Brewfile.rust (rustup).
 
 CRATES=(
     cargo-edit      # cargo-edit - manage dependencies (add/rm/upgrade)
@@ -16,12 +16,6 @@ CRATES=(
     tokei           # Tokei - code statistics
 )
 
-FORMULAS=(
-    rustup  # rustup - Rust toolchain installer
-)
-
 h1 "rust"
-h2 "brew formulas"
-for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "cargo crates"
 for c in "${CRATES[@]}"; do cargo_install "$c"; done

@@ -1,0 +1,6 @@
+# data science toolchain
+#
+# Install with: brew bundle install --file=install/Brewfile.data
+# pipx packages are installed separately by install/data.sh
+
+brew "hdf5"  # HDF5 - hierarchical data format library

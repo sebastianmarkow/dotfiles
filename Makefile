@@ -3,6 +3,10 @@ PWD:=$(shell pwd)
 XDG_CONFIG_HOME?=$(HOME)/.config
 XDG_DATA_HOME?=$(HOME)/.local/share
 
+# Ensure Homebrew is on PATH for both Apple Silicon (/opt/homebrew) and Intel
+# (/usr/local), including right after `make brew` installs it.
+export PATH := /opt/homebrew/bin:/usr/local/bin:$(PATH)
+
 FILES=\
 	claude		\
 	gitconfig	\
@@ -48,8 +52,10 @@ CONFIGS=\
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "%-20s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
+.PHONY: dotfiles
 dotfiles: $(MAKEDIRS) $(FILES) $(DIRS) $(CONFIGS) ## symlink dotfiles
 
+.PHONY: base
 base: minimal util devops ## install base setup
 
 
@@ -72,36 +78,41 @@ $(CONFIGS):
 
 .PHONY: brew
 brew: ## install Homebrew
-	@sh ./install/brew.sh
+	@./install/brew.sh
 
-.PHONY: base
+.PHONY: minimal
 minimal: brew dotfiles python ## install minimal setup
-	@sh ./install/minimal.sh
+	brew bundle install --file=install/Brewfile.minimal
 
 .PHONY: util
 util: brew ## install utilities
-	@sh ./install/util.sh
+	brew bundle install --file=install/Brewfile.util
 
 .PHONY: qmk
 qmk: brew ## install qmk dev chain
-	@sh ./install/qmk.sh
+	brew bundle install --file=install/Brewfile.qmk
 
 .PHONY: python
 python: brew ## install Python3 toolchain
-	@sh ./install/python.sh
+	brew bundle install --file=install/Brewfile.python
+	@./install/python.sh
 
 .PHONY: go
 go: brew ## install Go toolchain
-	@sh ./install/go.sh
+	brew bundle install --file=install/Brewfile.go
+	@./install/go.sh
 
 .PHONY: rust
 rust: brew ## install Rust toolchain
-	@sh ./install/rust.sh
+	brew bundle install --file=install/Brewfile.rust
+	@./install/rust.sh
 
 .PHONY: devops
 devops: brew ## install devops toolchain
-	@sh ./install/devops.sh
+	brew bundle install --file=install/Brewfile.devops
+	@./install/devops.sh
 
 .PHONY: data
 data: brew python ## install data science toolchain
-	@sh ./install/data.sh
+	brew bundle install --file=install/Brewfile.data
+	@./install/data.sh

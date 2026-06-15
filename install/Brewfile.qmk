@@ -1,0 +1,7 @@
+# qmk dev chain
+#
+# Install with: brew bundle install --file=install/Brewfile.qmk
+
+tap "qmk/qmk"
+
+brew "qmk"  # QMK - keyboard firmware toolkit

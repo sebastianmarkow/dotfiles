@@ -1,0 +1,45 @@
+# utilities
+#
+# Install with: brew bundle install --file=install/Brewfile.util
+
+tap "go-task/tap"
+
+cask "arq"             # Arq - backup software
+cask "alfred"          # Alfred - macOS launcher and productivity
+cask "aerial"          # Aerial - Apple TV screensavers
+cask "hazel"           # Hazel - automated file organizer
+cask "monitorcontrol"  # MonitorControl - external display brightness/volume
+
+brew "ast-grep"            # ast-grep - structural code search via AST patterns
+brew "bat"                 # bat - cat replacement with syntax highlighting
+brew "calc"                # calc - arbitrary-precision calculator
+brew "cloc"                # cloc - count lines of code
+brew "cloog"               # CLooG - polyhedral code generator
+brew "entr"                # entr - run commands on file change
+brew "fdupes"              # fdupes - find duplicate files
+brew "fx"                  # fx - interactive JSON viewer
+brew "glow"                # Glow - markdown renderer with pager
+brew "go-task"             # Task - Makefile alternative
+brew "graphviz"            # Graphviz - graph visualization
+brew "gum"                 # gum - shell script UI components
+brew "harlequin"           # Harlequin - TUI SQL IDE
+brew "hurl"                # Hurl - scriptable HTTP request runner
+brew "hyperfine"           # Hyperfine - statistical CLI benchmarking
+brew "jless"               # jless - TUI pager for JSON navigation
+brew "jo"                  # jo - JSON output from shell
+brew "lua"                 # Lua - scripting language
+brew "luajit"              # LuaJIT - JIT compiler for Lua
+brew "mandoc"              # mandoc - man page renderer
+brew "posting"             # Posting - TUI HTTP client
+brew "pv"                  # pv - monitor pipe data progress
+brew "ragel"               # Ragel - state machine compiler
+brew "rclone"              # rclone - cloud storage sync
+brew "serpl"               # serpl - TUI find-and-replace across files
+brew "shellcheck"          # ShellCheck - shell script linter
+brew "terminal-notifier"   # terminal-notifier - macOS notifications from CLI
+brew "trash"               # trash - safe delete (moves to Trash)
+brew "upx"                 # UPX - executable compressor
+brew "vmtouch"             # vmtouch - manage filesystem cache
+brew "w3m"                 # w3m - terminal web browser
+brew "xh"                  # xh - httpie-compatible HTTP client
+brew "yank"                # yank - copy terminal output to clipboard

@@ -1,0 +1,7 @@
+# Python3 toolchain
+#
+# Install with: brew bundle install --file=install/Brewfile.python
+# pipx packages are installed separately by install/python.sh
+
+brew "pyenv"  # pyenv - Python version manager
+brew "uv"     # uv - fast Python package manager

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-PATH=/usr/local/bin:$PATH
-
 source "${BASH_SOURCE%/*}/lib.sh"
+
+# Homebrew formulas live in install/Brewfile.go (go, golangci-lint).
 
 TOOLS=(
     github.com/x-motemen/gore/cmd/gore@latest      # gore - Go REPL
@@ -12,12 +12,6 @@ TOOLS=(
     mvdan.cc/gofumpt@latest                        # gofumpt - stricter gofmt
 )
 
-FORMULAS=(
-    go             # Go - programming language
-    golangci-lint  # golangci-lint - meta-linter
-)
-
 h1 "go"
-for f in "${FORMULAS[@]}"; do brew_install "$f"; done
 h2 "go tools"
 for t in "${TOOLS[@]}"; do go_get "$t"; done
