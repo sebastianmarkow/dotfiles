@@ -145,7 +145,7 @@ customCommands:
     context: commits
     description: "Autosquash fixup commits from selected base"
     command: "git rebase --interactive --autosquash {{.SelectedLocalCommit.Sha}}^"
-    subprocess: true
+    output: terminal
     loadingText: "Autosquashing..."
 
   # Delete all local branches already merged into main
