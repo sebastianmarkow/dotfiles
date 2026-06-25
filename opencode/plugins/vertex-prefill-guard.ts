@@ -2,7 +2,7 @@ import type { Plugin } from "@opencode-ai/plugin"
 import type { AssistantMessage, UserMessage, TextPart } from "@opencode-ai/sdk"
 
 const id = (prefix: string) =>
-  prefix + "_" + Date.now().toString(36) + "_" + Math.random().toString(36).slice(2, 10)
+  prefix + "_" + crypto.randomUUID().replace(/-/g, "")
 
 export default (async () => {
   return {

@@ -205,11 +205,29 @@
         "max_tokens": 65536,
       },
       "permission": {
-        "*": "allow",
+        "*": "deny",
         "task": "allow",
         "doom_loop": "allow",
         "skill": "allow",
         "question": "allow",
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "lsp": "allow",
+        "codesearch": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "memory_write_note": "allow",
+        "memory_read_note": "allow",
+        "memory_search_notes": "allow",
+        "memory_search": "allow",
+        "memory_build_context": "allow",
+        "memory_recent_activity": "allow",
+        "memory_list_directory": "allow",
+        "memory_list_memory_projects": "allow",
+        "todowrite": "ask",
+        "sequential-thinking_sequentialthinking": "allow",
         "edit": "deny",
         "bash": {
           "*": "deny",
@@ -229,10 +247,12 @@
           "env": "allow",
           "uname*": "allow",
           // Git read-only
-          "git *": "allow",
-          "git commit*": "deny",
-          "git reset*": "deny",
-          "git push*": "deny",
+          "git log*": "allow",
+          "git show*": "allow",
+          "git diff*": "allow",
+          "git status*": "allow",
+          "git branch*": "allow",
+          "git blame*": "allow",
           // Docker inspection
           "docker ps*": "allow",
           "docker images*": "allow",
@@ -279,6 +299,7 @@
         "prompt": "You are a senior ML staff researcher for computer vision reviewing the *scientific substance* of the general approach, experiment and model. You are not reviewing infra, serving, code style, or deployment. Your job is to find weaknesses in the approach itself and provide guidance.\n\nOutput format (always):\n\n## Verdict\nOne sentence: sound / sound-with-caveats / methodologically-flawed / fundamentally-flawed.\n\n## Threats to validity\nNumbered, ranked by severity. For each: the threat, why it invalidates or weakens the claim, and what evidence would resolve it.\n\n## Architecture critique\nWhat is justified, what is decorative, what is a confound. Be specific about which components are doing the work.\n\n## Experimental design issues\nBaselines, ablations, eval protocol, statistical rigor. Name what is missing, not just what is present.\n\n## Alternative framing\n2-5 sentences: how you would test this claim instead. Specific experiments, specific baselines, specific ablations. If the design is already sound, say so and stop.\n\n## Open questions\nThings that are not flaws but where the evidence is genuinely ambiguous and a follow-up experiment would clarify.\n\nRules:\n- Do not pad. If a section has nothing to say, write 'none' and move on.\n- Distinguish 'I am uncertain' from 'this is wrong'. Mark which.\n- Prefer 'this confound explains the result without invoking the proposed mechanism' over vague concerns.\n- Never recommend an experiment without naming what its outcome would prove or disprove."
     },
     "research": {
+      "model": "requesty/sonnet",
       "mode": "subagent",
       "description": "Research Engineer. Explores codebases, maps dependencies, looks up documentation via context7.",
       "prompt": "{file:./prompts/research.md}",
@@ -349,6 +370,7 @@
       },
     },
     "code": {
+      "model": "requesty/sonnet",
       "mode": "subagent",
       "description": "Senior Software Engineer. Receives scoped implementation tasks and writes clean, minimal, correct code.",
       "prompt": "{file:./prompts/code.md}",
@@ -390,6 +412,7 @@
       },
     },
     "test": {
+      "model": "requesty/sonnet",
       "mode": "subagent",
       "description": "Test Engineer. Writes tests (TDD Red phase or verification) and runs them. Supports both test-first and test-after workflows.",
       "prompt": "{file:./prompts/test.md}",
@@ -428,6 +451,7 @@
       },
     },
     "review": {
+      "model": "requesty/sonnet",
       "mode": "subagent",
       "description": "Code Reviewer. Reviews diffs for correctness, security, and logic errors. Returns structured severity-tagged findings.",
       "prompt": "{file:./prompts/review.md}",
@@ -464,6 +488,7 @@
       },
     },
     "debug": {
+      "model": "requesty/sonnet",
       "mode": "subagent",
       "description": "Debug Engineer. Investigates bugs and produces structured root cause analysis. Diagnoses only, never fixes.",
       "prompt": "{file:./prompts/debug.md}",
@@ -594,6 +619,7 @@
     "context7": {
       "type": "remote",
       "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
       "timeout": 10000,
     },
     "github": {
