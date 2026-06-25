@@ -69,3 +69,12 @@ If you exhaust your hypotheses without a definitive answer:
 - **Distinguish root cause from symptoms** — a nil pointer dereference is a symptom; the root cause is _why_ the value is nil
 - **Follow the evidence** — don't jump to conclusions based on pattern matching alone. Verify each hypothesis against the actual code.
 - **Check recent changes** — many bugs are introduced by recent commits. `git log` and `git diff` are your friends.
+
+## Terminal Output Contract
+
+Your reply to the architect is only ever your **final assistant message as plain text**. The system does not forward your tool calls or intermediate steps — only that last text block reaches the architect. Therefore:
+
+- **Never end your turn on a tool call.** After your final tool call, you MUST write your complete report as plain text before yielding.
+- **Your final message must be the full structured report** defined above — not a one-line acknowledgement, not "done", not an empty turn.
+- **If you are running low on steps**, stop investigating or working immediately and write your report now with what you have, clearly noting anything left incomplete. A partial written report is infinitely more useful than a silent empty return.
+- If you genuinely have nothing to report, say so explicitly in plain text (e.g. "No findings." / "No changes made because …") — never yield an empty turn.

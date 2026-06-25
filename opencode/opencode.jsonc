@@ -47,22 +47,20 @@
 
       // Docker destructive/stateful
       "docker push*": "deny",
-      "docker build*": "ask",
-      "docker run*": "ask",
-      "docker exec*": "ask",
-      "docker stop*": "ask",
-      "docker rm *": "ask",
-      "docker rmi *": "ask",
-      "docker compose up*": "ask",
-      "docker compose down*": "ask",
-      "docker compose restart*": "ask",
+      "docker build*": "allow",
+      "docker run*": "allow",
+      "docker exec*": "allow",
+      "docker stop*": "allow",
+      "docker rm *": "allow",
+      "docker rmi *": "allow",
+      "docker compose up*": "allow",
+      "docker compose down*": "allow",
+      "docker compose restart*": "allow",
 
       // Make destructive
       "make clean*": "ask",
     },
   },
-  "model": "portkey/vertex-opus",
-  "small_model": "portkey/vertex-haiku",
   "watcher": {
     "ignore": [
       "node_modules/**",
@@ -79,63 +77,84 @@
     ],
   },
   "provider": {
-    "portkey": {
+    "requesty": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Portkey",
+      "name": "Requesty",
       "options": {
-        "baseURL": "https://api.portkey.ai/v1",
+        "apiKey": "{env:REQUESTY_API_KEY}",
+        "baseURL": "https://router.eu.requesty.ai/v1"
       },
       "models": {
-        "vertex-opus": {
-          "name": "Vertex Opus 4.6",
-          "id": "@vertex-ai/anthropic.claude-opus-4-6",
+        "opus": {
+          "name": "Opus 4.8 (EU)",
+          "id": "vertex/claude-opus-4-8@eu",
+          // "reasoning": true,
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
           "limit": {
-            "context": 200000,
-            "output": 131072,
+            "context": 1000000,
+            "output": 128000
           },
-          "options": {
-            "max_tokens": 32768,
-          },
+          "cache": true,
           "cost": {
-            "input": 5.0,
-            "output": 25.0,
-            "cache_write": 6.25,
-            "cache_read": 0.5,
-          },
+            "input": 5.5,
+            "output": 27.5
+          }
         },
-        "vertex-sonnet": {
-          "name": "Vertex Sonnet 4.6",
-          "id": "@vertex-ai/anthropic.claude-sonnet-4-6",
+        "sonnet": {
+          "name": "Sonnet 4.6 (EU)",
+          "id": "vertex/claude-sonnet-4-6@europe-west1",
+          // "reasoning": true,
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
           "limit": {
-            "context": 200000,
-            "output": 65536,
+            "context": 1000000,
+            "output": 128000
           },
-          "options": {
-            "max_tokens": 16384,
-          },
+          "cache": true,
           "cost": {
             "input": 3.0,
-            "output": 15.0,
-            "cache_write": 3.75,
-            "cache_read": 0.3,
-          },
+            "output": 15.0
+          }
         },
-        "vertex-haiku": {
-          "name": "Vertex Haiku 4.5",
-          "id": "@vertex-ai/anthropic.claude-haiku-4-5@20251001",
+        "haiku": {
+          "name": "Haiku 4.5 (EU)",
+          "id": "vertex/claude-haiku-4-5@europe-west1",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
           "limit": {
-            "context": 200000,
-            "output": 65536,
+            "context": 1000000,
+            "output": 128000
           },
-          "options": {
-            "max_tokens": 8192,
-          },
+          "cache": true,
           "cost": {
             "input": 1.0,
-            "output": 5.0,
-            "cache_write": 1.25,
-            "cache_read": 0.1,
-          },
+            "output": 5.0
+          }
         },
       },
     },
@@ -149,13 +168,12 @@
       "disable": true,
     },
     "architect": {
-      "model": "portkey/vertex-sonnet",
       "description": "Senior Staff Architect. Analyzes problems, selects workflow (TDD/Bug Fix/Refactor/Quick Fix/Exploration), and delegates to specialized subagents. Never writes code directly.",
       "prompt": "{file:./prompts/architect.md}",
       "temperature": 0.3,
       "color": "#c4a7e7",
       "steps": 50,
-      "variant": "high",
+      "variant": "medium",
       "options": {
         "max_tokens": 65536,
       },
@@ -211,14 +229,36 @@
         },
       },
     },
+    "ml-researcher": {
+        "description": "Senior ML researcher. Critiques experimental design, model architecture, training objective, and claims. Focuses on scientific validity, not engineering or serving. Read-only.",
+        "mode": "subagent",
+        "model": "requesty/opus",
+        "temperature": 0.1,
+        "tools": {
+          "write": false,
+          "edit": false,
+          "patch": false,
+          "bash": false,
+          "read": true,
+          "grep": true,
+          "glob": true,
+          "list": true,
+          "webfetch": true
+        },
+        "permission": {
+          "edit": "deny",
+          "bash": "deny",
+          "webfetch": "allow"
+        },
+        "prompt": "You are a senior ML staff researcher for computer vision reviewing the *scientific substance* of the general approach, experiment and model. You are not reviewing infra, serving, code style, or deployment. Your job is to find weaknesses in the approach itself and provide guidance.\n\nOutput format (always):\n\n## Verdict\nOne sentence: sound / sound-with-caveats / methodologically-flawed / fundamentally-flawed.\n\n## Threats to validity\nNumbered, ranked by severity. For each: the threat, why it invalidates or weakens the claim, and what evidence would resolve it.\n\n## Architecture critique\nWhat is justified, what is decorative, what is a confound. Be specific about which components are doing the work.\n\n## Experimental design issues\nBaselines, ablations, eval protocol, statistical rigor. Name what is missing, not just what is present.\n\n## Alternative framing\n2-5 sentences: how you would test this claim instead. Specific experiments, specific baselines, specific ablations. If the design is already sound, say so and stop.\n\n## Open questions\nThings that are not flaws but where the evidence is genuinely ambiguous and a follow-up experiment would clarify.\n\nRules:\n- Do not pad. If a section has nothing to say, write 'none' and move on.\n- Distinguish 'I am uncertain' from 'this is wrong'. Mark which.\n- Prefer 'this confound explains the result without invoking the proposed mechanism' over vague concerns.\n- Never recommend an experiment without naming what its outcome would prove or disprove."
+    },
     "research": {
       "mode": "subagent",
-      "model": "portkey/vertex-sonnet",
       "description": "Research Engineer. Explores codebases, maps dependencies, looks up documentation via context7.",
       "prompt": "{file:./prompts/research.md}",
       "temperature": 0.1,
       "color": "#9ccfd8",
-      "steps": 25,
+      "steps": 50,
       "permission": {
         "*": "deny",
         "read": "allow",
@@ -258,6 +298,7 @@
           "docker inspect*": "allow",
           "docker compose config*": "allow",
           "docker compose ps*": "allow",
+          "docker exec*": "allow",
           // Make inspection
           "make -n*": "allow",
           "make --dry-run*": "allow",
@@ -279,12 +320,11 @@
     },
     "code": {
       "mode": "subagent",
-      "model": "portkey/vertex-sonnet",
       "description": "Senior Software Engineer. Receives scoped implementation tasks and writes clean, minimal, correct code.",
       "prompt": "{file:./prompts/code.md}",
       "temperature": 0.1,
       "color": "#3e8fb0",
-      "steps": 25,
+      "steps": 50,
       "permission": {
         "*": "allow",
         "bash": {
@@ -304,6 +344,9 @@
           "mv *": "ask",
           "rm *": "ask",
 
+          // Docker
+          "docker exec*": "allow",
+
           // Git — no push, no destructive resets
           "git push*": "deny",
           "git reset --hard*": "deny",
@@ -314,12 +357,11 @@
     },
     "test": {
       "mode": "subagent",
-      "model": "portkey/vertex-sonnet",
       "description": "Test Engineer. Writes tests (TDD Red phase or verification) and runs them. Supports both test-first and test-after workflows.",
       "prompt": "{file:./prompts/test.md}",
       "temperature": 0.1,
       "color": "#f6c177",
-      "steps": 25,
+      "steps": 50,
       "permission": {
         "*": "allow",
         "bash": {
@@ -349,12 +391,11 @@
     },
     "review": {
       "mode": "subagent",
-      "model": "portkey/vertex-sonnet",
       "description": "Code Reviewer. Reviews diffs for correctness, security, and logic errors. Returns structured severity-tagged findings.",
       "prompt": "{file:./prompts/review.md}",
       "temperature": 0.1,
       "color": "#ea9a97",
-      "steps": 15,
+      "steps": 50,
       "permission": {
         "*": "deny",
         "read": "allow",
@@ -373,6 +414,7 @@
           "git branch*": "allow",
           // Docker inspection (for reviewing infra changes)
           "docker compose config*": "allow",
+          "docker exec*": "allow",
           // Make inspection
           "make -n*": "allow",
           "make --dry-run*": "allow",
@@ -381,12 +423,11 @@
     },
     "debug": {
       "mode": "subagent",
-      "model": "portkey/vertex-sonnet",
       "description": "Debug Engineer. Investigates bugs and produces structured root cause analysis. Diagnoses only, never fixes.",
       "prompt": "{file:./prompts/debug.md}",
       "temperature": 0.1,
       "color": "#eb6f92",
-      "steps": 25,
+      "steps": 50,
       "variant": "medium",
       "permission": {
         "*": "deny",
@@ -427,6 +468,7 @@
           "docker compose config*": "allow",
           "docker compose ps*": "allow",
           "docker compose logs*": "allow",
+          "docker exec*": "allow",
           // Make inspection
           "make -n*": "allow",
           "make --dry-run*": "allow",
@@ -459,12 +501,12 @@
     },
     "document": {
       "mode": "subagent",
-      "model": "portkey/vertex-haiku",
+      "model": "requesty/haiku",
       "description": "Technical Writer. Creates and updates documentation focused on architecture and design decisions.",
       "prompt": "{file:./prompts/document.md}",
       "temperature": 0.2,
       "color": "#908caa",
-      "steps": 15,
+      "steps": 50,
       "permission": {
         "*": "deny",
         "read": "allow",
