@@ -18,14 +18,14 @@ local Caffeinate = {
   activityIntervalSeconds = 25, -- seconds between idle-activity checks
   activityTimer = nil, -- Timer to be controlled based on state
   wiggleInProgress = false,
-  activityDurationMS = 3100,
-  activityMouseMoveRangePixel = 200,
+  activityDurationMS = 1000,
+  activityMouseMoveRangePixel = 50,
   lastUserActivityID = 0,
   activeMeetingCount = 0,
   caffeinateWasActive = false,
-  zoomMeetingWindows = {},
-  teamsMeetingWindows = {},
-  slackMeetingWindows = {},
+  inCall = false,
+  cameras = {},
+  inputDevices = {},
 }
 
 function Caffeinate:setIcon(state)
@@ -42,9 +42,7 @@ function Caffeinate:toggle(silent)
 
   if state then
     if not self.activityTimer then
-      self.activityTimer = hs.timer.doEvery(self.activityIntervalSeconds, function()
-        self:mouseWiggler()
-      end)
+      self.activityTimer = hs.timer.doEvery(self.activityIntervalSeconds, function() self:mouseWiggler() end)
     end
   else
     if self.activityTimer then
@@ -62,37 +60,34 @@ function Caffeinate:toggle(silent)
 end
 
 function Caffeinate:mouseWiggler()
-  local idleTime = hs.host.idleTime()
   if self.wiggleInProgress then return end
+  if hs.host.idleTime() < self.activityIntervalSeconds then return end
 
-  if idleTime >= self.activityIntervalSeconds then
-    self.wiggleInProgress = true
-    local originalPos = hs.mouse.absolutePosition()
-    local totalSteps = math.floor(self.activityDurationMS / 100)
+  self.wiggleInProgress = true
+  local originalPos = hs.mouse.absolutePosition()
+  local frameInterval = 0.015 -- 15ms per frame (~60fps)
+  local totalSteps = math.max(1, math.floor(self.activityDurationMS / (frameInterval * 1000)))
+  local range = self.activityMouseMoveRangePixel
 
-    local step
-    step = function(n)
-      if n <= totalSteps then
-        hs.mouse.absolutePosition({
-          x = originalPos.x + math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel),
-          y = originalPos.y + math.random(-self.activityMouseMoveRangePixel, self.activityMouseMoveRangePixel),
-        })
-        hs.timer.doAfter(0.1, function() step(n + 1) end)
-      else
-        -- Return the mouse to its original position after wiggling
-        hs.mouse.absolutePosition(originalPos)
-        hs.eventtap.leftClick(hs.mouse.absolutePosition())
-        hs.timer.usleep(10000) -- 10ms delay
-        hs.eventtap.rightClick(hs.mouse.absolutePosition())
-        hs.timer.usleep(10000) -- 10ms delay
-        hs.eventtap.leftClick(hs.mouse.absolutePosition())
-        self.lastUserActivityID = hs.caffeinate.declareUserActivity(self.lastUserActivityID)
-        self.wiggleInProgress = false
-      end
+  local step
+  step = function(i)
+    if i <= totalSteps then
+      local t = i / totalSteps
+      local offset = math.sin(math.pi * t) * range
+      hs.mouse.absolutePosition({ x = originalPos.x + offset, y = originalPos.y })
+      hs.timer.doAfter(frameInterval, function() step(i + 1) end)
+    else
+      hs.mouse.absolutePosition(originalPos)
+      local ok, activityID = pcall(function()
+        hs.eventtap.leftClick(originalPos)
+        return hs.caffeinate.declareUserActivity(self.lastUserActivityID)
+      end)
+      if ok then self.lastUserActivityID = activityID end
+      self.wiggleInProgress = false
     end
-
-    step(1)
   end
+
+  step(1)
 end
 
 function Caffeinate:onMeetingStart()
@@ -126,91 +121,75 @@ function Caffeinate:batteryCallback()
   end
 end
 
+function Caffeinate:isOnCall()
+  for _, camera in ipairs(hs.camera.allCameras()) do
+    if camera:isInUse() then return true end
+  end
+  for _, device in ipairs(hs.audiodevice.allInputDevices()) do
+    if device:inUse() then return true end
+  end
+  return false
+end
+
+function Caffeinate:evaluateCallState()
+  local onCall = self:isOnCall()
+  if onCall and not self.inCall then
+    self.inCall = true
+    self:onMeetingStart()
+  elseif not onCall and self.inCall then
+    self.inCall = false
+    self:onMeetingEnd()
+  end
+end
+
+function Caffeinate:attachCameraWatchers()
+  local cameras = hs.camera.allCameras()
+  if #cameras == 0 and self.inCall then return end
+  self.cameras = cameras
+  for _, camera in ipairs(self.cameras) do
+    if not camera:isPropertyWatcherRunning() then
+      camera
+        :setPropertyWatcherCallback(function(_cam, prop, _scope, _element)
+          if prop == 'gone' then self:evaluateCallState() end
+        end)
+        :startPropertyWatcher()
+    end
+  end
+end
+
+function Caffeinate:attachAudioWatchers()
+  self.inputDevices = hs.audiodevice.allInputDevices()
+  for _, device in ipairs(self.inputDevices) do
+    if not device:watcherIsRunning() then
+      device:watcherCallback(function(_uid, eventName, _scope, _element)
+        if eventName == 'gone' then self:evaluateCallState() end
+      end)
+      device:watcherStart()
+    end
+  end
+end
+
 if Caffeinate.menubar then
   Caffeinate.menubar:setTooltip('Toggle Caffeinate')
-  Caffeinate.menubar:setClickCallback(function()
-    Caffeinate:toggle()
-  end)
+  Caffeinate.menubar:setClickCallback(function() Caffeinate:toggle() end)
   Caffeinate:setIcon(hs.caffeinate.get('displayIdle'))
-  hs.battery.watcher
-    .new(function()
-      Caffeinate:batteryCallback()
-    end)
-    :start()
-  hs.hotkey.bind(hs.settings.get('leader'), 'c', function()
-    Caffeinate:toggle()
-  end)
+  hs.battery.watcher.new(function() Caffeinate:batteryCallback() end):start()
+  hs.hotkey.bind(hs.settings.get('leader'), 'c', function() Caffeinate:toggle() end)
 
-  -- Zoom: a dedicated 'Zoom Meeting' window appears for the duration of a call.
-  -- Subscribe to windowCreated and re-check after a short delay because Zoom sets
-  -- the title asynchronously after window creation; deduplication is done by window ID.
-  local zoomWF = hs.window.filter.new(false):setAppFilter('zoom.us')
-  zoomWF:subscribe(hs.window.filter.windowCreated, function(win)
-    local function checkZoomWindow(w)
-      if not w or not w:isStandard() then return end
-      local t = w:title()
-      if (t == 'Zoom Meeting' or t == 'Zoom Webinar') and not Caffeinate.zoomMeetingWindows[w:id()] then
-        Caffeinate.zoomMeetingWindows[w:id()] = true
-        Caffeinate:onMeetingStart()
-      end
-    end
-    checkZoomWindow(win)
-    -- Zoom sometimes sets the window title asynchronously after creation;
-    -- re-check after a short delay to catch the title change.
-    hs.timer.doAfter(1.5, function() checkZoomWindow(win) end)
+  -- Camera + microphone in-use watcher: replaces per-app window filters.
+  -- Covers Zoom, Microsoft Teams, Slack huddles, and any other app that uses camera/mic.
+  Caffeinate:attachCameraWatchers()
+  hs.camera.setWatcherCallback(function(_cam, _event)
+    Caffeinate:attachCameraWatchers()
+    Caffeinate:evaluateCallState()
   end)
-  zoomWF:subscribe(hs.window.filter.windowDestroyed, function(win)
-    if Caffeinate.zoomMeetingWindows[win:id()] then
-      Caffeinate.zoomMeetingWindows[win:id()] = nil
-      Caffeinate:onMeetingEnd()
-    end
-  end)
+  hs.camera.startWatcher()
 
-  -- Fallback: if Zoom crashes or quits mid-call, drain all tracked Zoom meetings.
-  Caffeinate.zoomAppWatcher = hs.application.watcher.new(function(name, event, app)
-    if name == 'zoom.us' and event == hs.application.watcher.terminated then
-      local count = 0
-      for _ in pairs(Caffeinate.zoomMeetingWindows) do count = count + 1 end
-      Caffeinate.zoomMeetingWindows = {}
-      for _ = 1, count do
-        Caffeinate:onMeetingEnd()
-      end
-    end
-  end):start()
-
-  -- Teams: call windows have dynamic titles (meeting/channel name);
-  -- any window that isn't the main app shell is treated as a call.
-  -- A minimum title length of 10 filters out short transient windows.
-  -- Verify with: hs.application.get('Microsoft Teams'):allWindows()
-  local teamsWF = hs.window.filter.new(false):setAppFilter('Microsoft Teams')
-  teamsWF:subscribe(hs.window.filter.windowCreated, function(win)
-    local t = win:title()
-    if t ~= '' and t:len() > 10 and not t:match('^Microsoft Teams') and not Caffeinate.teamsMeetingWindows[win:id()] then
-      Caffeinate.teamsMeetingWindows[win:id()] = true
-      Caffeinate:onMeetingStart()
-    end
+  -- Audio input device watchers: fire evaluateCallState on in-use state changes.
+  Caffeinate:attachAudioWatchers()
+  hs.audiodevice.watcher.setCallback(function()
+    Caffeinate:attachAudioWatchers()
+    Caffeinate:evaluateCallState()
   end)
-  teamsWF:subscribe(hs.window.filter.windowDestroyed, function(win)
-    if Caffeinate.teamsMeetingWindows[win:id()] then
-      Caffeinate.teamsMeetingWindows[win:id()] = nil
-      Caffeinate:onMeetingEnd()
-    end
-  end)
-
-  -- Slack: huddles open a floating window separate from the main app.
-  -- Verify title with: hs.application.get('Slack'):allWindows()
-  local slackWF = hs.window.filter.new(false):setAppFilter('Slack')
-  slackWF:subscribe(hs.window.filter.windowCreated, function(win)
-    local t = win:title()
-    if (t == 'Huddle' or t == 'Slack Call') and not Caffeinate.slackMeetingWindows[win:id()] then
-      Caffeinate.slackMeetingWindows[win:id()] = true
-      Caffeinate:onMeetingStart()
-    end
-  end)
-  slackWF:subscribe(hs.window.filter.windowDestroyed, function(win)
-    if Caffeinate.slackMeetingWindows[win:id()] then
-      Caffeinate.slackMeetingWindows[win:id()] = nil
-      Caffeinate:onMeetingEnd()
-    end
-  end)
+  hs.audiodevice.watcher.start()
 end
