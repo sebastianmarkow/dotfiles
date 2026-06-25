@@ -115,7 +115,6 @@
         "opus": {
           "name": "Opus 4.8 (EU)",
           "id": "vertex/claude-opus-4-8@eu",
-          // "reasoning": true,
           "tool_call": true,
           "modalities": {
             "input": [
@@ -139,7 +138,6 @@
         "sonnet": {
           "name": "Sonnet 4.6 (EU)",
           "id": "vertex/claude-sonnet-4-6@europe-west1",
-          // "reasoning": true,
           "tool_call": true,
           "modalities": {
             "input": [
@@ -200,7 +198,6 @@
       "temperature": 0.3,
       "color": "#c4a7e7",
       "steps": 50,
-      "variant": "medium",
       "options": {
         "max_tokens": 65536,
       },
@@ -495,7 +492,6 @@
       "temperature": 0.1,
       "color": "#eb6f92",
       "steps": 50,
-      "variant": "medium",
       "permission": {
         "*": "deny",
         "task": "deny",
