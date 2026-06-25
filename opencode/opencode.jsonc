@@ -9,7 +9,6 @@
     "glob": "allow",
     "grep": "allow",
     "list": "allow",
-    "todoread": "allow",
     "todowrite": "ask",
     "edit": "deny",
     "external_directory": "ask",
@@ -83,7 +82,11 @@
   },
   "compaction": {
     "auto": true,
+    "prune": true,
     "tail_turns": 15,
+  },
+  "experimental": {
+    "continue_loop_on_deny": true,
   },
   "provider": {
     "requesty": {
@@ -188,6 +191,10 @@
       },
       "permission": {
         "*": "allow",
+        "task": "allow",
+        "doom_loop": "allow",
+        "skill": "allow",
+        "question": "allow",
         "edit": "deny",
         "bash": {
           "*": "deny",
@@ -245,18 +252,11 @@
         "model": "requesty/opus",
         "temperature": 0.1,
         "color": "#31748f",
-        "tools": {
-          "write": false,
-          "edit": false,
-          "patch": false,
-          "bash": false,
-          "read": true,
-          "grep": true,
-          "glob": true,
-          "list": true,
-          "webfetch": true
-        },
         "permission": {
+          "task": "deny",
+          "doom_loop": "allow",
+          "skill": "deny",
+          "question": "deny",
           "edit": "deny",
           "bash": "deny",
           "webfetch": "allow"
@@ -272,6 +272,10 @@
       "steps": 50,
       "permission": {
         "*": "deny",
+        "task": "deny",
+        "doom_loop": "allow",
+        "skill": "deny",
+        "question": "deny",
         "read": "allow",
         "glob": "allow",
         "grep": "allow",
@@ -281,7 +285,7 @@
         "webfetch": "allow",
         "websearch": "allow",
         "context7_resolve-library-id": "allow",
-        "context7_get-library-docs": "allow",
+        "context7_query-docs": "allow",
         "bash": {
           "*": "deny",
           // Unix inspection
@@ -338,6 +342,10 @@
       "steps": 50,
       "permission": {
         "*": "allow",
+        "task": "allow",
+        "doom_loop": "allow",
+        "skill": "allow",
+        "question": "allow",
         "bash": {
           "*": "allow",
 
@@ -375,6 +383,10 @@
       "steps": 50,
       "permission": {
         "*": "allow",
+        "task": "allow",
+        "doom_loop": "allow",
+        "skill": "allow",
+        "question": "allow",
         "bash": {
           "*": "allow",
 
@@ -409,6 +421,10 @@
       "steps": 50,
       "permission": {
         "*": "deny",
+        "task": "deny",
+        "doom_loop": "allow",
+        "skill": "deny",
+        "question": "deny",
         "read": "allow",
         "glob": "allow",
         "grep": "allow",
@@ -442,6 +458,10 @@
       "variant": "medium",
       "permission": {
         "*": "deny",
+        "task": "deny",
+        "doom_loop": "allow",
+        "skill": "deny",
+        "question": "deny",
         "read": "allow",
         "glob": "allow",
         "grep": "allow",
@@ -520,6 +540,10 @@
       "steps": 50,
       "permission": {
         "*": "deny",
+        "task": "deny",
+        "doom_loop": "allow",
+        "skill": "deny",
+        "question": "deny",
         "read": "allow",
         "glob": "allow",
         "grep": "allow",
