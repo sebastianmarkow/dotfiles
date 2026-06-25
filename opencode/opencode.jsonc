@@ -618,17 +618,6 @@
       "enabled": true,
       "timeout": 10000,
     },
-    "github": {
-      "type": "remote",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "enabled": true,
-      "oauth": false,
-      "timeout": 15000,
-      "headers": {
-        "Authorization": "Bearer {env:GITHUB_PERSONAL_ACCESS_TOKEN}",
-        "X-MCP-Toolsets": "context,repos,issues,pull_requests",
-      },
-    },
   },
   "references": {
     "dotfiles": {
