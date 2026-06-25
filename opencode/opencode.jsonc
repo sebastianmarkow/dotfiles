@@ -21,7 +21,10 @@
     // Conscious actions — ask
     "todowrite": "ask",
     "doom_loop": "ask",
-    "external_directory": "ask",
+    "external_directory": {
+      "~/**": "allow",
+      "*": "ask",
+    },
 
     // Hard gates
     "edit": "deny",
