@@ -19,7 +19,7 @@
     "sequential-thinking_sequentialthinking": "allow",
 
     // Conscious actions — ask
-    "todowrite": "ask",
+    "todowrite": "allow",
     "doom_loop": "ask",
     "external_directory": {
       "~/**": "allow",
@@ -235,7 +235,7 @@
         "memory_recent_activity": "allow",
         "memory_list_directory": "allow",
         "memory_list_memory_projects": "allow",
-        "todowrite": "ask",
+        "todowrite": "allow",
         "sequential-thinking_sequentialthinking": "allow",
         "edit": "deny",
         "bash": {
