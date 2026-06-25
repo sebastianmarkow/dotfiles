@@ -21,3 +21,5 @@ fish/completions/*.gen.fish
 
 # Rust
 target-install
+
+*.log
