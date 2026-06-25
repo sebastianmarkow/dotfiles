@@ -4,15 +4,28 @@
   "share": "disabled",
   "snapshot": true,
   "permission": {
-    "*": "ask",
+    // Harmless read/analysis tools — always allow
     "read": "allow",
     "glob": "allow",
     "grep": "allow",
     "list": "allow",
-    "todowrite": "ask",
-    "edit": "deny",
-    "external_directory": "ask",
+    "lsp": "allow",
+    "codesearch": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "question": "allow",
+    "task": "allow",
+    "skill": "allow",
     "sequential-thinking_sequentialthinking": "allow",
+
+    // Conscious actions — ask
+    "todowrite": "ask",
+    "doom_loop": "ask",
+    "external_directory": "ask",
+
+    // Hard gates
+    "edit": "deny",
+
     "bash": {
       "*": "allow",
 
@@ -43,6 +56,8 @@
       "git log*": "allow",
       "git show*": "allow",
       "git branch*": "allow",
+      "git checkout -b*": "allow",
+      "git checkout --*": "ask",
       "git checkout*": "allow",
 
       // Docker destructive/stateful
