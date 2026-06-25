@@ -226,6 +226,7 @@
           "uv pip list*": "allow",
           "uv tree*": "allow",
           "uv pip show*": "allow",
+          "uvx *": "allow",
         },
       },
     },
@@ -530,31 +531,16 @@
       "timeout": 10000,
       "environment": {},
     },
-    "memory-global": {
+    "memory": {
       "type": "local",
       "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-memory",
+        "uvx",
+        "basic-memory",
+        "mcp",
       ],
       "enabled": true,
       "timeout": 10000,
-      "environment": {
-        "MEMORY_FILE_PATH": "/Users/sklatt/.opencode/global-memory.json",
-      },
-    },
-    "memory-project": {
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-memory",
-      ],
-      "enabled": true,
-      "timeout": 10000,
-      "environment": {
-        "MEMORY_FILE_PATH": ".opencode/memory.json",
-      },
+      "environment": {},
     },
     "context7": {
       "type": "remote",
