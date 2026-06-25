@@ -206,7 +206,16 @@
       },
       "permission": {
         "*": "deny",
-        "task": "allow",
+        "task": {
+          "*": "deny",
+          "research": "allow",
+          "code": "allow",
+          "test": "allow",
+          "review": "allow",
+          "debug": "allow",
+          "ml-researcher": "allow",
+          "document": "allow",
+        },
         "doom_loop": "allow",
         "skill": "allow",
         "question": "allow",
@@ -620,6 +629,20 @@
       "url": "https://mcp.context7.com/mcp",
       "enabled": true,
       "timeout": 10000,
+    },
+    "web-search": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "open-websearch@2.1.11",
+      ],
+      "enabled": true,
+      "timeout": 10000,
+      "environment": {
+        "MODE": "stdio",
+        "DEFAULT_SEARCH_ENGINE": "duckduckgo",
+      },
     },
   },
   "references": {
