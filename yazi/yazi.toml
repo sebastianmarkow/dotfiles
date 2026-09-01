@@ -76,7 +76,7 @@ suppress_preload = false
 [plugin]
 fetchers = [
 	# Mimetype
-	{ id = "mime.local", url = "*", run = "mime", prio = "high" },
+	{ group = "mime.local", url = "*", run = "mime", prio = "high" },
 ]
 spotters = [
 	{ url = "*/", run = "folder" },
