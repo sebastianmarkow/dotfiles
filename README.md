@@ -3,7 +3,7 @@ dotfiles
 
 A heavily opinionated set of dotfiles for macOS/darwin.
 
-Includes configs for: fish, neovim, kitty, tmux, lazygit, yazi, starship, opencode, and more.
+Includes configs for: fish, neovim, kitty, ghostty, tmux, lazygit, yazi, starship, opencode, and more.
 
 Requirements
 ------------
