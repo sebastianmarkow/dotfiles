@@ -79,6 +79,7 @@ FORMULAS=(
 CASKS=(
     1password-cli                  # 1Password CLI - password manager CLI
     font-jetbrains-mono-nerd-font  # JetBrains Mono Nerd Font - coding font with icons
+    ghostty                        # Ghostty - GPU-accelerated terminal with native macOS UI
     hammerspoon                    # Hammerspoon - macOS automation
     kitty                          # Kitty - GPU-accelerated terminal
 )

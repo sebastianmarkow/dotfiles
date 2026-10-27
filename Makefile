@@ -29,6 +29,7 @@ CONFIGS=\
 	btop		\
 	direnv		\
 	fish		\
+	ghostty		\
 	harlequin	\
 	k9s		\
 	kitty		\
