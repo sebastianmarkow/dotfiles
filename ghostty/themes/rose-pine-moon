@@ -1,0 +1,52 @@
+## name: Rosé Pine Moon
+## author: mvllow
+## license: MIT
+## upstream: https://github.com/rose-pine/kitty/blob/main/dist/rose-pine-moon.conf
+## blurb: All natural pine, faux fur and a bit of soho vibes for the classy minimalist
+##
+## Mirrors kitty/themes/rose-pine-moon.conf (incl. kitty's cursor and border
+## colors, which differ from the Rose Pine Moon theme bundled with Ghostty).
+
+foreground = #e0def4
+background = #232136
+selection-foreground = #e0def4
+selection-background = #44415a
+
+cursor-color = #56526e
+cursor-text = #e0def4
+
+# kitty active_border_color / inactive_border_color
+split-divider-color = #3e8fb0
+unfocused-split-fill = #44415a
+
+# black
+palette = 0=#393552
+palette = 8=#6e6a86
+
+# red
+palette = 1=#eb6f92
+palette = 9=#eb6f92
+
+# green
+palette = 2=#3e8fb0
+palette = 10=#3e8fb0
+
+# yellow
+palette = 3=#f6c177
+palette = 11=#f6c177
+
+# blue
+palette = 4=#9ccfd8
+palette = 12=#9ccfd8
+
+# magenta
+palette = 5=#c4a7e7
+palette = 13=#c4a7e7
+
+# cyan
+palette = 6=#ea9a97
+palette = 14=#ea9a97
+
+# white
+palette = 7=#e0def4
+palette = 15=#e0def4

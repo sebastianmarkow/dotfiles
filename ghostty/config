@@ -1,0 +1,94 @@
+# Ghostty 1.4+ (macOS). Port of kitty/kitty.conf — kitty options with no
+# Ghostty counterpart are noted inline so the mapping stays auditable.
+# Reload: cmd+shift+, · Validate: ghostty +validate-config
+
+# --- Shell -------------------------------------------------------------------
+# `command` is tmux, so Ghostty cannot inject shell integration into the fish
+# that tmux spawns (same situation as `shell_integration disabled` in kitty).
+# fish/config.fish sources the integration script manually from
+# $GHOSTTY_RESOURCES_DIR, which Ghostty exports regardless of this setting
+# (together with GHOSTTY_SHELL_FEATURES, so the feature flags below still apply).
+shell-integration = none
+command = /opt/homebrew/bin/tmux new-session -A -s main
+
+# --- Theme -------------------------------------------------------------------
+# Resolved from $XDG_CONFIG_HOME/ghostty/themes/ before the bundled themes;
+# the local file mirrors kitty/themes/rose-pine-moon.conf exactly.
+theme = rose-pine-moon
+
+# --- Font --------------------------------------------------------------------
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 16
+font-feature = ss01, ss02, ss03, ss04, ss05, ss07, ss08, zero, onum
+# kitty: symbol_map U+F054 JetBrainsMonoNL Nerd Font
+font-codepoint-map = U+F054=JetBrainsMonoNL Nerd Font
+# kitty: text_composition_strategy platform — Ghostty renders through CoreText
+# natively; flip this on if text looks thinner than it did in kitty.
+# font-thicken = true
+# kitty: disable_ligatures cursor — no per-cursor-cell equivalent in Ghostty.
+# Ligatures stay on everywhere; use `font-feature = -calt` to drop them fully.
+
+# --- Cursor ------------------------------------------------------------------
+cursor-style = block
+# kitty: cursor_blink_interval 0.5 — blinking is on by default (unset respects
+# DEC mode 12); the rate follows the macOS system setting and is not tunable.
+# kitty: cursor_shape_unfocused hollow — Ghostty always draws an unfocused
+# cursor as a hollow block.
+# kitty: cursor_beam_thickness 2.5 (default 1.5) → +1pt on bar/hollow cursors
+adjust-cursor-thickness = 1
+# kitty: cursor_stop_blinking_after, cursor_trail — not available.
+
+# --- Links -------------------------------------------------------------------
+# Cmd+hover underlines, cmd+click opens. kitty url_color/url_style/url_prefixed
+# have no equivalent; the underline takes the cell foreground.
+link-url = true
+
+# --- Performance / rendering -------------------------------------------------
+# kitty: repaint_delay, input_delay, sync_to_monitor, undercurl_style — not
+# applicable; Ghostty paces rendering to the display and draws its own undercurl.
+
+# --- Scrollback / mouse ------------------------------------------------------
+# tmux owns scrollback (history-limit 100000). Renamed from scrollback-limit in 1.4.
+scrollback-limit-bytes = 0
+# kitty: mouse_hide_wait 2.0 — Ghostty only offers immediate hide while typing.
+mouse-hide-while-typing = true
+
+# --- Window ------------------------------------------------------------------
+# kitty: window_border_width 0 / draw_minimal_borders — Ghostty's split dividers
+# are 1px lines (color in the theme); no padding around the grid.
+window-padding-x = 0
+window-padding-y = 0
+# kitty: placement_strategy top-left — leftover space goes to the bottom/right.
+window-padding-balance = false
+# kitty: remember_window_size yes
+window-save-state = always
+# kitty: initial_window_width 640 / initial_window_height 400 (points) ≈ grid
+# cells at 16pt JetBrains Mono. Ghostty only accepts cells; used on first launch
+# or when no saved state exists.
+window-width = 66
+window-height = 19
+# kitty: hide_window_decorations yes — `hidden` drops the titlebar but keeps the
+# rounded frame, shadow and resize handles (`window-decoration = none` would not).
+macos-titlebar-style = hidden
+# kitty: confirm_os_window_close 0 + close_on_child_death yes
+confirm-close-surface = false
+# kitty: macos_quit_when_last_window_closed yes
+quit-after-last-window-closed = true
+
+# --- Bell --------------------------------------------------------------------
+# kitty: enable_audio_bell no. Dock bounce (`attention`) and the 🔔 title
+# prefix stay on, matching kitty's default window_alert_on_bell / bell_on_tab.
+bell-features = no-system,no-audio
+
+# --- Keyboard ----------------------------------------------------------------
+# Left Option stays Alt for M- mappings (tmux/nvim pane nav), right Option
+# composes EurKEY level-3 chars (ä ö ü ß …) — same split as kitty.
+macos-option-as-alt = left
+
+# --- App icon ----------------------------------------------------------------
+# Stand-in for kitty/kitty.app.png: official icon tinted Rosé Pine Moon.
+# custom-style is marked experimental upstream; drop this block if it breaks.
+macos-icon = custom-style
+macos-icon-frame = plastic
+macos-icon-ghost-color = #e0def4
+macos-icon-screen-color = #232136,#393552
