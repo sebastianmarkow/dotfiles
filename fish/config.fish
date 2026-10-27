@@ -54,6 +54,14 @@ if set -q KITTY_INSTALLATION_DIR
     set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
 end
 
+# Ghostty
+# Ghostty launches tmux (ghostty/config `command`), so it cannot inject the
+# integration into this shell; source it manually. GHOSTTY_RESOURCES_DIR and
+# GHOSTTY_SHELL_FEATURES are exported even with `shell-integration = none`.
+if set -q GHOSTTY_RESOURCES_DIR
+    source "$GHOSTTY_RESOURCES_DIR/shell-integration/fish/vendor_conf.d/ghostty-shell-integration.fish"
+end
+
 # Pyenv
 if command -q pyenv
     # Remove any existing shim entries before prepending to avoid duplicates in nested shells
