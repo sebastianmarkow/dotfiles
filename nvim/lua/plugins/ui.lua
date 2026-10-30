@@ -61,7 +61,8 @@ return {
     branch = 'v3.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
+      -- pinned: nui 3d425a7 crashes neo-tree with group_empty_dirs (neo-tree#2099)
+      { 'MunifTanjim/nui.nvim', commit = 'de740991c12411b663994b2860f1a4fd0937c130' },
       { 'nvim-mini/mini.icons', opts = {} },
     },
     cmd = 'Neotree',
