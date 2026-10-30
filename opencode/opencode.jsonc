@@ -116,8 +116,8 @@
       },
       "models": {
         "opus": {
-          "name": "Opus 4.8 (EU)",
-          "id": "vertex/claude-opus-4-8@eu",
+          "name": "Opus 5 (EU)",
+          "id": "vertex/claude-opus-5@eu",
           "tool_call": true,
           "modalities": {
             "input": [
@@ -139,8 +139,8 @@
           }
         },
         "sonnet": {
-          "name": "Sonnet 4.6 (EU)",
-          "id": "vertex/claude-sonnet-4-6@europe-west1",
+          "name": "Sonnet 5 (EU)",
+          "id": "vertex/claude-sonnet-5@eu",
           "tool_call": true,
           "modalities": {
             "input": [
@@ -157,8 +157,8 @@
           },
           "cache": true,
           "cost": {
-            "input": 3.0,
-            "output": 15.0
+            "input": 2.2,
+            "output": 11.0
           }
         },
         "haiku": {
