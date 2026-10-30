@@ -52,6 +52,7 @@
       // Git
       "git push*": "deny",
       "git commit*": "ask",
+      "git rebase*": "ask",
       "git reset --hard*": "deny",
       "git clean*": "deny",
       "git status*": "allow",
@@ -204,6 +205,10 @@
       "options": {
         "max_tokens": 65536,
       },
+      "external_directory": {
+        "~/**": "allow",
+        "*": "ask",
+      },
       "permission": {
         "*": "deny",
         "task": {
@@ -287,12 +292,17 @@
         "context7_resolve-library-id": "allow",
         "context7_query-docs": "allow",
         "bash": {
-          "*": "deny",
+          "*": "allow",
           // Unix inspection
+          "cd*": "allow",
           "cat*": "allow",
+          "echo*": "allow",
           "find*": "allow",
           "grep*": "allow",
           "head*": "allow",
+          "jq*": "allow",
+          "awk*": "allow",
+          "duckdb*": "allow",
           "ls*": "allow",
           "rg*": "allow",
           "tail*": "allow",
@@ -301,12 +311,16 @@
           "type *": "allow",
           "env": "allow",
           "uname*": "allow",
+          "sed*": "allow",
+          "awk*": "allow",
           // Git read-only
           "git log*": "allow",
           "git show*": "allow",
           "git diff*": "allow",
           "git status*": "allow",
           "git branch*": "allow",
+          "git ls-tree*": "allow",
+          "git ls-files*": "allow",
           // Docker inspection
           "docker ps*": "allow",
           "docker images*": "allow",
@@ -325,6 +339,7 @@
           "node --version*": "allow",
           "npm list*": "allow",
           "python --version*": "allow",
+          "python*": "allow",
           "pip list*": "allow",
           "uv version*": "allow",
           "uv pip list*": "allow",
