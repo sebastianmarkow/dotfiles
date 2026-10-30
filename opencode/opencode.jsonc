@@ -52,6 +52,7 @@
       // Git
       "git push*": "deny",
       "git commit*": "ask",
+      "git rebase*": "ask",
       "git reset --hard*": "deny",
       "git clean*": "deny",
       "git status*": "allow",
@@ -116,8 +117,8 @@
       },
       "models": {
         "opus": {
-          "name": "Opus 4.8 (EU)",
-          "id": "vertex/claude-opus-4-8@eu",
+          "name": "Opus 5 (EU)",
+          "id": "vertex/claude-opus-5@eu",
           "tool_call": true,
           "modalities": {
             "input": [
@@ -139,8 +140,8 @@
           }
         },
         "sonnet": {
-          "name": "Sonnet 4.6 (EU)",
-          "id": "vertex/claude-sonnet-4-6@europe-west1",
+          "name": "Sonnet 5 (EU)",
+          "id": "vertex/claude-sonnet-5@eu",
           "tool_call": true,
           "modalities": {
             "input": [
@@ -157,8 +158,8 @@
           },
           "cache": true,
           "cost": {
-            "input": 3.0,
-            "output": 15.0
+            "input": 2.2,
+            "output": 11.0
           }
         },
         "haiku": {
@@ -203,6 +204,10 @@
       "steps": 50,
       "options": {
         "max_tokens": 65536,
+      },
+      "external_directory": {
+        "~/**": "allow",
+        "*": "ask",
       },
       "permission": {
         "*": "deny",
@@ -287,12 +292,17 @@
         "context7_resolve-library-id": "allow",
         "context7_query-docs": "allow",
         "bash": {
-          "*": "deny",
+          "*": "allow",
           // Unix inspection
+          "cd*": "allow",
           "cat*": "allow",
+          "echo*": "allow",
           "find*": "allow",
           "grep*": "allow",
           "head*": "allow",
+          "jq*": "allow",
+          "awk*": "allow",
+          "duckdb*": "allow",
           "ls*": "allow",
           "rg*": "allow",
           "tail*": "allow",
@@ -301,12 +311,16 @@
           "type *": "allow",
           "env": "allow",
           "uname*": "allow",
+          "sed*": "allow",
+          "awk*": "allow",
           // Git read-only
           "git log*": "allow",
           "git show*": "allow",
           "git diff*": "allow",
           "git status*": "allow",
           "git branch*": "allow",
+          "git ls-tree*": "allow",
+          "git ls-files*": "allow",
           // Docker inspection
           "docker ps*": "allow",
           "docker images*": "allow",
@@ -325,6 +339,7 @@
           "node --version*": "allow",
           "npm list*": "allow",
           "python --version*": "allow",
+          "python*": "allow",
           "pip list*": "allow",
           "uv version*": "allow",
           "uv pip list*": "allow",
