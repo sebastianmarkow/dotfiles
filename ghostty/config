@@ -19,7 +19,8 @@ theme = rose-pine-moon
 # --- Font --------------------------------------------------------------------
 font-family = JetBrainsMono Nerd Font Mono
 font-size = 16
-font-feature = ss01, ss02, ss03, ss04, ss05, ss07, ss08, zero, onum
+# kitty's font_features line keys on the family name, not the PostScript name
+# (JetBrainsMonoNFM-Regular), so kitty never applies it — keep defaults to match.
 # kitty: symbol_map U+F054 JetBrainsMonoNL Nerd Font
 font-codepoint-map = U+F054=JetBrainsMonoNL Nerd Font
 # kitty: text_composition_strategy platform — Ghostty renders through CoreText
