@@ -62,7 +62,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
-      { 'echasnovski/mini.icons', opts = {} },
+      { 'nvim-mini/mini.icons', opts = {} },
     },
     cmd = 'Neotree',
     keys = {
@@ -269,7 +269,7 @@ return {
   {
     'folke/which-key.nvim',
     dependencies = {
-      'echasnovski/mini.icons',
+      'nvim-mini/mini.icons',
     },
     event = 'VeryLazy',
     opts = {
