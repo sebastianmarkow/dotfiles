@@ -21,6 +21,7 @@ return {
         'gosum',
         'gotmpl',
         'hcl',
+        'html',
         'http',
         'json',
         'latex',
@@ -36,7 +37,6 @@ return {
         'rust',
         'sql',
         'terraform',
-        'tmux',
         'toml',
         'yaml',
       })
