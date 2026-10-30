@@ -1,7 +1,7 @@
 # Global Instructions
 
 ## Environment
-- Shell: fish | Editor: neovim | Terminal: kitty | OS: macOS | Package manager: Homebrew
+- Shell: fish | Editor: neovim | Terminal: kitty / ghostty | OS: macOS | Package manager: Homebrew
 - Git UI: lazygit | Container UI: lazydocker | File manager: yazi
 - Use fish syntax for shell snippets, not bash/zsh
 
